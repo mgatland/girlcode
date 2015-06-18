@@ -474,4 +474,7 @@ footer .footer-below {
     border-right-color: #541668;
 }
 
-
+.alert-success {
+    background-color: #7A1F97;
+    border-color: #7A1F97; 
+}
