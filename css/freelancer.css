@@ -188,7 +188,10 @@ section.success a,
 section.success a:hover,
 section.success a:focus,
 section.success a:active,
-section.success a.active {
+footer a,
+footer a:hover,
+footer a:focus,
+footer a:active {
     outline: 0;
     color: #7BA9D7;
 }
@@ -477,4 +480,14 @@ footer .footer-below {
 .alert-success {
     background-color: #7A1F97;
     border-color: #7A1F97; 
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #7BA9D7;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+  color: #7BA9D7;
+  background-color: transparent;
 }
