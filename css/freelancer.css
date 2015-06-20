@@ -83,6 +83,8 @@ header {
     text-align: center;
     color: #fff;
     background: #7A1F97;
+    background: url('../img/background.jpg');
+    background-attachment: fixed;
 }
 
 header .container {
