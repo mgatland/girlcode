@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Girl Code - episode 1, part 2</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="/js/prism/prism.css" rel="stylesheet">
+    <script src="/js/prism/prism.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5JFL8D"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5JFL8D');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Girl Code</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#page-top">HTML &amp; CSS</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                <!--
+                    logo would go here
+                    <img class="img-responsive img-circle" src="img/profile.jpg" alt="" style="width:250px">
+                -->
+                    <div class="intro-text">
+                        <span class="name">Make a Page</span>
+                        <span class="skills">(continued)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Brief Starter Section -->
+    <section id="starter">
+        <div class="container codeclubstyle">
+            <div class="row">
+                <div class="col-lg-12">
+
+      <h1>Webpages #2</h1>
+
+      <p>Hi, if you're here you should have a neocities account, and 2 tabs open in your browser: one to edit index.html, and one to view your website.</p>
+
+      <p>Otherwise, try the <a href="../">previous page</a>.</p>
+
+      <h2>Changing <strike>Colours</strike> Colors</h2>
+
+      <p>We can change the color of anything using CSS.</p>
+
+      <p>The CSS is marked by a start tag like this: <code>&lt;style&gt;</code> and and end tag like this: <code>&lt;/style&gt;</code>. The code between those tags is the CSS.</p>
+
+      <p>Once you've found the CSS, you'll see the words 'red' and 'blue'. Try changing them to other colors, save your page and see what happens.</p>
+
+      <div class="alert">
+        <p>When we're programming, we have to spell in US English, not NZ English. That means we spell 'color' without the 'u'.</p>
+
+        <p>Luckily, most words are still spelt the same way.</p>
+      </div>
+
+      <p>Did you change the colors? Remember to save and refresh.</p>
+
+      <p>Your CSS code might look like this now:</p>
+
+<pre><code class="language-css">body {
+  color: purple;
+  background-color: orange;
+}
+</code></pre>
+  
+      <h2>Change the heading</h2>
+
+      <p>Let's add a new CSS rule to make the page heading look different.</p>
+
+      <p><b>Add these lines</b> to your CSS, just above line that says <code>&lt;/style&gt;</code>.</p>
+
+<pre><code class="language-css">h1 {
+  text-align: center;
+  font-size: 90px;
+  color: white;
+}
+</code></pre>
+
+    <p>Save your changes, switch tabs to your page and check what happened.</p>
+
+    <p>You should see that the heading has changed.</p>  
+
+    <div class="alert">
+      <p><b>About mistakes</b></p>
+
+      <p>When you are coding you will make a LOT of mistakes. Even experts make a lot of mistakes. Just missing one '>' symbol can make your page display strangely. </p>
+
+      <p>If you're with other people, it often helps to have someone else look over your code. It's easier to read something if you didn't write it yoruself.</p>
+
+      <p>If you're by yourself, you might have to carefully compare your code with the examples. Try to check what comes before and after each symbol, and look for anything that's out of place.</p>
+    </div>
+
+    <h2>Let's add one more</h2>
+
+    Let's add one more CSS rule, which changes the style of the other text.
+
+<pre><code class="language-css">p {
+  border: 2px solid white;
+  padding: 12px;
+  background-color: maroon;
+  color: pink;
+}
+</code></pre>    
+
+    <p>Try that out. We'll explain how it works later! First let's make the page say something more interesting.</p>
+
+    <h2>Editing your page body</h2>
+
+    <p>The "body" of the page controls what words appear on your website.</p>
+
+    <p>The body starts with a <code>&lt;body&gt;</code> tag and ends with a <code>&lt;/body&gt;</code> tag.</p>
+
+    <p>Tags are how we code in HTML. A tag is a word with pointy brackets on each end. Tags mark special parts of the file.</p>
+
+    <p>Your page body probably looks like this:</p>
+
+<pre><code class="language-markup">&lt;body&gt;
+    &lt;h1&gt;Welcome to my page&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+  
+    <p>h1 is short for 'heading 1'. It represents the biggest (most important) heading on your page.</p>
+
+    <p>p is short for 'paragraph'.</p>
+
+    <p>You can add another paragraph by adding a new line that has a <code>&lt;p&gt;</code> tag at the start, and a &lt;/p&gt; tag at the end.</p>
+
+    <div class="alert">
+      <p>Did you notice the difference between a start tag and and an end tag? End tags have a slash at the front.</p>
+    </div>
+
+    <h2>Adding an Image</h2>
+
+    <p>Try adding this somewhere inside your page body:</p>
+
+<pre><code class="language-markup">&lt;img src="http://mgatland.neocities.org/countryside.jpg"&gt;
+</code></pre>
+
+    <p>An img tag shows an image. You can change the URL to show a different image instead.</p>
+
+<!-- todo: show how to grab images from Google Image Search?-->
+
+    <h2>About HTML</h2>
+
+    <p>The stuff with pointy brackets is HTML. Using HTML, you can change what the page says, and add images, but you can't change colors or add borders.</p>
+
+    <p>HTML is for <b>what the page says</b>, but not <b>how it should look</b>.</p>
+
+    <p>You can put HTML tags inside each other. For example, your h1 heading is inside your page body.</p>
+
+    <h2>How CSS works</h2>
+
+    <p>A CSS rule controls how your HTML is displayed.</p>
+
+    <p>Here's an example of a complete CSS rule:</p>
+
+<pre><code class="language-css">img {
+  border: 10px dashed green;
+  margin: 30px;
+}
+</code></pre>
+
+    <p>First we say what part of the HTML the rule is for. This could be <code>body</code> for the whole page, or <code>img</code> for images.</p>
+
+    <p>Then we use a curly bracket <b>{</b> to say 'the instructions start now.'</p>
+
+    <p>Then we have the instructions, like this:</p>
+
+<pre><code class="language-css">border: 10px dashed green;
+</code></pre>
+
+    <p>There are many different options. But they always have a colon in the middle and a semi-colon at the end.</p>
+
+    <p>At the end of the rule, you need to say you've finished by putting a closing curly bracket <b>}</b>.</p>
+
+      <div class="alert">
+        <p>Tip: Which is which?</p>
+        <p>HTML has a lot of pointy brackets like these: &lt; &gt;</p>
+        <p>CSS has a lot of curly brackets like these: { }</p>
+        <p>CSS goes in the 'style' section. HTML mostly goes in the 'body' section.</p>
+      </div>
+
+  <h2>Bloop</h2>
+
+  <p>Hey that's enough instructions, can you make an awesome webpage? We'll help you.</p>
+
+  <p>Maybe make a gallery of photos with 5 photos.</p>
+
+  <p>Here are some other ideas that might help:</p>
+
+  <h2>make an image centered</h2>
+
+<pre><code class="language-css">img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</code></pre>
+
+  <h2>How Borders, Padding and Margins work</h2>
+
+  <p>Imagine that html tags create a box. The box can have a border.</p>
+
+<pre><code class="language-css">p {
+  border: 6px solid blue;
+}
+</code></pre>
+
+  <div style="border: 6px solid blue;">this has a border</div>
+
+  <br>
+
+  <p>We can add padding, which means space inside the box.</p>
+
+<pre><code class="language-css">p {
+  border: 6px solid blue;
+  padding: 10px;
+}
+</code></pre>
+
+  <div style="border: 6px solid blue; padding: 10px;">this has a border and padding.</div>
+
+  <br>
+
+  <p>Margin is space OUTSIDE the box</p>
+
+<pre><code class="language-css">p {
+  border: 6px solid blue;
+  padding: 10px;
+  margin: 40px;
+}
+</code></pre>
+
+  <div style="border: 6px solid blue; padding: 10px; margin: 40px">this has a border and padding AND margin – see how it's pushed away from the sides on the left and right?</div>
+
+  <br>
+
+  <h2>Putting boxes inside boxes</h2>
+
+  <br>
+
+<pre><code class="language-markup">&lt;div>
+  &lt;p>
+    hello
+  &lt;/p>
+  &lt;p>
+    hello
+  &lt;/p>
+&lt;/div>
+</code></pre>
+
+  <div style="border: 2px solid black; padding: 10px;">
+    <div style="border: 2px solid red; padding: 10px;">
+    hello
+  </div>
+  <div style="border: 2px solid red; padding: 10px;">
+    hello
+  </div>
+  </div>
+
+  <br>
+
+  <p>... or <b>bold</b> text inside paragraphs.</p>
+
+<pre><code class="language-markup">&lt;p&gt;... or &lt;b&gt;bold&lt;/b&gt; text inside paragraphs.&lt;/p&gt;
+</code></pre>
+
+      <h2>Links</h2>
+
+      <p><a href="http://www.google.com" target="_blank">Here is a link.</a></p>
+
+<pre><code class="language-markup">&lt;a href=&quot;http://www.google.com&quot;&gt;Here is a link.&lt;/a&gt;
+</code></pre>
+
+      <p>Pay close attention to where the pointy brackets go! The href part is <b>inside</b> the first tag.</p>
+
+      <h2>Making one thing different from the others with CSS classes</h2>
+
+      <p>What if you want one paragraph to be red, and another one to be blue?</p>
+
+      <p>You can give any HTML tag a 'class', which is like an extra label. You make up the label. Here I called it 'loud'</p>
+
+<pre><code class="language-markup">&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;p class=&quot;loud&quot;&gt;Here is another.&lt;/p&gt;
+</code></pre>
+
+      <p>Now we can write a CSS rule that applies to anything that has that class.</p>
+
+<pre><code class="language-css">.loud {
+  color: red;
+}
+</code></pre>
+
+      <p>Note that there is a dot in front of the word "loud". That's to show that it's not a tag name, it's a class name.</p>
+
+      <p>You can make up as many classes as you want. Classes don't change anything on their own. You need to write a CSS rule for the class to make it do something.</p>
+
+      <h2>Some final words</h2>
+
+      <p><b>Internet safety</b> means different things for different people. Ask before sharing someone else's personal information or their photo.</p>
+
+      <p>You need <b>permission to use other people's work</b>. It's easy to take an image from any website and add it to yours, but you need the creator's permission to do this. Some work has a Creative Commons licence that lets you use it without asking first, if you meet certain requirements.</p>
+
+
+                </div>
+            </div>    
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-12">
+                        <p>Our venue is provided by <a href="http://www.gridakl.co.nz/">GridAKL</a>, the innovation precint at Wynyard Quarter.</p>
+                        <small>The pattern image in our header is by <a href="http://www.freepik.com/free-photos-vectors/background">Freepik</a>.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Girl Code 2015.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/js/jqBootstrapValidation.js"></script>
+    <script src="/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/freelancer.js"></script>
+
+</body>
+
+</html>

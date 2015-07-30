@@ -493,3 +493,28 @@ footer .footer-below {
   color: #7BA9D7;
   background-color: transparent;
 }
+
+
+/* styles for content copied from Code Club Akl */
+
+.codeclubstyle h1, .codeclubstyle h2 {
+    margin-top: 24px;   
+    margin-bottom: 24px;
+}
+.codeclubstyle ul {
+    font-size: 20px;
+}
+.codeclubstyle img {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+.codeclubstyle .alert {
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 15px;
+    color: #264C72;
+    border: 1px solid #97C1DA;
+    border-radius: 15px;
+    background-color: #D8EBF8;
+}
