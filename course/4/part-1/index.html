@@ -108,7 +108,7 @@
 
       <p>Node.js (sometimes just called Node) is a server program.</p>
 
-      <p><a href="https://nodejs.org/download/">Download Node</a> (choose the Windows installer or Macintosh installer) and install it.</p>
+      <p><a href="https://nodejs.org/download/" target="_blank">Download Node</a> (choose the Windows installer or Macintosh installer) and install it.</p>
 
       <h2>Terminal and Command Prompt</h2>
 
@@ -118,7 +118,7 @@
 
       <h2>Find it on Windows</h2>
 
-      <p>Press the Start button, type in "cmd" and it will come up. Click on cmd.exe to start the Command Prompt.</p>
+      <p>Press the Start button, type in "cmd" and <b>Command Prompt</b> will come up. Click on Command Prompt to start.</p>
 
       <h2>Find it on Mac</h2>
 
@@ -132,7 +132,174 @@
 
       <h2>Get our Node project</h2>
 
-      <p>Go to this <a href="https://github.com/mgatland/nodestart/">webpage</a> where Matthew put a simple Node project. Click on '</p>
+      <p>Go to this <a href="https://github.com/mgatland/nodestart/" target="_blank">webpage</a> where Matthew put a simple Node project. Click on 'Clone in Desktop' </p>
+
+      <p>This will create a clone (a copy) of the project on your computer.</p>
+
+      <p>Next, use Terminal or Command Prompt to go to that folder. (TODO: explain how...)</p>
+
+      <h2>Running Node</h2>
+
+      <p>To install the dependencies - all the things our program needs to work right - type <code>npm install</code> into the command prompt and hit enter. It may take a while to finish!</p>
+
+      <p>Next, run our Node app by typing <code>node index.js</code> and hitting enter.</p>
+
+      <p>This starts up a <b>server</b> on your computer. Open your favourite web browser (like Google Chrome) and go to <a href="http://localhost:3000/index.html" target="_blank">http://localhost:3000/index.html</a> to visit your local server.</p>
+
+      <p>If you see an orange and purple page, it's working!</p>
+
+      <p>Try this link too:</p>
+      <p><a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a></p>
+
+      <p>It should look exactly the same. That's because, if you don't say what page you want, you automatically get index.html. Neocities follows the same rule, which is why these pages also look exactly the same:</p>
+
+      <ul>
+        <li><a href="http://mgatland.neocities.org" target="_blank">http://mgatland.neocities.org</a></li>
+        <li><a href="http://mgatland.neocities.org/index.html" target="_blank">http://mgatland.neocities.org/index.html</a></li>
+      </ul>
+
+      <h2>Serving Files</h2>
+
+      <p>The server will serve us any file we ask for, as long as it's in the public folder. Look in your nodetest folder for the public folder (using Windows Explorer or Finder on Mac) and look inside.</p>
+
+      <p>Make a new file called <b>tvshow.html</b> in that folder and put something inside it. Then try opening this link:</p>
+
+      <p><a href="http://localhost:3000/tvshow.html" target="_blank">http://localhost:3000/tvshow.html</a></p>
+
+      <p>Neocities has a server a lot like this, that <b>serves</b> your pages to the web browser when you ask for them.</p>
+
+      <p>What happens if you ask for something that's not available?</p>
+
+      <p><a href="http://localhost:3000/ideas" target="_blank">http://localhost:3000/ideas</a></p>
+
+      <h2>Keep that server busy</h2>
+
+      <p>It's easy to serve pages that have already been made! But sites like Facebook, pinterest and TradeMe serve us special pages that are always changing – pages that update and change all the time.</p>
+
+      <p>Let's tell our server, when we make a special request, it should give us a special reply.</p>
+
+      <h2>What is the server doing so far?</h2>      
+
+      <p><b>Open index.js in the main nodetest folder</b>. Note that this is not in the <b>public</b> folder, it's in the folder above that.</p>
+
+      <p>This is a <b>js</b> file, which means JavaScript. There are 5 lines of code, plus some comments (lines that start with // are comments for humans to read, the computer does not read them.)</p>
+
+      <pre><code class="language-javascript">
+//set up
+var express = require('express')
+var app = express();
+
+//If a client asks for a file,
+//look in the public folder. If it's there, give it to them.
+app.use(express.static(__dirname + '/public'));
+
+//listen for connections on port 3000
+app.listen(3000);
+console.log("I am listening...");
+      </code></pre>
+
+      <p>We don't need to understand all of those commands just yet. The main thing is, when you make a request, it looks in the public folder for a file to give you. If there is no matching file, it tells you it cannot GET that file.</p>
+
+      <h2>Special requests</h2>
+
+      <p>Add this code at line 8 of your index.js file:</p>
+
+      <pre><code class="language-javascript">
+app.get('/ideas', function (req, res) {
+  res.send('try wearing a hat on cold days');
+});
+        </code></pre>
+
+        <p>This tells the server: <b>when someone requests "ideas", Send them this special response: 'try wearing a hat on cold days'</b></p>
+
+        <p>Now:</p>
+
+        <ul>
+            <li>Save your changes.</li> 
+            <li>Go to the Command Prompt and hit Ctrl-C, Ctrl-C (twice) to <b>stop</b> the server.</li>
+            <li>Then start the server again by typing <code>node index.js</code>, Enter.</li>
+        </ul>
+        
+
+        <p>The server will restart with your new changes.Now try this link again:</p>
+
+        <p><a href="http://localhost:3000/ideas" target="_blank">http://localhost:3000/ideas</a></p>
+
+        <p>This time, you should get the special response.</p>
+
+      <h2>GET and POST</h2>
+
+      <p>When the user wants to look at a web page, that's called GET.</p>
+
+      <p>When the user wants to change or save something, like a new facebook message, that's called POST. They POST the message to us, like a letter 📩</p>
+
+      <p>Replace ALL the code in index.js with this new code. I've changed it, so that the server keeps track of a list of ideas. (Remember lists from our TV Show Idea Generator?)</p>
+
+      <pre><code class="language-javascript">
+//set up
+var express = require('express')
+var app = express();
+var bodyParser = require('body-parser')
+
+//If a client asks for a file,
+//look in the public folder. If it's there, give it to them.
+app.use(express.static(__dirname + '/public'));
+
+//this lets us read POST data
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+//make an empty list of ideas
+var ideas = [];
+ideas.push('try wearing a hat on cold days'); //start with one idea
+
+//let a client GET the list of ideas
+app.get('/ideas', function (req, res) {
+  res.send(ideas);
+});
+
+//let a client POST new ideas
+app.post('/ideas', function (req, res) {
+  console.log(req.body.idea); //write it on the command prompt so we can see
+  ideas.push(req.body.idea); //save a new idea
+  res.send("thanks for your idea");
+});
+
+//listen for connections on port 3000
+app.listen(3000);
+console.log("I am listening...");
+
+      </code></pre>
+
+    <p>You can test the GET by using the same link as before.</p>
+
+    <p><a href="http://localhost:3000/ideas" target="_blank">http://localhost:3000/ideas</a></p>
+
+    <p>Testing POST is trickier because your web browser does not normally POST.</p>
+
+    <p>To post, make a new file called <b>test.html</b> and save it in your <b>public</b> folder. Put this code inside:</p>
+
+<pre><code class="language-markup">
+&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;meta charset='utf-8'>
+    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>    
+  &lt;/head>
+  &lt;body>
+      &lt;form method="post" action="/ideas">
+          &lt;input type="text" name="idea" value="idea goes here">
+          &lt;input type="submit" value="Submit">
+      &lt;/form>
+  &lt;/body>
+&lt;/html>
+</code></pre>
+
+    <p>Now if you go to that page (<a href="http://localhost:3000/test.html" target="_blank">http://localhost:3000/test.html</a>) and click Submit, your browser will POST your new idea to the server.</p>
+
+    <p>Try posting some new ideas, then go back to the page that GETs the ideas. You should see a list of ideas.</p>
+
+    <p>What's next? Including these ideas on a pretty website, instead of a plain white list.</p>
 
       <!-- end of legacy Code Club content here -->
                 </div>
