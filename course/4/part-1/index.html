@@ -313,7 +313,7 @@ app.get('/ideas', function (req, res) {
 app.post('/ideas', function (req, res) {
   console.log(req.body.idea); //write it on the command prompt so we can see
   coolIdeas.push(req.body.idea); //save a new idea
-  res.send("thanks for your idea");
+  res.send("thanks for your idea. Press back to add another");
 });
 
 //listen for connections on port 3000
