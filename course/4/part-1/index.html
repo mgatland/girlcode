@@ -108,13 +108,13 @@
 
       <p>Node.js (sometimes just called Node) is a server program.</p>
 
-      <p><a href="https://nodejs.org/download/" target="_blank">Download Node</a> (choose the Windows installer or Macintosh installer) and install it.</p>
+      <p><a href="https://nodejs.org/download/" target="_blank">Download Node</a> (choose the Windows installer or Macintosh installer) and install it. (Basically just click 'next' on all the pages, you don't need to change any settings.)</p>
 
       <h2>Terminal and Command Prompt</h2>
 
       <p>Have you heard of the 'command line?' It's a place in your computer where you type in commands, and it was very popular until Windows came out in 1992.</p>
 
-      <p>But the command line is still there! It's waiting for you to come back.</p>
+      <p>But the command line is still in your computer! It's been waiting for you all these years…</p>
 
       <h2>Find it on Windows</h2>
 
@@ -124,65 +124,111 @@
 
       <p>Open Finder, go to Applications, look in the Utilities folder and open 'Terminal'.</p>
 
-      <p>OR: type 'Terminal' into Spotlight (the search box)</p>
-
       <h2>Command line commands</h2>
 
-      <p>...todo...</p>
+      <p>The command line is a lot like Finder (on Mac) or Windows Explorer. You can move from folder to folder. You can run things in the folder you are in.</p>
+
+      <h3>What folder am I in?</h3>
+
+      <p><b>Windows</b>: the Command Prompt always says what folder you are in.</p>
+
+      <p><b>Mac</b>: To check where you are, type <code>pwd</code> and hit Enter. (It's short for 'print working directory'. 'Working Directory' means the folder you are in. Print means write on the screen, not on paper!</p>
+
+      <h3>What is in this folder?</h3>
+
+      <p><b>Windows</b>: type <code>dir</code> and hit Enter. (It's short for 'directory', which is the old word for folder.)</p>
+
+      <p><b>Mac</b>: type <code>ls</code> and hit Enter. (It's kind of short for 'list files'.</p>
+
+      <h3>How do I go into a different folder?</h3>
+
+      <p>Type <code>cd something</code> where 'something' is the name of the folder you want to move into. This lets you go down into folders inside the current working folder.</p>
+
+      <p><code>cd</code> is short for 'change directory'. (Directory is the old word for 'folder'.)</p>
+
+      <p>Protip 1: If the folder name has a space in it, you need to put speech marks around the whole name. This is so the command line knows that the two words are joined together. For example: <code>cd "My Documents"</code></p>
+
+      <p>Protip 2: On the Mac, capital letters matter! <code>cd Downloads</code> is not <code>cd downloads</code></p>
+
+      <p>To go up to the parent folder, type <code>cd ..</code></p>
+
+      <p>That's enough command line stuff for now.</p>
 
       <h2>Get our Node project</h2>
 
       <p>Go to this <a href="https://github.com/mgatland/nodestart/" target="_blank">webpage</a> where Matthew put a simple Node project. Click on 'Clone in Desktop' </p>
 
-      <p>This will create a clone (a copy) of the project on your computer.</p>
+      <p>This will create a clone (a copy) of the project on your computer. <b>Keep a note of where on your computer it was created!</b></p>
 
-      <p>Next, use Terminal or Command Prompt to go to that folder. (TODO: explain how...)</p>
+      <p>Now, using your new Terminal or Command Prompt skills, change your working folder to be the <b>nodestart</b> folder that was just created.</p>
+
+      <p>You'll need to use lots of <code>cd</code> commands to get there.</p>
+
+      <p>Once you get there, type <code>dir</code> (Windows) or <code>ls</code> (Mac) and you should see a list of files including <b>index.js</b>.</p>
 
       <h2>Running Node</h2>
 
-      <p>To install the dependencies - all the things our program needs to work right - type <code>npm install</code> into the command prompt and hit enter. It may take a while to finish!</p>
+      <p>To install the dependencies - all the things our program needs to work right - type <code>npm install</code> into Terminal\Command Prompt and hit enter. It may take a while to finish.</p>
+
+      <p>(How does it know what to install? It has a shopping list in the file package.json. Feel free to take a look. They're listed as 'dependencies'.)</p>
 
       <p>Next, run our Node app by typing <code>node index.js</code> and hitting enter.</p>
 
-      <p>This starts up a <b>server</b> on your computer. Open your favourite web browser (like Google Chrome) and go to <a href="http://localhost:3000/index.html" target="_blank">http://localhost:3000/index.html</a> to visit your local server.</p>
+      <p>Your Terminal\Command Prompt is now busy running the server - it won't listen to any more instructions from you.</p>
+
+      <p>This starts up a <b>server</b> on your computer. Open your favourite web browser (I like Google Chrome) and go to <a href="http://localhost:3000/index.html" target="_blank">http://localhost:3000/index.html</a> to visit your local server.</p>
 
       <p>If you see an orange and purple page, it's working!</p>
 
-      <p>Try this link too:</p>
-      <p><a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a></p>
-
-      <p>It should look exactly the same. That's because, if you don't say what page you want, you automatically get index.html. Neocities follows the same rule, which is why these pages also look exactly the same:</p>
-
-      <ul>
-        <li><a href="http://mgatland.neocities.org" target="_blank">http://mgatland.neocities.org</a></li>
-        <li><a href="http://mgatland.neocities.org/index.html" target="_blank">http://mgatland.neocities.org/index.html</a></li>
-      </ul>
-
       <h2>Serving Files</h2>
 
-      <p>The server will serve us any file we ask for, as long as it's in the public folder. Look in your nodetest folder for the public folder (using Windows Explorer or Finder on Mac) and look inside.</p>
+      <p>This server program is very simple. When we ask for a file, it looks in the 'public' folder for that file. If it's there, it sends the file to us.</p>
 
-      <p>Make a new file called <b>tvshow.html</b> in that folder and put something inside it. Then try opening this link:</p>
+      <p>The public folder is inside your nodestart folder. Use Windows Explorer or Finder (Mac) to look inside the public folder and see what's there.</p>
 
-      <p><a href="http://localhost:3000/tvshow.html" target="_blank">http://localhost:3000/tvshow.html</a></p>
+        <h2>Serve another File</h2>     
 
-      <p>Neocities has a server a lot like this, that <b>serves</b> your pages to the web browser when you ask for them.</p>
+        <p>Remember how we installed Atom a few weeks ago? Open Atom. It's a text editor. Use Atom to make a new file, and save it as in the 'public' folder with the file name <b>new.html</b>.</p>
 
-      <p>What happens if you ask for something that's not available?</p>
+        <p>using Atom, put this code inside new.html and save it again.</p>
+
+      <pre><code class="language-markup">
+&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;meta charset='utf-8'>
+  &lt;/head>
+  &lt;body>
+     <h1>Hi i am a new page I guess</h1>
+     <h2>not gonna brag <br> but i'm pretty cool</h2>
+  &lt;/body>
+&lt;/html>
+      </code></pre>
+
+
+      <p>Now our server will automatically serve this page too, if we ask for it. Click this link to ask for the new page:</p>
+
+      <p><a href="http://localhost:3000/new.html" target="_blank">http://localhost:3000/new.html</a></p>
+
+     <p>What happens if you ask for something that's not in the public folder?</p>
 
       <p><a href="http://localhost:3000/ideas" target="_blank">http://localhost:3000/ideas</a></p>
 
-      <h2>Keep that server busy</h2>
+      <p>The server says "I can't GET that page for you".</p>
+
+      <h2>Our server is clever</h2>
 
       <p>It's easy to serve pages that have already been made! But sites like Facebook, pinterest and TradeMe serve us special pages that are always changing – pages that update and change all the time.</p>
 
-      <p>Let's tell our server, when we make a special request, it should give us a special reply.</p>
+      <p>Let's tell our server, when we make a special request, it should give us a special reply - not just a premade page.</p>
 
-      <h2>What is the server doing so far?</h2>      
+      <h2>The server's instructions</h2>
 
-      <p><b>Open index.js in the main nodetest folder</b>. Note that this is not in the <b>public</b> folder, it's in the folder above that.</p>
+      <p>Use Atom to open <b>index.js</b>, a file in the  in the main <b>nodestart folder</b>. Note that this is not in the <b>public</b> folder, it's in the folder above the public folder.</p>
 
       <p>This is a <b>js</b> file, which means JavaScript. There are 5 lines of code, plus some comments (lines that start with // are comments for humans to read, the computer does not read them.)</p>
+
+      <p>Your code will look exactly the same as this:</p>
 
       <pre><code class="language-javascript">
 //set up
@@ -198,42 +244,47 @@ app.listen(3000);
 console.log("I am listening...");
       </code></pre>
 
-      <p>We don't need to understand all of those commands just yet. The main thing is, when you make a request, it looks in the public folder for a file to give you. If there is no matching file, it tells you it cannot GET that file.</p>
+      <p><b>We don't need to understand all of those commands today</b>. The main thing to know is, when you make a request, it looks in the public folder for a file to give you. If there is no matching file, it tells you it cannot GET that file.</p>
 
       <h2>Special requests</h2>
 
       <p>Add this code at line 8 of your index.js file:</p>
 
       <pre><code class="language-javascript">
+var coolIdeas = [];
+coolIdeas.push("try wearing a hat on cold days"); 
 app.get('/ideas', function (req, res) {
-  res.send('try wearing a hat on cold days');
+  res.send(coolIdeas);
 });
         </code></pre>
 
-        <p>This tells the server: <b>when someone requests "ideas", Send them this special response: 'try wearing a hat on cold days'</b></p>
+        <p>This tells the server: <b>when someone requests "ideas", respond with the list 'coolIdeas', which has one item on it.</b></p>
 
         <p>Now:</p>
 
         <ul>
             <li>Save your changes.</li> 
-            <li>Go to the Command Prompt and hit Ctrl-C, Ctrl-C (twice) to <b>stop</b> the server.</li>
+            <li>Go to the Command Prompt\Terminal and hit Ctrl-C, Ctrl-C (twice) to <b>stop</b> the server.</li>
             <li>Then start the server again by typing <code>node index.js</code>, Enter.</li>
+            <li>This will make the server read your updated instructions, and start serving with the new rules.</li>
         </ul>
         
 
-        <p>The server will restart with your new changes.Now try this link again:</p>
+        <p>Now try this link again:</p>
 
         <p><a href="http://localhost:3000/ideas" target="_blank">http://localhost:3000/ideas</a></p>
 
         <p>This time, you should get the special response.</p>
 
+        <p><b>protip</b>: the response isn't very pretty! It's just a list on plain white background. But we can use this response to build a pretty page later on.</p>
+
       <h2>GET and POST</h2>
 
       <p>When the user wants to look at a web page, that's called GET.</p>
 
-      <p>When the user wants to change or save something, like a new facebook message, that's called POST. They POST the message to us, like a letter 📩</p>
+      <p>When the user wants to change or save something, like a new facebook message, that's called POST. They POST the message to the server, like a letter 📩</p>
 
-      <p>Replace ALL the code in index.js with this new code. I've changed it, so that the server keeps track of a list of ideas. (Remember lists from our TV Show Idea Generator?)</p>
+      <p>Replace ALL the code in index.js with this new code. I've changed it, so that the server lets clients add ideas to a list. (Remember lists from our TV Show Idea Generator?)</p>
 
       <pre><code class="language-javascript">
 //set up
@@ -250,18 +301,18 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 //make an empty list of ideas
-var ideas = [];
-ideas.push('try wearing a hat on cold days'); //start with one idea
+var coolIdeas = [];
+coolIdeas.push("try wearing a hat on cold days"); 
 
 //let a client GET the list of ideas
 app.get('/ideas', function (req, res) {
-  res.send(ideas);
+  res.send(coolIdeas);
 });
 
 //let a client POST new ideas
 app.post('/ideas', function (req, res) {
   console.log(req.body.idea); //write it on the command prompt so we can see
-  ideas.push(req.body.idea); //save a new idea
+  coolIdeas.push(req.body.idea); //save a new idea
   res.send("thanks for your idea");
 });
 
@@ -271,20 +322,27 @@ console.log("I am listening...");
 
       </code></pre>
 
+        <p>Because we changed the server instructions, we need to:</p>
+
+        <ul>
+            <li>Save your changes.</li> 
+            <li>Go to the Command Prompt\Terminal and hit Ctrl-C, Ctrl-C (twice) to <b>stop</b> the server.</li>
+            <li>Then start the server again by typing <code>node index.js</code>, Enter.</li>
+        </ul>
+
     <p>You can test the GET by using the same link as before.</p>
 
     <p><a href="http://localhost:3000/ideas" target="_blank">http://localhost:3000/ideas</a></p>
 
     <p>Testing POST is trickier because your web browser does not normally POST.</p>
 
-    <p>To post, make a new file called <b>test.html</b> and save it in your <b>public</b> folder. Put this code inside:</p>
+    <p>To post, we need a page with a button on it. Use Atom to make a new file called <b>test.html</b> and save it in your <b>public</b> folder. Put this code inside:</p>
 
 <pre><code class="language-markup">
 &lt;!DOCTYPE html>
 &lt;html>
   &lt;head>
     &lt;meta charset='utf-8'>
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>    
   &lt;/head>
   &lt;body>
       &lt;form method="post" action="/ideas">
@@ -299,7 +357,7 @@ console.log("I am listening...");
 
     <p>Try posting some new ideas, then go back to the page that GETs the ideas. You should see a list of ideas.</p>
 
-    <p>What's next? Including these ideas on a pretty website, instead of a plain white list.</p>
+    <p>What's next? Including the ideas on a pretty website, instead of a plain white list.</p>
 
       <!-- end of legacy Code Club content here -->
                 </div>
