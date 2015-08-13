@@ -268,7 +268,6 @@ app.get('/ideas', function (req, res) {
             <li>Then start the server again by typing <code>node index.js</code>, Enter.</li>
             <li>This will make the server read your updated instructions, and start serving with the new rules.</li>
         </ul>
-        
 
         <p>Now try this link again:</p>
 
@@ -276,7 +275,9 @@ app.get('/ideas', function (req, res) {
 
         <p>This time, you should get the special response.</p>
 
-        <p><b>protip</b>: the response isn't very pretty! It's just a list on plain white background. But we can use this response to build a pretty page later on.</p>
+        <p><b>protip</b>: the response isn't very pretty! It's just a list on plain white background. This is because it's not really made for looking at.</p>
+
+        <p>Normally, a human wouldn't GET a list like this. Instead, the web browser would GET it behind the scenes, and use it to build something that looks nice.</p>
 
       <h2>GET and POST</h2>
 
@@ -357,7 +358,75 @@ console.log("I am listening...");
 
     <p>Try posting some new ideas, then go back to the page that GETs the ideas. You should see a list of ideas.</p>
 
-    <p>What's next? Including the ideas on a pretty website, instead of a plain white list.</p>
+    <h2>A pretty ideas feed</h2>
+
+    <p>Let's add one more page to our site. As before, use Atom to create the page, paste in the code below, and save it in the <b>public</b> folder as <b>ideafeed.html</b></p>
+
+<pre><code class="language-markup">
+&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;meta charset='utf-8'>
+    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
+    &lt;title>Idea Feed&lt;/title>
+    &lt;style>
+    /*This is the start of the CSS*/
+
+    .idea-box {
+      background-color: #FFF0A5;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FFB03B;
+    }
+
+    h2 {
+      color: #468966;
+      margin: 10px;
+      padding: 10px;
+      border: 2px solid #FFB03B;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    /*end of CSS */
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;h1 class="title">Idea Feed&lt;/h1>
+    &lt;div class="idea-box">
+    &lt;/div>
+    &lt;script>
+//Hello! This is the start of the JavaScript.
+
+var addIdea = function(idea) {
+  var ideaElement = $('&lt;h2>' + idea + '&lt;/h2>');
+  $(".idea-box").append(ideaElement);
+
+}
+
+var createFeed = function(data) {
+  data.forEach(addIdea);
+}
+
+$.get("/ideas", createFeed);
+
+//This is the end of the JavaScript.
+    &lt;/script>
+  &lt;/body>
+&lt;/html>
+
+</code></pre>
+
+    <p>Test your new ideas feed with this link: <a href="http://localhost:3000/ideafeed.html" target="_blank">http://localhost:3000/ideafeed.html</a></p>
+
+    <p>The Idea Feed is a page with some JavaScript. The script will GET the raw ideas list, then go through each item in the list. <b>For each item</b>, it creates a little bit of HTML and adds it into the page.</p>
+
+    <h2>That's all!</h2>
+
+    <p><b>extra for experts:</b> Can you move the code that POSTs new ideas onto the Ideas Feed page?</p>
 
       <!-- end of legacy Code Club content here -->
                 </div>
