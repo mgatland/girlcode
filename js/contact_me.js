@@ -14,9 +14,9 @@ $(function() {
             var name = $("input#name").val();
             var email = $("input#email").val();
             var phone = $("input#phone").val();
-            var attendAll = $("input#attend-yes").val();
-            var canPay = $("input#fee-yes").val();
-            var byo = $("input#comp-yes").val();
+            var attendAll = $('input[name="canAttend-options"]:checked').val();
+            var canPay = $('input[name="canPay-options"]:checked').val();
+            var byo = $('input[name="canByo-options"]:checked').val();
             //var message = $("textarea#message").val();
 
             var firstName = name; // For Success/Failure Message
