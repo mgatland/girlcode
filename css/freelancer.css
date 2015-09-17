@@ -494,6 +494,17 @@ footer .footer-below {
   background-color: transparent;
 }
 
+/* hacky styles for checkboxes added to the form for Girl Code */
+
+.buttons-with-label {
+    margin-top: 10px;
+}
+
+.buttons-with-label label {
+    font-size: 20px;
+    font-weight: normal;
+    margin-left: 15px;  
+}
 
 /* styles for content copied from Code Club Akl */
 
