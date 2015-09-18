@@ -82,13 +82,20 @@ hr.star-primary:after {
 header {
     text-align: center;
     color: #fff;
-    background: #7A1F97;
-    background: url('../img/background.jpg');
+    background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.4)
+    ),
+    url('../img/classphoto.jpg');
     background-attachment: fixed;
+    background-size: 2022px;
+    background-position: center -70px;
+    background-repeat: repeat-y; /* makes the 'gradient' cover the whole picture*/
 }
 
 header .container {
-    padding-top: 100px;
+    padding-top: 260px;
     padding-bottom: 50px;
 }
 
@@ -112,7 +119,7 @@ header .intro-text .skills {
 
 @media(min-width:768px) {
     header .container {
-        padding-top: 200px;
+        padding-top: 330px;
         padding-bottom: 100px;
     }
 
@@ -122,6 +129,10 @@ header .intro-text .skills {
 
     header .intro-text .skills {
         font-size: 1.75em;
+    }
+
+    header {
+        background-position: center 0px;
     }
 }
 
