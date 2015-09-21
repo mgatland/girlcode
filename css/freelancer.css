@@ -97,6 +97,7 @@ header {
     background-size: 2022px;
     background-position: center -70px;
     background-repeat: repeat-y; /* makes the 'gradient' cover the whole picture*/    
+    background-attachment: fixed;
 }
 
 header .container {
