@@ -581,3 +581,10 @@ footer .footer-below {
     border-radius: 15px;
     background-color: #D8EBF8;
 }
+
+/* fun */
+
+.fa-spin-hover:hover {
+    -webkit-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 2s infinite linear;
+}
