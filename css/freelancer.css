@@ -92,8 +92,6 @@ header {
     text-align: center;
     color: #fff;
     background: #74A588;
-    background: url('../img/background.jpg');
-    background-attachment: fixed;
 }
 
 .homepage header {
