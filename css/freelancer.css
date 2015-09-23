@@ -7,7 +7,7 @@
 /*
 Girl Code new colors:
 #571133 purple
-#36001B a darker shade of purple for selected things
+#420D26 a darker shade of purple for selected things
 
 #74A588 green (replaces old purple) (should be the 'sucess' color)
 #B22469 darker shade of green for selected
@@ -536,14 +536,14 @@ footer .footer-below {
 
 /* navbar tweaks, because we've overriding the Bootstrap colors */
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-    background-color: #36001B;
+    background-color: #420D26;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #36001B;
+    background-color: #420D26;
 }
 .navbar-default .navbar-toggle {
-    border-color: #36001B;
+    border-color: #420D26;
 }
 
 /* hacky styles for checkboxes added to the form for Girl Code */
