@@ -4,6 +4,15 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+/*
+Girl Code new colors:
+#571133 purple
+#36001B a darker shade of purple for selected things
+
+#74A588 green (replaces old purple) (should be the 'sucess' color)
+#B22469 darker shade of green for selected
+*/
+
 body {
     overflow-x: hidden;
 }
@@ -22,7 +31,7 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
-    color: #7A1F97;
+    color: #74A588;
 }
 
 h1,
@@ -63,15 +72,15 @@ hr.star-light {
 
 hr.star-light:after {
     color: #fff;
-    background-color: #7A1F97;
+    background-color: #74A588;
 }
 
 hr.star-primary {
-    border-color: #2c3e50;
+    border-color: #2C3E50;
 }
 
 hr.star-primary:after {
-    color: #2c3e50;
+    color: #2C3E50;
     background-color: #fff;
 }
 
@@ -82,7 +91,7 @@ hr.star-primary:after {
 header {
     text-align: center;
     color: #fff;
-    background: #7A1F97;
+    background: #74A588;
     background: url('../img/background.jpg');
     background-attachment: fixed;
 }
@@ -207,7 +216,7 @@ section h2 {
 
 section.success {
     color: #fff;
-    background: #7A1F97;
+    background: #74A588;
 }
 
 section.success a,
@@ -219,7 +228,7 @@ footer a:hover,
 footer a:focus,
 footer a:active {
     outline: 0;
-    color: #7BA9D7;
+    color: #B22469;
 }
 
 @media(max-width:767px) {
@@ -303,7 +312,7 @@ footer a:active {
 .btn-outline:active,
 .btn-outline.active {
     border: solid 2px #fff;
-    color: #7A1F97;
+    color: #74A588;
     background: #fff;
 }
 
@@ -356,7 +365,7 @@ footer a:active {
 }
 
 .floating-label-form-group-with-focus label {
-    color: #7A1F97;
+    color: #74A588;
 }
 
 form .row:first-child .floating-label-form-group {
@@ -373,7 +382,7 @@ footer h3 {
 
 footer .footer-above {
     padding-top: 50px;
-    background-color: #2c3e50;
+    background-color: #571133;
 }
 
 footer .footer-col {
@@ -466,7 +475,7 @@ footer .footer-below {
     width: 1px;
     height: 75px;
     margin-left: 35px;
-    background-color: #2c3e50;
+    background-color: #571133;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
@@ -476,7 +485,7 @@ footer .footer-below {
     z-index: 1052;
     width: 1px;
     height: 75px;
-    background-color: #2c3e50;
+    background-color: #571133;
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
@@ -487,35 +496,56 @@ footer .footer-below {
     opacity: 0;
 }
 
+.text-success, .text-success:hover {
+    color: #74A588;
+}
+
 .btn-success {
-    background-color: #7A1F97;
-    border-bottom-color: #7A1F97;
-    border-top-color: #7A1F97;
-    border-left-color: #7A1F97;
-    border-right-color: #7A1F97;
+    background-color: #74A588;
+    border-bottom-color: #74A588;
+    border-top-color: #74A588;
+    border-left-color: #74A588;
+    border-right-color: #74A588;
 }
 
 .btn-success:hover, .btn-success:active, .btn-success:focus  {
-    background-color: #541668;
-    border-bottom-color: #541668;
-    border-top-color: #541668;
-    border-left-color: #541668;
-    border-right-color: #541668;
+    background-color: #618A71;
+    border-bottom-color: #618A71;
+    border-top-color: #618A71;
+    border-left-color: #618A71;
+    border-right-color: #618A71;
 }
 
 .alert-success {
-    background-color: #7A1F97;
-    border-color: #7A1F97; 
+    background-color: #74A588;
+    border-color: #74A588; 
+}
+
+.navbar-default {
+    background-color: #571133;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-  color: #7BA9D7;
+  color: #B22469;
   background-color: transparent;
 }
 
+
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
-  color: #7BA9D7;
+  color: #B22469;
   background-color: transparent;
+}
+
+/* navbar tweaks, because we've overriding the Bootstrap colors */
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    background-color: #36001B;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #36001B;
+}
+.navbar-default .navbar-toggle {
+    border-color: #36001B;
 }
 
 /* hacky styles for checkboxes added to the form for Girl Code */
