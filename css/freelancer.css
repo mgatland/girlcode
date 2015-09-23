@@ -97,8 +97,8 @@ header {
 .homepage header {
     background: 
     linear-gradient(
-      rgba(0, 0, 0, 0.4), 
-      rgba(0, 0, 0, 0.4)
+      rgba(0, 0, 0, 0.2), 
+      rgba(0, 0, 0, 0.2)
     ),
     url('../img/classphoto.jpg');
     background-size: 2022px;
