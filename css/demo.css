@@ -1,0 +1,76 @@
+.demobox {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    max-width: 90%;
+    margin-top: 20px;
+}
+
+.demo {
+    color: black;
+    border: 2px solid white;
+    height: 300px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+
+.demobox * {
+    transition: margin 0.25s, border-radius 0.25s, color 0.25s, background-color 0.25s, font-size 0.25s;
+}
+
+.demobox .demopost {
+    transition: none;
+}
+
+
+.demoh1.v1, .demonav.v1, .demop.v1, .demopost.v1, .demovotes.v1, .demoh1 .demopaw {
+    display: none;
+}
+
+.demo.v1 { background-color: white;}
+.demo.v2 { background-color: rgb(242, 225, 172);}
+
+.demoh1.v2 {}
+.demoh1.v3 { text-align: center;}
+.demoh1.v4 { font-size: 20px; font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif; margin-top: 5px; }
+.demoh1.v5 { color: #CD2C24;}
+.demoh1.v6 .demopaw { display: inline;}
+
+.demonav.v2 {}
+.demonav.v3 { margin-top: 8px; margin-bottom: 8px; padding: 8px; }
+.demonav.v3 li { display: inline-block; list-style-type: none; margin-left: 10px; margin-right: 10px;}
+.demonav.v4 { border-top: 1px solid #FFB03B; border-bottom: 1px solid #FFB03B;}
+.demonav.v5 { font-weight: bold; background-color: rgba(255, 255, 255, 0.1);}
+.demonav.v5 li.selected { text-decoration: underline; }
+
+.demop.v2 {}
+.demop.v3 { margin: 8px;}
+
+.demopost.demopost2, .demopost.demopost3 { display: none; }
+
+.demopost img { float: left; display: none;}
+
+.demopost { width: calc(100% - 10px); box-sizing: border-box; display: inline-block;}
+
+.demopost.v1 br { display: none;}
+
+.demopost.v2 { vertical-align: bottom;}
+.demopost.v2 br, .demopost.v2 .demotime, .demopost.v2 .demovotecount { display: none;}
+.demopost.v3 img { display: inline-block; vertical-align: top;}
+.demopost.v4 img { margin-right: 10px;}
+.demopost.v5 .demovotecount { display: inline;}
+.demopost.v6 .demovotecount { color: #CD2C24;}
+.demopost.v7 { text-align: left; }
+.demopost.v8 br { display: inherit;}
+.demopost.v9 { background-color: rgba(255, 255, 255, 0.4);}
+.demopost.v10 { border: 1px solid #ccc; }
+.demopost.v11 .demotime { display: inline; }
+.demopost.v12 .demotime { margin-left: 12px;}
+.demopost.v13 { margin-left: 5px; margin-right: 5px; margin-bottom: 5px;}
+.demopost.v14 .demotime { color: grey; }
+.demopost.v15.demopost2 { display: inline-block;}
+.demopost.v16.demopost3 { display: inline-block;}
+.demopost.v16 { border-top-left-radius: 23px; border-bottom-left-radius: 23px;}
+.demopost.v16 img { border-radius: 50%;}
