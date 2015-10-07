@@ -94,6 +94,8 @@
 .demopost.v11 .demotime { display: inline; }
 .demopost.v12 .demotime { margin-left: 12px;}
 .demopost.v13 { margin-left: 5px; margin-right: 5px; margin-bottom: 5px; }
+.demopost.v13 { padding-top: 4px; }
+.demopost.v13 img { margin-top: -4px; }
 .demopost.v14 .demotime { color: grey; }
 .demopost.v15.demopost2 { display: inline-block;}
 .demopost.v16.demopost3 { display: inline-block;}
