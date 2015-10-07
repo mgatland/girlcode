@@ -31,7 +31,7 @@
 }
 
 .demo.v1 { background-color: white;}
-.demo.v2 { background-color: rgb(242, 225, 172);}
+.demo.v2 { background-color: rgb(246, 240, 220);}
 
 .demoh1.v2 {}
 .demoh1.v3 { text-align: center;}
@@ -43,7 +43,7 @@
 .demonav.v3 { margin-top: 8px; margin-bottom: 8px; padding: 8px; }
 .demonav.v3 li { display: inline-block; list-style-type: none; margin-left: 10px; margin-right: 10px;}
 .demonav.v4 { border-top: 1px solid #FFB03B; border-bottom: 1px solid #FFB03B;}
-.demonav.v5 { font-weight: bold; background-color: rgba(255, 255, 255, 0.1);}
+.demonav.v5 { font-weight: bold; background-color: rgb(247, 232, 199);}
 .demonav.v5 li.selected { text-decoration: underline; }
 
 .demoinput.v2 .demobutton { color: blue; text-decoration: underline } /* fake link */
@@ -54,13 +54,24 @@
     padding: 2px; 
     box-sizing: border-box; 
     border: 1px solid rgb(169, 169, 169);
-    width: 150px;
+    width: 180px;
 }
 .demoinput.v3 { margin: 4px; padding-left: 4px;}
 .demoinput.v4 .demobutton { display: inline-block; background-color: #F2836B;}
-.demoinput.v5 .demobutton { padding: 2px; color: white; height: 26px;}
-.demoinput.v6 .demobutton { border: 1px solid #F2836B; border-radius: 3px;}
+.demoinput.v5 .demobutton { padding: 2px 8px; color: white; height: 26px;}
+.demoinput.v6 .demobutton { border: 1px solid #B85F4C; border-radius: 5px;}
 .demoinput.v7 .demobutton { text-decoration: none; }
+.demoinput.v8 .demoinput { border-right: none; margin-right: 0;}
+.demoinput.v9 .demoinput { 
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 8px;
+}
+.demoinput.v10 .demobutton { 
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
 
 .demopost.demopost2, .demopost.demopost3 { display: none; }
 
@@ -78,11 +89,11 @@
 .demopost.v6 .demovotecount { color: #CD2C24;}
 .demopost.v7 { text-align: left; }
 .demopost.v8 br { display: inherit;}
-.demopost.v9 { background-color: rgba(255, 255, 255, 0.4);}
+.demopost.v9 { background-color: white;}
 .demopost.v10 { border: 1px solid #ccc; }
 .demopost.v11 .demotime { display: inline; }
 .demopost.v12 .demotime { margin-left: 12px;}
-.demopost.v13 { margin-left: 5px; margin-right: 5px; margin-bottom: 5px;}
+.demopost.v13 { margin-left: 5px; margin-right: 5px; margin-bottom: 5px; }
 .demopost.v14 .demotime { color: grey; }
 .demopost.v15.demopost2 { display: inline-block;}
 .demopost.v16.demopost3 { display: inline-block;}

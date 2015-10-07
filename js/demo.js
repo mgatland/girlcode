@@ -40,6 +40,7 @@ addN(".demonav", 3);
 addN(".demopost", 2);
 addN(".demoinput", 5);
 addN(".demopost", 15);
+addN(".demoinput", 3);
 addN(".demoh1", 1);
 
 function updateDemo() {
