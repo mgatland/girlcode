@@ -24,28 +24,39 @@ function resetClass(divName) {
 	div.addClass("v1");
 }
 
+function addN(value, len) {
+  for (var i = 0; i < len; i++) {
+    upgrades.push(value);
+  }
+}
+
+var upgrades = [];
+addN(".demoh1", 1);
+addN(".demonav", 1);
+addN(".demoinput", 1);
+addN(".demoh1", 3);
+addN(".demo", 1);
+addN(".demonav", 3);
+addN(".demopost", 2);
+addN(".demoinput", 5);
+addN(".demopost", 15);
+addN(".demoh1", 1);
+
 function updateDemo() {
-	if (demoCounter === 0 ) upgradeClass(".demoh1");
-	if (demoCounter === 1 ) upgradeClass(".demop");
-	if (demoCounter === 2 ) upgradeClass(".demonav");
-	if (demoCounter >=3 && demoCounter <= 4) upgradeClass(".demopost");
-	if (demoCounter >= 5 && demoCounter <= 7) upgradeClass(".demoh1");
-	if (demoCounter == 8) upgradeClass(".demo");
-	if (demoCounter >= 9 && demoCounter <= 11) upgradeClass(".demonav");
-	if (demoCounter == 12) upgradeClass(".demop");
-	if (demoCounter >= 13 && demoCounter <= 27) upgradeClass(".demopost");
-	if (demoCounter === 30 ) upgradeClass(".demoh1");
+	if (demoCounter < upgrades.length) {
+		upgradeClass(upgrades[demoCounter]);
+	}
 	demoCounter++;
-	if (demoCounter > 45) {
+	if (demoCounter > 49) {
 		demoCounter = 0;
 		resetClass(".demo");
 		resetClass(".demoh1");
 		resetClass(".demonav");
-		resetClass(".demop");
+		resetClass(".demoinput");
 		resetClass(".demopost");
 	}
 }
 
 $(document).ready(function () {
-	setInterval(updateDemo, 300);
+	setInterval(updateDemo, 275);
 });

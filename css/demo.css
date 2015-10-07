@@ -13,6 +13,7 @@
     height: 300px;
     overflow: hidden;
     font-size: 14px;
+    cursor: default;
 }
 
 
@@ -25,7 +26,7 @@
 }
 
 
-.demoh1.v1, .demonav.v1, .demop.v1, .demopost.v1, .demovotes.v1, .demoh1 .demopaw {
+.demoh1.v1, .demonav.v1, .demoinput.v1, .demopost.v1, .demovotes.v1, .demoh1 .demopaw {
     display: none;
 }
 
@@ -45,8 +46,21 @@
 .demonav.v5 { font-weight: bold; background-color: rgba(255, 255, 255, 0.1);}
 .demonav.v5 li.selected { text-decoration: underline; }
 
-.demop.v2 {}
-.demop.v3 { margin: 8px;}
+.demoinput.v2 .demobutton { color: blue; text-decoration: underline } /* fake link */
+.demoinput.v2 .demoinput { 
+    /*fake copy of a real input's styles, as I didn't want to include a real input field */
+    display: inline-block; background-color: white; 
+    color: rgb(169, 169, 169); /* emulate placeholder text */
+    padding: 2px; 
+    box-sizing: border-box; 
+    border: 1px solid rgb(169, 169, 169);
+    width: 150px;
+}
+.demoinput.v3 { margin: 4px; padding-left: 4px;}
+.demoinput.v4 .demobutton { display: inline-block; background-color: #F2836B;}
+.demoinput.v5 .demobutton { padding: 2px; color: white; height: 26px;}
+.demoinput.v6 .demobutton { border: 1px solid #F2836B; border-radius: 3px;}
+.demoinput.v7 .demobutton { text-decoration: none; }
 
 .demopost.demopost2, .demopost.demopost3 { display: none; }
 
