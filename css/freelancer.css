@@ -552,10 +552,19 @@ footer .footer-below {
     margin-top: 10px;
 }
 
+.buttons-with-label .btn-group {
+    float: left;
+    /* float causes some knock-on effects, these are to reverse them.*/
+    margin-right: 18px;
+    margin-top: -4px;
+    margin-bottom: 10px;
+}
+
 .buttons-with-label label {
+    display: block;
     font-size: 20px;
     font-weight: normal;
-    margin-left: 15px;  
+    margin-top:4px;
 }
 
 /* styles for content copied from Code Club Akl */
