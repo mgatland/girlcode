@@ -249,9 +249,10 @@ var getRandomConcept = function () {
 
 <p>When it's working it should make ideas like this:</p>
 
-<p><b>A school teacher and a time traveller who runs a hotel</b></p>
+<blockquote>
+<p>A school teacher and a time traveller who runs a hotel</p></blockquote>
 
-<p><b>A school teacher and a school teacher who solves mysteries</b></p>
+<blockquote><p>A school teacher and a school teacher who solves mysteries</p></blockquote>
 
 <p>Clue:</p>
 
@@ -270,7 +271,37 @@ var getRandomConcept = function () {
 
 <p>¯\_(ツ)_/¯</p>
 
-<h2>Part 5: Make it pretty</h2>
+<h2>Part 5: Bold Adventures</h2>
+
+<p>Make the characters and the city appear <b>bold</b>, but the other words not appear bold. For example:</p>
+
+<blockquote><p>A <b>school teacher</b> and a <b>cat</b> who solves mysteries in <b>London</b>.</p></blockquote>
+
+<p>Clues:</p>
+
+<p>You will need to add some <b>HTML</b> code inside the JavaScript.</p>
+
+<p>JavaScript does not speak HTML. They are different languages. In JS, symbols like &lt; and &gt; are math symbols that mean less than and greater than.</p>
+
+<p>However, if we put them inside speech marks "like this", that tells JS to ignore their special math meanings, and just use them literally how they look. This lets us insert them into the HTML page.</p>
+
+<pre><code class="language-javascript">
+  //this works
+  var example1 = "I saw a &lt;b>hungry&lt;/b> cat";
+
+  //this works:
+  var catColor = "tabby";
+  var example2 = "I saw a &lt;b>" + catColor + "&lt;/b> cat";
+
+  //this will not work, because the math makes no sense.
+  //um, plus less than b? what are you talking about?
+  var example2 = "I saw a " + &lt;b> + catColor + &lt;/b> + "cat";
+
+  //this will not work. What happens to the plus?
+  var example3 = "I saw a +" catColor;
+</code></pre>
+
+<h2>Part 6: Make it pretty</h2>
 
 <p>Take a break from the JavaScript and improve the CSS.</p>
 
