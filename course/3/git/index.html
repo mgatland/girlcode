@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Girl Code</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="/js/prism/prism.css" rel="stylesheet">
+    <script src="/js/prism/prism.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5JFL8D"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5JFL8D');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Girl Code</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="../">Week 3 - part 1</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                <!--
+                    logo would go here
+                    <img class="img-responsive img-circle" src="img/profile.jpg" alt="" style="width:250px">
+                -->
+                    <div class="intro-text">
+                        <span class="name">Cat story with Git</span>
+                        <span class="skills">Git</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="starter">
+        <div class="container codeclubstyle">
+            <div class="row">
+                <div class="col-lg-12">
+
+      <!-- insert legacy Code Club content here -->
+
+<p>We're using Git to write some documents about cats.</p>
+
+<p>One document is a list of famous cats. The other is a list of interesting cat facts that are totally true.</p>
+
+<p>We'll use Post-It notes to make sure we each work on a different task, because if we all do the same thing that would be silly?</p>
+
+<h2>Part 1: Install Atom (text editor)</h2>
+
+<p>Download <a href="https://atom.io/" target='_blank'>Atom</a> (if you haven't already) and install it.</p>
+
+<h2>Part 2: Create a Github account at github.com</h2>
+
+<p>Go to <a href="https://github.com/" target='_blank'>github.com</a> and sign up for a new account.</p>
+
+<p>Go to our <a href="http://girlcodeakl.slack.com" taget="_blank">slack</a> channel and tell us your Github username. We will give you permission to edit the cat facts!</p>
+
+<p>Click 'Edit Site'</p>
+
+<img src="edit-site.png">
+
+<p>Make a new file:</p>
+
+<img src="new-file.png">
+
+<p>Call it <b>tvshow.html</b></p>
+
+<img src="new-file-tvshow.png">
+
+<p>Open a tab to <b>edit</b> the new page.</p>
+
+<img src="edit.png">
+
+<p>Open a tab to <b>view</b> the new page.</p>
+
+<img src="view.png">
+
+<p>Delete all the code it gives you, we don't want it.</p>
+
+<img src="delete-code.png">
+
+<p><b>Copy and Paste</b> this code instead:</p>
+
+<pre><code class="language-markup">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset='utf-8'>
+&lt;title>TV Concept Generator&lt;/title>
+&lt;style>
+
+body {
+  background-color: #aaaaff;
+}
+
+h2 {
+  color: blue;
+}
+&lt;/style>
+&lt;/head>
+&lt;body>
+&lt;h1>TV concept generator&lt;/h1>
+&lt;h2 id="display-area">Click the button!&lt;/h2>
+&lt;button id="next-page-button">Next idea&lt;/button>
+&lt;script>
+//Hello! This is the JavaScript.
+//You can skip this part for now. Jump ahead down to where I say 'LOOK HERE'
+
+var button = document.getElementById("next-page-button");
+
+var showThisMessage = function (message) {
+  var displayArea = document.getElementById("display-area");
+  displayArea.innerHTML = message;
+};
+
+var makeAndShowConcept = function () {
+  var randomConcept = getRandomConcept();
+  showThisMessage(randomConcept);
+};
+
+var pickRandom = function (list) {
+  return list[Math.floor(Math.random()*list.length)];
+};
+
+button.addEventListener('click', makeAndShowConcept);
+
+// ***
+// LOOK HERE
+// ***
+// Hello again! This is the part we are working on.
+
+var getRandomConcept = function () {
+  var people = [];
+  people.push("time traveller");
+  people.push("school teacher");
+
+  var jobs = [];
+  jobs.push("runs a hotel");
+  jobs.push("solves mysteries");
+
+  var myConcept = "A " + pickRandom(people) + " who " + pickRandom(jobs);
+  return myConcept;
+};
+&lt;/script>
+&lt;/body>
+&lt;/html>
+</code></pre>
+
+<p><b>CHECK</b> that you copied all the code. <b>Save</b> the page, then <b>view it.</b></p>
+
+<img src="save-changes.png">
+
+<h2>What is this?</h2>
+
+<p>View the page. You'll see a blue page with a button.</p>
+
+<p>Click on 'Next idea'. What happens? Try it lots of times.</p>
+
+<p>Now you have your own copy of the TV show idea generator, and you can make changes to it.</p>
+
+<div class="alert">
+  <p>In the code, find line number 44.</p>
+  <p>For now, we are <b>only</b> looking from line 44 to the end.</p>
+  <p>Can you see any connection between this code and what happens when you click 'Next idea'?</p>
+</div>
+
+<h2>Part 2: pushing the limits</h2>
+
+<div class="alert">
+  <p>1. Add two new people ideas to the app.</p>
+  <p>2. Add two new job ideas to the app.</p>
+</div>
+
+<p>Clues:</p>
+
+<p>This is the symbol for an empty list: <code>[]</code></p>
+
+<p>This is the command to add something to a list: <code>push</code></p>
+
+<p>Remember, you only need to make changes from line 44 to the end.</p>
+
+<h2>Part 3: Two Characters</h2>
+
+<p>I like shows that have two main characters.</p>
+
+<div class="alert">
+  <p>Make it so when you click the button, it picks <b>two</b> people from the list.</p>
+  <p>You should include the words "and a" between the two people.</p>
+</div>
+
+<p>When it's working it should make ideas like this:</p>
+
+<blockquote>
+<p>A school teacher and a time traveller who runs a hotel</p></blockquote>
+
+<blockquote><p>A school teacher and a school teacher who solves mysteries</p></blockquote>
+
+<p>Clue:</p>
+
+<p>Look for the word <b>myConcept</b> in 2 lines of code near the end. Take a close look at those two lines, and what happens when you click 'Next idea'.</p>
+
+<h2>Part 4: New York City</h2>
+
+<div class="alert">
+  <p>We need to say what city the show is set in.</p>
+  <p>It should say <b>in New York</b> or <b>in London</b> at the end of each concept.</p>
+  <p>1. We will need a list of cities</p>
+  <p>2. We need to pick a random city, and display it somehow.</p>
+</div>
+
+<p>Clues:</p>
+
+<p>¯\_(ツ)_/¯</p>
+
+<h2>Part 5: <i>Emphasis</i> on Adventure</h2>
+
+<p>Make the characters and the city appear <i>italic</i>, but the other words not appear italic. For example:</p>
+
+<blockquote><p>A <i>school teacher</i> and a <i>cat</i> who solves mysteries in <i>London</i>.</p></blockquote>
+
+<p>Clues:</p>
+
+<p>You will need to add some <b>HTML</b> code inside the JavaScript.</p>
+
+<p>JavaScript does not speak HTML. They are different languages. In JS, symbols like &lt; and &gt; are math symbols that mean less than and greater than.</p>
+
+<p>However, if we put them inside speech marks "like this", that tells JS to ignore their special math meanings, and just use them literally how they look. This lets us insert them into the HTML page.</p>
+
+<pre><code class="language-javascript">
+  //this works
+  var example1 = "I saw a &lt;i>hungry&lt;/i> cat";
+
+  //this works:
+  var catColor = "tabby";
+  var example2 = "I saw a &lt;i>" + catColor + "&lt;/i> cat";
+
+  //this will not work, because the math makes no sense.
+  //um, plus less than i? what are you talking about?
+  var example2 = "I saw a " + &lt;i> + catColor + &lt;/i> + "cat";
+
+  //this will not work. What happens to the plus?
+  var example3 = "I saw a +" catColor;
+</code></pre>
+
+<h2>Part 6: Make it pretty</h2>
+
+<p>Take a break from the JavaScript and improve the CSS.</p>
+
+<p>Do you remember CSS from our HTML and CSS activity?</p>
+
+<div class="alert">
+  <p>Use CSS to style each part of the app – the button, the h1, and the h2.</p>
+  <p>The CSS is near the top of the file.</p>
+</div>
+
+<p>You're done! Any other ideas?</p>
+
+      <!-- end of legacy Code Club content here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Girl Code 2015.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/js/jqBootstrapValidation.js"></script>
+    <script src="/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/freelancer.js"></script>
+
+</body>
+
+</html>
