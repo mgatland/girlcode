@@ -86,7 +86,7 @@
                     <img class="img-responsive img-circle" src="img/profile.jpg" alt="" style="width:250px">
                 -->
                     <div class="intro-text">
-                        <span class="name">Cat story with Git</span>
+                        <span class="name">Cat Facts with Git</span>
                         <span class="skills">Git</span>
                     </div>
                 </div>
@@ -115,206 +115,47 @@
 
 <p>Go to <a href="https://github.com/" target='_blank'>github.com</a> and sign up for a new account.</p>
 
-<p>Go to our <a href="http://girlcodeakl.slack.com" taget="_blank">slack</a> channel and tell us your Github username. We will give you permission to edit the cat facts!</p>
+<p>Go to our <a href="http://girlcodeakl.slack.com" taget="_blank">slack</a> channel and tell us your Github username. Then we will give you permission to edit the cat facts!</p>
 
-<p>Click 'Edit Site'</p>
+<h2>Part 3: Install Github Desktop</h2>
 
-<img src="edit-site.png">
+<p>This is an app that works with the Github website.</p>
 
-<p>Make a new file:</p>
+<p>Download <a href="http://desktop.github.com" target="_blank">Github Desktop</a> if you haven't already. Install it, and log in with your new Github user name and password.</p>
 
-<img src="new-file.png">
+<h2>Part 4: Cloning</h2>
 
-<p>Call it <b>tvshow.html</b></p>
+<p>Our cat facts are stored on github.com. 'Cloning' means making a copy on your computer so you can work on it.</p>
 
-<img src="new-file-tvshow.png">
+<p>Go to the cat facts web page: <a href="https://github.com/girlcodeakl/catfacts" target="_blank">cat facts</a>.</p>
 
-<p>Open a tab to <b>edit</b> the new page.</p>
+<p>Click on the little 'Clone in Desktop' button on the right hand side. Github Desktop should pop up asking you where to save the files.</p>
 
-<img src="edit.png">
+<p>(If this doesn't work, you may need to restart your computer so Github Desktop can finish getting ready.)</p>
 
-<p>Open a tab to <b>view</b> the new page.</p>
+<h2>Part 5: Ready to work</h2>
 
-<img src="view.png">
+<p>You now have catfacts open in Github Desktop. When you make changes, they will appear here so you can <b>commit</b> them and <b>sync</b> them.</p>
 
-<p>Delete all the code it gives you, we don't want it.</p>
+<p>The mentors should now have created some tasks to do and put them up on the whiteboard. <b>Go and take a task you'd like to work on.</b></p>
 
-<img src="delete-code.png">
+<p>In Github Desktop, on the left-hand side, right click on <b>catfacts</b> and choose 'Open with Atom' to get your editor ready.</p>
 
-<p><b>Copy and Paste</b> this code instead:</p>
+<p>Use Atom to make the changes for your assigned task.</p>
 
-<pre><code class="language-markup">&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-&lt;meta charset='utf-8'>
-&lt;title>TV Concept Generator&lt;/title>
-&lt;style>
+<h2>Part 6: Committing a change</h2>
 
-body {
-  background-color: #aaaaff;
-}
+<p>When you have made your change, go and look at Github Desktop. It should show your change. (You might have to change to the right tab at the top center.</p>
 
-h2 {
-  color: blue;
-}
-&lt;/style>
-&lt;/head>
-&lt;body>
-&lt;h1>TV concept generator&lt;/h1>
-&lt;h2 id="display-area">Click the button!&lt;/h2>
-&lt;button id="next-page-button">Next idea&lt;/button>
-&lt;script>
-//Hello! This is the JavaScript.
-//You can skip this part for now. Jump ahead down to where I say 'LOOK HERE'
+<p>You can review your change. If you're happy with it, enter a summary in the box (a brief description of what you did) then click on the commit button!</p>
 
-var button = document.getElementById("next-page-button");
+<p>Now click 'sync'. This sends all your commits to github.com, and brings everyone elses commits back to you.</p>
 
-var showThisMessage = function (message) {
-  var displayArea = document.getElementById("display-area");
-  displayArea.innerHTML = message;
-};
+<p>If you get a merge conflict, ask us for help!</p>
 
-var makeAndShowConcept = function () {
-  var randomConcept = getRandomConcept();
-  showThisMessage(randomConcept);
-};
+<h2>Part 7: Done</h2>
 
-var pickRandom = function (list) {
-  return list[Math.floor(Math.random()*list.length)];
-};
-
-button.addEventListener('click', makeAndShowConcept);
-
-// ***
-// LOOK HERE
-// ***
-// Hello again! This is the part we are working on.
-
-var getRandomConcept = function () {
-  var people = [];
-  people.push("time traveller");
-  people.push("school teacher");
-
-  var jobs = [];
-  jobs.push("runs a hotel");
-  jobs.push("solves mysteries");
-
-  var myConcept = "A " + pickRandom(people) + " who " + pickRandom(jobs);
-  return myConcept;
-};
-&lt;/script>
-&lt;/body>
-&lt;/html>
-</code></pre>
-
-<p><b>CHECK</b> that you copied all the code. <b>Save</b> the page, then <b>view it.</b></p>
-
-<img src="save-changes.png">
-
-<h2>What is this?</h2>
-
-<p>View the page. You'll see a blue page with a button.</p>
-
-<p>Click on 'Next idea'. What happens? Try it lots of times.</p>
-
-<p>Now you have your own copy of the TV show idea generator, and you can make changes to it.</p>
-
-<div class="alert">
-  <p>In the code, find line number 44.</p>
-  <p>For now, we are <b>only</b> looking from line 44 to the end.</p>
-  <p>Can you see any connection between this code and what happens when you click 'Next idea'?</p>
-</div>
-
-<h2>Part 2: pushing the limits</h2>
-
-<div class="alert">
-  <p>1. Add two new people ideas to the app.</p>
-  <p>2. Add two new job ideas to the app.</p>
-</div>
-
-<p>Clues:</p>
-
-<p>This is the symbol for an empty list: <code>[]</code></p>
-
-<p>This is the command to add something to a list: <code>push</code></p>
-
-<p>Remember, you only need to make changes from line 44 to the end.</p>
-
-<h2>Part 3: Two Characters</h2>
-
-<p>I like shows that have two main characters.</p>
-
-<div class="alert">
-  <p>Make it so when you click the button, it picks <b>two</b> people from the list.</p>
-  <p>You should include the words "and a" between the two people.</p>
-</div>
-
-<p>When it's working it should make ideas like this:</p>
-
-<blockquote>
-<p>A school teacher and a time traveller who runs a hotel</p></blockquote>
-
-<blockquote><p>A school teacher and a school teacher who solves mysteries</p></blockquote>
-
-<p>Clue:</p>
-
-<p>Look for the word <b>myConcept</b> in 2 lines of code near the end. Take a close look at those two lines, and what happens when you click 'Next idea'.</p>
-
-<h2>Part 4: New York City</h2>
-
-<div class="alert">
-  <p>We need to say what city the show is set in.</p>
-  <p>It should say <b>in New York</b> or <b>in London</b> at the end of each concept.</p>
-  <p>1. We will need a list of cities</p>
-  <p>2. We need to pick a random city, and display it somehow.</p>
-</div>
-
-<p>Clues:</p>
-
-<p>¯\_(ツ)_/¯</p>
-
-<h2>Part 5: <i>Emphasis</i> on Adventure</h2>
-
-<p>Make the characters and the city appear <i>italic</i>, but the other words not appear italic. For example:</p>
-
-<blockquote><p>A <i>school teacher</i> and a <i>cat</i> who solves mysteries in <i>London</i>.</p></blockquote>
-
-<p>Clues:</p>
-
-<p>You will need to add some <b>HTML</b> code inside the JavaScript.</p>
-
-<p>JavaScript does not speak HTML. They are different languages. In JS, symbols like &lt; and &gt; are math symbols that mean less than and greater than.</p>
-
-<p>However, if we put them inside speech marks "like this", that tells JS to ignore their special math meanings, and just use them literally how they look. This lets us insert them into the HTML page.</p>
-
-<pre><code class="language-javascript">
-  //this works
-  var example1 = "I saw a &lt;i>hungry&lt;/i> cat";
-
-  //this works:
-  var catColor = "tabby";
-  var example2 = "I saw a &lt;i>" + catColor + "&lt;/i> cat";
-
-  //this will not work, because the math makes no sense.
-  //um, plus less than i? what are you talking about?
-  var example2 = "I saw a " + &lt;i> + catColor + &lt;/i> + "cat";
-
-  //this will not work. What happens to the plus?
-  var example3 = "I saw a +" catColor;
-</code></pre>
-
-<h2>Part 6: Make it pretty</h2>
-
-<p>Take a break from the JavaScript and improve the CSS.</p>
-
-<p>Do you remember CSS from our HTML and CSS activity?</p>
-
-<div class="alert">
-  <p>Use CSS to style each part of the app – the button, the h1, and the h2.</p>
-  <p>The CSS is near the top of the file.</p>
-</div>
-
-<p>You're done! Any other ideas?</p>
+<p>Put your post-it note back on the whiteboard in the 'Done' section, so the Project Manager knows that job has been completed. That's how we make software!</p>
 
       <!-- end of legacy Code Club content here -->
                 </div>
