@@ -74,10 +74,36 @@
 			<section>
 				<h2>Working together</h2>
 				<p class="fragment">Github holds the main copy of our code</p>
-				<p class="fragment">We have an exact copy of the code on our computer</p>
-				<p class="fragment">When we make a change we want to keep, we <b>commit</b> that change.</p>
-				<p class="fragment">We <b>sync</b> to share our commits with the main copy, and get other people's commits into our personal copy</p>
-				<p class="fragment">Also: branches</p>
+				<p class="fragment">We each make a copy (or 'clone') on our own computer</p>
+				<p class="fragment">Git helps us share our changes without overwriting each other's work</p>
+				<p class="fragment">Also: branches… <span class="fragment">we'll talk about that later</span></p>
+			</section>
+
+			<section>
+				<h2>Working together</h2>
+				<p class="fragment">We make changes as we work.</p>
+				<p><img class="fragment noborder" src="changes.svg" height="80"></p>
+				<p class="fragment">Once we have a change we want to keep, we "commit" it.</p>
+				<img class="fragment noborder" src="changes-as-brick.svg" height="80">
+				<p class="fragment">This wraps up our change so can become part of the project.</p>
+			</section>
+
+			<section>
+				<h2>Working together</h2>
+				<img class="noborder" src="bricks.svg" height="100">
+				<p class="fragment">The change is only on our computer.</p>
+				<p class="fragment">To share it, we 'sync'.</p>
+				<img class="fragment noborder" src="bricks-sync.svg" height="100">
+				<p class="fragment">This sends our commits to github.com, and fetches everyone else's commits.</p>
+			</section>
+
+			<section>
+				<h2>Inside a commit</h2>
+				<p class="fragment">A commits is a set of <i>changes</i></p>
+				<p class="fragment">Most changes involve <i>adding</i> and <i>deleting</i>.</p>
+				<img class="fragment" src="add-and-delete.png">
+				<p class="fragment">Here, we deleted the old text and added some new text.</p>
+				<p class="fragment">That's how git works!</p>
 			</section>
 
 			<section>

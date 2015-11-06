@@ -1173,3 +1173,10 @@ body {
 
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
+
+/*** girl code custom */
+.reveal section img.noborder {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+}
