@@ -580,6 +580,12 @@ footer .footer-below {
     margin-top: 24px;
     margin-bottom: 24px;
 }
+
+.codeclubstyle .framed {
+    border: 1px solid #74A588;
+    box-shadow: 2px 2px 4px #777;
+}
+
 .codeclubstyle .alert {
     position: relative;
     margin-top: 40px;
