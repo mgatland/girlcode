@@ -118,9 +118,13 @@
 
       <h2>Find it on Windows</h2>
 
+      <img src="cmd.png">
+
       <p>Press the Start button, type in "cmd" and <b>Command Prompt</b> will come up. Click on Command Prompt to start.</p>
 
       <h2>Find it on Mac</h2>
+
+      <img src="terminal.png">
 
       <p>Open Finder, go to Applications, look in the Utilities folder and open 'Terminal'.</p>
 
@@ -148,9 +152,9 @@
 
       <p>Protip 1: If the folder name has a space in it, you need to put speech marks around the whole name. This is so the command line knows that the two words are joined together. For example: <code>cd "My Documents"</code></p>
 
-      <p>Protip 2: On the Mac, capital letters matter! <code>cd Downloads</code> is not <code>cd downloads</code></p>
+      <p>Protip 2: On the Mac, capital letters matter! <code>cd Downloads</code> is not <code>cd downloads</code>. Windows doesn't care about capital letters.</p>
 
-      <p>To go up to the parent folder, type <code>cd ..</code></p>
+      <p>To go up to the parent folder, type <code>cd ..</code> (that is cd, a space, then two dots)</p>
 
       <p>That's enough command line stuff for now.</p>
 
@@ -166,7 +170,16 @@
 
       <p>Once you get there, type <code>dir</code> (Windows) or <code>ls</code> (Mac) and you should see a list of files including <b>index.js</b>.</p>
 
+      <div class="alert">
+        <p><b>Protip:</b> If you want to get to the right folder more quickly next time, just right click on the project name in Github Desktop and choose 'Open in Terminal' or 'Open in Command Prompt'</p>
+        <img src="open-in-terminal.png">
+
+        <p>This will open a Terminal or Command Prompt that is already in the right folder.</p>
+      </div>
+
       <h2>Running Node</h2>
+
+      <p>So you should now have Terminal or Command Prompt open, and have moved to the nodestart folder.</p>
 
       <p>To install the dependencies - all the things our program needs to work right - type <code>npm install</code> into Terminal\Command Prompt and hit enter. It may take a while to finish.</p>
 
@@ -176,19 +189,19 @@
 
       <p>Your Terminal\Command Prompt is now busy running the server - it won't listen to any more instructions from you.</p>
 
-      <p>This starts up a <b>server</b> on your computer. Open your favourite web browser (I like Google Chrome) and go to <a href="http://localhost:3000/index.html" target="_blank">http://localhost:3000/index.html</a> to visit your local server.</p>
+      <p>This starts up a <b>server</b> on your computer. Open your favourite web browser (we like Google Chrome) and go to <a href="http://localhost:3000/index.html" target="_blank">http://localhost:3000/index.html</a> to visit your local server.</p>
 
       <p>If you see an orange and purple page, it's working!</p>
 
       <h2>Serving Files</h2>
 
-      <p>This server program is very simple. When we ask for a file, it looks in the 'public' folder for that file. If it's there, it sends the file to us.</p>
+      <p>This server program is very simple. When we ask for a file, it looks in the 'nodestart/public' folder for that file. If it's there, it sends the file to us.</p>
 
       <p>The public folder is inside your nodestart folder. Use Windows Explorer or Finder (Mac) to look inside the public folder and see what's there.</p>
 
         <h2>Serve another File</h2>     
 
-        <p>Remember how we installed Atom a few weeks ago? Open Atom. It's a text editor. Use Atom to make a new file, and save it as in the 'public' folder with the file name <b>new.html</b>.</p>
+        <p>Remember how we installed Atom a few weeks ago? Open Atom. It's a text editor. Use Atom to make a new file, and save it as in the 'nodestart/public' folder with the file name <b>new.html</b>.</p>
 
         <p>using Atom, put this code inside new.html and save it again.</p>
 
