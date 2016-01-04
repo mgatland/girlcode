@@ -360,11 +360,12 @@
               <p style="margin: 5px 10px;">Which course are you signing up for?</p>
               <div class="form-group col-xs-12 controls">
                 <div class="radio">
-                  <label><input type="radio" name="course-options" value="Holiday 2016">The holiday course (Every day from <b>Monday 18th January</b> to <b>Friday 22nd January</b>)</label>
+                  <label><input type="radio" name="course-options" required data-validation-required-message="Please choose a course" value="Holiday 2016">The holiday course (Every day from <b>Monday 18th January</b> to <b>Friday 22nd January</b>)</label>
                 </div>
                 <div class="radio">
                   <label><input type="radio" name="course-options" value="Term 1 2016">The term 1 course (Thursdays nights from <b>18th February</b> to <b>7th April</b>)</label>
                 </div>
+                <p class="help-block text-danger"></p>
               </div>
             </div>
 
