@@ -29,6 +29,7 @@ $(function() {
                 url: "http://formspree.io/girlcodeakl@gmail.com",
                 type: "POST",
                 data: {
+                    _subject: "Girl Code Signup",
                     name: name,
                     phone: phone,
                     email: email,
