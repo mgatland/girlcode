@@ -14,6 +14,7 @@ $(function() {
             var name = $("input#name").val();
             var email = $("input#email").val();
             var phone = $("input#phone").val();
+            var course = $('input[name="course-options"]:checked').val();
             var attendAll = $('input[name="canAttend-options"]:checked').val();
             var canPay = $('input[name="canPay-options"]:checked').val();
             var byo = $('input[name="canByo-options"]:checked').val();
@@ -31,6 +32,7 @@ $(function() {
                     name: name,
                     phone: phone,
                     email: email,
+                    course: course,
                     canAttendAll: attendAll,
                     canPay: canPay,
                     canByo: byo
