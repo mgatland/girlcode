@@ -268,9 +268,9 @@ console.log("I am listening...");
 
       <pre><code class="language-javascript">
 var coolIdeas = [];
-coolIdeas.push("try wearing a hat on cold days"); 
-app.get('/ideas', function (req, res) {
-  res.send(coolIdeas);
+coolIdeas.push("Two cats who solve crimes in Dunedin"); 
+app.get('/ideas', function (request, response) {
+  response.send(coolIdeas);
 });
         </code></pre>
 
@@ -301,7 +301,7 @@ app.get('/ideas', function (req, res) {
 
       <p>When the user wants to change or save something, like a new facebook message, that's called POST. They POST the message to the server, like a letter 📩</p>
 
-      <p>Replace ALL the code in index.js with this new code. I've changed it, so that the server lets clients add ideas to a list. (Remember lists from our TV Show Idea Generator?)</p>
+      <p><b>Delete ALL the code in index.js</b> and replace it with this. I've changed it, so that the server lets clients add ideas to a list. (Remember lists from our TV Show Idea Generator?)</p>
 
       <pre><code class="language-javascript">
 //set up
@@ -319,7 +319,7 @@ app.use(bodyParser.json())
 
 //make an empty list of ideas
 var coolIdeas = [];
-coolIdeas.push("try wearing a hat on cold days"); 
+coolIdeas.push("A family who are all secretly superheroes but haven't told each other"); 
 
 //let a client GET the list of ideas
 app.get('/ideas', function (req, res) {
@@ -372,7 +372,7 @@ console.log("I am listening...");
 
     <p>Now if you go to that page (<a href="http://localhost:3000/test.html" target="_blank">http://localhost:3000/test.html</a>) and click Submit, your browser will POST your new idea to the server.</p>
 
-    <p>Try posting some new ideas, then go back to the page that GETs the ideas. You should see a list of ideas.</p>
+    <p>Try posting some new ideas, then look at <a href="http://localhost:3000/ideas" target="_blank">http://localhost:3000/ideas</a> again. The server will give you the list of ideas.</p>
 
     <h2>A pretty ideas feed</h2>
 
@@ -417,14 +417,14 @@ console.log("I am listening...");
     &lt;script>
 //Hello! This is the start of the JavaScript.
 
-var addIdea = function(idea) {
+var displayIdea = function(idea) {
   var ideaElement = $('&lt;h2>' + idea + '&lt;/h2>');
   $(".idea-box").append(ideaElement);
 
 }
 
 var createFeed = function(data) {
-  data.forEach(addIdea);
+  data.forEach(displayIdea);
 }
 
 $.get("/ideas", createFeed);
@@ -438,7 +438,7 @@ $.get("/ideas", createFeed);
 
     <p>Test your new ideas feed with this link: <a href="http://localhost:3000/ideafeed.html" target="_blank">http://localhost:3000/ideafeed.html</a></p>
 
-    <p>The Idea Feed is a page with some JavaScript. The script will GET the raw ideas list, then go through each item in the list. <b>For each item</b>, it creates a little bit of HTML and adds it into the page.</p>
+    <p>The Idea Feed is a page with some JavaScript. The script will GET the raw ideas list, then go through each item in the list. <b>For each item</b>, it creates a little bit of HTML and adds it into the page. (Just like in the fivestar activity.)</p>
 
     <h2>That's all!</h2>
 
