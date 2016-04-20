@@ -77,7 +77,7 @@
 
 .demopost img { float: left; display: none;}
 
-.demopost { width: calc(100% - 10px); box-sizing: border-box; display: inline-block;}
+.demopost { width: calc(100% - 10px); box-sizing: border-box; display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 
 .demopost.v1 br { display: none;}
 
