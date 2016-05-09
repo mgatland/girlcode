@@ -14,12 +14,13 @@
 
 	var defaults = {
 		options: {
+      mgprefix:"<i class='fa fa-arrow-up'></i> ", //girl code template
 			prependExistingHelpBlock: false,
 			sniffHtml: true, // sniff for 'required', 'maxlength', etc
 			preventSubmit: true, // stop the form submit event from firing if validation fails
 			submitError: false, // function called if there is an error when trying to submit
 			submitSuccess: false, // function called just before a successful submit event is sent to the server
-            semanticallyStrict: false, // set to true to tidy up generated HTML output
+            semanticallyStrict: true, // set to true to tidy up generated HTML output
 			autoAdd: {
 				helpBlocks: true
 			},
@@ -478,7 +479,7 @@
                 // How many errors did we find?
                 if (settings.options.semanticallyStrict && errorsFound.length === 1) {
                   // Only one? Being strict? Just output it.
-                  $helpBlock.html(errorsFound[0] + 
+                  $helpBlock.html(settings.options.mgprefix + errorsFound[0] + 
                     ( settings.options.prependExistingHelpBlock ? $helpBlock.data("original-contents") : "" ));
                 } else {
                   // Multiple? Being sloppy? Glue them together into an UL.
