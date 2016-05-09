@@ -105,6 +105,7 @@ header {
     background-position: center -70px;
     background-repeat: repeat-y; /* makes the 'gradient' cover the whole picture*/    
     background-attachment: fixed;
+    max-height: 775px; /*to stop background image wrapping at the bottom*/
 }
 
 header .container {
