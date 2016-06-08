@@ -113,9 +113,11 @@
 
 <h2>Part 2: Create a Github account at github.com</h2>
 
-<p>Go to <a href="https://github.com/" target='_blank'>github.com</a> and sign up for a new account.</p>
+<p>Go to <a href="https://github.com/" target='_blank'>github.com</a> and <b>sign up</b> for a new account.</p>
 
 <p>Go to our <a href="http://girlcodeakl.slack.com" target="_blank">slack channel</a> and tell us your Github username. Then we will give you permission to edit the cat facts!</p>
+
+<p>(GitHub will send you an email. You must click on the link in this email to go to a confirmation page, then confirm your email address with GitHub.)</p>
 
 <h2>Part 3: Install Github Desktop</h2>
 
@@ -127,9 +129,13 @@
 
 <p>Our cat facts are stored on github.com. 'Cloning' means making a copy on your computer so you can work on it.</p>
 
-<p>Go to the cat facts web page: <a href="https://github.com/girlcodeakl/catfacts" target="_blank">cat facts</a>.</p>
+<p>1. Go to the cat facts web page: <a href="https://github.com/girlcodeakl/catfacts" target="_blank">cat facts</a>.</p>
 
-<p>Click 'Clone or download', then choose 'Open in desktop' to clone the project using Github Desktop.</p>
+<p>2. Make sure you have signed in to the GitHub website, if you haven't already:</p>
+
+<img class="framed" src="sign-in.png"><br>
+
+<p>3. Click 'Clone or download', then choose 'Open in desktop' to clone the project using Github Desktop.</p>
 
 <img class="framed" src="clone-or-download.png"><br>
 
@@ -141,15 +147,23 @@
 
 <h2>Part 5: Ready to work</h2>
 
-<p>You now have catfacts open in Github Desktop. When you make changes, they will appear here so you can <b>commit</b> them and <b>sync</b> them.</p>
+<p>You now have a copy of the catfacts project on your computer. GitHub desktop shows the project.</p>
 
 <img class="framed" src="github-desktop.png">
+
+<p>GitHub Desktop has two main views: <b>History</b>, and <b>Changes</b>. We will usually look at the <b>Changes</b> view.</p>
+
+<img class="framed" src="changes.png">
+
+<p>When you make changes, the changes will appear in GitHub Desktop so you can <b>commit</b> them and <b>sync</b> them.</p>
 
 <h3>Choose a task</h3>
 
 <p>The mentors should now have created some tasks to do and put them up on the whiteboard.</p>
 
-<p>On the whiteboard, in real life, <b>write your name next to the task you're going to work on.</b></p>
+<p>On the whiteboard, in real life, <b>choose a task, move it to the Work In Progress column and write your name next to it.</b></p>
+
+<img class="framed" src="project-wall.jpg">
 
 <h3>Create a branch</h3>
 
@@ -168,11 +182,18 @@
     <img src="branches.jpg">    
 </div>
 
-<p>In Github Desktop, on the left-hand side, right click on <b>catfacts</b> and choose 'Open with Atom' to get your editor ready.</p>
+<p>Github Desktop lets us see our changes, but it's not for making changes. To actually make changes, we will use <b>Atom</b></p>
 
-<img class="framed" src="open-in-atom.png">
+<p>Open Atom, and choose File… Open Folder… open the folder where you saved the project. (It's probably in <b>My&nbsp;Documents\GitHub\catfacts</b>)</p>
 
-<p>Use Atom to make the changes for your assigned task.</p>
+<img class="framed" src="atom-open-folder.png" width="50%">
+
+<div class="alert">
+    <p>The first time you use Atom, it comes with a lot of 'Welcome' and 'Welcome Guide' tabs open. Close all these to give yourself more room! Your Atom should look nice and empty, like this:</p>
+    <img class="framed" src="atom-nice-and-empty.png">   
+</div>
+
+<p>Atom is a text editor (just like Microsoft Word or Pages for Mac). Use Atom to make the changes for your assigned task.</p>
 
 <h2>Part 6: Committing a change</h2>
 
@@ -182,7 +203,7 @@
 <img class="framed" src="github-tabs.png">
 
 <p>On Windows:</p>
-<img class="framed" src="github-tabs-2.png">
+<img class="framed" src="changes.png">
 
 <p>Look at your change here. If you're happy with it, write a note about what you did in the little box then click on the commit button.</p>
 
@@ -196,9 +217,21 @@
 
 <img class="framed" src="publish.png">
 
-<p>Once your new branch has been published once, the button changes to say 'Sync'. Clicking the button still does the same thing - it saves all your work to the cloud, and copies everyone else's work to your computer.</p>
+<p>Once your new branch has been published once, the button changes to say 'Sync'. <b>Sync and Publish both do the same job</b>: they save your changes to the cloud, and download anyone else's work if someone else is working in your branch.</p>
 
 <img class="framed" src="sync.png">
+
+<div class="alert">
+    <p><b>What if it's not working!</b></p>
+
+    <img class="framed" src="sync-failed.png">
+
+    <p>If this happens, you need permission to publish.</p>
+    <p>1. Post your GitHub username into our <a href="http://girlcodeakl.slack.com" target="_blank">slack channel</a>.</p>
+    <p>2. Ask one of the mentors to <b>make you a collaborator</b> so you can publish changes.</p>
+    <p>3. Check your email. GitHub will send you an invitation email. You must click the link to accept the invitation and become a collaborator.</p>
+    <p>Now try publishing your changes again.</p>
+</div>
 
 <h2>Part 7: Pull Request</h2>
 
@@ -209,6 +242,13 @@
 <p>Now ask Alice or Matthew to merge your pull request.</p>
 
 <p>Once they've merged it, in Github Desktop switch the branch back to 'master', click 'Sync', and check that your commit now appears in the history list.</p>
+
+<div class="alert">
+    <p><b>What is a Pull Request?</b></p>
+    <p>When you work in a branch, you are making your own special version of the project.</p>
+    <p>A Pull Request says: I want my changes to be copied into the main version of the project.</p>
+    <p>Normally, someone else will <b>review</b> your Pull Request to make sure it works and you didn't forget anything. If your change is complicated, they may ask you to help explain what you did so they understand it. Once they are happy, they will merge the change. This means it will be copied into the main project.</p>  
+</div>
 
 <h2>Part 8: Done</h2>
 
