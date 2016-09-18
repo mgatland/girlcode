@@ -98,9 +98,9 @@
       <!-- insert legacy Code Club content here -->
       <h1>Making a Server</h1>
 
-      <p>All our code so far has been client-side code. This means it is downloaded onto the user's computer, and makes things appear or happen on the user's computer.</p>
+      <p>Until now, all our code has been <i>client-side code</i>. That means the code is downloaded onto the user's computer, and their computer runs the code.</p>
 
-      <p>If we want to do things outside of the user's computer – like post messages for other people to read on other computers – we need to run code on the server, the computer that the website comes from.</p>
+      <p>This time, we are adding some server-side code. This code is run on the server - the computer that our website comes from. If we want to save a post online for other people to read, we need to save it on the server so its there for everyone.</p>
 
       <p>In this workshop we will set up a server using Node.js which will serve files to a client.</p>
 
@@ -113,7 +113,6 @@
       <h2>Get our Node project</h2>
 
       <p>Go to this <a href="https://github.com/mgatland/nodestart/" target="_blank">webpage</a> where Matthew put a simple Node project.</p>
-
 
       <p>Click 'Clone or download', then choose 'Open in desktop' to clone the project using Github Desktop.</p>
 
@@ -194,9 +193,17 @@
 
       <p>You can find out by right-clicking on the project in GitHub Desktop, and choosing 'Open in Explorer' (Windows) or 'Open in Finder' (Mac). This will open Explorer or Finder in the right folder, so you can check where it is.</p>
 
+      <img class="framed" src="github-open-folder.png">
+
+      <p>Then, in Command Prompt or Terminal, use the <code>cd</code> command to go there.</p>
+
+      <img class="framed" src="terminal-cd.png">
+
       </div>
 
       <p>Once you get there, type <code>dir</code> (Windows) or <code>ls</code> (Mac) and you should see a list of files including <b>index.js</b>.</p>
+
+      <img class="framed" src="ls-in-nodestart-folder.png">
 
       <div class="alert">
         <p><b>Protip:</b> If you want to get to the right folder more quickly next time, just right click on the project name in Github Desktop and choose 'Open in Terminal' (mac) or 'Open in Git Shell' (windows)</p>
@@ -278,9 +285,9 @@
 
      <p>What happens if you ask for something that's not in the public folder?</p>
 
-      <p><a href="http://localhost:3000/ideas" target="_blank">http://localhost:3000/ideas</a></p>
+      <p><a href="http://localhost:3000/posts" target="_blank">http://localhost:3000/posts</a></p>
 
-      <p>The server says "I can't GET that page for you".</p>
+      <p>The server says "I can't get that page for you".</p>
 
       <h2>Our server is clever</h2>
 
@@ -305,9 +312,8 @@ var app = express();
 //look in the public folder. If it's there, give it to them.
 app.use(express.static(__dirname + '/public'));
 
-//listen for connections on port 3000
 app.listen(3000);
-console.log("I am listening...");
+console.log("Hi! I am listening at http://localhost:3000");
       </code></pre>
 
       <p><b>We don't need to understand all of those commands today</b>. The main thing to know is, when you make a request, it looks in the public folder for a file to give you. If there is no matching file, it tells you it cannot GET that file.</p>
@@ -317,16 +323,17 @@ console.log("I am listening...");
       <p>Add this code at line 8 of your index.js file:</p>
 
       <pre><code class="language-javascript">
-var coolIdeas = [];
-coolIdeas.push("Two cats who solve crimes in Dunedin");
+var posts = [];
 
-var sendIdeasList = function (request, response) {
-  response.send(coolIdeas);
+posts.push("Imagine a TV show where two cats who solve crimes in Dunedin");
+
+var sendPostsList = function (request, response) {
+  response.send(posts);
 }
-app.get('/ideas', sendIdeasList);
+app.get('/posts', sendPostsList);
         </code></pre>
 
-        <p>This tells the server: When someone makes a GET request for "/ideas", use the code in the fuction <code>sendIdeasList</code> to reply. That code sends them the list 'coolIdeas', which currently contains one item.</p>
+        <p>This tells the server: When someone makes a GET request for "/posts", use the code in the fuction <code>sendPostsList</code> to reply. That code sends them the list 'posts', which currently contains one item.</p>
 
         <p>Now:</p>
 
@@ -339,11 +346,11 @@ app.get('/ideas', sendIdeasList);
 
         <p>Now try this link again:</p>
 
-        <p><a href="http://localhost:3000/ideas" target="_blank">http://localhost:3000/ideas</a></p>
+        <p><a href="http://localhost:3000/posts" target="_blank">http://localhost:3000/posts</a></p>
 
         <p>This time, you should get the special response.</p>
 
-        <p><b>protip</b>: the response isn't very pretty! It's just a list on plain white background. This is because it's not really made for looking at.</p>
+        <p><b>protip</b>: the response isn't very pretty! It's just a list on plain white background. This is because it's not really made for humans to look at.</p>
 
         <p>Normally, a human wouldn't GET a list like this. Instead, the web browser would GET it behind the scenes, and use it to build something that looks nice.</p>
 
@@ -351,9 +358,9 @@ app.get('/ideas', sendIdeasList);
 
       <p>When the user wants to look at a web page, that's called GET.</p>
 
-      <p>When the user wants to change or save something, like a new facebook message, that's called POST. They POST the message to the server, like a letter 📩</p>
+      <p>When the user wants to change or save something, like a new facebook message, that's called POST. It's a bit like posting a letter 📩</p>
 
-      <p><b>Delete ALL the code in index.js</b> and replace it with this. I've changed it, so that the server lets clients add ideas to a list. (Remember lists from our TV Show Idea Generator?)</p>
+      <p><b>Delete ALL the code in index.js</b> and replace it with this. I've changed it, so that the server lets clients add to a list. (Remember lists from our TV Show Idea Generator?)</p>
 
       <pre><code class="language-javascript">
 //set up
@@ -369,27 +376,28 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-//make an empty list of ideas
-var coolIdeas = [];
-coolIdeas.push("A family who are all secretly superheroes but haven't told each other");
+//make an empty list
+var posts = [];
+//Add an example post
+posts.push("A family who are all secretly superheroes but haven't told each other");
 
-//let a client GET the list of ideas
-var sendIdeasList = function (request, response) {
-  response.send(coolIdeas);
+//let a client GET the list
+var sendPostsList = function (request, response) {
+  response.send(posts);
 }
-app.get('/ideas', sendIdeasList);
+app.get('/posts', sendPostsList);
 
-//let a client POST new ideas
-var saveNewIdea = function (request, response) {
-  console.log(request.body.idea); //write it on the command prompt so we can see
-  coolIdeas.push(request.body.idea); //save it in our list
-  response.send("thanks for your idea. Press back to add another");
+//let a client POST something new
+var saveNewPost = function (request, response) {
+  console.log(request.body.message); //write it on the command prompt so we can see
+  posts.push(request.body.message); //save it in our list
+  response.send("thanks for your message. Press back to add another");
 }
-app.post('/ideas', saveNewIdea);
+app.post('/posts', saveNewPost);
 
 //listen for connections on port 3000
 app.listen(3000);
-console.log("I am listening...");
+console.log("Hi! I am listening at http://localhost:3000");
 
       </code></pre>
 
@@ -403,11 +411,11 @@ console.log("I am listening...");
 
     <p>You can test the GET by using the same link as before.</p>
 
-    <p><a href="http://localhost:3000/ideas" target="_blank">http://localhost:3000/ideas</a></p>
+    <p><a href="http://localhost:3000/posts" target="_blank">http://localhost:3000/posts</a></p>
 
     <p>Testing POST is trickier because your web browser does not normally POST.</p>
 
-    <p>To post, we need a page with a button on it. Use Atom to make a new file called <b>test.html</b> and save it in your <b>public</b> folder. Put this code inside:</p>
+    <p>To post, we need a page with a button on it. Use Atom to make a new file called <b>post.html</b> and save it in your <b>public</b> folder. Put this code inside:</p>
 
 <pre><code class="language-markup">
 &lt;!DOCTYPE html>
@@ -416,23 +424,23 @@ console.log("I am listening...");
     &lt;meta charset='utf-8'>
   &lt;/head>
   &lt;body>
-      &lt;form method="post" action="/ideas">
-          &lt;input type="text" name="idea" value="idea goes here">
+      &lt;form method="post" action="/posts">
+          &lt;input type="text" name="message" value="message goes here">
           &lt;input type="submit" value="Submit">
       &lt;/form>
   &lt;/body>
 &lt;/html>
 </code></pre>
 
-    <p>Now if you go to that page (<a href="http://localhost:3000/test.html" target="_blank">http://localhost:3000/test.html</a>) and click Submit, your browser will POST your new idea to the server.</p>
+    <p>Now if you go to that page (<a href="http://localhost:3000/post.html" target="_blank">http://localhost:3000/post.html</a>) and click Submit, your browser will POST your message to the server.</p>
 
-    <p>Try posting some new ideas, then look at <a href="http://localhost:3000/ideas" target="_blank">http://localhost:3000/ideas</a> again. The server will give you the list of ideas.</p>
+    <p>Try posting some new posts, then look at <a href="http://localhost:3000/posts" target="_blank">http://localhost:3000/posts</a> again. The server will give you the list of messages.</p>
 
-    <h2>A pretty ideas feed</h2>
+    <h2>A pretty message feed</h2>
 
-    <p>Let's add one more page to our site. This page will have some JavaScript that gets the ideas list, then makes it pretty for us to look at.</p>
+    <p>Let's add one more page to our site. This page will have some JavaScript that gets the message list, then makes it pretty for us to look at.</p>
 
-    <p>As before, use Atom to create the page, paste in the code below, and save it in the <b>public</b> folder as <b>ideafeed.html</b></p>
+    <p>As before, use Atom to create the page, paste in the code below, and save it in the <b>public</b> folder as <b>feed.html</b></p>
 
 <pre><code class="language-markup">
 &lt;!DOCTYPE html>
@@ -440,49 +448,51 @@ console.log("I am listening...");
   &lt;head>
     &lt;meta charset='utf-8'>
     &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
-    &lt;title>Idea Feed&lt;/title>
+    &lt;title>Message Feed&lt;/title>
     &lt;style>
     /*This is the start of the CSS*/
 
-    .idea-box {
+    body {
+      text-align: center;
+    }
+
+    .message-list {
       background-color: #FFF0A5;
       padding: 20px;
     }
 
     h1 {
-      text-align: center;
       color: #FFB03B;
     }
 
-    h2 {
+    .message {
       color: #468966;
       margin: 10px;
       padding: 10px;
       border: 2px solid #FFB03B;
       border-radius: 5px;
-      text-align: center;
     }
 
     /*end of CSS */
     &lt;/style>
   &lt;/head>
   &lt;body>
-    &lt;h1 class="title">Idea Feed&lt;/h1>
-    &lt;div class="idea-box">
+    &lt;h1 class="title">Message Feed&lt;/h1>
+    &lt;div class="message-list">
     &lt;/div>
     &lt;script>
 //Hello! This is the start of the JavaScript.
 
-var displayIdea = function(idea) {
-  var ideaElement = $('&lt;h2>' + idea + '&lt;/h2>');
-  $(".idea-box").append(ideaElement);
+var displayMessage = function(post) {
+  var postElement = $('&lt;div class="message">' + post + '&lt;/div>');
+  $(".message-list").append(postElement);
 }
 
 var createFeed = function(data) {
-  data.forEach(displayIdea);
+  data.forEach(displayMessage);
 }
 
-$.get("/ideas", createFeed);
+$.get("/posts", createFeed);
 
 //This is the end of the JavaScript.
     &lt;/script>
@@ -491,13 +501,13 @@ $.get("/ideas", createFeed);
 
 </code></pre>
 
-    <p>Test your new ideas feed with this link: <a href="http://localhost:3000/ideafeed.html" target="_blank">http://localhost:3000/ideafeed.html</a></p>
+    <p>Test your new message feed with this link: <a href="http://localhost:3000/feed.html" target="_blank">http://localhost:3000/feed.html</a></p>
 
-    <p>The Idea Feed is a page with some JavaScript. The script will GET the raw ideas list, then go through each item in the list. <b>For each item</b>, it creates a little bit of HTML and adds it into the page. (Just like in the fivestar activity.)</p>
+    <p>The Message Feed is a page with some JavaScript. The script will GET the raw message list, then go through each item in the list. <b>For each item</b>, it creates a little bit of HTML and adds it into the page. (Just like in the fivestar activity.)</p>
 
     <h2>That's all!</h2>
 
-    <p><b>extra for experts:</b> Can you move the code that POSTs new ideas onto the Ideas Feed page?</p>
+    <p><b>extra for experts:</b> Can you copy the form from post.html into feed.html so you can post and read on the same page?</p>
 
       <!-- end of legacy Code Club content here -->
                 </div>
