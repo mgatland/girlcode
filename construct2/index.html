@@ -115,17 +115,17 @@
 
                 <p>TODO: add a media bundle</p>
 
-                <a name="h2a0"></a><h2 id="h2ix0">Installing Construct 2</h2>
+                <h2 id="h2ix0">Installing Construct 2</h2>
 
                 <p>If you haven't already, grab a copy of the latest release of Construct 2 <a href="http://www.scirra.com/construct2/releases/new" target="_blank">here</a>.  The Construct 2 editor is for Windows only, but the games you make can run anywhere, such as Mac, Linux or iPad.</p>
 
-                <a name="h2a1"></a><h2 id="h2ix1">Getting started</h2>
+                <h2 id="h2ix1">Getting started</h2>
 
                 <p>Now you're set up, launch Construct 2.  Click the <em>File</em> button, and select <em>New</em>.<br><img width="188" height="162" class="article-image" src="https://www.scirra.com/images/articles/filenew.png" alt="The File menu 'New' button."><br>You will see the 'Template or Example' dialog box.<br><img width="322" height="325" class="article-image" src="https://www.scirra.com/images/articles/newprojdialog65_2.png" alt="Template or Example"><br>This shows a list of examples and templates. For now, just click on 'Open' at the bottom of the box to create a blank, empty new project.</p>
 
                 <p>You should now be looking at an empty <em>layout</em> - the design view where you create and position objects.  Think of a layout like a game level or menu screen.</p>
 
-                <a name="h2a2"></a><h3 id="h2ix2">Size the layout</h3>
+                <h3 id="h2ix2">Size the layout</h3>
 
                 <p>First of all, we need the layout (level) to be a bit bigger than the default.  Left-click a space in the layout and the <strong>Properties Bar</strong> will display <em>Layout Properties</em>.  Change the size of the level to 4000 x 2048.</p>
 
@@ -166,7 +166,7 @@
 
                 -->
 
-                <a name="h2a4"></a><h2 id="h2ix4">Adding tiles</h2>
+                <h2 id="h2ix4">Adding tiles</h2>
 
                 <p>Download this <a href="http://opengameart.org/content/tilesheet">free tileset</a> from OpenGameArt. (Go to that page then click on <b>sheet1.png</b> in the list of files.)</p>
 
@@ -180,7 +180,7 @@
 
                 <p><img width="365" height="205" class="article-image" src="https://www.scirra.com/images/articles/importspritestrip.png" alt="Importing a sprite strip"><br>A file open dialog appears.  Pick the file <em>sheet1.png</em> that you just downloaded.  Construct 2 then needs to know how many tiles are in the image.  You'll notice <em>sheet1.png</em> is an 8x8 grid of tiles.  Enter <em>8</em> and <em>8</em> and click <strong>OK</strong>.</p>
 
-                <p><img width="285" height="176" class="article-image" src="https://www.scirra.com/images/articles/importingtilemap.png" alt="Importing the 12x12 tile map."><br>Give Construct 2 a moment to cut up the tiles.  Now you should have all the tiles imported as animation frames!  We don't need the first blank frame any more though, so <strong>right click</strong> on it and select <strong>delete</strong>.</p>
+                <p><img width="285" height="176" class="article-image" src="https://www.scirra.com/images/articles/importingtilemap.png" alt="Importing the tile map."><br>Give Construct 2 a moment to cut up the tiles.  Now you should have all the tiles imported as animation frames!  We don't need the first blank frame any more though, so <strong>right click</strong> on it and select <strong>delete</strong>.</p>
 
                 <p><img width="285" height="142" class="article-image" src="https://www.scirra.com/images/articles/deletefirstframe.png" alt="Deleting the first animation frame."><br>You might want to resize the <em>Animation Frames</em> window bigger to get a better view of your tiles.  Also, you can right-click a space and change the thumbnail size to Large if you prefer big thumbnails.</p>
 
@@ -192,7 +192,7 @@
 
                 <p><img width="190" height="178" class="article-image" src="https://www.scirra.com/images/articles/spritetile.png" alt="The Sprite tile in the layout."><br>With it selected, change its name from Sprite to <strong>Tile</strong> in the Properties Bar.  It's always a good idea to give objects an appropriate name.</p>
 
-                <a name="h2a5"></a><h3 id="h2ix5">Creating scenery from tiles</h3>
+                <h3 id="h2ix5">Creating scenery from tiles</h3>
 
                 <p>Notice the Sprite object has an <strong>Initial frame</strong> property.  We can use this to switch the current tile.  Select the Tile object and change its initial frame to 1:</p>
 
@@ -202,7 +202,7 @@
 
                 <p><img width="417" height="163" class="article-image" src="https://www.scirra.com/images/articles/threetiles.png" alt="Three different tiles added to the layout."><br>If you're wondering how to double-check which frame number corresponds to which tile, just double-click the tile object.  The image editor comes up again with the animation windows where you can check.  Remember you can <em>control drag</em> a tile and it makes another tile of the same type, so you don't need to keep typing in initial frames.</p>
 
-                <a name="h2a6"></a><h3 id="h2ix6">Enabling snap to grid</h3>
+                <h3 id="h2ix6">Enabling snap to grid</h3>
 
                 <p>It's going to be a headache if we have to line up these tiles by hand!  You can enable a grid to make this easier.  In the ribbon, click <em>View</em> and enable <em>Snap to Grid</em>.  The default grid size of 32x32 is fine.</p>
 
@@ -210,19 +210,22 @@
 
                 <p><img width="402" height="143" class="article-image" src="https://www.scirra.com/images/articles/threetilessnapped.png" alt="The three tiles snapped together."><br></p>
 
+<!--
                 <h2>Page 3</h2>
+-->
+                <h2 id="h2ix7">Adding the Player sprite</h2>
 
-                <a name="h2a7"></a><h2 id="h2ix7">Adding the Player sprite</h2>
+                <p>Download this file: <a href="wizard_idle.png" download="wizard_idle.png">wizard_idle.png</a> (credit: Animated Wizard by Calciumtrice, usable under Creative Commons Attribution 3.0 license.)</p>
 
                 <p>Let's add a sprite for the player.  As before, <strong>double-click</strong> a space in the layout to insert a new object, and choose <strong>Sprite</strong>.  When the crosshair comes up, click somewhere above the tiles.  The <strong>Image Editor</strong> will appear.</p>
 
                 <p>Let's import the sprite strip for the player's <em>idle</em> animation.  As before, right click the <em>Animation Frames</em> window and select <strong>Import sprite strip...</strong>.</p>
 
-                <p><img width="365" height="205" class="article-image" src="https://www.scirra.com/images/articles/importspritestrip.png" alt="Importing a sprite strip again."><br>Choose the file <em>Player\Idle\Idle.png</em>.  Note that's the complete sprite strip, not one of the animation frames.  You can also import the sequence of files with the <em>Import frames...</em> option, but let's stick to this way for now.</p>
+                <p><img width="365" height="205" class="article-image" src="https://www.scirra.com/images/articles/importspritestrip.png" alt="Importing a sprite strip again."><br>Choose the file <em>wizard_idle.png</em>.  Note that's the complete sprite strip, not one of the animation frames.  You can also import the sequence of files with the <em>Import frames...</em> option, but let's stick to this way for now.</p>
 
-                <p>Because the strip is not square, Construct 2 guesses the number of frames.  It should correctly identify that there are <strong>11</strong> frames.  Click <strong>OK</strong> and the frames are imported.</p>
+                <p>Because the strip is not square, Construct 2 guesses the number of frames.  It should correctly identify that there are <strong>10</strong> frames.  Click <strong>OK</strong> and the frames are imported.</p>
 
-                <p>Note we still have the default blank frame at the start.  Right click and delete that again.  You should now have a sequence of 11 animation frames for the player's Idle animation.</p>
+                <p>Note we still have the default blank frame at the start.  Right click and delete that again.  You should now have a sequence of animation frames for the player's Idle animation.</p>
 
                 <p><img width="480" height="249" class="article-image" src="https://www.scirra.com/images/articles/playeranimframes.png" alt="The Idle animation."><br><a name="h2a8"></a><h3 id="h2ix8">Cropping</h3>
 
@@ -256,23 +259,25 @@
 
                 </div>
 
+<!--
                 <h2>Page 4</h2>
+-->
 
-                <a name="h2a11"></a><h2 id="h2ix11">Adding behaviors</h2>
+                <h2 id="h2ix11">Adding behaviors</h2>
 
-                <p>Construct 2 comes with lots of <em>behaviors</em>.  These make your objects work in pre-defined ways, which often saves loads of time.  It's possible to re-do everything the behaviors do in the event system, but it is often difficult and time consuming to do that.  That's why behaviors are really handy to get your game up and running quickly!</p>
+                <p>Construct 2 comes with lots of <em>behaviors</em>.  These make your objects work in pre-defined ways, which can save you lots of time.</p>
 
-                <p>The <strong>Platform behavior</strong> can take care of the complexities of platform movement for us.  However, there's one important tip for using it: <strong>the behavior should be applied to an invisible rectangle object</strong>, and the player positioned on top.  The Platform behavior works much better if the object with the behavior doesn't animate, since changing animation frame can leave the object partly sticking in to a wall which can confuse the Platform behavior.  Also, it avoids silly collision situations like your player hanging off a ledge by their nose or something they're holding.</p>
+                <p>The <strong>Platform behavior</strong> gives us simple 2D platform-game movement.  However, there's one important tip for using it: <strong>the behavior should be applied to an invisible rectangle object</strong>, and the player positioned on top.  The Platform behavior works much better if it's attached to a simple square object instead of a complex animated object.</p>
 
                 <p>So we need to make an invisible square for the movement first.  <strong>Double-click</strong> the layout to add a new sprite again, and this time import a square like below.  (Right-click and 'save as' if you need it.)</p>
 
                 <p><img width="36" height="37" class="article-image" src="https://www.scirra.com/images/articles/square1.png" alt="A square"><br>As before, we should have the origin at the bottom.  So click <strong>Set origin and image points</strong> again and press 2 (or use the <em>quick assign</em> menu) to position the origin at the bottom.</p>
 
-                <p><img width="66" height="64" class="article-image" src="https://www.scirra.com/images/articles/playerboxhotspot.png" alt="Hotspot set"><br>Close the image editor.  You should now see it in the layout.  Resize it to roughly the same size as the player's body as shown below - this size is 53x107.</p>
+                <p><img width="66" height="64" class="article-image" src="https://www.scirra.com/images/articles/playerboxhotspot.png" alt="Hotspot set"><br>Close the image editor.  You should now see it in the layout.  Resize it to roughly the same size as the player's body as shown below.</p>
 
                 <p><img width="198" height="167" class="article-image" src="https://www.scirra.com/images/articles/playercollisionbox.png" alt="Player's collision box"><br>Rename this object to <em>PlayerBox</em> since it's the box for movement and collision testing for the player.  Also, in the Properties Bar, set <strong>Initial visibility</strong> to <strong>Invisible</strong> since we don't want to see it.</p>
 
-                <p>We also want to give the Platform movement to the PlayerBox object for more reliable collision detection.  Still in the PlayerBox's properties, click <strong>Add / Edit</strong> by <strong>Edit behaviors</strong> in the properties bar.  In the dialog that appears, click the green plus button.</p>
+                <p>Still in the PlayerBox's properties, click <strong>Add / Edit</strong> by <strong>Edit behaviors</strong> in the properties bar.  In the dialog that appears, click the green plus button.</p>
 
                 <p><img width="453" height="238" class="article-image" src="https://www.scirra.com/images/articles/addplayerboxbehavior.png" alt="Adding a behavior"><br><strong>Double-click</strong> the <strong>Platform</strong> behavior.</p>
 
@@ -282,7 +287,7 @@
 
                 <p>Once you've added both behaviors, close the <em>Player behaviors</em> dialog.</p>
 
-                <a name="h2a12"></a><h3 id="h2ix12">Adding the Solid behavior</h3>
+                <h3 id="h2ix12">Adding the Solid behavior</h3>
 
                 <p>The platform movement needs to know what objects it can land on.  The player will fall through any objects which don't have the <strong>Solid</strong> behavior.  So this time select the <em>Tile</em> sprite and add a behavior for it, this time choosing the <strong>Solid</strong> behavior.</p>
 
@@ -290,9 +295,11 @@
 
                 <p><img width="229" height="68" class="article-image" src="https://www.scirra.com/images/articles/switchtoeventsheet.png" alt="Switching to the event sheet."><br></p>
 
+<!--
                 <h2>Page 5</h2>
+-->
 
-                <a name="h2a13"></a><h3 id="h2ix13">Creating events</h3>
+                <h3 id="h2ix13">Creating events</h3>
 
                 <p>Events work by testing if a series of <em>conditions</em> have been met.  If they have, the <em>actions</em> run.</p>
 
@@ -316,7 +323,7 @@
 
                 <p><img width="230" height="54" class="article-image" src="https://www.scirra.com/images/articles/rungame.png" alt="Run the game."><br>Move and jump with the arrow keys.  You've got your first basic platformer up and running!</p>
 
-                <a name="h2a14"></a><h3 id="h2ix14">Problems</h3>
+                <h3 id="h2ix14">Problems</h3>
 
                 <p>If you play around you might notice some problems:</p>
 
@@ -348,17 +355,26 @@
 
                 <p><img width="504" height="93" class="article-image" src="https://www.scirra.com/images/articles/mirroringevents.png" alt="The mirroring events."><br>Now when we press left the player's image will mirror, and when we press right it restores the right-facing image.  <strong>Run the game</strong> and try it out!</p>
 
+<!--
                 <h2>Page 6</h2>
+-->
 
-                <a name="h2a15"></a><h3 id="h2ix15">Adding more animations</h3>
+                <h3 id="h2ix15">Adding more animations</h3>
 
-                <p>Let's get the rest of the player's animations added.  First, let's add some more platforms for the player to jump around so we can more easily see how the animations work.</p>
+                <p>We're not going to add any more animations just now. But you could!</p>
+
+                <h3 id="h2ix15">Room to move</h3>
+
+                <p>Let's add some more platforms for the player to jump around.</p>
 
                 <p>Switch back to the <strong>Layout View</strong> where you can see the player and floor tiles.  <strong>Click and drag</strong> to select all three tiles.  Then, hold <strong>Control</strong> and <strong>drag</strong> the tiles to clone them.  Do this a few times so there are some platforms to jump around.  It might help to zoom out for this.</p>
 
                 <p><img width="446" height="277" class="article-image" src="https://www.scirra.com/images/articles/threeplatforms.jpg" alt="Three platforms for the player to jump around."><br>To give us a better view, let's also make the window size a bit bigger.  Click the name of the project at the top of the <em>Project Bar</em> to show the project's properties.  Change the <strong>Window Size</strong> to <strong>800, 600</strong>.</p>
 
-                <p><img width="276" height="192" class="article-image" src="https://www.scirra.com/images/articles/biggerwindowsize.png" alt="Changing the window size."><br>Now that we have somewhere to jump to, with a bigger window size so we can see more, let's get going adding the rest of the player animations.</p>
+
+                <p><img width="276" height="192" class="article-image" src="https://www.scirra.com/images/articles/biggerwindowsize.png" alt="Changing the window size."><br>Now we can jump around more and see how the player moves.</p>
+
+<!--
 
                 <p>Remember we're using the <em>Set mirrored</em> action to automatically flip the player left and right.  So we only need to import animations for the player facing right.</p>
 
@@ -406,13 +422,17 @@
 
                 <p><a href="https://www.scirra.com/images/articles/platformanimationevent5.png" target="_blank"><img width="578" height="127" class="article-image thumb-img" src="https://www.scirra.com/images/articles/platformanimationevent5.png" alt="Fifth animation event."><div class="full-size-img">Open full size image</div></a><br>Once you've set this all up, run the game.  Congratulations - you've now made a fully animated player character!  Notice how the different animations play if you jump from standing still, or jump from running.  Also see how when you land from a jump, you either go back to Idle or Running depending on whether you are moving or not.</p>
 
+-->
+<!--
                 <p>Now, time to make an enemy!</p>
 
                 <h2>Page 7</h2>
-
+-->
                 <a name="h2a17"></a><h2 id="h2ix17">Adding an enemy</h2>
 
-                <p>Hopefully you're familiar with the process of adding sprites and animations now.  So for conciseness the steps in full won't be repeated.  Let's add a new sprite for an enemy.</p>
+                <p>Let's add a new sprite for an enemy.</p>
+
+                <p>Download <a href="http://opengameart.org/content/snail">snail.png</a> from OpenGameArt.</p>
 
                 <p>1.  Add a new Sprite object in the layout.<br>2.  Import the <em>Enemies\Snail</em> sprite strip.<br>3.  Delete the first empty animation frame.<br>4.  Set the animation to looping, speed 15.<br>5.  Set the origin to the base of the snail image, and apply it to the whole animation.<br>6.  Crop all the frames (shift + crop).<br>7.  Close the animation editor and rename the object to 'SnailEnemy'.<br>8.  Place it on a ground tile as shown.</p>
 
@@ -454,7 +474,7 @@
 
                 <p>Remember the Flash behavior is in the Player object, not PlayerBox.</p>
 
-                <p><a href="https://www.scirra.com/images/articles/finishedjumpabove.png" target="_blank"><img width="578" height="155" class="article-image thumb-img" src="https://www.scirra.com/images/articles/finishedjumpabove.png" alt="The finished event"><div class="full-size-img">Open full size image</div></a><br>OK, so the player will never die, they'll just flash.  But we've got the detection set up of whether they jumped on top or ran in to the side.  This tutorial won't cover all the bells and whistles, but hopefully you can see where to create kill effects (try creating a 'poof' sprite on the SnailEnemy when it is destroyed, using the SnailEnemy's 'Spawn object' action) and where to take off health (in the event that makes the player flash - you can learn about health using instance variables in the <a href="http://www.scirra.com/tutorials/37/beginners-guide-to-construct-2" rel="nofollow">top-down shooter tutorial</a> which you might want to look at afterwards).</p>
+                <p><a href="https://www.scirra.com/images/articles/finishedjumpabove.png" target="_blank"><img width="578" height="155" class="article-image thumb-img" src="https://www.scirra.com/images/articles/finishedjumpabove.png" alt="The finished event"><div class="full-size-img">Open full size image</div></a><br>OK, so the player will never die, they'll just flash.  But we've got the detection set up of whether they jumped on top or ran in to the side.  This tutorial won't cover all the bells and whistles, but hopefully you can see where to create kill effects (try creating a 'smoke puff' sprite on the SnailEnemy when it is destroyed, using the SnailEnemy's 'Spawn object' action) and where to take off health (in the event that makes the player flash - you can learn about health using instance variables in the <a href="http://www.scirra.com/tutorials/37/beginners-guide-to-construct-2" rel="nofollow">top-down shooter tutorial</a> which you might want to look at afterwards).</p>
 
                 <p>Let's make the snail enemy move back and forth across the platform.</p>
 
@@ -502,8 +522,10 @@
 
                 <p><img width="455" height="153" class="article-image" src="https://www.scirra.com/images/articles/twosnails.png" alt="Two snails on a platform."><br></p>
 
+<!--
                 <h2>Page 8</h2>
-
+-->
+<!--
                 <a name="h2a19"></a><h2 id="h2ix19">Jump-thru objects</h2>
 
                 <p>If you place some tiles around, you might notice if you jump in to a tile from underneath you hit your head on it and fall back down.  What if you want to make platforms you can jump on to from underneath?  This is what the <strong>Jump-thru</strong> behavior does.  Like the Solid behavior you can stand on it with the Platform behavior, but the player can jump on to it from underneath.</p>
@@ -513,26 +535,44 @@
                 <p>Use tiles 134 and 135 to make a jump-thru like this:</p>
 
                 <p><img width="306" height="200" class="article-image" src="https://www.scirra.com/images/articles/jumpthru.png" alt="A jump-thru platform."><br>Run the game.  Notice how you can jump on to it from underneath.</p>
+-->
 
                 <p>Hopefully you now know enough to design a whole level!  Here's a zoomed out level design I put together quickly while writing the tutorial.  It might help show you some of the possibilities.  Notice the use of markers across platforms to keep the snails on their platforms.</p>
 
                 <p><a href="https://www.scirra.com/images/articles/leveldesign.png" target="_blank"><img width="578" height="188" class="article-image thumb-img" src="https://www.scirra.com/images/articles/leveldesign.png" alt="The overall level design."><div class="full-size-img">Open full size image</div></a><br><a name="h2a20"></a><h3 id="h2ix20">Parallax</h3>
 
+<!--
                 <p>Try adding a parallax effect to make the background seem further away.  Select the <em>Background</em> layer in the layers bar.  In the properties bar, set the <em>Parallax</em> property to <strong>50, 50</strong> (which means half speed scrolling).  Notice how the background moves slower, giving a distance feel.  Using multiple layers all with different parallax rates can create an almost 3D feel to a 2D game.</p>
-
+-->
                 <a name="h2a21"></a><h2 id="h2ix21">Conclusion</h2>
 
-                <p>This tutorial covered a lot.  You may want to revise it some time.  Here are some of the key points:</p>
+                <p>This tutorial covered a lot. Here are some of the key points:</p>
 
-                <p>- For the player's Platform behavior, always add the movement to an invisible box with no animations.  Position the visible, animated player sprite on top of the box.  This will prevent animations causing glitches in the platform movement.<br>- Levels can be built out of tiles.<br>- The <em>Set mirrored</em> action saves you having to make mirrored copies of all your animations.<br>- Animations sometimes need some work to get imported, set up with the right speed and looping properties, with the right origin set, and all frames cropped.  You may also want to alter the collision masks, although this was not covered.<br>- Enemies can also be controlled with the Platform behavior.  Set <em>Default Controls</em> to <em>No</em> and use the <em>Simulate control</em> action to automatically control movement.<br>- You can detect if the player is falling on an enemy rather than running in to them by testing if they are both falling and above the enemy on the Y axis when colliding.  Otherwise (using 'Else'), they must be running in to the enemy, and they should get hurt.<br>- Instance variables can store numbers or text unique to each instance of an object.  This helps control objects individually, which is useful for "AI".<br>- Edge markers are a quick and easy way to make enemies go back and forth on a platform.<br>- Jump-thru are platforms that can be jumped on to from underneath.<br>- Parallax is an easy and intriguing effect to add to platform games.</p>
+                <p>- For the player's Platform behavior, always add the movement to an invisible box with no animations.  Position the visible, animated player sprite on top of the box.  This will prevent animations causing glitches in the platform movement.<br>- Levels can be built out of tiles.<br>- The <em>Set mirrored</em> action saves you having to make mirrored copies of all your animations.<br>
+
+                <!--- Animations sometimes need some work to get imported, set up with the right speed and looping properties, with the right origin set, and all frames cropped.  You may also want to alter the collision masks, although this was not covered.-->
+
+                <br>- Enemies can also be controlled with the Platform behavior.  Set <em>Default Controls</em> to <em>No</em> and use the <em>Simulate control</em> action to automatically control movement.<br>- You can detect if the player is falling on an enemy rather than running in to them by testing if they are both falling and above the enemy on the Y axis when colliding.  Otherwise (using 'Else'), they must be running in to the enemy, and they should get hurt.<br>- Instance variables can store numbers or text unique to each instance of an object.  This helps control objects individually, which is useful for "AI".<br>- Edge markers are a quick and easy way to make enemies go back and forth on a platform.<br>
+
+                <!--- Jump-thru are platforms that can be jumped on to from underneath.<br>- Parallax is an easy and intriguing effect to add to platform games.</p>
+                -->
 
                 <p>Obviously we have not made a full platform game!  However, this tutorial has covered the most difficult bits, and the important essentials every platform game creator should know in advance.  From here on hopefully you have an idea of how the rest of a platform game is going to come together.  It takes time to get familiar with a complex development tool with Construct 2.  However, experimenting can be fun, and teach you a lot!  So spend a while playing around, breaking things, tweaking things, and see what you can come up with.  Happy platforming!</p>
 
-                <a name="h2a22"></a><h3 id="h2ix22">Further reading</h3>
+                <h3 id="h2ix22">Further reading</h3>
+
+                <p>The Girl Code version of this tutorial removed some sections so we could go faster. They were on:</p>
+
+                <ul>
+                  <li>adding a background</li>
+                  <li>Giving the background a parallax effect</li>
+                  <li>Adding animations to the player and triggering them in different situations (walking, jumping)</li>
+                  <li>Jump-through platforms</li>
+                </ul>
 
                 <p>You may be interested in the alternative beginner's guide, which is a <a href="http://www.scirra.com/tutorials/37/beginners-guide-to-construct-2" rel="nofollow">tutorial to make a top-down shooter</a>. It covers some different points like making a heads-up display, and goes in to instance variables in some more detail too.  These are both things that can be applied to platform games, so it would definitely be useful to go through it in addition to this tutorial.</p>
 
-                <p>Want to add music and sound effects?  See <a href="http://www.scirra.com/manual/84/sounds-music" rel="nofollow">Sounds & Music</a> in the manual.</p>
+                <p>Want to add music and sound effects?  See <a href="http://www.scirra.com/manual/84/sounds-music" rel="nofollow">Sounds &amp; Music</a> in the manual.</p>
 
                 <p>If you'd like to know more about how events work in Construct 2, see the section on <a href="http://www.scirra.com/manual/75/how-events-work" rel="nofollow">How Events Work</a> in the manual. It's highly recommended so you can get going quickly with your own projects!  Then for even more information, don't forget there is <a href="http://www.scirra.com/manual/1/construct-2" rel="nofollow">complete documentation in the manual</a>.</p>
 
