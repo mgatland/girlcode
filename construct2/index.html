@@ -113,11 +113,9 @@
 
                 <p>Construct 2 can make all kinds of 2D games.  In this tutorial, you'll be taken through the basics of making a platform game in Construct 2.</p>
 
-                <p>TODO: add a media bundle</p>
-
                 <h2 id="h2ix0">Installing Construct 2</h2>
 
-                <p>If you haven't already, grab a copy of the latest release of Construct 2 <a href="http://www.scirra.com/construct2/releases/new" target="_blank">here</a>.  The Construct 2 editor is for Windows only, but the games you make can run anywhere, such as Mac, Linux or iPad.</p>
+                <p>If you haven't already, grab a copy of the latest release of Construct 2 <a href="http://www.scirra.com/construct2/releases/new" target="_blank">here</a>.  The Construct 2 editor is for Windows only, but the games you make can run on Windows, Mac, iPhones and Android devices.</p>
 
                 <h2 id="h2ix1">Getting started</h2>
 
@@ -127,7 +125,7 @@
 
                 <h3 id="h2ix2">Size the layout</h3>
 
-                <p>First of all, we need the layout (level) to be a bit bigger than the default.  Left-click a space in the layout and the <strong>Properties Bar</strong> will display <em>Layout Properties</em>.  Change the size of the level to 4000 x 2048.</p>
+                <p>First of all, we need the layout (level) to be a bit bigger than the default.  Left-click a space in the layout and the <strong>Properties Bar</strong> (left side of the screen) will display <em>Layout Properties</em>.  Change the size of the level to 4000, 2048.</p>
 
                 <!-- add later: background
 
@@ -172,17 +170,23 @@
 
                 <p>The image contains 64 different tiles.</p>
 
-                <p><strong>double-click</strong> a space in the layout to insert a new object.  Choose <strong>Sprite</strong>.  The mouse turns into a crosshair – Click somewhere in the middle of the screen.</p>
+                <p><strong>double-click</strong> a space in the layout to insert a new object.  Choose <strong>Sprite</strong>.</p>
+
+                <img src="click-sprite.png">
+
+                <p>The mouse turns into a crosshair – Click somewhere in the middle of the screen.</p>
 
                 <p>The <strong>Image Editor</strong> opens up, with some windows to control animations. We are going to use animations in a weird way. We'll have an animation speed of 0 (paused). We'll have a different tile in each frame of the animation.  Then, we can switch which tile is showing by changing the animation frame.</p>
 
-                <p><strong>Right click</strong> a space in the <strong>Animation Frames</strong> pane at the bottom, and pick <strong>Import sprite strip...</strong>.</p>
+                <p><strong>Right click</strong> a space in the <strong>Animation Frames</strong> pane at the bottom, and pick <strong>Import frames -> from sprite strip...</strong>.</p>
 
-                <p><img width="365" height="205" class="article-image" src="https://www.scirra.com/images/articles/importspritestrip.png" alt="Importing a sprite strip"><br>A file open dialog appears.  Pick the file <em>sheet1.png</em> that you just downloaded.  Construct 2 then needs to know how many tiles are in the image.  You'll notice <em>sheet1.png</em> is an 8x8 grid of tiles.  Enter <em>8</em> and <em>8</em> and click <strong>OK</strong>.</p>
+                <p><img class="article-image" src="import-frames-from-spritesheet.png" alt="Importing a sprite strip"><br>A file open dialog appears.  Pick the file <em>sheet1.png</em> that you just downloaded.  Construct 2 then needs to know how many tiles are in the image.  You'll notice <em>sheet1.png</em> is an 8x8 grid of tiles.  Enter <em>8</em> and <em>8</em> and click <strong>OK</strong>.</p>
 
                 <p><img width="285" height="176" class="article-image" src="https://www.scirra.com/images/articles/importingtilemap.png" alt="Importing the tile map."><br>Give Construct 2 a moment to cut up the tiles.  Now you should have all the tiles imported as animation frames!  We don't need the first blank frame any more though, so <strong>right click</strong> on it and select <strong>delete</strong>.</p>
 
-                <p><img width="285" height="142" class="article-image" src="https://www.scirra.com/images/articles/deletefirstframe.png" alt="Deleting the first animation frame."><br>You might want to resize the <em>Animation Frames</em> window bigger to get a better view of your tiles.  Also, you can right-click a space and change the thumbnail size to Large if you prefer big thumbnails.</p>
+                <p><img width="285" height="142" class="article-image" src="https://www.scirra.com/images/articles/deletefirstframe.png" alt="Deleting the first animation frame."><br>You might want to resize the <em>Animation Frames</em> window bigger to get a better view of your tiles.</p>
+
+<!-- Also, you can right-click a space and change the thumbnail size to Large if you prefer big thumbnails. -->
 
                 <p>By default the animation speed is 5, which means tiles will keep changing their image.  We want tiles to stay on their current frame, so let's make sure the animation speed is 0.  Select the <em>Default</em> animation in the <em>Animations</em> window.</p>
 
@@ -192,13 +196,15 @@
 
                 <p><img width="190" height="178" class="article-image" src="https://www.scirra.com/images/articles/spritetile.png" alt="The Sprite tile in the layout."><br>With it selected, change its name from Sprite to <strong>Tile</strong> in the Properties Bar.  It's always a good idea to give objects an appropriate name.</p>
 
+                  <img src="rename-sprite-to-tile.png">
+
                 <h3 id="h2ix5">Creating scenery from tiles</h3>
 
-                <p>Notice the Sprite object has an <strong>Initial frame</strong> property.  We can use this to switch the current tile.  Select the Tile object and change its initial frame to 1:</p>
+                <p>Notice the Sprite object has an <strong>Initial frame</strong> property.  We can use this to switch the current tile.  Select the Tile object and change its initial frame to 4:</p>
 
-                <p><img width="250" height="156" class="article-image" src="https://www.scirra.com/images/articles/spriteinitialframe.png" alt="Changing the tile's initial frame."><br>Notice the image changes to reflect the tile in animation frame 1.  This is how we can set up different tiles across the level.</p>
+                <p><img width="250" height="156" class="article-image" src="https://www.scirra.com/images/articles/spriteinitialframe.png" alt="Changing the tile's initial frame."><br>Notice the image changes to reflect the tile in animation frame 4.  This is how we can set up different tiles across the level.</p>
 
-                <p>Hold <strong>Control</strong> and <strong>click and drag</strong> the tile.  You'll create another tile object.  Do this again so we have 3 tiles in a row.  Select the middle one and set its <em>initial frame</em> to <strong>10</strong>.  Do the same for the one on the right, but make its initial frame <strong>13</strong>.  You should now have something like this:</p>
+                <p>Hold <strong>Control</strong> and <strong>click and drag</strong> the tile.  You'll create another tile object.  Do this again so we have 3 tiles in a row.  Select the middle one and set its <em>initial frame</em> to <strong>5</strong>.  Do the same for the one on the right, but make its initial frame <strong>6</strong>.  You should now have something like this:</p>
 
                 <p><img width="417" height="163" class="article-image" src="https://www.scirra.com/images/articles/threetiles.png" alt="Three different tiles added to the layout."><br>If you're wondering how to double-check which frame number corresponds to which tile, just double-click the tile object.  The image editor comes up again with the animation windows where you can check.  Remember you can <em>control drag</em> a tile and it makes another tile of the same type, so you don't need to keep typing in initial frames.</p>
 
@@ -219,7 +225,7 @@
 
                 <p>Let's add a sprite for the player.  As before, <strong>double-click</strong> a space in the layout to insert a new object, and choose <strong>Sprite</strong>.  When the crosshair comes up, click somewhere above the tiles.  The <strong>Image Editor</strong> will appear.</p>
 
-                <p>Let's import the sprite strip for the player's <em>idle</em> animation.  As before, right click the <em>Animation Frames</em> window and select <strong>Import sprite strip...</strong>.</p>
+                <p>Let's import the sprite strip for the player's <em>idle</em> animation.  As before, right click the <em>Animation Frames</em> window and select <strong>Import Frames -> From sprite strip...</strong>.</p>
 
                 <p><img width="365" height="205" class="article-image" src="https://www.scirra.com/images/articles/importspritestrip.png" alt="Importing a sprite strip again."><br>Choose the file <em>wizard_idle.png</em>.  Note that's the complete sprite strip, not one of the animation frames.  You can also import the sequence of files with the <em>Import frames...</em> option, but let's stick to this way for now.</p>
 
@@ -227,21 +233,21 @@
 
                 <p>Note we still have the default blank frame at the start.  Right click and delete that again.  You should now have a sequence of animation frames for the player's Idle animation.</p>
 
-                <p><img width="480" height="249" class="article-image" src="https://www.scirra.com/images/articles/playeranimframes.png" alt="The Idle animation."><br><a name="h2a8"></a><h3 id="h2ix8">Cropping</h3>
+                <p><img class="article-image" src="idle_frames.png" alt="The Idle animation."><br><a name="h2a8"></a><h3 id="h2ix8">Cropping</h3>
 
                 <p>You might notice the player has some empty transparent space around them.  This is common after importing images.  However, it's bad practice to leave it there - it wastes memory and can make collisions less reliable.</p>
 
-                <p><img width="232" height="272" class="article-image" src="https://www.scirra.com/images/articles/playeremptyspace.png" alt="Spare space around the player."><br>There's a quick way to get rid of it, though.  <strong>Hold shift</strong> and press the <strong>Crop</strong> button on the image editor toolbar.</p>
+                <p><img class="article-image" src="empty-space.png" alt="Spare space around the player."><br>There's a quick way to get rid of it, though.  <strong>Hold shift</strong> and press the <strong>Crop</strong> button on the image editor toolbar.</p>
 
-                <p><img width="550" height="92" class="article-image" src="https://www.scirra.com/images/articles/imageeditorcrop.png" alt="Cropping the animation."><br>If you didn't hold shift, only that frame is cropped, so make sure you have shift down when you click it to crop the entire animation.  The player image should now be nicely cropped, with no unnecessary space.</p>
+                <p><img class="article-image" src="crop-button.png" alt="Cropping the animation."><br>If you didn't hold shift, only that frame is cropped, so make sure you have shift down when you click it to crop the entire animation.  The player image should now be nicely cropped, with no unnecessary space.</p>
 
-                <p><img width="167" height="142" class="article-image" src="https://www.scirra.com/images/articles/playercropped.png" alt="A cropped animation frame for the player."><br><a name="h2a9"></a><h3 id="h2ix9">Setting the origin</h3>
+                <p><img class="article-image" src="player-cropped.png" alt="A cropped animation frame for the player."><br><a name="h2a9"></a><h3 id="h2ix9">Setting the origin</h3>
 
                 <p>The <em>origin</em> is the center, or "hot spot", of the object.  In platformers, it's best to have the origin by the player's feet.  This means if the animation changes height as it plays, they grow upwards, rather than in to the floor.</p>
 
                 <p>To set the origin, click the <strong>Set origin and image points</strong> tool in the image editor.</p>
 
-                <p><img width="238" height="114" class="article-image" src="https://www.scirra.com/images/articles/origintool.png" alt="The origin tool in the image editor."><br>You should notice a red spot appear on the player.  That's the origin.  You can click to change it.  However, we want it bottom-middle aligned.  We can quickly assign this by hitting 2 on the num pad (if num lock is on).  If you don't have a num pad (e.g. some laptops), you can right click <em>Origin</em> in the <em>Image points</em> window that popped up and choose <em>Quick assign</em> - <em>Bottom</em>.</p>
+                <p><img class="article-image" src="set-origin.png" alt="The origin tool in the image editor."><br>You should notice a black circle appear on the player.  That's the origin.  You can click to change it.  However, we want it bottom-middle aligned.  We can quickly assign this by hitting 2 on the num pad (if num lock is on).  If you don't have a num pad (e.g. some laptops), you can right click <em>Origin</em> in the <em>Image points</em> window that popped up and choose <em>Quick assign</em> - <em>Bottom</em>.</p>
 
                 <p>It's a hassle to do this for each and every frame, but luckily there's another short-cut: in the <em>Image points</em> window that popped up, <strong>right click</strong> <em>Origin</em> and click <strong>Apply to whole animation</strong>.</p>
 
@@ -269,19 +275,23 @@
 
                 <p>The <strong>Platform behavior</strong> gives us simple 2D platform-game movement.  However, there's one important tip for using it: <strong>the behavior should be applied to an invisible rectangle object</strong>, and the player positioned on top.  The Platform behavior works much better if it's attached to a simple square object instead of a complex animated object.</p>
 
-                <p>So we need to make an invisible square for the movement first.  <strong>Double-click</strong> the layout to add a new sprite again, and this time import a square like below.  (Right-click and 'save as' if you need it.)</p>
+                <p>Right click on this square and 'save as' to save a copy.</p>
 
-                <p><img width="36" height="37" class="article-image" src="https://www.scirra.com/images/articles/square1.png" alt="A square"><br>As before, we should have the origin at the bottom.  So click <strong>Set origin and image points</strong> again and press 2 (or use the <em>quick assign</em> menu) to position the origin at the bottom.</p>
+                <img width="36" height="37" class="article-image" src="https://www.scirra.com/images/articles/square1.png" alt="A square">
 
-                <p><img width="66" height="64" class="article-image" src="https://www.scirra.com/images/articles/playerboxhotspot.png" alt="Hotspot set"><br>Close the image editor.  You should now see it in the layout.  Resize it to roughly the same size as the player's body as shown below.</p>
+                <p>So we need to make an invisible square for the movement first.  <strong>Double-click</strong> the layout to add a new sprite again, and this time import the square./p>
 
-                <p><img width="198" height="167" class="article-image" src="https://www.scirra.com/images/articles/playercollisionbox.png" alt="Player's collision box"><br>Rename this object to <em>PlayerBox</em> since it's the box for movement and collision testing for the player.  Also, in the Properties Bar, set <strong>Initial visibility</strong> to <strong>Invisible</strong> since we don't want to see it.</p>
+                <p><br>As before, we should have the origin at the bottom.  So click <strong>Set origin and image points</strong> again and press 2 (or use the <em>quick assign</em> menu) to position the origin at the bottom.</p>
+
+                <p><img width="66" height="64" class="article-image" src="https://www.scirra.com/images/articles/playerboxhotspot.png" alt="Hotspot set"><br>Close the image editor.  You should now see it in the layout.  Resize it to roughly the same size as the player's body as shown below. <b>You will have to untick 'Snap to grid' to do this</b>, by clicking 'View' in the ribbon at the top of the screen then unticking 'Snap to grid'.</p>
+
+                <p><img class="article-image" src="resize-box.png" alt="Player's collision box"><br>Rename this object to <em>PlayerBox</em> since it's the box for movement and collision testing for the player.  Also, in the Properties Bar, set <strong>Initial visibility</strong> to <strong>Invisible</strong> since we don't want to see it.</p>
 
                 <p>Still in the PlayerBox's properties, click <strong>Add / Edit</strong> by <strong>Edit behaviors</strong> in the properties bar.  In the dialog that appears, click the green plus button.</p>
 
                 <p><img width="453" height="238" class="article-image" src="https://www.scirra.com/images/articles/addplayerboxbehavior.png" alt="Adding a behavior"><br><strong>Double-click</strong> the <strong>Platform</strong> behavior.</p>
 
-                <p><img width="400" height="350" class="article-image" src="https://www.scirra.com/images/articles/platformbehavior.png" alt="The Platform behavior."><br>You should see that some new properties for the platform movement have appeared in the <strong>Properties bar</strong>.  You can tweak the movement settings like speed and acceleration.  Let's make the jumps a little bit more snappy.  Set the <strong>Jump strength</strong> to <strong>1100</strong> and the <strong>Gravity</strong> to <strong>2500</strong>.</p>
+                <p><img width="400" height="350" class="article-image" src="https://www.scirra.com/images/articles/platformbehavior.png" alt="The Platform behavior."><br>You should see that some new properties for the platform movement have appeared in the <strong>Properties bar</strong>.  You can tweak the movement settings like speed and acceleration.  Let's make the jumps a little bit more snappy.  Set the <strong>Jump strength</strong> to <strong>800</strong> and the <strong>Gravity</strong> to <strong>2500</strong>.</p>
 
                 <p>We also want the screen to follow the player, so click the green plus again and add the <strong>Scroll To</strong> behavior.</p>
 
@@ -319,7 +329,7 @@
 
                 <p><img width="536" height="49" class="article-image" src="https://www.scirra.com/images/articles/setpositionevent.png" alt="The Set Position event."><br>Hopefully this makes sense: we always position the player on top of the PlayerBox object, which is the object with the movement.</p>
 
-                <p>Run the game by clicking the green 'play' arrow in the title bar.</p>
+                <p>Run the game by clicking the 'play' arrow in the title bar.</p>
 
                 <p><img width="230" height="54" class="article-image" src="https://www.scirra.com/images/articles/rungame.png" alt="Run the game."><br>Move and jump with the arrow keys.  You've got your first basic platformer up and running!</p>
 
