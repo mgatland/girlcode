@@ -325,7 +325,9 @@ console.log("Hi! I am listening at http://localhost:3000");
       <pre><code class="language-javascript">
 var posts = [];
 
-posts.push("Imagine a TV show where two cats who solve crimes in Dunedin");
+posts.push("hi what is up everybody");
+posts.push("auckland is so nice in summer... and so bad in winter");
+posts.push("current status: playing sports");
 
 var sendPostsList = function (request, response) {
   response.send(posts);
@@ -333,7 +335,7 @@ var sendPostsList = function (request, response) {
 app.get('/posts', sendPostsList);
         </code></pre>
 
-        <p>This tells the server: When someone makes a GET request for "/posts", use the code in the fuction <code>sendPostsList</code> to reply. That code sends them the list 'posts', which currently contains one item.</p>
+        <p>This tells the server: When someone makes a GET request for "/posts", use the code in the fuction <code>sendPostsList</code> to reply. That code sends them the list 'posts', which currently contains three items.</p>
 
         <p>Now:</p>
 
@@ -378,8 +380,6 @@ app.use(bodyParser.json())
 
 //make an empty list
 var posts = [];
-//Add an example post
-posts.push("A family who are all secretly superheroes but haven't told each other");
 
 //let a client GET the list
 var sendPostsList = function (request, response) {
