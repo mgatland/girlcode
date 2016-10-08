@@ -9,7 +9,7 @@
 
 .demo {
     color: black;
-    border: 2px solid white;
+    border: 1px solid grey;
     height: 300px;
     overflow: hidden;
     font-size: 14px;

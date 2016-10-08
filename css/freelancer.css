@@ -21,6 +21,10 @@ p {
     font-size: 20px;
 }
 
+ul {
+    font-size: 20px;
+}
+
 p.small {
     font-size: 16px;
 }
@@ -42,11 +46,10 @@ h5,
 h6 {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-weight: normal;
 }
 
-hr.star-light,
-hr.star-primary {
+hr.star {
     margin: 25px auto 30px;
     padding: 0;
     max-width: 250px;
@@ -55,8 +58,7 @@ hr.star-primary {
     text-align: center;
 }
 
-hr.star-light:after,
-hr.star-primary:after {
+hr.star:after {
     content: "\f005";
     display: inline-block;
     position: relative;
@@ -66,26 +68,36 @@ hr.star-primary:after {
     font-size: 2em;
 }
 
-hr.star-light {
-    border-color: #fff;
-}
 
-hr.star-light:after {
-    color: #fff;
-    background-color: #74A588;
-}
+/* these hr.star values are no longer used? check on tutorial pages then remove*/
 
-hr.star-primary {
+/*default, non .success version  */
+hr.star {
     border-color: #2C3E50;
 }
 
-hr.star-primary:after {
+ hr.star:after {
     color: #2C3E50;
     background-color: #fff;
 }
 
+/* .success version */
+.success hr.star {
+    border-color: #fff;
+}
+
+.success hr.star:after {
+    color: #fff;
+    background-color: #74A588;
+}
+
 .img-centered {
     margin: 0 auto;
+}
+
+/* girlcode */
+.shadow {
+    box-shadow: 2px 2px 4px #777;
 }
 
 header {
@@ -127,7 +139,6 @@ header .intro-text .name {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 2em;
-    font-weight: 700;
 }
 
 header .intro-text .skills {
@@ -210,6 +221,7 @@ section {
 
 section h2 {
     margin: 0;
+    margin-bottom: 40px;
     font-size: 3em;
 }
 
@@ -221,13 +233,13 @@ section.success {
 section.success a,
 section.success a:hover,
 section.success a:focus,
-section.success a:active,
-footer a,
-footer a:hover,
-footer a:focus,
-footer a:active {
+section.success a:active {
     outline: 0;
     color: #B22469;
+}
+
+section ul {
+    margin-bottom: 30px;
 }
 
 @media(max-width:767px) {
@@ -391,6 +403,14 @@ footer .footer-col {
 footer .footer-below {
     padding: 25px 0;
     background-color: #233140;
+}
+
+footer a,
+footer a:hover,
+footer a:focus,
+footer a:active {
+    color: white;
+    font-weight: bold;
 }
 
 .btn-social {
@@ -598,9 +618,19 @@ footer .footer-below {
     background-color: #D8EBF8;
 }
 
+/* fa icons inside spots */
+
+section.success .fa-inverse {
+    color: #74A588;
+}
+
 /* fun */
 
 .fa-spin-hover:hover {
     -webkit-animation: fa-spin 2s infinite linear;
     animation: fa-spin 2s infinite linear;
+}
+
+.soliddark {
+    color: #2c3e50;
 }
