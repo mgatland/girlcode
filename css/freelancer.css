@@ -639,10 +639,19 @@ section.success .fa-inverse {
 }
 
 .slide-in {
-    transition: 1s ease-out;
+    transition: 0.5s ease-out;
 }
 
 .off-left {
-    transform: translateX(-500px);
+    transform: translateX(-100px);
     opacity: 0;
+}
+
+.tapfun:hover {
+    transform: rotate(2deg);
+}
+
+.tapfun:active {
+    border: 4px solid white;
+    transform: rotate(4deg);
 }
