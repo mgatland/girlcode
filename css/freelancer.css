@@ -587,6 +587,10 @@ footer a:active {
     margin-top:4px;
 }
 
+audio {
+    margin: 20px auto;
+}
+
 /* styles for content copied from Code Club Akl */
 
 .codeclubstyle h1, .codeclubstyle h2 {
