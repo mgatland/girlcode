@@ -36,14 +36,16 @@ var updateSpinner = function () {
 			if (s.momentum < 4) s.momentum = 4;
 			rotate(s, s.momentum);
 			s.spinTime++;
-			if (s.spinTime > 120) {
+			if (s.spinTime > 120 && s.momentum < 12) {
 				s.momentum += 0.016;
 			}
 		} else {
 			s.spinTime = 0;
 			s.momentum *= 0.94;
-			if (s.rotation < -1 || s.rotation > 1) {
+			if (s.rotation < -3 || s.rotation > 3) {
 				s.momentum += (s.rotation > 180) ? 0.7 : -0.7;
+			} else if (s.rotation < -1 || s.rotation > 1) {
+				s.momentum += (s.rotation > 180) ? 0.3 : -0.3;
 			}
 			rotate(s, s.momentum);
 			//settle
@@ -57,3 +59,9 @@ var updateSpinner = function () {
 	requestAnimationFrame(updateSpinner);
 };
 updateSpinner();
+
+var bumpSpinners = function () {
+	spinners.forEach(function (spinner) {
+		spinner.momentum = 3 + Math.random() * 3;
+	});
+}

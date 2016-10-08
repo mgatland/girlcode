@@ -35,3 +35,57 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+// girl code - fancy <ul> effect
+
+var wasScrolledBelow = false;
+
+function isScrolledBelow($el, margin) {
+    var topofDiv = $el.offset().top;
+    return $(window).scrollTop() + $(window).height() - margin > topofDiv;
+}
+
+
+//hack to make spinners wobble when scrolled on screen
+var spinnersScrolledBelow = false;
+var spinnersTrigger = $($(".mg-spin").get(0));
+
+var animTrigger = $(".animatedList");
+var animItems = $(".animatedList li");
+var animTimeouts = [];
+animItems.addClass("off-left");
+animItems.addClass("slide-in");
+
+$(window).scroll(function(){
+    var isBelow = isScrolledBelow(animTrigger, 50);
+    if (isBelow && !wasScrolledBelow) {
+        console.log("show");
+        wasScrolledBelow = true;
+        animItems.each(function (i) {
+            var that = this;
+            animTimeouts.push(setTimeout(function () {
+                $(that).removeClass("off-left");
+            }, 200 * i));
+        });
+    } else if (!isBelow && wasScrolledBelow) {
+        //reset
+        console.log("hide");
+        animTimeouts.forEach(function (id) {
+            clearTimeout(id);
+        });
+        animTimeouts = [];
+        wasScrolledBelow = false;
+        animItems.addClass("off-left");
+    }
+
+    var isBelow2 = isScrolledBelow(spinnersTrigger, 50);
+    if (isBelow2 && !spinnersScrolledBelow) {
+        console.log("bump");
+        spinnersScrolledBelow = true;
+        bumpSpinners();
+    } else if (!isBelow2 && spinnersScrolledBelow) {
+        spinnersScrolledBelow = false;
+    }
+});
+
+
