@@ -312,20 +312,17 @@ section ul {
     }
 }
 
-.btn-outline {
+header .btn {
     margin-top: 15px;
-    border: solid 2px #fff;
     font-size: 20px;
-    color: #fff;
-    background: 0 0;
     transition: all .3s ease-in-out;
 }
 
-.btn-outline:hover,
-.btn-outline:focus,
-.btn-outline:active,
-.btn-outline.active {
-    border: solid 2px #fff;
+header .btn:hover,
+header .btn:focus,
+header .btn:active,
+header .btn.active {
+    border: solid 1px #fff;
     color: #74A588;
     background: #fff;
 }
