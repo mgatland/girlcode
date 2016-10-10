@@ -36,13 +36,13 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
-// girl code - fancy <ul> effect
+// girl code - fancy effects when scrolling past things
 
 var wasScrolledBelow = false;
 
-function isScrolledBelow($el, margin) {
-    var topofDiv = $el.offset().top;
-    return $(window).scrollTop() + $(window).height() - margin > topofDiv;
+function isScrolledBelow($el) {
+    var topofDiv = $el.offset().top + $el.outerHeight();
+    return $(window).scrollTop() + $(window).height() > topofDiv;
 }
 
 
@@ -57,7 +57,7 @@ animItems.addClass("off-left");
 animItems.addClass("slide-in");
 
 $(window).scroll(function(){
-    var isBelow = isScrolledBelow(animTrigger, 50);
+    var isBelow = isScrolledBelow(animTrigger);
     if (isBelow && !wasScrolledBelow) {
         console.log("show");
         wasScrolledBelow = true;
@@ -78,7 +78,7 @@ $(window).scroll(function(){
         animItems.addClass("off-left");
     }
 
-    var isBelow2 = isScrolledBelow(spinnersTrigger, 50);
+    var isBelow2 = isScrolledBelow(spinnersTrigger);
     if (isBelow2 && !spinnersScrolledBelow) {
         console.log("bump");
         spinnersScrolledBelow = true;
