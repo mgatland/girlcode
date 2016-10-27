@@ -335,7 +335,13 @@ var sendPostsList = function (request, response) {
 app.get('/posts', sendPostsList);
         </code></pre>
 
-        <p>This tells the server: When someone makes a GET request for "/posts", use the code in the fuction <code>sendPostsList</code> to reply. That code sends them the list 'posts', which currently contains three items.</p>
+        <p>Here's what this new code is doing:</p>
+        <ul>
+            <li>It creates a variable called <code>posts</code> which is an empty list</li>
+            <li>It adds three messages to the list</li>
+            <li>It creates a variable <code>sendPostsList</code> which is a function, or command, that can send the posts to the client</li>
+            <li>Finally, it tells the server that when a client tries to GET "/posts", use the function <code>sendPostsList</code> to reply - this means it will reply by sending them the list of posts.</li>
+        </ul>
 
         <p>Now:</p>
 
