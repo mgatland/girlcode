@@ -129,25 +129,41 @@
 
       <p>But the command line is still in your computer! It's been waiting for you all these years…</p>
 
-      <h2>Find it on Windows</h2>
+      <h2>What kind of computer are you using?</h2>
 
-      <img src="cmd.png">
+      <p>Click to show the instructions you want:</p>
 
-      <p>Press the Start button, type in "cmd" and <b>Command Prompt</b> will come up. Click on Command Prompt to start.</p>
+      <button class="show-windows-btn">Windows</button>
+      <button class="show-mac-btn">Mac</button>
+      <button class="show-both-btn">Show me both</button>
 
-      <h2>Find it on Mac</h2>
+      <div class="guide-windows">
+        <h2>Find it on Windows</h2>
 
-      <img src="terminal.png">
+        <img src="cmd.png">
 
-      <p>Open Finder, go to Applications, look in the Utilities folder and open 'Terminal'.</p>
+        <p>Press the Start button, type in "cmd" and <b>Command Prompt</b> will come up. Click on Command Prompt to start.</p>
+      </div>
+
+      <div class="guide-mac">
+        <h2>Find it on Mac</h2>
+
+        <img src="terminal.png">
+
+        <p>Open Finder, go to Applications, look in the Utilities folder and open 'Terminal'.</p>
+      </div>
 
       <h2>Change the color scheme</h2>
 
-      <p>Black and white is so 90s. Change your color scheme:</p>
+      <p>Black and white is so 90s. Watch this gif to see how to change your color scheme:</p>
 
-      <img class="framed" src="cmd-colours.gif">
+      <div class="guide-windows">
+        <img class="framed" src="cmd-colours.gif">
+      </div>
 
-      <img class="framed" src="terminal-colours.gif">
+      <div class="guide-mac">
+        <img class="framed" src="terminal-colours.gif">
+      </div>
 
       <h2>Command line commands</h2>
 
@@ -155,27 +171,39 @@
 
       <h3>What folder am I in?</h3>
 
-      <p><b>Windows</b>: the Command Prompt always says what folder you are in.</p>
+      <div class="guide-windows">
+        <p><b>Windows</b>: the Command Prompt always says what folder you are in.</p>
+      </div>
 
+      <div class="guide-mac">
       <p><b>Mac</b>: To check where you are, type <code>pwd</code> and hit Enter. (It's short for 'print working directory'. 'Working Directory' means the folder you are in. Print means write on the screen, not on paper!)</p>
+      </div>
 
       <h3>What is in this folder?</h3>
 
-      <p><b>Windows</b>: type <code>dir</code> and hit Enter. (It's short for 'directory', which is the old word for folder.)</p>
+      <div class="guide-windows">
+        <p><b>Windows</b>: type <code>dir</code> and hit Enter. (It's short for 'directory', which is the old word for folder.)</p>
+      </div>
 
-      <p><b>Mac</b>: type <code>ls</code> and hit Enter. (It's kind of short for 'list files'.)</p>
+      <div class="guide-mac">
+        <p><b>Mac</b>: type <code>ls</code> and hit Enter. (It's kind of short for 'list files'.)</p>
+      </div>
 
       <h3>How do I go into a different folder?</h3>
 
-      <p>Type <code>cd something</code> where 'something' is the name of the folder you want to move into. This lets you go down into folders inside the current working folder.</p>
+      <div class="guide-windows">
+        <p>Type <code>cd something</code> where 'something' is the name of the folder you want to move into. This lets you go down into folders inside the current working folder.</p>
+      </div>
 
-      <p><code>cd</code> is short for 'change directory'. (Directory is the old word for 'folder'.)</p>
+      <div class="guide-mac">
+        <p><code>cd</code> is short for 'change directory'. (Directory is the old word for 'folder'.)</p>
+      </div>
 
       <div class="alert">
 
         <p>Protip 1: If the folder name has a space in it, you need to put speech marks around the whole name. This is so the command line knows that the two words are joined together. For example: <code>cd "My Documents"</code></p>
 
-        <p>Protip 2: On the Mac, capital letters matter! <code>cd Downloads</code> is not <code>cd downloads</code>. On Windows, capital letters don't matter and those both mean the same thing!</p>
+        <p>Protip 2: On the Mac, capital letters matter! <code>cd Downloads</code> is not <code>cd downloads</code>. On Windows, capital letters don't matter and those both mean the same thing.</p>
       </div>
 
       <p>To go up to the parent folder, type <code>cd ..</code> (that is cd, a space, then two dots)</p>
@@ -559,6 +587,27 @@ $.get("/posts", createFeed);
 
     <!-- Custom Theme JavaScript -->
     <script src="/js/freelancer.js"></script>
+
+    <!-- tutorial specific stuff -->
+    <script>
+      var showWindows = function () {
+        $(".guide-windows").fadeIn();
+        $(".guide-mac").fadeOut();
+      };
+      $(".show-windows-btn").click(showWindows);
+
+      var showMac = function () {
+        $(".guide-windows").fadeOut();
+        $(".guide-mac").fadeIn();
+      };
+      $(".show-mac-btn").click(showMac);
+
+      var showBoth = function () {
+        $(".guide-windows").fadeIn();
+        $(".guide-mac").fadeIn();
+      };
+      $(".show-both-btn").click(showBoth);
+    </script>
 
 </body>
 
