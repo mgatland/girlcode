@@ -56,36 +56,36 @@ var animTimeouts = [];
 animItems.addClass("off-left");
 animItems.addClass("slide-in");
 
-$(window).scroll(function(){
-    var isBelow = isScrolledBelow(animTrigger);
-    if (isBelow && !wasScrolledBelow) {
-        console.log("show");
-        wasScrolledBelow = true;
-        animItems.each(function (i) {
-            var that = this;
-            animTimeouts.push(setTimeout(function () {
-                $(that).removeClass("off-left");
-            }, 200 * i));
-        });
-    } else if (!isBelow && wasScrolledBelow) {
-        //reset
-        console.log("hide");
-        animTimeouts.forEach(function (id) {
-            clearTimeout(id);
-        });
-        animTimeouts = [];
-        wasScrolledBelow = false;
-        animItems.addClass("off-left");
-    }
+if (animTrigger.length > 0) {
+  $(window).scroll(function(){
+      var isBelow = isScrolledBelow(animTrigger);
+      if (isBelow && !wasScrolledBelow) {
+          console.log("show");
+          wasScrolledBelow = true;
+          animItems.each(function (i) {
+              var that = this;
+              animTimeouts.push(setTimeout(function () {
+                  $(that).removeClass("off-left");
+              }, 200 * i));
+          });
+      } else if (!isBelow && wasScrolledBelow) {
+          //reset
+          console.log("hide");
+          animTimeouts.forEach(function (id) {
+              clearTimeout(id);
+          });
+          animTimeouts = [];
+          wasScrolledBelow = false;
+          animItems.addClass("off-left");
+      }
 
-    var isBelow2 = isScrolledBelow(spinnersTrigger);
-    if (isBelow2 && !spinnersScrolledBelow) {
-        console.log("bump");
-        spinnersScrolledBelow = true;
-        bumpSpinners();
-    } else if (!isBelow2 && spinnersScrolledBelow) {
-        spinnersScrolledBelow = false;
-    }
-});
-
-
+      var isBelow2 = isScrolledBelow(spinnersTrigger);
+      if (isBelow2 && !spinnersScrolledBelow) {
+          console.log("bump");
+          spinnersScrolledBelow = true;
+          bumpSpinners();
+      } else if (!isBelow2 && spinnersScrolledBelow) {
+          spinnersScrolledBelow = false;
+      }
+  });
+}
