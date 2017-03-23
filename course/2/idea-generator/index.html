@@ -289,8 +289,8 @@ var getRandomConcept = function () {
   //this works
   var example2 = "I saw a &lt;i>" + pickRandom(person) + "&lt;/i>";
 
-  //this will not work, because the math makes no sense.
-  //um, plus less than i? what are you talking about?
+  //this will not work, because JavaScript thinks the html tags are maths.
+  //Did you say 'less than i is more than plus pickRandom?' what are you talking about?
   var example2 = "I saw a " + &lt;i> + pickRandom(person) + &lt;/i>;
 </code></pre>
  
