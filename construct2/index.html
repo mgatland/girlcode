@@ -115,7 +115,11 @@
 
                 <h2 id="h2ix0">Installing Construct 2</h2>
 
-                <p>If you haven't already, grab a copy of the latest release of Construct 2 <a href="http://www.scirra.com/construct2/releases/new" target="_blank">here</a>.  The Construct 2 editor is for Windows only, but the games you make can run on Windows, Mac, iPhones and Android devices.</p>
+                <p>Download the latest release of Construct 2 <a href="http://www.scirra.com/construct2/releases/new" target="_blank">here</a>.  The Construct 2 editor is for Windows only, but the games you make can run on Windows, Mac, iPhones and Android devices.</p>
+
+                <p>While it downloads, you will be asked to register. Don't do this! Just wait for the download to finish, then start the installer.</p>
+
+                <p>The installer will ask lots of questions, you can just click 'Next' and choose the default options.</p>
 
                 <h2 id="h2ix1">Getting started</h2>
 
@@ -125,7 +129,11 @@
 
                 <h3 id="h2ix2">Size the layout</h3>
 
-                <p>First of all, we need the layout (level) to be a bit bigger than the default.  Left-click a space in the layout and the <strong>Properties Bar</strong> (left side of the screen) will display <em>Layout Properties</em>.  Change the size of the level to 4000, 2048.</p>
+                <p>First of all, we need resize the layout (level).</p>
+                 
+                <p>Click anywhere on the empty white layout. This will make the <strong>Properties Bar</strong> (left side of the screen) display <em>Layout Properties</em>. Change the size of the level to 4000, 2048.</p>
+
+                <img src="resize-layout.png">
 
                 <!-- add later: background
 
@@ -166,15 +174,15 @@
 
                 <h2 id="h2ix4">Adding tiles</h2>
 
-                <p>Download this <a href="http://opengameart.org/content/tilesheet">free tileset</a> from OpenGameArt. (Go to that page then click on <b>sheet1.png</b> in the list of files.)</p>
+                <p>Download this <a href="http://opengameart.org/content/tilesheet" target="_blank">free tileset</a> from OpenGameArt. (Go to that page then click on <b>sheet1.png</b> in the list of files.)</p>
 
                 <p>The image contains 64 different tiles.</p>
 
-                <p><strong>double-click</strong> a space in the layout to insert a new object.  Choose <strong>Sprite</strong>.</p>
+                <p><strong>double-click</strong> the empty space in the layout to insert a new object.  Choose <strong>Sprite</strong>.</p>
 
                 <img src="click-sprite.png">
 
-                <p>The mouse turns into a crosshair – Click somewhere in the middle of the screen.</p>
+                <p>The mouse turns into a crosshair – Click somewhere in the middle of the screen to place your new sprite.</p>
 
                 <p>The <strong>Image Editor</strong> opens up, with some windows to control animations. We are going to use animations in a weird way. We'll have an animation speed of 0 (paused). We'll have a different tile in each frame of the animation.  Then, we can switch which tile is showing by changing the animation frame.</p>
 
@@ -182,7 +190,7 @@
 
                 <p><img class="article-image" src="import-frames-from-spritesheet.png" alt="Importing a sprite strip"><br>A file open dialog appears.  Pick the file <em>sheet1.png</em> that you just downloaded.  Construct 2 then needs to know how many tiles are in the image.  You'll notice <em>sheet1.png</em> is an 8x8 grid of tiles.  Enter <em>8</em> and <em>8</em> and click <strong>OK</strong>.</p>
 
-                <p><img width="285" height="176" class="article-image" src="https://www.scirra.com/images/articles/importingtilemap.png" alt="Importing the tile map."><br>Give Construct 2 a moment to cut up the tiles.  Now you should have all the tiles imported as animation frames!  We don't need the first blank frame any more though, so <strong>right click</strong> on it and select <strong>delete</strong>.</p>
+                <p><img src="import-tile-map.png" alt="Importing the tile map."><br>Construct 2 will cut the image into  tiles.  Now you should have all the tiles imported as animation frames!  The first frame is empty, we should delete that one so  <strong>right click</strong> on it and select <strong>delete</strong>.</p>
 
                 <p><img width="285" height="142" class="article-image" src="https://www.scirra.com/images/articles/deletefirstframe.png" alt="Deleting the first animation frame."><br>You might want to resize the <em>Animation Frames</em> window bigger to get a better view of your tiles.</p>
 
@@ -194,7 +202,7 @@
 
                 <p><img width="252" height="187" class="article-image" src="https://www.scirra.com/images/articles/animspeed0.png" alt="Setting the animation speed to 0."><br>Now the tiles won't keep changing their image - they'll stay on the same frame.  Close the image editor by clicking the X on one of the three floating windows.  Your Sprite tile should now be in the layout!</p>
 
-                <p><img width="190" height="178" class="article-image" src="https://www.scirra.com/images/articles/spritetile.png" alt="The Sprite tile in the layout."><br>With it selected, change its name from Sprite to <strong>Tile</strong> in the Properties Bar.  It's always a good idea to give objects an appropriate name.</p>
+                <p><img width="190" height="178" class="article-image" src="https://www.scirra.com/images/articles/spritetile.png" alt="The Sprite tile in the layout."><br>With it selected, change its name from Sprite to <strong>Tile</strong> in the Properties Bar. (left side of screen).  It's always a good idea to give objects an appropriate name.</p>
 
                   <img src="rename-sprite-to-tile.png">
 
@@ -212,6 +220,8 @@
 
                 <p>It's going to be a headache if we have to line up these tiles by hand!  You can enable a grid to make this easier.  In the ribbon, click <em>View</em> and enable <em>Snap to Grid</em>.  The default grid size of 32x32 is fine.</p>
 
+                <p>Tick <em>Show Grid</em> as well.</p>
+
                 <p><img width="544" height="145" class="article-image" src="https://www.scirra.com/images/articles/snaptogrid.png" alt="Enabling Snap to Grid."><br>Try dragging around the tiles now.  You should find they snap to a 32x32 grid.  Now it should be easy to snap the three tiles together.</p>
 
                 <p><img width="402" height="143" class="article-image" src="https://www.scirra.com/images/articles/threetilessnapped.png" alt="The three tiles snapped together."><br></p>
@@ -227,9 +237,9 @@
 
                 <p>Let's import the sprite strip for the player's <em>idle</em> animation.  As before, right click the <em>Animation Frames</em> window and select <strong>Import Frames -> From sprite strip...</strong>.</p>
 
-                <p><img width="365" height="205" class="article-image" src="https://www.scirra.com/images/articles/importspritestrip.png" alt="Importing a sprite strip again."><br>Choose the file <em>wizard_idle.png</em>.  Note that's the complete sprite strip, not one of the animation frames.  You can also import the sequence of files with the <em>Import frames...</em> option, but let's stick to this way for now.</p>
+                <p><img width="365" height="205" class="article-image" src="https://www.scirra.com/images/articles/importspritestrip.png" alt="Importing a sprite strip again."><br>Choose the file <em>wizard_idle.png</em>.</p>
 
-                <p>Because the strip is not square, Construct 2 guesses the number of frames.  It should correctly identify that there are <strong>10</strong> frames.  Click <strong>OK</strong> and the frames are imported.</p>
+                <p>This file has 10 cells accross and only 1 cell down. Click <strong>OK</strong> and the frames are imported.</p>
 
                 <p>Note we still have the default blank frame at the start.  Right click and delete that again.  You should now have a sequence of animation frames for the player's Idle animation.</p>
 
@@ -247,11 +257,13 @@
 
                 <p>To set the origin, click the <strong>Set origin and image points</strong> tool in the image editor.</p>
 
-                <p><img class="article-image" src="set-origin.png" alt="The origin tool in the image editor."><br>You should notice a black circle appear on the player.  That's the origin.  You can click to change it.  However, we want it bottom-middle aligned.  We can quickly assign this by hitting 2 on the num pad (if num lock is on).  If you don't have a num pad (e.g. some laptops), you can right click <em>Origin</em> in the <em>Image points</em> window that popped up and choose <em>Quick assign</em> - <em>Bottom</em>.</p>
+                <p><img class="article-image" src="set-origin.png" alt="The origin tool in the image editor."><br>You should notice a black circle appear on the player.  That's the origin. Also, a little window called <em>Image Points</em> appeared. In the <em>Image points</em> window, right click the Origin and choose <em>Quick assign</em> - <em>Bottom</em>.</p>
 
-                <p>It's a hassle to do this for each and every frame, but luckily there's another short-cut: in the <em>Image points</em> window that popped up, <strong>right click</strong> <em>Origin</em> and click <strong>Apply to whole animation</strong>.</p>
+                <img src="image-origin-bottom.png">ss
 
-                <p><img width="288" height="242" class="article-image" src="https://www.scirra.com/images/articles/applytowholeanimation.png" alt="Applying origin to whole animation"><br>Bingo!  The origin should be set on every animation frame.</p>
+                <p>Now to do that to all 10 frames, in the <em>Image points</em> window, <strong>right click</strong> <em>Origin</em> and click <strong>Apply to whole animation</strong>.</p>
+
+                <p><img width="288" height="242" class="article-image" src="https://www.scirra.com/images/articles/applytowholeanimation.png" alt="Applying origin to whole animation"><br>The origin should be set on every animation frame.</p>
 
                 <a name="h2a10"></a><h3 id="h2ix10">Loop the animation</h3>
 
@@ -259,7 +271,7 @@
 
                 <p><img width="189" height="145" class="article-image" src="https://www.scirra.com/images/articles/renameanimationidle.png" alt="Renaming the animation."><br>In the <strong>Properties Bar</strong>, change the <em>Speed</em> of the animation to <strong>9</strong> and set <em>Loop</em> to <strong>Yes</strong>.</p>
 
-                <p><img width="251" height="143" class="article-image" src="https://www.scirra.com/images/articles/animspeedandloop.png" alt="Setting the animation Speed and Loop properties."><br>Right click the <em>Idle</em> animation in the <em>Animations</em> window and select <strong>Preview</strong>.  You should see the player bobbing up and down gently.  All done!  Close the animation preview and the image editor.  You should see your player in the layout.</p>
+                <p><img width="251" height="143" class="article-image" src="https://www.scirra.com/images/articles/animspeedandloop.png" alt="Setting the animation Speed and Loop properties."><br>Right click the <em>Idle</em> animation in the <em>Animations</em> window and select <strong>Preview</strong>.  You should see the player moving slightly.  All done!  Close the animation preview and the image editor.  You should see your player in the layout.</p>
 
                 <p>Rename the object to <strong>Player</strong> in the Properties bar, since we're being organised.</p>
 
@@ -279,7 +291,7 @@
 
                 <img width="36" height="37" class="article-image" src="https://www.scirra.com/images/articles/square1.png" alt="A square">
 
-                <p>So we need to make an invisible square for the movement first.  <strong>Double-click</strong> the layout to add a new sprite again, and this time import the square./p>
+                <p>So we need to make an invisible square for the movement first.  <strong>Double-click</strong> the layout to add a new sprite again, and this time import the square.</p>
 
                 <p><br>As before, we should have the origin at the bottom.  So click <strong>Set origin and image points</strong> again and press 2 (or use the <em>quick assign</em> menu) to position the origin at the bottom.</p>
 
@@ -287,13 +299,13 @@
 
                 <p><img class="article-image" src="resize-box.png" alt="Player's collision box"><br>Rename this object to <em>PlayerBox</em> since it's the box for movement and collision testing for the player.  Also, in the Properties Bar, set <strong>Initial visibility</strong> to <strong>Invisible</strong> since we don't want to see it.</p>
 
-                <p>Still in the PlayerBox's properties, click <strong>Add / Edit</strong> by <strong>Edit behaviors</strong> in the properties bar.  In the dialog that appears, click the green plus button.</p>
+                <p>Still in the PlayerBox's properties, click <strong>Add / Edit</strong> by <strong>Edit behaviors</strong> in the properties bar.  In the dialog that appears, click the plus button.</p>
 
-                <p><img width="453" height="238" class="article-image" src="https://www.scirra.com/images/articles/addplayerboxbehavior.png" alt="Adding a behavior"><br><strong>Double-click</strong> the <strong>Platform</strong> behavior.</p>
+                <p><img src="add-playerbox-behavior.png" alt="Adding a behavior"><br><strong>Double-click</strong> the <strong>Platform</strong> behavior.</p>
 
                 <p><img width="400" height="350" class="article-image" src="https://www.scirra.com/images/articles/platformbehavior.png" alt="The Platform behavior."><br>You should see that some new properties for the platform movement have appeared in the <strong>Properties bar</strong>.  You can tweak the movement settings like speed and acceleration.  Let's make the jumps a little bit more snappy.  Set the <strong>Jump strength</strong> to <strong>800</strong> and the <strong>Gravity</strong> to <strong>2500</strong>.</p>
 
-                <p>We also want the screen to follow the player, so click the green plus again and add the <strong>Scroll To</strong> behavior.</p>
+                <p>We also want the screen to follow the player, so click the plus again and add the <strong>Scroll To</strong> behavior.</p>
 
                 <p>Once you've added both behaviors, close the <em>Player behaviors</em> dialog.</p>
 
