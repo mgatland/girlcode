@@ -347,10 +347,25 @@
       </div>
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-
-        <p>Are you ready? Fill out this form to sign up for Girl Code in term 2, from <b>11th May</b> to <b>29th June</b>.</p>
           <form name="sentMessage" id="contactForm" novalidate action="//formspree.io/mgatland@gmail.com" method="POST" class="text-left">
             <div class="row control-group">
+              <div class="col-xs-12">
+                <p class="form-subheading">What do you want to book?</p>
+              </div>
+              <div class="form-group col-xs-12 controls">
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="course-options" required data-validation-required-message="Please choose a course" value="Term 2 2017"><div class="course-option">Girl Code Term 2 – 11th May to 29th June – $400</div>
+                  </label>
+                </div>
+                <p class="help-block text-danger"></p>
+                <p><small>We accept payments by NZ bank transfer. Details will be emailed to you once we confirm your place.</small></p>
+              </div>
+            </div>
+            <div class="row control-group">
+              <div class="col-xs-12">
+                <p class="form-subheading">Who's coming?</p>
+              </div>
               <div class="form-group col-xs-12 floating-label-form-group controls">
                 <label>Name</label>
                 <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
@@ -371,19 +386,7 @@
                 <p class="help-block text-danger"></p>
               </div>
             </div>
-            <!--<div class="row control-group">
-              <p style="margin: 5px 10px;">Which course are you signing up for?</p>
-              <div class="form-group col-xs-12 controls">
-                <div class="radio">
-                  <label><input type="radio" name="course-options" required data-validation-required-message="Please choose a course" value="Holiday 2016">The holiday course (Every day from <b>Monday 18th January</b> to <b>Friday 22nd January</b>)</label>
-                </div>
-                <div class="radio">
-                  <label><input type="radio" name="course-options" value="Term 1 2016">The term 1 course (Thursdays nights from <b>18th February</b> to <b>7th April</b>)</label>
-                </div>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>-->
-            <div class="row control-group buttons-with-label">
+            <!--<div class="row control-group buttons-with-label">
               <div class="form-group col-xs-12 controls">
                 <div class="btn-group" data-toggle="buttons">
                   <label class="btn btn-default btn-sm">
@@ -396,8 +399,8 @@
                 <label>I can attend every session</label>
                 <p class="help-block text-danger"></p>
               </div>
-            </div>
-            <div class="row control-group buttons-with-label">
+            </div>-->
+            <!--<div class="row control-group buttons-with-label">
               <div class="form-group col-xs-12 controls">
                 <div class="btn-group" data-toggle="buttons">
                   <label class="btn btn-default btn-sm">
@@ -410,7 +413,7 @@
                 <label>I can pay the $400 course fee</label>
                 <p class="help-block text-danger"></p>
               </div>
-            </div>
+            </div>-->
             <div class="row control-group buttons-with-label">
               <div class="form-group col-xs-12 controls">
                 <div class="btn-group" data-toggle="buttons">
@@ -425,7 +428,6 @@
                 <p class="help-block text-danger"></p>
               </div>
             </div>
-
             <br>
             <div id="success"></div>
             <div class="row">

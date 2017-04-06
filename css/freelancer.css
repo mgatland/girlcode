@@ -676,3 +676,27 @@ section.success .fa-inverse {
 .m-t-3 {
     margin-top: 30px;
 }
+
+/* for the radio button on the form, and new form layout */
+
+.radio label {
+    font-size: 1.5em;
+    margin-left: 4px;
+}
+
+input[type="radio"] {
+    margin-top:7px;
+}
+
+.course-option {
+    margin-left:4px;
+}
+
+.form-subheading {
+    font-size: 26px;
+    margin-top:20px;
+}
+
+small {
+    opacity: 0.8;
+}
