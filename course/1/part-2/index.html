@@ -259,6 +259,7 @@
 
   <h2>make an image centered</h2>
 
+<p>CSS:</p>
 <pre><code class="language-css">img {
   display: block;
   margin-left: auto;
@@ -270,64 +271,67 @@
 
   <p>Imagine that html tags create a box. The box can have a border.</p>
 
-  <p>The HTML</p>
+  <p>HTML:</p>
 <pre><code class="language-markup">&lt;p>this has a border&lt;/p>
 </code></pre>
 
-  <p>The CSS</p>
+  <p>CSS:</p>
 <pre><code class="language-css">p {
-  border: 6px solid blue;
+  border: 1px solid blue;
 }
 </code></pre>
 
   <p>How it looks:</p>
-  <div style="border: 6px solid blue;">this has a border</div>
+  <div style="border: 1px solid blue;">this has a border</div>
 
   <br>
 
-  <p>We can add padding, which means space between the edge of the box and the stuff inside it.</p>
+  <p>The border is very tight on the left side. We can add padding, which means space between the edge of the box and the words inside it.</p>
 
+<p>CSS:</p>
 <pre><code class="language-css">p {
-  border: 6px solid blue;
+  border: 1px solid blue;
   padding: 10px;
 }
 </code></pre>
 
-  <div style="border: 6px solid blue; padding: 10px;">this has a border and padding.</div>
+  <div style="border: 1px solid blue; padding: 10px;">this has a border and padding.</div>
 
   <br>
 
-  <p>Margin is space OUTSIDE the box</p>
+  <p>Margin is space OUTSIDE the box.</p>
 
+<p>CSS:</p>
 <pre><code class="language-css">p {
-  border: 6px solid blue;
+  border: 1px solid blue;
   padding: 10px;
   margin: 40px;
 }
 </code></pre>
 
-  <div style="border: 6px solid blue; padding: 10px; margin: 40px">this has a border and padding AND margin – see how it's pushed away from the sides on the left and right?</div>
+  <div style="border: 1px solid blue; padding: 10px; margin: 40px">this has a border and padding AND margin – see how it's pushed away from the sides on the left and right?</div>
 
   <br>
 
   <p>Let's add a background color!</p>
 
+<p>CSS:</p>
 <pre><code class="language-css">p {
-  border: 6px solid blue;
+  border: 1px solid blue;
   padding: 10px;
   margin: 40px;
   background-color: lightblue;
 }
 </code></pre>
 
-  <div style="border: 6px solid blue; padding: 10px; margin: 40px; background-color: lightblue">Now I have a border, padding, margin and a background colour :)</div>
+  <div style="border: 1px solid blue; padding: 10px; margin: 40px; background-color: lightblue">Now I have a border, padding, margin and a background colour :)</div>
 
   <br>
 
   <p>Let's add a rounded corners. The rule is called <b>border-radius</b>.</p>
-
+<p>CSS:</p>
 <pre><code class="language-css">p {
-  border: 6px solid blue;
+  border: 1px solid blue;
   padding: 10px;
   margin: 40px;
   background-color: lightblue;
@@ -335,7 +339,23 @@
 }
 </code></pre>
 
-  <div style="border: 6px solid blue; padding: 10px; margin: 40px; background-color: lightblue; border-radius: 16px;">Everything else and rounded corners.</div>
+  <div style="border: 1px solid blue; padding: 10px; margin: 40px; background-color: lightblue; border-radius: 16px;">Everything else and rounded corners.</div>
+
+  <br>
+
+  <p>There are many other rules too…</p>
+<p>CSS:</p>
+<pre><code class="language-css">p {
+  border: 1px solid blue;
+  padding: 10px;
+  margin: 40px;
+  background-color: lightblue;
+  border-radius: 16px;
+  box-shadow: 3px 2px 2px 0px grey;
+}
+</code></pre>
+
+  <div style="border: 1px solid blue; padding: 10px; margin: 40px; background-color: lightblue; border-radius: 16px; box-shadow: 3px 2px 2px 0px grey;">Other styles…</div>
 
   <br>
 
