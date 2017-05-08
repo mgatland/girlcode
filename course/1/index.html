@@ -19,7 +19,6 @@
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="../lib/css/zenburn.css">
-
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -28,10 +27,39 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+
+		<style>
+		/*custom for this page*/
+		.reveal .schedule {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			font-size: 0.7em;
+			color: #efef8f;
+		}
+		.reveal .schedulebox {
+			flex-grow: 1;
+			flex-basis: 0; /*all consume the same amount of space*/
+			border: 1px solid white;
+			padding: 4px;
+			background-color: #3f3f3f;
+		}
+		.reveal .schedulebox.x4 {
+			flex-grow: 4;
+		}
+		.reveal .scheduleheading {
+			margin-top:15px;
+			color: #dcdcdc;
+		}
+		.reveal .schedulesubheading {
+			margin-top:7px;
+			color: #E3CEAB;
+			font-size: 0.7em;
+		}
+		</style>
 	</head>
 
 	<body>
@@ -123,16 +151,26 @@ Sometimes it can be frustrating, there are lots of mental tricks that coders use
 
 				<section>
 					<h2>Course Outline</h2>
-					<ol>
-						<li>learn</li>
-						<li>learn</li>
-						<li>learn</li>
-						<li>make</li>
-						<li>make</li>
-						<li>make</li>
-						<li>make</li>
-						<li>release!</li>
-					</ol>
+					<div class="schedule">
+						<div class="schedulebox">Week 1
+							<div class="scheduleheading">Learn</div>
+							<div class="schedulesubheading">HTML &amp; CSS</div>
+						</div>
+						<div class="schedulebox fragment">Week 2
+							<div class="scheduleheading">Learn</div>
+							<div class="schedulesubheading">JavaScript</div>
+						</div>
+						<div class="schedulebox fragment">Week 3
+							<div class="scheduleheading">Learn</div>
+							<div class="schedulesubheading">Git and Node</div>
+						</div>
+						<div class="schedulebox x4 fragment">Week 4 – Week 7
+							<div class="scheduleheading">✨Build an app✨</div>
+						</div>
+						<div class="schedulebox fragment">Week 8
+							<div class="scheduleheading">Release it!</div>
+						</div>
+					</div>
 					<aside class="notes">
 					We will have you working on individual projects to start with.
 We need to learn all of these words before we can really work together: 
