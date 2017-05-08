@@ -270,16 +270,22 @@
 
   <p>Imagine that html tags create a box. The box can have a border.</p>
 
+  <p>The HTML</p>
+<pre><code class="language-markup">&lt;p>this has a border&lt;/p>
+</code></pre>
+
+  <p>The CSS</p>
 <pre><code class="language-css">p {
   border: 6px solid blue;
 }
 </code></pre>
 
+  <p>How it looks:</p>
   <div style="border: 6px solid blue;">this has a border</div>
 
   <br>
 
-  <p>We can add padding, which means space inside the box.</p>
+  <p>We can add padding, which means space between the edge of the box and the stuff inside it.</p>
 
 <pre><code class="language-css">p {
   border: 6px solid blue;
@@ -301,6 +307,35 @@
 </code></pre>
 
   <div style="border: 6px solid blue; padding: 10px; margin: 40px">this has a border and padding AND margin – see how it's pushed away from the sides on the left and right?</div>
+
+  <br>
+
+  <p>Let's add a background color!</p>
+
+<pre><code class="language-css">p {
+  border: 6px solid blue;
+  padding: 10px;
+  margin: 40px;
+  background-color: lightblue;
+}
+</code></pre>
+
+  <div style="border: 6px solid blue; padding: 10px; margin: 40px; background-color: lightblue">Now I have a border, padding, margin and a background colour :)</div>
+
+  <br>
+
+  <p>Let's add a rounded corners. The rule is called <b>border-radius</b>.</p>
+
+<pre><code class="language-css">p {
+  border: 6px solid blue;
+  padding: 10px;
+  margin: 40px;
+  background-color: lightblue;
+  border-radius: 16px;
+}
+</code></pre>
+
+  <div style="border: 6px solid blue; padding: 10px; margin: 40px; background-color: lightblue; border-radius: 16px;">Everything else and rounded corners.</div>
 
   <br>
 
