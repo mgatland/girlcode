@@ -32,6 +32,47 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+    /*custom tutorial styles*/
+
+    .p1 {
+      border: 1px solid blue;
+    }
+
+    .p2 {
+      border: 1px solid blue; padding: 10px;
+    }
+
+    .p3 {
+      border: 1px solid blue; padding: 10px; margin: 40px
+    }
+    .p4 {
+      border: 1px solid blue; padding: 10px; margin: 40px; border-radius: 10px;
+    }
+    .p5 {
+      border: 1px solid blue; padding: 10px; margin: 40px; border-radius: 10px; box-shadow: 3px 3px 5px 1px grey;
+    }
+    .example .loud {
+      color: red;
+      border: 2px solid orange;
+      background-color: pink;
+    }
+
+    .example .survey {
+      border: 2px solid orange;
+      padding: 10px;
+      margin: 10px;
+      width: 340px;
+      text-align: center;
+    }
+
+    .example .option {
+      background-color: wheat;
+      padding: 4px;
+      margin: 4px;
+      border-radius: 15px;
+    }
+    </style>
 </head>
 
 <body id="page-top" class="index">
@@ -209,19 +250,32 @@
 
 <!-- todo: show how to grab images from Google Image Search?-->
 
+
+      <h2>Links</h2>
+
+      <p>Try adding this:</p>
+      <pre><code class="language-markup">&lt;a href=&quot;http://www.google.com&quot;&gt;Here is a link.&lt;/a&gt;</code></pre>
+
+      <p>It should look like this:</p>
+      <div class="example">
+        <p><a href="http://www.google.com" target="_blank">Here is a link.</a></p>
+      </div>
+
+      <p>Pay close attention to where the pointy brackets go! The href part is <b>inside</b> the first tag.</p>
+
+      <p>Make your link go to a website you like to visit.</p>
+
     <h2>About HTML</h2>
 
     <p>The stuff with pointy brackets is HTML. Using HTML, you can change what the page says, and add images, but you can't change colors or add borders.</p>
 
     <p>HTML is for <b>what the page says</b>, but not <b>how it should look</b>.</p>
 
-    <p>You can put HTML tags inside each other. For example, your h1 heading is inside your page body.</p>
-
     <h2>How CSS works</h2>
 
-    <p>A CSS rule controls how your HTML is displayed.</p>
+    <p>A CSS rule tells your browser how to draw your HTML.</p>
 
-    <p>Here's an example of a complete CSS rule:</p>
+    <p>Here's an example of a CSS rule:</p>
 
 <pre><code class="language-css">img {
   border: 10px dashed green;
@@ -229,24 +283,26 @@
 }
 </code></pre>
 
-    <p>First we say what part of the HTML the rule is for. This could be <code>body</code> for the whole page, or <code>img</code> for images.</p>
+    <p>The first line says when to follow this rule. Here, you must follow the rule when you draw an <code>img</code> (an image).</p>
 
-    <p>Then we use a curly bracket <b>{</b> to say 'the instructions start now.'</p>
+    <p>The curly bracket <code>{</code> means "now I'll tell you what do to."</p>
 
     <p>Then we have the instructions, like this:</p>
 
 <pre><code class="language-css">border: 10px dashed green;
 </code></pre>
 
-    <p>There are many different options. But they always have a colon in the middle and a semi-colon at the end.</p>
+    <p>There are hundreds of different rules you can use! They always have a <code>:</code> in the middle and a <code>;</code> at the end. This one says to draw a dashed green border around the edge.</p>
 
-    <p>At the end of the rule, you need to say you've finished by putting a closing curly bracket <b>}</b>.</p>
+    <p>The curly bracket <code>}</code> at the end says "I've finished explaining how to draw an <code>img</code> tag.</p>
+
+    <p>So the whole thing says: When you draw an <code>img</code> tag (an image), you must give it a 10 pixel thick green border, and you must leave 30 pixels of empty space around it (that's called a margin).</p>
+
+    <p>Add the CSS to your page and see if it works!</p>
 
       <div class="alert">
-        <p>Tip: Which is which?</p>
-        <p>HTML has a lot of pointy brackets like these: &lt; &gt;</p>
-        <p>CSS has a lot of curly brackets like these: { }</p>
-        <p>CSS goes in the 'style' section. HTML mostly goes in the 'body' section.</p>
+        <p>Remember that CSS goes in the <code>&lt;style></code> section of the page.</p>
+        <p>If it has curley brackets <code>{}</code>, it's CSS. If it has pointy brackets <code>&lt;&gt;</code> it's HTML.</p>
       </div>
 
   <h2>Bloop</h2>
@@ -282,142 +338,151 @@
 </code></pre>
 
   <p>How it looks:</p>
-  <div style="border: 1px solid blue;">this has a border</div>
+  <div class="example">
+    <div class="p1">this has a border</div>
+  </div>
 
-  <br>
+  <p>The border is very tight on the left side. We can add <i>padding</i>, which is space between the border and the words inside.</p>
 
-  <p>The border is very tight on the left side. We can add padding, which means space between the edge of the box and the words inside it.</p>
-
-<p>CSS:</p>
-<pre><code class="language-css">p {
-  border: 1px solid blue;
-  padding: 10px;
-}
+<p>Add this CSS between the curley brackets:</p>
+<pre><code class="language-css">padding: 10px;
 </code></pre>
 
-  <div style="border: 1px solid blue; padding: 10px;">this has a border and padding.</div>
+  <p>How it looks:</p>
+  <div class="example">
+    <div class="p2">this has a border and padding.</div>
+  </div>
 
   <br>
 
   <p>Margin is space OUTSIDE the box.</p>
 
-<p>CSS:</p>
-<pre><code class="language-css">p {
-  border: 1px solid blue;
-  padding: 10px;
-  margin: 40px;
-}
+<p>Add this CSS between the curley brackets:</p>
+<pre><code class="language-css">margin: 40px;
 </code></pre>
 
-  <div style="border: 1px solid blue; padding: 10px; margin: 40px">this has a border and padding AND margin – see how it's pushed away from the sides on the left and right?</div>
+  <p>How it looks:</p>
+  <div class="example">
+    <div class="p3">this has a border and padding AND margin – see how there is more space on each side of the box, and above and below it?</div>
+  </div>
 
-  <br>
+    <div class="alert">
+      <p>Right click on the box above, and choose <b>Inspect</b>. This will open the Web Developer Tools. It can be pretty complicated, but somewhere you should see this diagram which shows you how thick the borders, margins and padding are on:</p>
 
-  <p>Let's add a background color!</p>
+      <img src="web-tools-diagram.png">
 
-<p>CSS:</p>
-<pre><code class="language-css">p {
-  border: 1px solid blue;
-  padding: 10px;
-  margin: 40px;
-  background-color: lightblue;
-}
-</code></pre>
+      <p>If you hold your mouse over different parts of the diagram, they will be highlighted on the web page. This can help you figure out why things appear where they are!</p>
 
-  <div style="border: 1px solid blue; padding: 10px; margin: 40px; background-color: lightblue">Now I have a border, padding, margin and a background colour :)</div>
+      <p>You can also double-click on any of the numbers to change them. Try making the top border thicker.</p>
 
-  <br>
+      <img src="web-tools-diagram-editing.png">
+
+      <p>The Developer Tools are just for trying ideas out. The changes you make there are <b>not</b> saved and will disappear when you refresh the page.</p>
+
+    </div>
+
+  <h2>Other CSS rules</h2>
 
   <p>Let's add a rounded corners. The rule is called <b>border-radius</b>.</p>
 <p>CSS:</p>
-<pre><code class="language-css">p {
-  border: 1px solid blue;
-  padding: 10px;
-  margin: 40px;
-  background-color: lightblue;
-  border-radius: 16px;
-}
-</code></pre>
+<pre><code class="language-css">border-radius: 10px;</code></pre>
 
-  <div style="border: 1px solid blue; padding: 10px; margin: 40px; background-color: lightblue; border-radius: 16px;">Everything else and rounded corners.</div>
+  <p>How it looks:</p>
+  <div class="example">
+    <div class="p4">Rounded corners. Try increasing the number in border-radius for more rounding.</div>
+  </div>
 
   <br>
 
-  <p>There are many other rules too…</p>
+  <p>How about a shadow?</p>
 <p>CSS:</p>
-<pre><code class="language-css">p {
-  border: 1px solid blue;
-  padding: 10px;
-  margin: 40px;
-  background-color: lightblue;
-  border-radius: 16px;
-  box-shadow: 3px 2px 2px 0px grey;
-}
-</code></pre>
+<pre><code class="language-css">box-shadow: 3px 3px 5px 1px grey;</code></pre>
 
-  <div style="border: 1px solid blue; padding: 10px; margin: 40px; background-color: lightblue; border-radius: 16px; box-shadow: 3px 2px 2px 0px grey;">Other styles…</div>
-
-  <br>
-
-  <h2>Putting boxes inside boxes</h2>
-
-  <br>
-
-<pre><code class="language-markup">&lt;div>
-  &lt;p>
-    hello
-  &lt;/p>
-  &lt;p>
-    hello
-  &lt;/p>
-&lt;/div>
-</code></pre>
-
-  <div style="border: 2px solid black; padding: 10px;">
-    <div style="border: 2px solid red; padding: 10px;">
-    hello
+  <p>How it looks:</p>
+  <div class="example">
+    <div class="p5">Check out my little shadow!</div>
   </div>
-  <div style="border: 2px solid red; padding: 10px;">
-    hello
-  </div>
-  </div>
-
-  <br>
-
-  <p>... or <b>bold</b> text inside paragraphs.</p>
-
-<pre><code class="language-markup">&lt;p&gt;... or &lt;b&gt;bold&lt;/b&gt; text inside paragraphs.&lt;/p&gt;
-</code></pre>
-
-      <h2>Links</h2>
-
-      <p><a href="http://www.google.com" target="_blank">Here is a link.</a></p>
-
-<pre><code class="language-markup">&lt;a href=&quot;http://www.google.com&quot;&gt;Here is a link.&lt;/a&gt;
-</code></pre>
-
-      <p>Pay close attention to where the pointy brackets go! The href part is <b>inside</b> the first tag.</p>
 
       <h2>Making one thing different from the others with CSS classes</h2>
 
       <p>What if you want one paragraph to be red, and another one to be blue?</p>
 
-      <p>You can give any HTML tag a 'class', which is like an extra label. You make up the label. Here I called it 'loud'</p>
+      <p>You can give any HTML tag a 'class', which is like an extra label. You make up the label. Here I called it <code>loud</code>:</p>
 
-<pre><code class="language-markup">&lt;p&gt;This is a paragraph.&lt;/p&gt;
-&lt;p class=&quot;loud&quot;&gt;Here is another.&lt;/p&gt;
+<p>HTML:</p>
+<pre><code class="language-markup">&lt;p&gt;This is a normal paragraph.&lt;/p&gt;
+&lt;p class=&quot;loud&quot;&gt;This is a LOUD paragraph!.&lt;/p&gt;
 </code></pre>
 
-      <p>Now we can write a CSS rule that applies to anything that has that class.</p>
+      <p>Now you can write a CSS rule that applies to anything that has that class.</p>
 
+<p>CSS:</p>
 <pre><code class="language-css">.loud {
   color: red;
+  border: 2px solid orange;
+  background-color: pink;
 }
 </code></pre>
 
-      <p>Note that there is a dot in front of the word "loud". That's to show that it's not a tag name, it's a class name.</p>
+<p>The result:</p>
 
-      <p>You can make up as many classes as you want. Classes don't change anything on their own. You need to write a CSS rule for the class to make it do something.</p>
+  <div class="example">
+    <p>This is a normal paragraph.</p>
+    <p class="loud">This is a LOUD paragraph!</p>
+  </div>
+
+      <p>Note that in our CSS rule, there is a dot in front of the word "loud". That shows that it's not a tag name (like <code>p</code> or <code>img</code>), it's a class name.</p>
+
+      <p>Classes let you quickly add your styles to anything you want.</p>
+
+  <h2>Putting things inside other things</h2>
+
+  <p>We can create advanced layouts by putting some HTML elements inside other ones.</p>
+
+  <p>Here we have put a <code>h4</code> heading and some 'option' <code>div</code>s inside a <code>div</code> we called a 'survey'.</p>
+
+  <p>A <code>div</code> is just a general thing - unlike <code>p</code> (for paragraph), <code>div</code> has no meaning on its own. We can use it to mean whatever we want.</p>
+
+<p>HTML:</p>
+<pre><code class="language-markup">&lt;div class="survey">
+  &lt;h4>How many cats is enough cats?&lt;/h4>
+  &lt;div class="option">one cat&lt;/div>
+  &lt;div class="option">two cats&lt;/div>
+  &lt;div class="option">ten cats&lt;/div>
+  &lt;div class="option">no cats&lt;/div>
+&lt;/div>
+</code></pre>
+
+<p>CSS:</p>
+<pre><code class="language-css">.survey {
+  border: 2px solid orange;
+  padding: 10px;
+  margin: 10px;
+  width: 340px;
+  text-align: center;
+}
+
+.option {
+  background-color: wheat;
+  padding: 4px;
+  margin: 4px;
+  border-radius: 15px;
+}</code></pre>
+
+<p>How it looks:</p>
+  <div class="example">
+    <div class="survey">
+      <h4>How many cats is enough cats?</h4>
+      <div class="option">one cat</div>
+      <div class="option">two cats</div>
+      <div class="option">ten cats</div>
+      <div class="option">no cats</div>
+    </div>
+  </div>
+ 
+<p>Can you put a link (an <code>a</code> tag) inside one of the options?</p>
+
+
 
       <h2>That's the end!</h2>
 
