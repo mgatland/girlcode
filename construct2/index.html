@@ -24,6 +24,9 @@
 
   <link href="/js/prism/prism.css" rel="stylesheet">
   <script src="/js/prism/prism.js"></script>
+  <style>
+    img {display: block;}
+  </style>
 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -111,7 +114,7 @@
 
                   <h2>Construct 2</h2>
 
-                <p>Construct 2 can make all kinds of 2D games.  In this tutorial, you'll be taken through the basics of making a platform game in Construct 2.</p>
+                <p>Construct 2 can make all kinds of 2D games.  In this tutorial, we'll make a platform game.</p>
 
                 <h2 id="h2ix0">Installing Construct 2</h2>
 
@@ -123,476 +126,251 @@
 
                 <h2 id="h2ix1">Getting started</h2>
 
-                <p>Now you're set up, launch Construct 2.  Click the <em>File</em> button, and select <em>New</em>.<br><img width="188" height="162" class="article-image" src="https://www.scirra.com/images/articles/filenew.png" alt="The File menu 'New' button."><br>You will see the 'Template or Example' dialog box.<br><img width="322" height="325" class="article-image" src="https://www.scirra.com/images/articles/newprojdialog65_2.png" alt="Template or Example"><br>This shows a list of examples and templates. For now, just click on 'Open' at the bottom of the box to create a blank, empty new project.</p>
+                <p>Launch Construct 2.  Click the <em>File</em> button, and select <em>New</em>.<br><img width="188" height="162" class="article-image" src="https://www.scirra.com/images/articles/filenew.png" alt="The File menu 'New' button."><br>You will see the 'Template or Example' dialog box.<br><img width="322" height="325" class="article-image" src="https://www.scirra.com/images/articles/newprojdialog65_2.png" alt="Template or Example"><br>Just click on 'Open' at the bottom of the box to create an empty project.</p>
 
                 <p>You should now be looking at an empty <em>layout</em> - the design view where you create and position objects.  Think of a layout like a game level or menu screen.</p>
 
-                <h3 id="h2ix2">Size the layout</h3>
+<!-- new tutorial structure -->
 
-                <p>First of all, we need resize the layout (level).</p>
-                 
-                <p>Click anywhere on the empty white layout. This will make the <strong>Properties Bar</strong> (left side of the screen) display <em>Layout Properties</em>. Change the size of the level to 4000, 2048.</p>
+                <h3>Adding some ground</h3>
+                <p>Click <a href="brick.png" download>here</a> to download a small image called brick.png.</p>
 
-                <img src="resize-layout.png">
+                <p>In Construct 2, <strong>double-click</strong> the empty space in the layout to insert a new object. Choose <strong>Sprite</strong>.</p>
 
-                <!-- add later: background
+                <img class="framed" src="click-sprite.png">
 
-                <p><img width="251" height="220" class="article-image" src="https://www.scirra.com/images/articles/layoutsize.png" alt="Setting the layout size."><br>Let's tile the background image across the layout.  <strong>Double-click</strong> a space in the layout.  This will bring up the <strong>Insert Object</strong> dialog.  Double click the <strong>Tiled Background</strong> object to insert it.</p>
-
-                <p><img width="530" height="440" class="article-image" src="https://www.scirra.com/images/articles/tiledbackground.png" alt="Adding the Tiled Background object."><br>The mouse turns in to a crosshair.  It doesn't matter where you place it initially, so just left click somewhere in the layout.  The <strong>Image editor</strong> opens so you can enter the image to tile.  Let's import the <em>Background Image\Background.png</em> file from the sprite pack.  Click the <strong>Open</strong> icon to import an image.</p>
-
-                <p><img width="419" height="395" class="article-image" src="https://www.scirra.com/images/articles/loadimagefromfile.png" alt="Importing an image file."><br>Select the <em>Background Image\Background.png</em> file, then close the image editor.  You should see part of the background image in the layout.</p>
-
-                <p>We need to size the background to cover the entire layout.  Make sure it is selected (left click it in the layout) and its properties should appear in the <strong>Properties Bar</strong>.  To make it cover the entire layout, set its <strong>Position</strong> to 0, 0 and its <strong>Size</strong> to 4000, 2048 (the same size as the layout).</p>
-
-                <p><img width="249" height="249" class="article-image" src="https://www.scirra.com/images/articles/tiledbgsize.png" alt="Sizing the tiled background."><br>The background image is pretty big, so it's hard to see it all at once at the current zoom level.  Let's try zooming out to preview more of it.Hold <strong>Control</strong> and <strong>scroll the mouse wheel down</strong> to zoom out.  Alternatively, press <em>View</em> - <em>Zoom out</em> in the ribbon a couple of times.  You should be able to see the entire layout, a bit like this:</p>
-
-                <p><img width="405" height="212" class="article-image" src="https://www.scirra.com/images/articles/tiledplatformerbg.png" alt="The fully tiled layout."><br>Note the dashed outline in the top left is the size of the window compared to the rest of the layout.  Press <strong>Ctrl   0</strong> to zoom back to 100%, or <em>View</em> - <em>Zoom to 100%</em> in the ribbon.  You're probably zoomed in to the middle of the layout now.  Use the scrollbars to navigate back to the top left corner of the layout.  You can also click and drag the middle mouse button to 'pan' around the layout, or hold space to do the same if you don't have a middle mouse button.<br></p>
-                
-                MATTHEW: we skipped: background tiling, zooming, panning
-                
-
-                <h2>Page 2</h2>
-
-                -->
-                <!--
-               <a name="h2a3"></a><h3 id="h2ix3">Adding a layer</h3>
-
-                <p>Okay, now we want to add some more objects.  However, we're going to keep accidentally selecting the tiled background unless we <em>lock</em> it, making it unselectable.  Let's use the layering system to do this.</p>
-
-                <p>Layouts can consist of multiple <em>layers</em>, which you can use to group objects.  Imagine layers like sheets of glass stacked on top of each other, with objects painted on each sheet.  It allows you to easily arrange which objects appear on top of others, and layers can be hidden, locked, have parallax effects applied, and more.  For example, in this game, we want everything to display above the tiled background, so we can make another layer on top for our other objects.</p>
-
-                <p>To manage layers, click the <strong>Layers tab</strong>, which usually is next to the <em>Project bar</em>:</p>
-
-                <p><img width="249" height="261" class="article-image" src="https://www.scirra.com/images/articles/layerstab.png" alt="Layers bar tab"><br>You should see <em>Layer 0</em> in the list (Construct 2 counts starting from zero, since it works better like that in programming).  Click the pencil icon and <strong>rename it</strong> to <em>Background</em>, since it's our background layer.  Now click the green 'add' icon to add a new layer for our other objects.  Let's call that one <em>Main</em>.  Finally, if you click the little padlock icon next to <em>Background</em>, it will become <em>locked</em>.  That means you won't be able to select anything on it.  That's quite convenient for our tiled background, which is easy to accidentally select and won't need to be touched again.  However, if you need to make changes, you can just click the padlock again to unlock.</p>
-
-                <p>The checkboxes also allow you to hide layers in the editor, but we don't need that right now.  Your layers bar should now look like this:</p>
-
-                <p><img width="249" height="243" class="article-image" src="https://www.scirra.com/images/articles/layersbar.png" alt="The layers bar, all set up."><br>Now, <strong>make sure the 'Main' layer is selected in the layers bar</strong>.  This is important - the selected layer is the <em>active</em> layer.  All new inserted objects are inserted to the <em>active</em> layer, so if it's not selected, we'll be accidentally inserting to the wrong layer.  The active layer is shown in the status bar, and also appears in a tooltip when placing a new object - it's worth keeping an eye on.</p>
-
-                -->
-
-                <h2 id="h2ix4">Adding tiles</h2>
-
-                <p>Download this <a href="http://opengameart.org/content/tilesheet" target="_blank">free tileset</a> from OpenGameArt. (Go to that page then click on <b>sheet1.png</b> in the list of files.)</p>
-
-                <p>The image contains 64 different tiles.</p>
-
-                <p><strong>double-click</strong> the empty space in the layout to insert a new object.  Choose <strong>Sprite</strong>.</p>
-
-                <img src="click-sprite.png">
+                <img class="framed"  src="insert-sprite.png">
 
                 <p>The mouse turns into a crosshair – Click somewhere in the middle of the screen to place your new sprite.</p>
 
-                <p>The <strong>Image Editor</strong> opens up, with some windows to control animations. We are going to use animations in a weird way. We'll have an animation speed of 0 (paused). We'll have a different tile in each frame of the animation.  Then, we can switch which tile is showing by changing the animation frame.</p>
+                <img class="framed"  src="place-sprite.png">
 
-                <p><strong>Right click</strong> a space in the <strong>Animation Frames</strong> pane at the bottom, and pick <strong>Import frames -> from sprite strip...</strong>.</p>
+                <p>An image editor pops up. We will choose what this image will look like. Follow these steps to open the brick.png file you just downloaded.</p>
 
-                <p><img class="article-image" src="import-frames-from-spritesheet.png" alt="Importing a sprite strip"><br>A file open dialog appears.  Pick the file <em>sheet1.png</em> that you just downloaded.  Construct 2 then needs to know how many tiles are in the image.  You'll notice <em>sheet1.png</em> is an 8x8 grid of tiles.  Enter <em>8</em> and <em>8</em> and click <strong>OK</strong>.</p>
+                <img class="framed"  src="bricks-open.png">
+                <img class="framed"  src="bricks-select.png">
 
-                <p><img src="import-tile-map.png" alt="Importing the tile map."><br>Construct 2 will cut the image into  tiles.  Now you should have all the tiles imported as animation frames!  The first frame is empty, we should delete that one so  <strong>right click</strong> on it and select <strong>delete</strong>.</p>
+                <p>Now close the image editor:</p>
+                <img class="framed"  src="bricks-close.png">
 
-                <p><img width="285" height="142" class="article-image" src="https://www.scirra.com/images/articles/deletefirstframe.png" alt="Deleting the first animation frame."><br>You might want to resize the <em>Animation Frames</em> window bigger to get a better view of your tiles.</p>
+                <img class="framed"  src="bricks-final.png">
 
-<!-- Also, you can right-click a space and change the thumbnail size to Large if you prefer big thumbnails. -->
+                <p>There is a small brick wall in your game now!</p>
 
-                <p>By default the animation speed is 5, which means tiles will keep changing their image.  We want tiles to stay on their current frame, so let's make sure the animation speed is 0.  Select the <em>Default</em> animation in the <em>Animations</em> window.</p>
 
-                <p><img width="189" height="145" class="article-image" src="https://www.scirra.com/images/articles/defaultanimation.png" alt="Selecting the default animation."><br>The <strong>Properties Bar</strong> now shows properties for the animation.  Set its <em>Speed</em> property to <strong>0</strong>.</p>
+                <h3>Add more ground</h3>
 
-                <p><img width="252" height="187" class="article-image" src="https://www.scirra.com/images/articles/animspeed0.png" alt="Setting the animation speed to 0."><br>Now the tiles won't keep changing their image - they'll stay on the same frame.  Close the image editor by clicking the X on one of the three floating windows.  Your Sprite tile should now be in the layout!</p>
+                <p>You can move the bricks around by dragging with your mouse.</p>
 
-                <p><img width="190" height="178" class="article-image" src="https://www.scirra.com/images/articles/spritetile.png" alt="The Sprite tile in the layout."><br>With it selected, change its name from Sprite to <strong>Tile</strong> in the Properties Bar. (left side of screen).  It's always a good idea to give objects an appropriate name.</p>
+                <p>You can copy the bricks by holding <b>Ctrl</b> and dragging them with the mouse.</p>
 
-                  <img src="rename-sprite-to-tile.png">
+                <img class="framed"  src="bricks-more.png">
 
-                <h3 id="h2ix5">Creating scenery from tiles</h3>
+                <p>If you want to line these bricks up perfectly, you should turn on 'Snap to Grid.' First click on the view tab:</p>
 
-                <p>Notice the Sprite object has an <strong>Initial frame</strong> property.  We can use this to switch the current tile.  Select the Tile object and change its initial frame to 4:</p>
+                <img class="framed"  src="view-tab.png">
 
-                <p><img width="250" height="156" class="article-image" src="https://www.scirra.com/images/articles/spriteinitialframe.png" alt="Changing the tile's initial frame."><br>Notice the image changes to reflect the tile in animation frame 4.  This is how we can set up different tiles across the level.</p>
+                <p>Then turn on 'Snap to Grid' and 'Show Grid'.</p>
+                <img class="framed"  src="snap-to-grid.png">
 
-                <p>Hold <strong>Control</strong> and <strong>click and drag</strong> the tile.  You'll create another tile object.  Do this again so we have 3 tiles in a row.  Select the middle one and set its <em>initial frame</em> to <strong>5</strong>.  Do the same for the one on the right, but make its initial frame <strong>6</strong>.  You should now have something like this:</p>
+                <p>Now it is easy to line up everything:</p>
 
-                <p><img width="417" height="163" class="article-image" src="https://www.scirra.com/images/articles/threetiles.png" alt="Three different tiles added to the layout."><br>If you're wondering how to double-check which frame number corresponds to which tile, just double-click the tile object.  The image editor comes up again with the animation windows where you can check.  Remember you can <em>control drag</em> a tile and it makes another tile of the same type, so you don't need to keep typing in initial frames.</p>
+                <img class="framed"  src="bricks-snapped.png">
 
-                <h3 id="h2ix6">Enabling snap to grid</h3>
+                <p>When you click on one of your bricks, the left side of the screen shows some information about it. It's called 'Sprite' right now...</p>
 
-                <p>It's going to be a headache if we have to line up these tiles by hand!  You can enable a grid to make this easier.  In the ribbon, click <em>View</em> and enable <em>Snap to Grid</em>.  The default grid size of 32x32 is fine.</p>
+                <img class="framed"  src="bricks-rename-1.png">
 
-                <p>Tick <em>Show Grid</em> as well.</p>
+                <p>That's confusing, so let's rename it to 'Bricks'</p>
 
-                <p><img width="544" height="145" class="article-image" src="https://www.scirra.com/images/articles/snaptogrid.png" alt="Enabling Snap to Grid."><br>Try dragging around the tiles now.  You should find they snap to a 32x32 grid.  Now it should be easy to snap the three tiles together.</p>
+                <img class="framed"  src="bricks-rename-2.png">
 
-                <p><img width="402" height="143" class="article-image" src="https://www.scirra.com/images/articles/threetilessnapped.png" alt="The three tiles snapped together."><br></p>
+                <p>You can test out your game by pressing the big play button. But it won't be much fun yet - it's just some bricks, sitting there...</p>
 
-<!--
-                <h2>Page 3</h2>
--->
-                <h2 id="h2ix7">Adding the Player sprite</h2>
+                <img class="framed"  src="play-game.png">
 
-                <p>Download this file: <a href="wizard_idle.png" download="wizard_idle.png">wizard_idle.png</a> (credit: Animated Wizard by Calciumtrice, usable under Creative Commons Attribution 3.0 license.)</p>
+                <h3>Add a player character</h3>
 
-                <p>Let's add a sprite for the player.  As before, <strong>double-click</strong> a space in the layout to insert a new object, and choose <strong>Sprite</strong>.  When the crosshair comes up, click somewhere above the tiles.  The <strong>Image Editor</strong> will appear.</p>
+                <p>Click <a href="playerbox.png" download>here</a> to download a small image called playerbox.png.</p>
 
-                <p>Let's import the sprite strip for the player's <em>idle</em> animation.  As before, right click the <em>Animation Frames</em> window and select <strong>Import Frames -> From sprite strip...</strong>.</p>
+                <p>In Construct 2, <strong>double-click</strong> the empty space in the layout to insert a new object. Choose <strong>Sprite</strong>.</p>
 
-                <p><img width="365" height="205" class="article-image" src="https://www.scirra.com/images/articles/importspritestrip.png" alt="Importing a sprite strip again."><br>Choose the file <em>wizard_idle.png</em>.</p>
+                <img class="framed" src="click-sprite.png">
 
-                <p>This file has 10 cells accross and only 1 cell down. Click <strong>OK</strong> and the frames are imported.</p>
+                <img class="framed"  src="insert-sprite.png">
 
-                <p>Note we still have the default blank frame at the start.  Right click and delete that again.  You should now have a sequence of animation frames for the player's Idle animation.</p>
+                <p>The mouse turns into a crosshair – Click somewhere in the middle of the screen to place your new sprite.</p>
 
-                <p><img class="article-image" src="idle_frames.png" alt="The Idle animation."><br><a name="h2a8"></a><h3 id="h2ix8">Cropping</h3>
+                <img class="framed"  src="place-sprite.png">
 
-                <p>You might notice the player has some empty transparent space around them.  This is common after importing images.  However, it's bad practice to leave it there - it wastes memory and can make collisions less reliable.</p>
+                <p>An image editor pops up. Use the same steps are last time, but choose playerbox.png as the image.</p>        
 
-                <p><img class="article-image" src="empty-space.png" alt="Spare space around the player."><br>There's a quick way to get rid of it, though.  <strong>Hold shift</strong> and press the <strong>Crop</strong> button on the image editor toolbar.</p>
 
-                <p><img class="article-image" src="crop-button.png" alt="Cropping the animation."><br>If you didn't hold shift, only that frame is cropped, so make sure you have shift down when you click it to crop the entire animation.  The player image should now be nicely cropped, with no unnecessary space.</p>
+                <img class="framed"  src="new-playerbox.png">        
 
-                <p><img class="article-image" src="player-cropped.png" alt="A cropped animation frame for the player."><br><a name="h2a9"></a><h3 id="h2ix9">Setting the origin</h3>
+                <p>If you click on the playerbox, you will see its name is Sprite. Once again, let's rename it to help keep everything organised:</p>
 
-                <p>The <em>origin</em> is the center, or "hot spot", of the object.  In platformers, it's best to have the origin by the player's feet.  This means if the animation changes height as it plays, they grow upwards, rather than in to the floor.</p>
+                <img class="framed"  src="rename-playerbox.png">
 
-                <p>To set the origin, click the <strong>Set origin and image points</strong> tool in the image editor.</p>
+                <h3>Make the player controllable</h3>
 
-                <p><img class="article-image" src="set-origin.png" alt="The origin tool in the image editor."><br>You should notice a black circle appear on the player.  That's the origin. Also, a little window called <em>Image Points</em> appeared. In the <em>Image points</em> window, right click the Origin and choose <em>Quick assign</em> - <em>Bottom</em>.</p>
+                <p>When the playerbox is selected, the left side of the screen shows many options. One of them lets us add <b>behaviours</b>:</p>
 
-                <img src="image-origin-bottom.png">ss
+                <img class="framed"  src="playerbox-behaviour-1.png">
 
-                <p>Now to do that to all 10 frames, in the <em>Image points</em> window, <strong>right click</strong> <em>Origin</em> and click <strong>Apply to whole animation</strong>.</p>
+                <p>Follow these steps to add the 'Platform' behaviour:</p>
+                <img class="framed"  src="playerbox-behaviour-2.png">
+                <img class="framed"  src="playerbox-behaviour-3.png">
+                <img class="framed"  src="playerbox-behaviour-4.png">
+                <img class="framed"  src="playerbox-behaviour-5.png">
+                
+                <p>Now Construct 2 will give our player character basic platform-game controls, using the arrow keys to move.</p>
 
-                <p><img width="288" height="242" class="article-image" src="https://www.scirra.com/images/articles/applytowholeanimation.png" alt="Applying origin to whole animation"><br>The origin should be set on every animation frame.</p>
+                <p>Try playing your game now!</p>
 
-                <a name="h2a10"></a><h3 id="h2ix10">Loop the animation</h3>
+                <img class="framed"  src="play-game.png">
 
-                <p>Click the <strong>Default</strong> animation in the <em>Animations</em> window.  Rename it to <em>Idle</em>.</p>
+                <h3>Oops</h3>
 
-                <p><img width="189" height="145" class="article-image" src="https://www.scirra.com/images/articles/renameanimationidle.png" alt="Renaming the animation."><br>In the <strong>Properties Bar</strong>, change the <em>Speed</em> of the animation to <strong>9</strong> and set <em>Loop</em> to <strong>Yes</strong>.</p>
+                <p>Did your player fall through the ground? We need to add a behaviour to the bricks, to make them <b>solid</b>.</p>
 
-                <p><img width="251" height="143" class="article-image" src="https://www.scirra.com/images/articles/animspeedandloop.png" alt="Setting the animation Speed and Loop properties."><br>Right click the <em>Idle</em> animation in the <em>Animations</em> window and select <strong>Preview</strong>.  You should see the player moving slightly.  All done!  Close the animation preview and the image editor.  You should see your player in the layout.</p>
+                <p>Click on a brick first. </p>
+                <img class="framed"  src="bricks-solid-1.png">
+                <img class="framed"  src="bricks-solid-2.png">
+                <img class="framed"  src="bricks-solid-3.png">
+                <img class="framed"  src="bricks-solid-4.png">
+    
+                <p>Try playing your game now. You should be able to move and jump with the arrow keys.</p>
 
-                <p>Rename the object to <strong>Player</strong> in the Properties bar, since we're being organised.</p>
+                <img class="framed"  src="play-game.png">
 
-                </div>
+                <p><b>If you can't see anything except white space when you play your game, that's OK - the next step will fix that.</b></p>
 
-<!--
-                <h2>Page 4</h2>
--->
+                <h3>Make the camera follow the player's character</h3>
 
-                <h2 id="h2ix11">Adding behaviors</h2>
+                <p>If your level is bigger the screen, we need to make the camera follow the player character so you can always see them! You will need to add another behaviour to the player:</p>
 
-                <p>Construct 2 comes with lots of <em>behaviors</em>.  These make your objects work in pre-defined ways, which can save you lots of time.</p>
+                <img class="framed"  src="player-scroll.png">
 
-                <p>The <strong>Platform behavior</strong> gives us simple 2D platform-game movement.  However, there's one important tip for using it: <strong>the behavior should be applied to an invisible rectangle object</strong>, and the player positioned on top.  The Platform behavior works much better if it's attached to a simple square object instead of a complex animated object.</p>
+                <p>Try playing your game again. Now the game's "camera" should always show the player character.</p>
 
-                <p>Right click on this square and 'save as' to save a copy.</p>
+                <h3>Adding a non-player character</h3>
 
-                <img width="36" height="37" class="article-image" src="https://www.scirra.com/images/articles/square1.png" alt="A square">
+                <p>Click <a href="creature.png" download>here</a> to download a small image called creature.png.</p>
+                
+                <p>Follow the same steps as before to add a new Sprite, set its image to creature.png, and rename it from 'Sprite' to 'Creature'.</p>
 
-                <p>So we need to make an invisible square for the movement first.  <strong>Double-click</strong> the layout to add a new sprite again, and this time import the square.</p>
+                <p>Add the 'Platform' behaviour, like you did with the PlayerBox.</p>
 
-                <p><br>As before, we should have the origin at the bottom.  So click <strong>Set origin and image points</strong> again and press 2 (or use the <em>quick assign</em> menu) to position the origin at the bottom.</p>
+                <img class="framed"  src="playerbox-behaviour-3.png">
 
-                <p><img width="66" height="64" class="article-image" src="https://www.scirra.com/images/articles/playerboxhotspot.png" alt="Hotspot set"><br>Close the image editor.  You should now see it in the layout.  Resize it to roughly the same size as the player's body as shown below. <b>You will have to untick 'Snap to grid' to do this</b>, by clicking 'View' in the ribbon at the top of the screen then unticking 'Snap to grid'.</p>
+                <p>However, this time we need to change some of the settings on the left hand side to make it so this character is not controlled by the arrow keys:</p>
 
-                <p><img class="article-image" src="resize-box.png" alt="Player's collision box"><br>Rename this object to <em>PlayerBox</em> since it's the box for movement and collision testing for the player.  Also, in the Properties Bar, set <strong>Initial visibility</strong> to <strong>Invisible</strong> since we don't want to see it.</p>
+                <img class="framed"  src="creature-controls.png">
+                
+                <p>Give your creature a little platform to stand on. We are going to make it walk back and forwards across its platform.</p>
 
-                <p>Still in the PlayerBox's properties, click <strong>Add / Edit</strong> by <strong>Edit behaviors</strong> in the properties bar.  In the dialog that appears, click the plus button.</p>
+                <img class="framed"  src="creature-platform.png">
 
-                <p><img src="add-playerbox-behavior.png" alt="Adding a behavior"><br><strong>Double-click</strong> the <strong>Platform</strong> behavior.</p>
+                <p>The Creature needs to remember which way it is moving - either left or right.  We can do this with <strong>instance variables</strong>.</p>
 
-                <p><img width="400" height="350" class="article-image" src="https://www.scirra.com/images/articles/platformbehavior.png" alt="The Platform behavior."><br>You should see that some new properties for the platform movement have appeared in the <strong>Properties bar</strong>.  You can tweak the movement settings like speed and acceleration.  Let's make the jumps a little bit more snappy.  Set the <strong>Jump strength</strong> to <strong>800</strong> and the <strong>Gravity</strong> to <strong>2500</strong>.</p>
+                <p><strong>Select the Creature object</strong>.  In the properties bar, click <em>Add / Edit</em> under 'Instance variables'.</p>
 
-                <p>We also want the screen to follow the player, so click the plus again and add the <strong>Scroll To</strong> behavior.</p>
+                <p><img width="273" height="202" class="article-image" src="https://www.scirra.com/images/articles/platforminstancevars.png" alt="Instance variables for the snail."><br>Click the 'add' icon to add a new variable.  Set the name to <em>action</em>, the type to <em>text</em>, and the initial value to <em>right</em> (for moving right).</p>
 
-                <p>Once you've added both behaviors, close the <em>Player behaviors</em> dialog.</p>
+                <p><img width="325" height="241" class="article-image" src="https://www.scirra.com/images/articles/actioninstancevar.png" alt="Adding the 'action' instance variable."><br>Click <strong>OK</strong> and close the instance variables dialog.</p>
 
-                <h3 id="h2ix12">Adding the Solid behavior</h3>
+                <h3>Turning points</h3>
 
-                <p>The platform movement needs to know what objects it can land on.  The player will fall through any objects which don't have the <strong>Solid</strong> behavior.  So this time select the <em>Tile</em> sprite and add a behavior for it, this time choosing the <strong>Solid</strong> behavior.</p>
+                <p>We will add some invisible Sprites that tell the creature to turn around when it touches them. Click <a href="turningpoint.png" download>here</a> to download turningpoint.png, add a new Sprite, and name it 'TurningPoint'.</p>
 
-                <p>We just now need to position the player on top of the PlayerBox.  Switch to <strong>Event Sheet 1</strong>.  This is where we define the game's logic using Construct 2's event system.</p>
+                <p>You can make it invisible like this: (We will still see it in the editor, but in the actual game it will be invisible.)</p>
 
-                <p><img width="229" height="68" class="article-image" src="https://www.scirra.com/images/articles/switchtoeventsheet.png" alt="Switching to the event sheet."><br></p>
+                <img class="framed"  src="turningpoint-invisible.png">
 
-<!--
-                <h2>Page 5</h2>
--->
+                <p>Use the turning points where you want the creature to turn around:</p>
+                
+                <img class="framed"  src="turningpoints.png">
 
-                <h3 id="h2ix13">Creating events</h3>
+                <h3>Creature brains</h3>
 
-                <p>Events work by testing if a series of <em>conditions</em> have been met.  If they have, the <em>actions</em> run.</p>
+                <p>Open the Event Sheet:</p>
 
-                <p>In this case, we always want to position the player on top of <em>PlayerBox</em>.  To do this, we should update its position every <em>tick</em>, or frame of the game.</p>
+                <img class="framed"  src="show-event-sheet.png">
 
-                <p><strong>Double-click a space</strong> in the Event Sheet View to create a new event.</p>
+                <p>Right click and choose 'Add event'</p>
 
-                <p><img width="447" height="300" class="article-image" src="https://www.scirra.com/images/articles/addsystemcondition.png" alt="Adding an event"><br><strong>Double-click</strong> the <strong>System</strong> object, which contains the <em>Every tick</em> condition.</p>
+                <p>Follow these steps to make the creature move to the right:</p>
 
-                <p><img width="447" height="300" class="article-image" src="https://www.scirra.com/images/articles/everytickcondition.png" alt="Adding 'Every tick'"><br>Now we have an empty event which will run its actions every tick:</p>
+                <img class="framed"  src="creature-events-1.png">
+                <img class="framed"  src="creature-events-2.png">
+                <img class="framed"  src="creature-events-3.png">
+                <!-- no step 4 -->
+                <img class="framed"  src="creature-events-5.png">
+                <img class="framed"  src="creature-events-6.png">
+                <img class="framed"  src="creature-events-7.png">
+                <img class="framed"  src="creature-events-8.png">
+                <img class="framed"  src="creature-events-9.png">
 
-                <p><img width="447" height="25" class="article-image" src="https://www.scirra.com/images/articles/everytick1.png" alt="Every tick"><br><strong>Click 'Add action'</strong>.</p>
+                <p>The final result:</p>
+                <img class="framed"  src="creature-events-10.png">
 
-                <p><img width="447" height="300" class="article-image" src="https://www.scirra.com/images/articles/addplayeraction.png" alt="Adding an action"><br>We want to position <em>Player</em>, so <strong>double-click 'Player'</strong>.</p>
+                <p>This should make your creature run to the right as soon as the game starts.</p>
 
-                <p><img width="447" height="300" class="article-image" src="https://www.scirra.com/images/articles/setpositionaction.png" alt="Set position to another object"><br><strong>Double-click</strong> <em>Set position to another object</em>.  For <strong>Object</strong>, click <em>&lt;click to choose&gt;</em> and pick <em>PlayerBox</em>.  Leave <em>Image point</em> as 0 (that means the origin).  <strong>Click 'Done'</strong>.  The finished event should look like this:</p>
+                <p>Add another event, that makes the creature run to the left if its 'action' is set to 'left'. You will follow the same steps but replace 'right' with 'left'.</p>
 
-                <p><img width="536" height="49" class="article-image" src="https://www.scirra.com/images/articles/setpositionevent.png" alt="The Set Position event."><br>Hopefully this makes sense: we always position the player on top of the PlayerBox object, which is the object with the movement.</p>
+                <img class="framed"  src="creature-events-11.png">
 
-                <p>Run the game by clicking the 'play' arrow in the title bar.</p>
+                <p>You can test your game now - the creature should run to the right, but will never turn around.</p>
 
-                <p><img width="230" height="54" class="article-image" src="https://www.scirra.com/images/articles/rungame.png" alt="Run the game."><br>Move and jump with the arrow keys.  You've got your first basic platformer up and running!</p>
+                <h3>Make the creature turn</h3>
 
-                <h3 id="h2ix14">Problems</h3>
+                <p>Create another event. Creature -&gt; On collision with another object -&gt; TurningPoint</p>
 
-                <p>If you play around you might notice some problems:</p>
+                <img class="framed"  src="turning-0.png">
 
-                <p>1. The player doesn't face left.<br>2. There aren't any other animations yet.</p>
+                <p>Now you need to add a Subevent, by right clicking in this tiny area:</p>
 
-                <p>Let's sort these out!  First of all, number 1: let's get the player turning left and right.</p>
+                <img class="framed"  src="turning-1.png">
 
-                <p>First, switch back to the Layout view using the tabs at the top.  <strong>Double click</strong> the layout to insert an object again, and insert the <strong>Keyboard</strong> object.  Since it's just an input object you don't need to place it anywhere - it just enables keyboard input for the whole project.</p>
+                <p>And choosing this option:</p>
+                <img class="framed"  src="turning-2.png">
 
-                <p>Instead of creating a whole new animation with the player facing left, we can simply use Construct 2's <em>Set mirrored</em> action, which will automatically mirror the object to make it appear to be facing left instead of right.</p>
+                <p>Now follow the steps to create the subevent:</p>
+                <img class="framed"  src="turning-3.png">
+                <img class="framed"  src="turning-4.png">
+                <img class="framed"  src="turning-5.png">
+                <img class="framed"  src="turning-6.png">
+                <img class="framed"  src="turning-6.1.png">
+                <img class="framed"  src="turning-6.2.png">
+                <img class="framed"  src="turning-6.3.png">
 
-                <p>Switch back to the Event Sheet.  We're going to make a new event with the condition "On left arrow key pressed", and the action "Set player mirrored".</p>
+                <p>Now we add an 'else' - you have to click on a tiny spot to get these options:</p>
+                <img class="framed"  src="turning-7.png">
 
-                <p><strong>Double click</strong> a space to create a new event, or click the <em>Add event</em> link.  <strong>Double click</strong> the Keyboard object, since it contains the <em>On key pressed</em> condition.</p>
+                <p>Under the 'else', you should set the <b>action</b> to 'right'.</p>
+                
 
-                <p><img width="447" height="300" class="article-image" src="https://www.scirra.com/images/articles/addkeyboardevent_2.png" alt="Adding a keyboard event"><br>A list of all the Keyboard object's conditions appear.  <strong>Double-click</strong> the <strong>On key pressed</strong> event.</p>
-
-                <p><img width="420" height="300" class="article-image" src="https://www.scirra.com/images/articles/onkeypressedevent.png" alt="The 'On key pressed' event."><br>Construct 2 needs to know which key you want to detect.  Click the <strong>&lt;click to choose&gt;</strong> button, hit the <strong>left arrow key</strong>, then press <strong>OK</strong>.  Click <strong>Done</strong>.</p>
-
-                <p><img width="334" height="44" class="article-image" src="https://www.scirra.com/images/articles/onleftarrowpressed.png" alt="On left arrow key pressed."><br>Now we want to add our action: "Set player mirrored".  As before, first you pick the object, then you pick the type of condition or action, then you enter any parameters.  Click the <strong>Add action</strong> link to the right of the event.  (Make sure you don't accidentally click <em>Add event</em>!)</p>
-
-                <p>Double-click <strong>Player</strong>.<br>Double-click <strong>Set mirrored</strong>.<br>Leave the state on <em>Mirrored</em> and click <strong>Done</strong>.</p>
-
-                <p>You should now have this:</p>
-
-                <p><img width="512" height="47" class="article-image" src="https://www.scirra.com/images/articles/setmirroredevent.png" alt="Set mirrored event"><br>Now <strong>add another event</strong> - double click a space, or click the <em>Add event</em> link.</p>
-
-                <p>This time go through the process again, but make the event <strong>On right arrow key pressed</strong>, and set the player <em>Not mirrored</em>.  You should end up with this:</p>
-
-                <p><img width="504" height="93" class="article-image" src="https://www.scirra.com/images/articles/mirroringevents.png" alt="The mirroring events."><br>Now when we press left the player's image will mirror, and when we press right it restores the right-facing image.  <strong>Run the game</strong> and try it out!</p>
-
-<!--
-                <h2>Page 6</h2>
--->
-
-                <h3 id="h2ix15">Adding more animations</h3>
-
-                <p>We're not going to add any more animations just now. But you could!</p>
-
-                <h3 id="h2ix15">Room to move</h3>
-
-                <p>Let's add some more platforms for the player to jump around.</p>
-
-                <p>Switch back to the <strong>Layout View</strong> where you can see the player and floor tiles.  <strong>Click and drag</strong> to select all three tiles.  Then, hold <strong>Control</strong> and <strong>drag</strong> the tiles to clone them.  Do this a few times so there are some platforms to jump around.  It might help to zoom out for this.</p>
-
-                <p><img width="446" height="277" class="article-image" src="https://www.scirra.com/images/articles/threeplatforms.jpg" alt="Three platforms for the player to jump around."><br>To give us a better view, let's also make the window size a bit bigger.  Click the name of the project at the top of the <em>Project Bar</em> to show the project's properties.  Change the <strong>Window Size</strong> to <strong>800, 600</strong>.</p>
-
-
-                <p><img width="276" height="192" class="article-image" src="https://www.scirra.com/images/articles/biggerwindowsize.png" alt="Changing the window size."><br>Now we can jump around more and see how the player moves.</p>
-
-<!--
-
-                <p>Remember we're using the <em>Set mirrored</em> action to automatically flip the player left and right.  So we only need to import animations for the player facing right.</p>
-
-                <p><strong>Double-click</strong> the player in the Layout View to bring up the animations editor.  There are four animations we want to import:</p>
-
-                <p>1. Idle to run (tween)<br>2. Run<br>3. Jump from run<br>4. Jump from stand</p>
-
-                <p>For each of these animations, the process to add them is as follows:</p>
-
-                <p>1. <strong>Right-click</strong> in the <strong>Animations bar</strong> (by default, floating to the right and listing the <em>Idle</em> animation) and select <strong>Add animation</strong>.<br>2.  Enter the name of the animation.  You might want to give easier to remember names like <em>IdleToRun</em>.<br>3.  Left-click the animation to switch to it.  It should have a single empty frame.<br>4.  <strong>Right-click</strong> in the <strong>Animation frames bar</strong> (by default, at the bottom, listing the animation frames) and select <strong>Import sprite strip...</strong>.<br>5.  Locate the sprite strip.  Note in the Jungle sprite pack each frame is also available as a separate PNG file.  The frames can be imported that way, but usually it's quicker to use the sprite strip version, so select the image with the complete strip.<br>6.  Check the number of cells is right, then click OK.<br>7.  <strong>Delete</strong> the first empty frame which we don't need any more.<br>8.  In the first frame, <strong>place the origin</strong> by the player's feet.  Try to get it to match the position in the <em>Idle</em> animation.  Apply the origin to the entire animation as we did with the <em>Idle</em> animation (right-click the Origin in the Image Points dialog and select <em>Apply to whole animation</em>).<br>8.  <strong>Hold shift</strong> and press <strong>Crop</strong> to crop all the imported frames at once, removing the unnecessary transparent areas.<br>9.  In the Properties Bar, make sure each animation has the following properties:</p>
-
-                <p>Speed: <strong>22</strong> for <em>JumpFromStand</em>, <strong>15</strong> for everything else<br>Loop: <strong>Yes</strong> for <em>Run</em>, <strong>No</strong> for everything else</p>
-
-                <p>Do this for each animation, so finally there are five animations for the player.</p>
-
-                <p><img width="189" height="134" class="article-image" src="https://www.scirra.com/images/articles/platformanimations.png" alt="The player animations."><br>Close the animation editor.  Now we need to tell the player to switch to the appropriate animation at the appropriate time.  To do this, the platform behavior provides <em>animation triggers</em> - events which run when the player should change animation.  Then we just use the player's <em>Set animation</em> action.  Remember the Platform behavior (with the animation triggers) is on the <em>PlayerBox</em> object, and then we want to set the animation of the visible <em>Player</em> object.</p>
-
-                <p>Also note we have an <em>IdleToRun</em> animation.  This means when we start moving, the animations go like this:</p>
-
-                <p>Stopped: <em>Idle</em><br>Start moving: <em>IdleToRun</em><br>When <em>IdleToRun</em> finishes: <em>Run</em></p>
-
-                <p>This is also easy to set up with events.</p>
-
-                <a name="h2a16"></a><h3 id="h2ix16">Setting up the animation events</h3>
-
-                <p>Hopefully by now you're familiar with the process for creating an event:</p>
-
-                <p>1. Select the object.<br>2. Select the condition or action.<br>3. Optional: enter parameters if the condition or action has any.</p>
-
-                <p><strong>Switch back to the Event Sheet View.</strong>  First of all, let's set the animation to <em>IdleToRun</em> when we start moving, using the Platform Behavior's <em>On moved</em> trigger in the <em>PlayerBox</em> object:</p>
-
-                <p><img width="569" height="45" class="article-image" src="https://www.scirra.com/images/articles/platformanimationevent1.png" alt="First animation event."><br>When the <em>IdleToRun</em> animation finishes, we then want to switch to the <em>Run</em> animation.  We can do this using the <em>On animation finished</em> trigger in the <em>Player</em> object:</p>
-
-                <p><img width="543" height="53" class="article-image" src="https://www.scirra.com/images/articles/platformanimationevent2.png" alt="Second animation event."><br>If the player is running then they stop, we need to switch back to the <em>Idle</em> animation.  We can do this with the <em>On stopped</em> animation trigger in the <em>PlayerBox</em> object:</p>
-
-                <p><img width="549" height="45" class="article-image" src="https://www.scirra.com/images/articles/platformanimationevent3.png" alt="Third animation event."><br>Run the game.  The player should now be able to switch from running to stopped, with the <em>IdleToRun</em> animation playing in between.  However, the jump animations don't play yet.  Since we have two Jump animations, we also need to set a different animation depending on whether the player is running or not when they jump.  This can be done with the following event:</p>
-
-                <p><a href="https://www.scirra.com/images/articles/platformanimationevent4.png" target="_blank"><img width="578" height="127" class="article-image thumb-img" src="https://www.scirra.com/images/articles/platformanimationevent4.png" alt="Fourth animation event."><div class="full-size-img">Open full size image</div></a><br>Notice here <strong>sub-events</strong> have been used - they appear indented beneath the <em>On jump</em> event.  Sub-events are each checked after the "parent" event has run.  This correctly implements our logic: when the Platform behavior jumps, if they are moving, set <em>JumpFromRun</em>; otherwise, set <em>JumpFromStand</em>.</p>
-
-                <p>To make a sub-event, <strong>right-click</strong> the parent event and select <strong>Add -&gt; Add sub-event</strong>, or select it and press <strong>S</strong>.</p>
-
-                <p>To make the above event you'll also need to <strong>invert</strong> a condition (appearing as the red cross).  Inverted conditions mean the opposite of what they state.  In this case, the inverted "Platform is moving" condition then means "Platform is NOT moving".  To invert a condition, add it normally, then <strong>right-click</strong> on it and select <strong>Invert</strong>.  Alternatively, select it and press <strong>I</strong>.</p>
-
-                <p>There is just one more thing we need to do:  the player will remain on their Jump animation after jumping, even after they land, unless we set the animation back to Idle or Run when they land.  This is very similar to the previous event: in the <em>On land</em> animation trigger, if they are moving, set "Run"; otherwise, set "Idle".</p>
-
-                <p><a href="https://www.scirra.com/images/articles/platformanimationevent5.png" target="_blank"><img width="578" height="127" class="article-image thumb-img" src="https://www.scirra.com/images/articles/platformanimationevent5.png" alt="Fifth animation event."><div class="full-size-img">Open full size image</div></a><br>Once you've set this all up, run the game.  Congratulations - you've now made a fully animated player character!  Notice how the different animations play if you jump from standing still, or jump from running.  Also see how when you land from a jump, you either go back to Idle or Running depending on whether you are moving or not.</p>
-
--->
-<!--
-                <p>Now, time to make an enemy!</p>
-
-                <h2>Page 7</h2>
--->
-                <a name="h2a17"></a><h2 id="h2ix17">Adding an enemy</h2>
-
-                <p>Let's add a new sprite for an enemy.</p>
-
-                <p>Download <a href="http://opengameart.org/content/snail">snail.png</a> from OpenGameArt.</p>
-
-                <p>1.  Add a new Sprite object in the layout.<br>2.  Import the <em>Enemies\Snail</em> sprite strip.<br>3.  Delete the first empty animation frame.<br>4.  Set the animation to looping, speed 15.<br>5.  Set the origin to the base of the snail image, and apply it to the whole animation.<br>6.  Crop all the frames (shift + crop).<br>7.  Close the animation editor and rename the object to 'SnailEnemy'.<br>8.  Place it on a ground tile as shown.</p>
-
-                <p><img width="241" height="154" class="article-image" src="https://www.scirra.com/images/articles/snailenemy.png" alt="The snail enemy on the ground."><br>Now we want to implement the following logic:</p>
-
-                <p>- If the player runs in to the snail from the side, they flash and get hurt.<br>- If the player jumps on top of the snail, the snail is killed.</p>
-
-                <p>To make the player flash, select the player and <strong>add the Flash behavior</strong>.  Remember to select the actual player, not the PlayerBox object (since it is the visible player we want to flash).  We'll use the 'Flash' action from this behavior in a moment.</p>
-
-                <p>Switch to the event sheet view, and add a new event:</p>
-
-                <p>PlayerBox -&gt; On collision with another object -&gt; SnailEnemy</p>
-
-                <p>This event runs when we collide with the SnailEnemy from any angle.  We can then use sub-events to test whether the player is jumping on top or running in from the side.  Let's first test if the player is above.</p>
-
-                <p>Add a sub event to the collision event:</p>
-
-                <p>PlayerBox -&gt; Is falling</p>
-
-                <p>We should also test the player is actually above the enemy.  This can prevent the snail accidentally being killed if we fall past it off a ledge, say.  <strong>Right-click</strong> the 'Is falling' condition and select 'Add another condition'.  Remember, all conditions must be met for the event to run.  Add the condition:</p>
-
-                <p>PlayerBox -&gt; Compare Y -&gt; Less than, SnailEnemy.Y</p>
-
-                <p>The Y axis increases downwards, so if the player's Y co-ordinate is lower than the snail's, they are above it.</p>
-
-                <p>In this event, add the action:</p>
-
-                <p>SnailEnemy -&gt; Destroy</p>
-
-                <p>We can also make the player bounce off it by adding another action:</p>
-
-                <p>PlayerBox -&gt; Set vector Y -&gt; -700</p>
-
-                <p>'Set vector Y' basically just sets the vertical speed of the platform movement; setting it to a negative value sets it upwards (again, the Y axis increases downwards), and 700 is a little less than the jump strength of 1100.  So this will make the player bounce off as if they did a weak jump.</p>
-
-                <p><a href="https://www.scirra.com/images/articles/jumpfromaboveevent.png" target="_blank"><img width="578" height="91" class="article-image thumb-img" src="https://www.scirra.com/images/articles/jumpfromaboveevent.png" alt="The jump from above event."><div class="full-size-img">Open full size image</div></a><br>We're not quite done: right-click the margin of the 'Is falling' event (the space just to the left of the PlayerBox icon) and select <em>Add -&gt; Else</em>.  'Else' is a special condition that runs if the previous event did not run.  So this event will run if we collided with the snail but we <em>weren't</em> jumping on top of it - we ran in to it from the side, say.  In this event we want the player to be hurt.  Add the action</p>
-
-                <p>Player -&gt; Flash -&gt; (leave default values and click Done)</p>
-
-                <p>Remember the Flash behavior is in the Player object, not PlayerBox.</p>
-
-                <p><a href="https://www.scirra.com/images/articles/finishedjumpabove.png" target="_blank"><img width="578" height="155" class="article-image thumb-img" src="https://www.scirra.com/images/articles/finishedjumpabove.png" alt="The finished event"><div class="full-size-img">Open full size image</div></a><br>OK, so the player will never die, they'll just flash.  But we've got the detection set up of whether they jumped on top or ran in to the side.  This tutorial won't cover all the bells and whistles, but hopefully you can see where to create kill effects (try creating a 'smoke puff' sprite on the SnailEnemy when it is destroyed, using the SnailEnemy's 'Spawn object' action) and where to take off health (in the event that makes the player flash - you can learn about health using instance variables in the <a href="http://www.scirra.com/tutorials/37/beginners-guide-to-construct-2" rel="nofollow">top-down shooter tutorial</a> which you might want to look at afterwards).</p>
-
-                <p>Let's make the snail enemy move back and forth across the platform.</p>
-
-                <a name="h2a18"></a><h3 id="h2ix18">Moving the enemy</h3>
-
-                <p>The main problem with moving the snail is how to detect when it's reached the edge of a platform.  The easiest way to do this is with invisible 'edge' markers.  These are just invisible sprites that flip the direction of the snail when it touches them.</p>
-
-                <p>We can also use the Platform behavior again for the snail.  This is convenient because:<br>- it can get it moving left and right<br>- it will go up and down slopes just like the player can<br>- it will fall off ledges if you want it to<br>- if you want to make a jumping enemy, you can make the enemy automatically jump too using the 'simulate control' action.</p>
-
-                <p><strong>Add the Platform behavior to the SnailEnemy sprite</strong>.  Since we are not using complicated animations on this object, we can get away with using the platform behavior directly on the object without an invisible 'box' object.  Note if you make a different platform game with enemies with complicated animations, you should use the same box technique we used on the player.</p>
-
-                <p>We don't want the player to control the SnailEnemy - we want to automatically control it.  We can do this by setting its <strong>Default controls</strong> property to <strong>No</strong>, then using the <em>Simulate control</em> action.  Since snails are also pretty slow, set the <em>Max speed</em> to <em>50</em> and its <em>Acceleration</em> and <em>Deceleration</em> to 100!</p>
-
-                <p>We'll also need our 'Edge' markers.  Add a new Sprite object and just load in an opaque rectangle.  Call it <em>EdgeMarker</em>.  Size the object to about 40 x 40 and set its <strong>Initial visibility</strong> to <em>Invisible</em> so we don't see it.  Place one at each end of the snail's platform like so: (don't forget you can create a new instance by control+dragging it)</p>
-
-                <p><img width="449" height="156" class="article-image" src="https://www.scirra.com/images/articles/snailmarkers.png" alt="Snail platform markers"><br>The snail also needs to know which way it is currently moving - either left or right.  We can do this with <strong>instance variables</strong>.  These are simply numbers or text stored in each instance of the object.  If we have multiple snails, they each store their instance variables separately.  This allows them to have unique values for their health, current direction, and so on.  A simple technique to control enemies automatically is to create an "action" instance variable which holds its current state.  For example, it could be "run away", "chase player" or "idle".  In this case we only need "left" and "right", but it's useful to set it up the same way.</p>
-
-                <p><strong>Select the SnailEnemy object</strong>.  In the properties bar, click <em>Add / Edit</em> under 'Instance variables'.</p>
-
-                <p><img width="273" height="202" class="article-image" src="https://www.scirra.com/images/articles/platforminstancevars.png" alt="Instance variables for the snail."><br>A dialog listing all instance variables for the object appears.  Click the 'add' icon to add a new one.  Set the name to <em>action</em>, the type to <em>text</em>, and the initial value to <em>right</em> (for moving right).</p>
-
-                <p><img width="325" height="241" class="article-image" src="https://www.scirra.com/images/articles/actioninstancevar.png" alt="Adding the 'action' instance variable."><br>Click <strong>OK</strong> and close the instance variables dialog.  Switch to the event sheet.</p>
-
-                <p>We want to implement the following logic:</p>
-
-                <p>- if <em>action</em> is "right", simulate the platform movement holding the 'right' key to move the snail right.<br>- if <em>action</em> is "left", simulate the platform movement holding the 'left' arrow key to move the snail left.</p>
-
-                <p>Also:<br>- if the snail hits the <em>EdgeMarker</em>, flip its <em>action</em> (if "left" set it to "right"; if "right" set it to "left").</p>
-
-                <p>We can set up the movement with the following two events:</p>
-
-                <p>Event: SnailEnemy -&gt; Compare instance variable -&gt; <em>action</em> equal to "right" (use double quotes here to indicate text)<br>Action: SnailEnemy -&gt; Simulate control -&gt; Right</p>
-
-                <p>It should be straightforward to do the same for left.  We also want the image to mirror left and right like we did for the player.  So add <em>SnailEnemy -&gt; Set mirrored</em> in the "left" event, and <em>SnailEnemy -&gt; Set not mirrored</em> in the "right" event.  You should finish with this:</p>
-
-                <p><a href="https://www.scirra.com/images/articles/snailcontrolevents.png" target="_blank"><img width="578" height="139" class="article-image thumb-img" src="https://www.scirra.com/images/articles/snailcontrolevents.png" alt="Snail control events"><div class="full-size-img">Open full size image</div></a><br>Now to flip the snail's direction on the edges:</p>
-
-                <p>Event: SnailEnemy -&gt; On collision with another object -&gt; EdgeMarker<br>Subevent: SnailEnemy -&gt; Compare instance variable -&gt; <em>action</em> equal to "right"<br>Action: SnailEnemy -&gt; Set value -&gt; <em>action</em> to "left"<br>Subevent: Else<br>Action: SnailEnemy -&gt; Set value -&gt; <em>action</em> to "right"</p>
 
                 <p>It's important to use <em>Else</em> here, because events are run from top-to-bottom.  If instead of 'else' we said 'action equal to "left"', notice the previous event would have just set it to that.  So it'd just set it right back again, having no overall effect.  By using 'else', we prevent the second event running if the first was true.</p>
 
-                <p><img width="502" height="133" class="article-image" src="https://www.scirra.com/images/articles/snaildirectionevents.png" alt="Snail direction events"><br>Run the project.  Notice the snail is moving back and forth on its platform.  This makes it a bit harder to jump on!  This is a very rudimentary "AI" system, but hopefully you can imagine that you could create more intelligent enemies by controlling the movement with more events, possibly even allowing them to fall off edges, or using other markers to trigger a jump to make it look like the enemy knew to jump up on to a platform.</p>
+                <p>Try your game now. The Creature should walk back and forth!</p>
 
-                <p>Try creating a platform with two snails on it.  Notice they control themselves individually, since they each have their own individual <em>action</em> instance variable holding their current state.  Hopefully you can begin to see how important instance variables are for controlling instances independently - they don't all have to be doing exactly the same thing as each other!</p>
+                <h3>What next?</h3>
 
-                <p><img width="455" height="153" class="article-image" src="https://www.scirra.com/images/articles/twosnails.png" alt="Two snails on a platform."><br></p>
+                <p>This tutorial is based on a longer tutorial you can try here: <a href="https://www.scirra.com/tutorials/253/how-to-make-a-platform-game">How to make a platform game</a>.</p>
 
-<!--
-                <h2>Page 8</h2>
--->
-<!--
-                <a name="h2a19"></a><h2 id="h2ix19">Jump-thru objects</h2>
-
-                <p>If you place some tiles around, you might notice if you jump in to a tile from underneath you hit your head on it and fall back down.  What if you want to make platforms you can jump on to from underneath?  This is what the <strong>Jump-thru</strong> behavior does.  Like the Solid behavior you can stand on it with the Platform behavior, but the player can jump on to it from underneath.</p>
-
-                <p>Let's make a Jump-thru version of our Tile object.  <strong>Right-click</strong> the Tile object and select <strong>Clone object type</strong>.  This will make a separate object type, <em>Tile2</em>, which can have different behaviors.  <strong>Delete</strong> the Solid behavior and <strong>add</strong> the Jump-thru behavior.</p>
-
-                <p>Use tiles 134 and 135 to make a jump-thru like this:</p>
-
-                <p><img width="306" height="200" class="article-image" src="https://www.scirra.com/images/articles/jumpthru.png" alt="A jump-thru platform."><br>Run the game.  Notice how you can jump on to it from underneath.</p>
--->
-
-                <p>Hopefully you now know enough to design a whole level!  Here's a zoomed out level design I put together quickly while writing the tutorial.  It might help show you some of the possibilities.  Notice the use of markers across platforms to keep the snails on their platforms.</p>
-
-                <p><a href="https://www.scirra.com/images/articles/leveldesign.png" target="_blank"><img width="578" height="188" class="article-image thumb-img" src="https://www.scirra.com/images/articles/leveldesign.png" alt="The overall level design."><div class="full-size-img">Open full size image</div></a><br><a name="h2a20"></a><h3 id="h2ix20">Parallax</h3>
-
-<!--
-                <p>Try adding a parallax effect to make the background seem further away.  Select the <em>Background</em> layer in the layers bar.  In the properties bar, set the <em>Parallax</em> property to <strong>50, 50</strong> (which means half speed scrolling).  Notice how the background moves slower, giving a distance feel.  Using multiple layers all with different parallax rates can create an almost 3D feel to a 2D game.</p>
--->
-                <a name="h2a21"></a><h2 id="h2ix21">Conclusion</h2>
-
-                <p>This tutorial covered a lot. Here are some of the key points:</p>
-
-                <p>- For the player's Platform behavior, always add the movement to an invisible box with no animations.  Position the visible, animated player sprite on top of the box.  This will prevent animations causing glitches in the platform movement.<br>- Levels can be built out of tiles.<br>- The <em>Set mirrored</em> action saves you having to make mirrored copies of all your animations.<br>
-
-                <!--- Animations sometimes need some work to get imported, set up with the right speed and looping properties, with the right origin set, and all frames cropped.  You may also want to alter the collision masks, although this was not covered.-->
-
-                <br>- Enemies can also be controlled with the Platform behavior.  Set <em>Default Controls</em> to <em>No</em> and use the <em>Simulate control</em> action to automatically control movement.<br>- You can detect if the player is falling on an enemy rather than running in to them by testing if they are both falling and above the enemy on the Y axis when colliding.  Otherwise (using 'Else'), they must be running in to the enemy, and they should get hurt.<br>- Instance variables can store numbers or text unique to each instance of an object.  This helps control objects individually, which is useful for "AI".<br>- Edge markers are a quick and easy way to make enemies go back and forth on a platform.<br>
-
-                <!--- Jump-thru are platforms that can be jumped on to from underneath.<br>- Parallax is an easy and intriguing effect to add to platform games.</p>
-                -->
-
-                <p>Obviously we have not made a full platform game!  However, this tutorial has covered the most difficult bits, and the important essentials every platform game creator should know in advance.  From here on hopefully you have an idea of how the rest of a platform game is going to come together.  It takes time to get familiar with a complex development tool with Construct 2.  However, experimenting can be fun, and teach you a lot!  So spend a while playing around, breaking things, tweaking things, and see what you can come up with.  Happy platforming!</p>
-
-                <h3 id="h2ix22">Further reading</h3>
-
-                <p>The Girl Code version of this tutorial removed some sections so we could go faster. They were on:</p>
+                <p>It covers many more topics:</p>
 
                 <ul>
                   <li>adding a background</li>
                   <li>Giving the background a parallax effect</li>
-                  <li>Adding animations to the player and triggering them in different situations (walking, jumping)</li>
-                  <li>Jump-through platforms</li>
+                  <li>Adding animations to the player (so they walk, stand and jump)</li>
+                  <li>Having many different kinds of ground tiles, instead of just one.</li>
+                  <li>Jumping on an enemy to destroy it</li>
                 </ul>
 
-                <p>You may be interested in the alternative beginner's guide, which is a <a href="http://www.scirra.com/tutorials/37/beginners-guide-to-construct-2" rel="nofollow">tutorial to make a top-down shooter</a>. It covers some different points like making a heads-up display, and goes in to instance variables in some more detail too.  These are both things that can be applied to platform games, so it would definitely be useful to go through it in addition to this tutorial.</p>
+                <p>You can take a look through that tutorial and find the sections that you are interested in.</p>
 
                 <p>Want to add music and sound effects?  See <a href="http://www.scirra.com/manual/84/sounds-music" rel="nofollow">Sounds &amp; Music</a> in the manual.</p>
 
