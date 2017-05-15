@@ -242,8 +242,24 @@ $(".button2").on("click", getCat);
       <p>Can you add a new button that lets the player get a breadmaker?</p>
 
       <div class="alert">
-        <p>At the start of our JavaScript we say <code>var breadmakers = 0;</code> so we are counting them, but we never show this information to the player. You have to update the <code>showInfo</code> function to tell the player how many breadmakers they have.
+        <p>At the start of our JavaScript we say <code class="language-javascript">var breadmakers = 0;</code> so we are counting them, but we never show this information to the player. You have to update the <code class="language-javascript">showInfo</code> function to tell the player how many breadmakers they have.
       </div>
+
+      <h2>Bonus: Emojis and loops</h2>
+
+      <p>We can use a <b>for loop</b> to repeat some code a certain number of times.</p>
+
+      <p>Try adding this code to the end of the <code class="language-javascript">showInfo</code> function. It will need to go at the end – just before the curley bracket <code class="language-javascript">}</code></p>
+
+<pre><code class="language-javascript">
+for (var i = 0; i < cats; i++) {
+  $(".info").append("🐈");
+}
+</code></pre>
+
+      <p>It's pretty hard to read, but it basically says: Count up to how many cats you have, and for every number you count, add a cat emoji to the end the info element.</p>
+
+      <p>Can you add more loops to show catfood, medals and breadmakers as emoji too? You will need to copy and paste the emojis from an <a href="http://emojipedia.org/" target="_blank">emoji dictionary</a>.</p>
 
       <h2>Extra ideas</h2>
 
