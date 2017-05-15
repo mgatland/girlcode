@@ -159,7 +159,7 @@
     &lt;h1>Cat City&lt;/h1>
     &lt;p class="info">&lt;/p>
     &lt;p class="message">&lt;/p>
-    &lt;button class="button1">Buy tuna&lt;/button>
+    &lt;button class="button1">Buy catfood&lt;/button>
     &lt;button class="button2">Catch a cat&lt;/button>
     &lt;button class="button3">Give a cat to the SPCA&lt;/button>
     &lt;script>
@@ -194,15 +194,26 @@ $(".button2").on("click", getCat);
 
       <img src="save-changes.png">
 
-      <h2>What is this?</h2>
+      <h2>Part 2: What is this?</h2>
 
-      <p>You get an orange page with 3 buttons. One button works, two don't.</p>
+      <p>You get an orange page with 3 buttons.</p>
 
-      <h2>Part 2: Make the other buttons work!</h2>
+      <p>Here are the rules in Cat City:</p>
+
+      <div class="alert">
+        <p>1. <b>Buy catfood</b> – this button gives you 1 more catfood. You can ALWAYS buy more catfood so we don't need an <code>if</code> in this code.</p>
+        <p>2. <b>Catch a cat</b> – <b>If</b> you have some catfood (i.e. more than 0 catfoods), then you get 1 cat but you lose 1 catfood. <em>This part is already done for you!</em></p>
+        <p>3. <b>Give a cat to the SPCA</b> – <b>If</b> you more than 0 cats, <b>then</b> you can lose 1 cat and gain 1 medal.</p>
+        <p><b>For every button</b>: Every time you click a button, we need to call <code>showInfo()</code> which will write the new number of cats, catfood and medals into the page so the player can see what is happening.</p>
+      </div>
+
+      <p>Try the buttons. One already works – easy! But you will have to make the other two work.</p>
+
+      <h2>Part 3: Make the other buttons work!</h2>
 
       <p>We use JavaScript to make the button <em>call a function</em> when you click on it.</p>
 
-      <p>One button already works. You'll need to look at the code, see what makes it work, and make the other buttons work as well.</p>
+      <p>One button already works. You'll need to look at the code, see what makes it work, and copy this code to make the other buttons work as well.</p>
 
       <div class="alert">
         <p>1. Find the JavaScript. It starts with <code class="language-markup">&lt;script></code> and ends with <code class="language-markup">&lt;/script></code></p>
@@ -210,13 +221,7 @@ $(".button2").on("click", getCat);
         <p>3. <b>"button2"</b> and <b>getCat</b> are words that appear somewhere else in the code. Can you find them, and work out what this line does?</p>
       </div>
 
-      <p>Here are the rules in Cat City:</p>
-
-      <div class="alert">
-        <p>1. You can ALWAYS buy more tuna.</p>
-        <p>2. <b>If</b> you have 1 or more tuna, then you can spend 1 tuna to catch 1 cat. <em>This part is already done for you!</em></p>
-        <p>3. If you have 1 or more cats, then you can give 1 cat to the SPCA to get 1 medal.</p>
-      </div>
+      <p>Make the other buttons work. You will need to make a new <b>function</b> and then connect the button to the function.</p>
 
       <h2>Oops, my page stopped working?</h2>
 
@@ -230,36 +235,15 @@ $(".button2").on("click", getCat);
 
       <p>Once the console is open, refresh the page. Any errors will be listed and the console will tell you exactly which line they happen on.</p>
 
-      <h2>Part 3: free breadmaker</h2>
+      <h2>Part 4: free breadmaker</h2>
 
-      <p>If you have 5 medals, and you give the SPCA another cat, then the SPCA should give you a free breadmaker INSTEAD OF another medal.</p>
+      <p>The rule for breadmakers is: If you have 5 medals (or more), you can trade in 5 medals to get a free breadmaker!</p>
 
-      <p>Can you change your program to do this?</p>
+      <p>Can you add a new button that lets the player get a breadmaker?</p>
 
-      <p>Here is a CLUE:</p>
-
-<pre><code class="language-javascript">if (teamSize &lt;= 4) {
-  alert("We fit in a car");
-} else if (teamSize &lt;= 8) {
-  alert ("We need a van")
-} else {
-  alert("Hire a bus!")
-}
-</code></pre>
-
-      <p>In this example, there are THREE OPTIONS but only ONE option is picked each time.</p>
-
-      <p>It's a bit like if you said:</p>
-
-      <p><em>Can you get me a snack from the shop? If they have chocolate milk, I'd like a chocolate milk. Otherwise, if they have M&Ms, I'd like 2 packets of M&Ms. Otherwise some Skittles.</em></p>
-
-      <p>One more clue: &amp;&amp; is the symbol for AND.</p>
-
-<pre><code class="language-javascript">//if you have cats AND you have dogs
-if (cats > 1 &amp;&amp; dogs > 1) {
-  alert("Your house must be wild!");
-}
-</code></pre>
+      <div class="alert">
+        <p>At the start of our JavaScript we say <code>var breadmakers = 0;</code> so we are counting them, but we never show this information to the player. You have to update the <code>showInfo</code> function to tell the player how many breadmakers they have.
+      </div>
 
       <h2>Extra ideas</h2>
 
