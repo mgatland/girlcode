@@ -165,18 +165,16 @@
     &lt;script>
 //Hello! This is the start of the JavaScript.
 
+//set up:
 //this variable holds the number to display
-var timer;
-//this variable decides if I am counting right now
-var counting;
+var timer = 100000;
+//this variable decides if the timer is going or paused
+var isTimerOn = true;
 
-//set up
-timer = 9999;
-counting = true;
 
 //tick tick tick tick...
 var tick = function () {
-  if (counting === true) {
+  if (isTimerOn) {
     timer = timer + 1;
   }
   //display the timer value
@@ -232,11 +230,11 @@ $(".button3").on("click", reset);
 
       <p>You only need to change the JavaScript for this activity. The HTML and CSS works (but you can still improve it if you like).</p>
 
-      <p>The JavaScript starts with a &lt;script> tag.</p>
+      <p>The JavaScript starts with a <code>&lt;script></code> tag.</p>
 
       <h2>Part 2: Start from zero</h2>
 
-      <p>The timer should start from zero, not from 9999.</p>
+      <p>The timer should start from zero, not from 100000.</p>
 
       <p>Find out why the timer is starting from that number and fix it.</p>
 
@@ -244,19 +242,17 @@ $(".button3").on("click", reset);
 
       <h2>Part 3: Wait until we're ready</h2>
 
-      <p>The timer starts counting automatically. I want it to just wait, so nothing happens until I click "start".</p>
+      <p>The timer starts counting automatically. I want it to be stopped at first, so nothing happens until I click "start".</p>
 
-      <p>Find out why the timer starts automatically. Read the 'tick' function for a clue.</p>
+      <p>Find out why the timer starts automatically. Have a look around in the JavaScript, you only need to change one word.</p>
 
-      <p>(Try reading it out loud. When you read <b>===</b> out loud you can say 'is'.)</p>
-
-      <p>CHECK the timer just waits and does not start counting automatically.</p>
+      <p>CHECK: the timer just waits and does not start counting automatically.</p>
 
       <h2>Part 4: Start</h2>
 
-      <p>Now we need a start button. There is already a 'start' function, but it makes a message pop up!</p>
+      <p>Now we need to be able to start. There is already a 'start' button, connected to a start function, but the function makes a message pop up!</p>
 
-      <p>Please make it start counting.</p>
+      <p>Please make it start counting instead.</p>
 
       <p>Please get rid of the pop up message, it's annoying.</p>
 
@@ -264,7 +260,7 @@ $(".button3").on("click", reset);
 
       <h2>Part 5: Stop</h2>
 
-      <p>The stop button should stop counting, but it should leave the same number on the screen (so I can tell how long I was talking for!)</p>
+      <p>The stop button should stop counting. It should leave the same number on the screen (so I can tell how long I was talking for!) It should NOT reset the counter to zero.</p>
 
       <h2>Part 6: Reset</h2>
 
@@ -284,7 +280,7 @@ $(".button3").on("click", reset);
 
       <p>If you add links from your index.html page to all your other pages, people will be able to find them more easily.</p>
 
-      <p>Can you add links from your index.html page to all the other pages you've created?</p>
+      <p>Can you add links in index.html page to all the other pages you've created?</p>
 
 <pre><code class="language-markup">
 &lt;a href="/stopwatch.html">my stopwatch&lt;/a>
@@ -292,6 +288,8 @@ $(".button3").on("click", reset);
 &lt;a href="/catcity.html">my cat city game&lt;/a>
 
 &lt;a href="/fivestar.html">my five star project&lt;/a>
+
+&lt;a href="/tvshow.html">my TV show idea generator&lt;/a>
 </code></pre>
 
 <!-- end of legacy Code Club content here -->
