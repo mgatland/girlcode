@@ -268,11 +268,11 @@
         <div class="col-md-8 col-md-offset-2">
 
         <h3>Details</h3>
-          <p>Our next course runs for 8 weeks, from <b>11th May</b> to <b>29th June</b>.</p>
+          <p>Our next course runs for 8 weeks, from <b><span class="dateFrom"></span></b> to <b><span class="dateTo"></span></b>.</p>
 
-          <p>We meet on Thursday nights from <b>6:30pm to 8:30pm</b>.</p>
+          <p>We meet on <span class="meetingDayTime">Thursday nights</span> from <b><span class="courseHours">6:30 PM to 8:30 PM</span></b>.</p>
 
-          <p>The cost is <b>$400</b> for the entire 16-hour course.</p>
+          <p>The cost is <b><span class="cost"></span></b> for the entire 16-hour course.</p>
         </div>
       </div>
       <div class="row">
@@ -299,7 +299,7 @@
 
           <h3>Schools programme</h3>
 
-          <p>The dates above are for our private courses. We also run Girl Code for free at low decile schools. <a href="/schools/">Find out if your school is eligible</a>.</p>
+          <p>Companies sometimes fund us to run our course at low-decile high schools. If you are interested in sponsoring a school, please <a href="#contact">get in touch</a>.</p>
         </div>
       </div>
     </div>
@@ -355,13 +355,13 @@
               <div class="form-group col-xs-12 controls">
                 <div class="radio">
                   <label>
-                  <input type="radio" name="course-options" required data-validation-required-message="Please choose a course" value="Term 2 2017">
-                  <div class="option-heading">Girl Code beginner course – $400 <span class="text-danger">(Almost sold out!)</span></div>
+                  <input type="radio" name="course-options" required data-validation-required-message="Please choose a course" value="" class="courseButton1">
+                  <div class="option-heading">Girl Code beginner course – <span class="cost"></span> <span class="text-danger almostSoldOut">(Almost sold out!)</span></div>
                   <div class="option-description">
-                    11th May to 29th June
+                    <span class="dateFrom"></span> to <span class="dateTo"></span>
                   </div>
                   <div class="option-description-2">
-                    Every Thursday from 6:30 PM to 8:30 PM
+                    Every <span class="meetingDay"></span> from <span class="courseHours"></span>
                   </div>
                   </label>
                 </div>
@@ -561,6 +561,27 @@
   <!-- animated demo -->
   <script src="js/demo.js"></script>
   <script src="js/spin.js"></script>
+  <script>
+  //change each term:
+  var dateFrom = "3rd August"
+  var dateTo = "21st September"
+  var courseCode = "Term 3 2017" //sent to us in the form
+  var almostSoldOut = false
+
+  //maybe never change:
+  var meetingDayTime = "Thursday nights" //we meet on 'Thursday nights'
+  var meetingDay = "Thursday" //every 'Thursday' from 6:30 to 8:30
+  var courseHours = "6:30 PM to 8:30 PM"
+  var cost = "$400"
+  $(".meetingDayTime").text(meetingDayTime)
+  $(".dateFrom").text(dateFrom)
+  $(".dateTo").text(dateTo)
+  $(".courseHours").text(courseHours)
+  $(".cost").text(cost)
+  $(".meetingDay").text(meetingDay)
+  $(".courseButton1").val(courseCode)
+  if (!almostSoldOut) $(".almostSoldOut").text("")
+  </script>
 </body>
 
 </html>
