@@ -118,7 +118,7 @@
 
       <h2>Get our project from GitHub</h2>
 
-      <p>Go to this <a href="https://github.com/mgatland/nodestart/" target="_blank">webpage</a> where Matthew put a simple Node project.</p>
+      <p>Go to this <a href="https://github.com/girlcodeakl/nodestart/" target="_blank">webpage</a> where we've put a simple Node project.</p>
 
       <p>Click 'Clone or download', then choose '
           in desktop' to clone the project using Github Desktop.</p>
@@ -516,12 +516,12 @@ console.log("Hi! I am listening at http://localhost:3000");
       color: #FFB03B;
     }
 
-    .message {
-      color: #468966;
+    .post {
       margin: 10px;
       padding: 10px;
       border: 2px solid #FFB03B;
       border-radius: 5px;
+      color: #468966;
     }
 
     /*end of CSS */
@@ -535,8 +535,11 @@ console.log("Hi! I am listening at http://localhost:3000");
 //Hello! This is the start of the JavaScript.
 
 var displayMessage = function(post) {
-  var postElement = $('&lt;div class="message">' + post + '&lt;/div>');
+  var postElement = $('<div class="post"></div>');
   $(".message-list").append(postElement);
+
+  var messageElement = $('<div class="message">' + post + '</div>');
+  postElement.append(messageElement);
 }
 
 var createFeed = function(data) {
@@ -555,6 +558,8 @@ $.get("/posts", createFeed);
     <p>Test your new message feed with this link: <a href="http://localhost:3000/feed.html" target="_blank">http://localhost:3000/feed.html</a></p>
 
     <p>The Message Feed is a page with some JavaScript. The script will GET the raw message list, then go through each item in the list. <b>For each item</b>, it creates a little bit of HTML and adds it into the page. (Just like in the fivestar activity.)</p>
+
+    <p>Right click on a message and choose 'Inspect' to look at the HTML code.</p>
 
     <h2>That's all!</h2>
 
