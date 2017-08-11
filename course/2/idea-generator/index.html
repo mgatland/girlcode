@@ -291,25 +291,29 @@ var getRandomConcept = function () {
 
 <h2>Part 5: <i>Emphasis</i> on Adventure</h2>
 
-<p>Make the characters and the city appear <i>italic</i>, but the other words not appear italic. For example:</p>
+<p>Make the characters and the city appear <i>italic</i>. It should look like this in your web browser:</p>
 
-<blockquote><p>A <i>school teacher</i> and a <i>cat</i> who solves mysteries in <i>London</i>.</p></blockquote>
+<blockquote><p>A <i>school teacher</i> and a <i>cat</i> who solves mysteries in <i>London</i></p></blockquote>
 
-<p>Clues:</p>
+<p>If you right click and 'Inspect' the HTML code, it should look like this:</p>
 
-<p>You will need to add some <b>HTML</b> code inside the JavaScript.</p>
+<pre><code class="language-markup">A &lt;i>school teacher&lt;/i> and a &lt;i>cat&lt;/i> who solves mysteries in &lt;i>London&lt;/i>
+</code></pre>
 
-<p>JavaScript does not speak HTML. They are different languages. In JS, symbols like &lt; and &gt; are math symbols that mean less than and greater than.</p>
+<p>In your JavaScript code, you need to add the <code>&lt;i></code> and <code>&lt;/i></code> tags.</p>
 
-<p>However, if we put them inside speech marks "like this", that tells JS to ignore their special math meanings, and just use them literally how they look. This lets us insert them into the HTML page.</p>
+<p>You need to put these tags inside speech marks. Speech marks tell JavaScript that you are writing the actual text you want it to put into the HTML page - not instructions that it should think about and do.</p>
+
+<p>For example, when our code says <code>pickRandom</code>, we don't put it in speech marks. We don't our webpage to say "pickRandom"! We want javaScript to pick a random thing. But for the <code>&lt;i></code> tags, we want them to go straight into the web page as they are.</p>
+
+<p>Look at these examples. <b>We've only included the start of the line.</b></p>
 
 <pre><code class="language-javascript">
-  //this works
-  var example2 = "I saw a &lt;i>" + pickRandom(person) + "&lt;/i>";
+  //Good example
+  var myConcept = "A " + "&lt;i>" + pickRandom(people) + "&lt;i>" + " who "
 
-  //this will not work, because JavaScript thinks the html tags are maths.
-  //Did you say 'less than i is more than plus pickRandom?' what are you talking about?
-  var example2 = "I saw a " + &lt;i> + pickRandom(person) + &lt;/i>;
+  //Bad example:
+  var myConcept = "A " + &lt;i> + pickRandom(people) + &lt;i> + " who "
 </code></pre>
  
 <h2>Finished!</h2>
