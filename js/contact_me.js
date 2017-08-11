@@ -4,6 +4,12 @@ $(function() {
         preventSubmit: true,
         submitError: function($form, event, errors) {
             // additional error messages or events
+            $('#success').html("<div class='alert alert-danger'>");
+            $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                .append("</button>");
+            $('#success > .alert-danger').append("Oops, looks like you missed something – please scroll up to check what's missing then press the button again.");
+            $('#success > .alert-danger').append('</div>');
+            console.log(errors);
         },
         submitSuccess: function($form, event) {
             // Prevent spam click and default submit behaviour
@@ -59,7 +65,7 @@ $(function() {
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that our mail server is not responding. Please email us directly at girlcodeakl@gmail.com");
+                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that our mail server is not responding. Please email us directly at girlcodeakl@gmail.com</strong>");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");
@@ -77,7 +83,10 @@ $(function() {
     });
 });
 
-// When clicking on Full hide fail/success boxes
-$('#name').focus(function() {
+// When clicking on any input, hide fail/success boxes
+$('#contactForm input').focus(function() {
+    $('#success').html('');
+});
+$('#contactForm input[type=radio]').change(function() {
     $('#success').html('');
 });
