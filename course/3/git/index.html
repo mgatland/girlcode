@@ -141,7 +141,11 @@
 
 <img class="framed" src="open-in-desktop.png">
 
-<p>Github Desktop should pop up asking you where to save the files. Once you click OK, it will copy (aka clone) the repository to your computer.</p>
+<p>This message should pop up. Click the Open button.</p>
+
+<img class="framed" src="chrome-permission.png">
+
+<p>Github Desktop will ask you where to save the files. Once you click OK, it will copy (aka clone) the repository to your computer.</p>
 
 <div class="alert">
 <p><b>WARNING!</b> You should see a pop-up asking you what folder to save the project.</p>
@@ -186,7 +190,7 @@
 
 <img class="framed" src="github-branch.png">
 
-<p>Give it a name based on the task you are going to do. (Make sure the 'From branch' is 'master'.)</p>
+<p>Give it a name based on the task you are going to do. (Check that it says the new branch will be based on the default branch).</p>
 
 <img class="framed" src="github-branch-2.png">
 
@@ -208,19 +212,19 @@
     <img class="framed" src="atom-nice-and-empty.png">   
 </div>
 
-<p>Atom is a text editor (just like Microsoft Word or Pages for Mac). Use Atom to make the changes for your assigned task.</p>
+<p>Atom is a text editor (just like Microsoft Word or Pages for Mac).</p>
+
+<p>Use Atom to make the changes for your assigned task.</p>
+
+<p>You need to save your changes by pressing Ctrl+S or clicking File -> Save. This blue dot appears when you have unsaved changes:</p>
+
+<img class="framed" src="atom-unsaved-changes.png"> 
 
 <h2>Part 6: Committing a change</h2>
 
-<p>When you have made your change, go and look at Github Desktop. It should show your change. (You might have to click on the '1 uncommited change' tab at the top center, to change from history view to changes view).</p>
+<p>After you save your change, look at Github Desktop. It should show your change.</p>
 
-<p>On a Mac:</p>
-<img class="framed" src="github-tabs.png">
-
-<p>On Windows:</p>
-<img class="framed" src="changes.png">
-
-<p>Look at your change here. If you're happy with it, write a note about what you did in the little box then click on the commit button.</p>
+<p>Make sure you are happy with your change. Write a short note about what you did in the 'summary' box then click on the commit button.</p>
 
 <img class="framed" src="github-commit.png">
 
@@ -228,18 +232,22 @@
 
 <p>Each <b>commit</b> is like a building block. All the commits together make up the project.</p>
 
-<p>Now click <b>publish</b>. This saves your commit to github.com, and brings everyone else's commits back to you. This means if your computer falls in a pond we won't lose any of your work yay!</p>
+<p>Now click <b>publish</b>. This makes a copy of your branch on github.com.</p>
 
 <img class="framed" src="publish.png">
 
-<p>Once your new branch has been published once, the button changes to say 'Sync'. <b>Sync and Publish both do the same job</b>: they save your changes to the cloud, and download anyone else's work if someone else is working in your branch.</p>
+<p>Once your new branch has been published once, the button changes to say 'Push Origin'. <b>Click the button to push your changes to the cloud.</b> This means if your computer falls in a pond we won't lose any of your work yay!</p>
 
-<img class="framed" src="sync.png">
+<img class="framed" src="push.png">
+
+<p>Now the button changes again, to 'Fetch'. Click fetch to check if anyone else has changed this branch. (Probably not, because it's your personal branch.)</p>
+
+<img class="framed" src="fetch.png">
 
 <div class="alert">
     <p><b>What if it's not working!</b></p>
 
-    <img class="framed" src="sync-failed.png">
+    <img class="framed" src="no-permission.png">
 
     <p>If this happens, you need permission to publish.</p>
     <p>1. Post your GitHub username into our <a href="http://girlcodeakl.slack.com" target="_blank">slack channel</a>.</p>
@@ -250,19 +258,37 @@
 
 <h2>Part 7: Pull Request</h2>
 
-<p>It's time to merge your branch into the master branch. This means your commit will be merged with everyone else's in the main version of the project.</p>
+<p>It's time to merge your branch into the master branch. This means your commit will be added to the main version of the project.</p>
 
-<p>Click on the Pull request button (in Github Desktop) and click 'Send Pull Request'.</p>
+<p>In Github Desktop, click on Branch, then 'Create pull request'.</p>
+
+<img class="framed" src="create-pull-request.png">
+
+<p>This takes you back to the GitHub website. Click the big 'Create Pull Request' button. (If you want, you can write a comment about your change as well.)</p>
+
+<img class="framed" src="create-pull-request-website.png">
 
 <p>Now ask Alice or Matthew to merge your pull request.</p>
 
-<p>Once they've merged it, in Github Desktop switch the branch back to 'master', click 'Sync', and check that your commit now appears in the history list.</p>
+<h2>Part 8: Look at the new version</h2>
+
+<p>Once your change has been merged, go to Github Desktop and switch back to the master branch by clicking 'Branch' then 'master'.</p>
+
+<img class="framed" src="change-to-master-branch.png">
+
+<p> Click 'Fetch Origin' to what changes are waiting for you.</p>
+
+<img class="framed" src="fetch.png">
+
+<p>Then click 'Pull Origin' (it's the same button!) to get those changes. Now you have all the latest changes.</p>
+
+<img class="framed" src="pull.png">
 
 <div class="alert">
     <p><b>What is a Pull Request?</b></p>
     <p>When you work in a branch, you are making your own special version of the project.</p>
     <p>A Pull Request says: I want my changes to be copied into the main version of the project.</p>
-    <p>Normally, someone else will <b>review</b> your Pull Request to make sure it works and you didn't forget anything. If your change is complicated, they may ask you to help explain what you did so they understand it. Once they are happy, they will merge the change. This means it will be copied into the main project.</p>  
+    <p>Normally, someone else will <b>review</b> your Pull Request to check for any mistakes or problems. If your change is complicated, your reviewer might ask you to help explain what you did so they can review it properly. Once they are happy, they will merge the change.</p>  
 </div>
 
 <h2>Part 8: Done</h2>
@@ -275,14 +301,14 @@
 
 <ul>
   <li>Put your name next to the task on the white board. (This is to avoid having two people do the same work, because that's awkward.)</li>
-  <li>Open Github Desktop and Sync.</li>
+  <li>Open Github Desktop, make sure you are on the Master Branch and up to date.</li>
   <li>Create a new branch in Github Desktop.</li>
   <li>Make your code changes.</li>
   <li>Commit your changes, using Github Desktop.</li>
-  <li>(On a larger task, you might do lots of commits.)</li>
+  <li>(On a larger task, you might do lots of little commits instead of one big one.)</li>
   <li>When you finish, make a Pull Request.</li>
-  <li>Someone will merge your change into the master.</li>
-  <li>Check how your change looks in its new home, the master branch.</li>
+  <li>Someone will review your change then merge it into the master branch.</li>
+  <li>Switch to the master branch, update and check your change is working OK.</li>
   <li>Move your task's Post-It note to 'done'.</li>
 </ul>
 
