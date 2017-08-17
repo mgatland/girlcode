@@ -535,10 +535,10 @@ console.log("Hi! I am listening at http://localhost:3000");
 //Hello! This is the start of the JavaScript.
 
 var displayMessage = function(post) {
-  var postElement = $('<div class="post"></div>');
+  var postElement = $('&lt;div class="post">&lt;/div>');
   $(".message-list").append(postElement);
 
-  var messageElement = $('<div class="message">' + post + '</div>');
+  var messageElement = $('&lt;div class="message">' + post + '&lt;/div>');
   postElement.append(messageElement);
 }
 
