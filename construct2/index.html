@@ -12,18 +12,16 @@
   <title>Girl Code - Construct 2</title>
 
   <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link href="/css/freelancer.css" rel="stylesheet">
+  <link href="../css/freelancer.css" rel="stylesheet">
 
   <!-- Custom Fonts -->
-  <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-  <link href="/js/prism/prism.css" rel="stylesheet">
-  <script src="/js/prism/prism.js"></script>
+  <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+  <link href="../js/prism/prism.css" rel="stylesheet">
+  <script src="../js/prism/prism.js"></script>
   <style>
     img {display: block;}
   </style>
@@ -39,16 +37,6 @@
 </head> 
 
 <body id="page-top" class="index">
-
-  <!-- Google Tag Manager -->
-  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5JFL8D"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5JFL8D');</script>
-  <!-- End Google Tag Manager -->
 
   <!-- Navigation -->
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -126,13 +114,13 @@
 
                 <h2 id="h2ix1">Getting started</h2>
 
-                <p>Launch Construct 2.  Click the <em>File</em> button, and select <em>New</em>.<br><img width="188" height="162" class="article-image" src="https://www.scirra.com/images/articles/filenew.png" alt="The File menu 'New' button."><br>You will see the 'Template or Example' dialog box.<br><img width="322" height="325" class="article-image" src="https://www.scirra.com/images/articles/newprojdialog65_2.png" alt="Template or Example"><br>Just click on 'Open' at the bottom of the box to create an empty project.</p>
+                <p>Launch Construct 2.  Click the <em>File</em> button, and select <em>New</em>.<br><img width="188" height="162" class="article-image" src="filenew.png" alt="The File menu 'New' button."><br>You will see the 'Template or Example' dialog box.<br><img width="322" height="325" class="article-image" src="newprojdialog65_2.png" alt="Template or Example"><br>Just click on 'Open' at the bottom of the box to create an empty project.</p>
 
                 <p>You should now be looking at an empty <em>layout</em> - the design view where you create and position objects.  Think of a layout like a game level or menu screen.</p>
 
 <!-- new tutorial structure -->
 
-                <h2>Adding some ground</h2>
+                <h3>Adding some ground</h3>
                 <p>Click <a href="brick.png" download>here</a> to download a small image called brick.png.</p>
 
                 <p>In Construct 2, <strong>double-click</strong> the empty space in the layout to insert a new object. Choose <strong>Sprite</strong>.</p>
@@ -158,7 +146,7 @@
                 <p>There is a small brick wall in your game now!</p>
 
 
-                <h2>Add more ground</h2>
+                <h3>Add more ground</h3>
 
                 <p>You can move the bricks around by dragging with your mouse.</p>
 
@@ -189,7 +177,7 @@
 
                 <img class="framed"  src="play-game.png">
 
-                <h2>Add a player character</h2>
+                <h3>Add a player character</h3>
 
                 <p>Click <a href="playerbox.png" download>here</a> to download a small image called playerbox.png.</p>
 
@@ -212,7 +200,7 @@
 
                 <img class="framed"  src="rename-playerbox.png">
 
-                <h2>Make the player controllable</h2>
+                <h3>Make the player controllable</h3>
 
                 <p>When the playerbox is selected, the left side of the screen shows many options. One of them lets us add <b>behaviours</b>:</p>
 
@@ -230,7 +218,7 @@
 
                 <img class="framed"  src="play-game.png">
 
-                <h2>Oops</h2>
+                <h3>Oops</h3>
 
                 <p>Did your player fall through the ground? We need to add a behaviour to the bricks, to make them <b>solid</b>.</p>
 
@@ -246,7 +234,7 @@
 
                 <p><b>If you can't see anything except white space when you play your game, that's OK - the next step will fix that.</b></p>
 
-                <h2>Make the camera follow the player's character</h2>
+                <h3>Make the camera follow the player's character</h3>
 
                 <p>If your level is bigger the screen, we need to make the camera follow the player character so you can always see them! You will need to add another behaviour to the player:</p>
 
@@ -254,7 +242,7 @@
 
                 <p>Try playing your game again. Now the game's "camera" should always show the player character.</p>
 
-                <h2>Adding a non-player character</h2>
+                <h3>Adding a non-player character</h3>
 
                 <p>Click <a href="creature.png" download>here</a> to download a small image called creature.png.</p>
                 
@@ -276,11 +264,11 @@
 
                 <p><strong>Select the Creature object</strong>.  In the properties bar, click <em>Add / Edit</em> under 'Instance variables'.</p>
 
-                <p><img width="273" height="202" class="article-image" src="https://www.scirra.com/images/articles/platforminstancevars.png" alt="Instance variables for the snail."><br>Click the 'add' icon to add a new variable.  Set the name to <em>action</em>, the type to <em>text</em>, and the initial value to <em>right</em> (for moving right).</p>
+                <p><img width="273" height="202" class="article-image" src="platforminstancevars.png" alt="Instance variables for the snail."><br>Click the 'add' icon to add a new variable.  Set the name to <em>action</em>, the type to <em>text</em>, and the initial value to <em>right</em> (for moving right).</p>
 
-                <p><img width="325" height="241" class="article-image" src="https://www.scirra.com/images/articles/actioninstancevar.png" alt="Adding the 'action' instance variable."><br>Click <strong>OK</strong> and close the instance variables dialog.</p>
+                <p><img width="325" height="241" class="article-image" src="actioninstancevar.png" alt="Adding the 'action' instance variable."><br>Click <strong>OK</strong> and close the instance variables dialog.</p>
 
-                <h2>Turning points</h2>
+                <h3>Turning points</h3>
 
                 <p>We will add some invisible Sprites that tell the creature to turn around when it touches them. Click <a href="turningpoint.png" download>here</a> to download turningpoint.png, add a new Sprite, and name it 'TurningPoint'.</p>
 
@@ -292,7 +280,7 @@
                 
                 <img class="framed"  src="turningpoints.png">
 
-                <h2>Creature brains</h2>
+                <h3>Creature brains</h3>
 
                 <p>Open the Event Sheet:</p>
 
@@ -323,7 +311,7 @@
 
                 <p>You can test your game now - the creature should run to the right, but will never turn around.</p>
 
-                <h2>Make the creature turn</h2>
+                <h3>Make the creature turn</h3>
 
                 <p>Create another event. Creature -&gt; On collision with another object -&gt; TurningPoint</p>
 
@@ -356,7 +344,7 @@
 
                 <p>Try your game now. The Creature should walk back and forth!</p>
 
-                <h2>What next?</h2>
+                <h3>What next?</h3>
 
                 <p>This tutorial is based on a longer tutorial you can try here: <a href="https://www.scirra.com/tutorials/253/how-to-make-a-platform-game">How to make a platform game</a>.</p>
 
@@ -406,22 +394,21 @@
         </div>
 
         <!-- jQuery -->
-        <script src="/js/jquery.js"></script>
+        <script src="../js/jquery.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="/js/bootstrap.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
 
         <!-- Plugin JavaScript -->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        <script src="/js/classie.js"></script>
-        <script src="/js/cbpAnimatedHeader.js"></script>
+        <script src="../js/classie.js"></script>
+        <script src="../js/cbpAnimatedHeader.js"></script>
 
         <!-- Contact Form JavaScript -->
-        <script src="/js/jqBootstrapValidation.js"></script>
-        <script src="/js/contact_me.js"></script>
+        <script src="../js/jqBootstrapValidation.js"></script>
+        <script src="../js/contact_me.js"></script>
 
         <!-- Custom Theme JavaScript -->
-        <script src="/js/freelancer.js"></script>
+        <script src="../js/freelancer.js"></script>
 
       </body>
 
