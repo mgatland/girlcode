@@ -540,8 +540,8 @@ var displayMessage = function(post) {
   postElement.append(messageElement);
 }
 
-var createFeed = function(data) {
-  data.forEach(displayMessage);
+var createFeed = function(posts) {
+  posts.forEach(displayMessage);
 }
 
 $.get("/posts", createFeed);
