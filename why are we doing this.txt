@@ -1,0 +1,11 @@
+WHY ARE WE DOING THIS?
+
+New Zealand’s software industry is growing rapidly, and companies are struggling to find enough skilled workers to hire. Meanwhile, many young people are struggling to find comfortable jobs because they don’t have the necessary skills.
+
+Women are underrepresented in the technology sector. While different factors contribute to this, one major problem is that technology jobs are often misrepresented as antisocial, solitary roles that involve solving hard, abstract problems by yourself. Many girls find this unappealing, and are more interested in jobs that involve social interaction, teamwork, and doing work that helps other people.
+
+In reality, most technology jobs are highly social. Most tech workers work in teams, solve problems together, help customers and clients, and give presentations to their colleagues.
+
+Girl Code was designed to let students experience a social coding environment. This helps them make a well-informed decision about whether they want to pursue a technology career. While many other courses teach individual programming skills, we think it’s just as important to teach students how programmers collaborate and function as a team.
+
+Our goal is to help young women find out if tech is a good match for them before they finish high school. We believe that this will lead to more students choosing to study software engineering, which will lead them into a great career and ultimately help build a more diverse tech industry.
