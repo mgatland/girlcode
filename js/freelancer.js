@@ -41,7 +41,7 @@ $('.navbar-collapse ul li a').click(function() {
 var wasScrolledBelow = false;
 
 function isScrolledBelow($el) {
-    var topofDiv = $el.offset().top + $el.outerHeight();
+    var topofDiv = $el.offset().top + 200;// was: + $el.outerHeight();
     return $(window).scrollTop() + $(window).height() > topofDiv;
 }
 
