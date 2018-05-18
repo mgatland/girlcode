@@ -61,11 +61,93 @@ header {
 .bigIcon {
   font-size: 200px;
   text-align: center;
-  margin-top: -30px;
+  margin-top: 50px;
 }
 .iconHacks {
   font-size: 150px;
   margin-top: 95px;
+}
+
+/*for laptop icon: 260px by 177px, margin-top of 80px*/
+/*for telvision icon: 372x233 and 58 martin top*/
+.laptop-screen {
+  position: absolute;
+  display: block;
+  width: 260px;
+  height: 171px;
+  box-sizing: content-box;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 27px;  
+  border: 16px solid white;
+}
+
+.laptop-body {
+  position: absolute;
+  display: block;
+  width: 430px;
+  height: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white !important;
+  border-bottom-left-radius: 40px 15px;  
+  border-bottom-right-radius: 40px 15px;  
+  margin-top: 214px;
+}
+
+
+.code-image {
+  font-size: 20px;
+  text-align: left;
+  width: 260px;
+  height: 171px;
+  background-color: #282923 !important;
+  box-sizing: border-box;
+  padding-top: 4px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 5px;
+  position: absolute;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 16px;
+  border-radius: 8px;
+}
+.code-image p {
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0px;
+  margin-left: 3px;
+  margin-right: 3px;
+
+}
+.code-image p.w2 {
+  width: 30px;
+}
+.code-image p.w3 {
+  width: 45px;
+}
+.code-image p.w4 {
+  width: 60px;
+}
+.code-image p.w5 {
+  width: 75px;
+}
+.code-image p.w6 {
+  width: 90px;
+}
+.code-image .red {
+  background-color: #F92472 !important;
+}
+.code-image .grey {
+  background-color: #74705D !important;
+}
+.code-image .yellow {
+  background-color: #E7DB74 !important;
 }
 </style>
 </head>
@@ -81,11 +163,23 @@ header {
     <p>a hands-on software course for beginners</p>
 
     <div class="bigIcon">
-      <i class="fa fa-laptop fa-2x"></i>
-      <!--fa-question-circle-o, ga-github, fa-bars -->
-      <i class="fa fa-code fa-stack-2x iconHacks"></i>
-    </div>
-    
+      <div class="laptop-screen"></div>
+      <div class="laptop-body"></div>
+      <div class="code-image">
+        <div><p class="red"></p><p class="grey w5"></p><p class="red w4"></p></div>
+        <div><p class=""></p><p class="yellow w3"></p><p class="grey w5"></p></div>
+        <div><p class=""></p><p class="red"></p><p class="yellow w6"></p><p class=
+          "red w2"></p></div>
+        <div><p class="red w6"></p><p class="grey w4"></p><p class="yellow w3"></p></div>
+        <div><p class="red"></p><p class="grey w4"></p><p class="yellow w6"></p></div>
+        <div><p></p><p class="grey w5"></p><p class="yellow w2"></p><p class="grey w2"></p></div>
+      </div>
+      <!--<i  class="fa fa-laptop fa-stack-2x"></i>-->
+      <!--LAPTOP SCREEN, pick one of: fa-question-circle-o, ga-github, fa-bars
+      <i class="fa fa-question-circle-o fa-stack-2x iconHacks"></i>
+      fa-television looks cool but needs style="margin-left:31px"
+       -->
+    </div>  
 
     <div class="lowest">
       <p>at Girl Code, beginners work together to build a web application. by using the same tools and techniques as New Zealand's top software companies, you'll learn what coders really do all day and what it's like to work in tech.</p>
