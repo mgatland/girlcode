@@ -724,3 +724,7 @@ section.success .fa-inverse {
 small {
     opacity: 0.8;
 }
+
+.disabled .option-heading {
+    color: grey;
+}

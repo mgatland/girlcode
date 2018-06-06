@@ -304,7 +304,12 @@
         <p><i>Note: Girl Code is a short course and not a full software education. If you want to become a work-ready developer, you will need to enrol in a longer course like <a href="https://devacademy.co.nz/" target="_blank">Devacademy</a> or the University of Auckland's <a href="http://www.science.auckland.ac.nz/en/for/future-undergraduates-4/fu-admission-and-enrolment.html" target="_blank">Computer Science degree</a>.</i></p>
 
         <h3>Dates and Times</h3>
-          <p>Our next course runs for 8 weeks, from <b><span class="dateFrom"></span></b> to <b><span class="dateTo"></span></b>.</p>
+          <p>
+            Our next course runs for 8 weeks, from <b><span class="dateFrom"></span></b> to <b><span class="dateTo"></span></b>.
+            <span class="soldOut hidden"><span class="text-danger">These dates are now <b>sold out!</b> We will announce a new course soon. You can <a href="#signup">click here</a> to join the waiting list in case a space becomes available.</span></span>
+          </p>
+
+
 
           <p>We meet on <span class="meetingDayTime">Thursday nights</span> from <b><span class="courseHours">6:30 PM to 8:30 PM</span></b>.</p>
 
@@ -388,15 +393,29 @@
                 <p class="form-subheading">What do you want to book?</p>
               </div>
               <div class="form-group col-xs-12 controls">
-                <div class="radio">
+                <div class="radio courseButton1Label">
                   <label>
                   <input type="radio" name="course-options" required data-validation-required-message="Please choose a course" value="" class="courseButton1">
-                  <div class="option-heading">Girl Code beginner course – <span class="cost"></span> <span class="text-danger almostSoldOut">(Almost sold out!)</span></div>
+                  <div class="option-heading">
+                    Girl Code beginner course – <span class="cost"></span> <span class="text-danger almostSoldOut hidden">(Almost sold out!)</span>
+                    <div class="soldOut hidden text-danger">Sold out!</div>
+                  </div>
                   <div class="option-description">
                     <span class="dateFrom"></span> to <span class="dateTo"></span>
                   </div>
                   <div class="option-description-2">
                     Every <span class="meetingDay"></span> from <span class="courseHours"></span>
+                  </div>
+                  </label>
+                </div>
+                <div class="radio soldOut hidden">
+                  <label>
+                  <input type="radio" name="course-options" required data-validation-required-message="Please choose a course" value="waiting list">
+                  <div class="option-heading">
+                    Join the waiting list
+                  </div>
+                  <div class="option-description">
+                     We will email you if a space becomes available, or when the next course is announced.
                   </div>
                   </label>
                 </div>
@@ -574,6 +593,7 @@
   var dateTo = "26th July"
   var courseCode = "Term 2 v2 2018-06-07" //sent to us in the form
   var almostSoldOut = false
+  var soldOut = true
 
   //maybe never change:
   var meetingDayTime = "Thursday nights" //we meet on 'Thursday nights'
@@ -587,7 +607,12 @@
   $(".cost").text(cost)
   $(".meetingDay").text(meetingDay)
   $(".courseButton1").val(courseCode)
-  if (!almostSoldOut) $(".almostSoldOut").text("")
+  if (almostSoldOut) $(".almostSoldOut").removeClass("hidden")
+  if (soldOut) {
+    $(".soldOut").removeClass("hidden")
+    $(".courseButton1").attr('disabled',true)
+    $(".courseButton1Label").addClass("disabled")
+  }
   </script>
 </body>
 
