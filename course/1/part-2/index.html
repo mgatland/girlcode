@@ -191,17 +191,17 @@
     <div class="alert">
       <p><b>About mistakes</b></p>
 
-      <p>When you are coding you will make a LOT of mistakes. Even experts make a lot of mistakes. Just missing one '>' symbol can make your page display strangely. </p>
+      <p>When you are coding you will make a LOT of mistakes. Even experts make a lot of mistakes.</p>
 
-      <p>If you're with other people, it often helps to have someone else look over your code. It's easier to read something if you didn't write it yourself.</p>
+      <p>If something goes wrong, try reading your code slowly, letter by letter. Is it different from the example?</p>
 
-      <p>If you're by yourself, you might have to carefully compare your code with the examples. Try to check what comes before and after each symbol, and look for anything that's out of place.</p>
+      <p>If you're with other people, ask someone else to look for the problem. It's always easier to spot problems in someone else's code!</p>
 
     </div>
 
-    <h2>Let's add one more</h2>
+    <h2>Let's add one more rule</h2>
 
-    <p>Let's add one more CSS rule, which changes the style of the other text.</p>
+    <p>Let's add one more CSS rule, which changes the style of the paragraph text.</p>
 
 <pre><code class="language-css">p {
   border: 2px solid white;
@@ -213,13 +213,13 @@
 
     <p>Try that out. We'll explain how it works later! First let's make the page say something more interesting.</p>
 
-    <h2>Editing your page body</h2>
+    <h2>Editing your page</h2>
 
     <p>The "body" of the page controls what words appear on your website.</p>
 
     <p>The body starts with a <code>&lt;body&gt;</code> tag and ends with a <code>&lt;/body&gt;</code> tag.</p>
 
-    <p>Tags are how we code in HTML. A tag is a word with pointy brackets on each end. Tags mark special parts of the file.</p>
+    <p>Everything between those two tags is inside the body.</p>
 
     <p>Your page body probably looks like this:</p>
 
@@ -229,14 +229,14 @@
 &lt;/body&gt;
 </code></pre>
   
-    <p>h1 is short for 'heading 1'. It represents the biggest (most important) heading on your page.</p>
+    <p>h1 is short for 'heading 1'. It represents the biggest heading on your page.</p>
 
     <p>p is short for 'paragraph'.</p>
 
-    <p>You can add another paragraph by adding a new line that has a <code>&lt;p&gt;</code> tag at the start, and a &lt;/p&gt; tag at the end.</p>
+    <p>Add another paragraph by adding a new line inside the body. Start the new line with <code>&lt;p&gt;</code> and end it with <code>&lt;/p&gt;</code>. You can write anything you like in between the tags.</p>
 
     <div class="alert">
-      <p>Did you notice the difference between a start tag and and an end tag? End tags have a slash at the front.</p>
+      <p>Remember: End tags have a slash before their name, like this: <code>&lt;/body&gt;</code></p>
     </div>
 
     <h2>Adding an Image</h2>
@@ -246,7 +246,9 @@
 <pre><code class="language-markup">&lt;img src="http://mgatland.neocities.org/countryside.jpg"&gt;
 </code></pre>
 
-    <p>An img tag shows an image. You can change the URL to show a different image instead.</p>
+    <p>An <code>&lt;img&gt;</code> tag shows an image. You can change the image by putting in a different link.</p>
+
+    <p>Side note: <code>&lt;img&gt;</code> tags are unusual because they don't have a closing tag. There's no such thing as <code>&lt;/img&gt;</code>.</p>
 
 <!-- todo: show how to grab images from Google Image Search?-->
 
@@ -285,20 +287,18 @@
 }
 </code></pre>
 
-    <p>The first line says when to follow this rule. Here, you must follow the rule when you draw an <code>img</code> (an image).</p>
+    <p>The green part says what the rule is for. This rule is for when you draw an <code>img</code> tag.</p>
 
-    <p>The curly bracket <code>{</code> means "now I'll tell you what do to."</p>
+    <p>The curly brackets <code>{</code> and <code>}</code> mark the start and end of the instructions.</p>
 
-    <p>Then we have the instructions, like this:</p>
+    <p>Each instruction is like this:</p>
 
 <pre><code class="language-css">border: 10px dashed green;
 </code></pre>
 
     <p>There are hundreds of different rules you can use! They always have a <code>:</code> in the middle and a <code>;</code> at the end. This one says to draw a dashed green border around the edge.</p>
 
-    <p>The curly bracket <code>}</code> at the end says "I've finished explaining how to draw an <code>img</code> tag.</p>
-
-    <p>So the whole thing says: When you draw an <code>img</code> tag (an image), you must give it a 10 pixel thick green border, and you must leave 30 pixels of empty space around it (that's called a margin).</p>
+    <p>So the whole thing says: When you draw an <code>img</code> tag (an image), you must draw a border that is 10 pixels thick, green and dashed, and you must leave a margin of empty space around it that is 30 pixels wide.</p>
 
     <p>Add the CSS to your page and see if it works!</p>
 
@@ -307,13 +307,37 @@
         <p>If it has curley brackets <code>{}</code>, it's CSS. If it has pointy brackets <code>&lt;&gt;</code> it's HTML.</p>
       </div>
 
-  <h2>Bloop</h2>
+  <h2>Basic layout</h2>
 
-  <p>Hey that's enough instructions, can you make an awesome webpage? We'll help you.</p>
+  <p>Some people have wide screens, but it's hard to read text that is too wide.</p>
+  <p>Let's put the contents of our webpage inside a container that won't get too wide.</p>
 
-  <p>Maybe make a gallery of photos with 5 photos.</p>
+  <p>Add this tag just before your <code>&lt;h1></code> tag:</p>
 
-  <p>Here are some other ideas that might help:</p>
+<pre><code class="language-markup">&lt;main&gt;
+</code></pre>
+
+  <p>Add this tag just after your last paragraph or image tag:</p>
+
+<pre><code class="language-markup">&lt;/main&gt;
+</code></pre>
+
+  <p>Now all your headings, paragraphs and images should be inside this new element. Finally, add a CSS rule to make the main element narrow:</p>
+
+<pre><code class="language-css">main {
+  max-width: 800px;
+  margin: auto;
+  background-color: lightblue;
+}
+</code></pre>
+
+  <h2>OK</h2>
+
+  <p>It's time to customize your web page and make it about anything you like!</p>
+
+  <p>If you need ideas, how about making a gallery with 5 really cute cat photos?</p>
+
+  <p>Here are some more techniques that might help:</p>
 
   <h2>make an image centered</h2>
 
@@ -324,6 +348,8 @@
   margin-right: auto;
 }
 </code></pre>
+
+  <p>This means an image will be centered on its own line, and nothing is allowed to appear beside it.</p>
 
   <h2>How Borders, Padding and Margins work</h2>
 
@@ -517,7 +543,7 @@
 
 <p>Attributes always appear inside the <b>start tag</b>.</p>
 
-<p>Some special tags only have a start tag, no closing tag and no content!</p>
+<p>Some special tags like <code class="language-markup">&lt;img&gt;</code> only have a start tag, no closing tag and no content!</p>
 
 <p>So now you know: HTML is made out of elements, and elements are made out of a start tag, content, and an end tag. The start tag might have attributes inside it.</p>
 
