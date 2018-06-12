@@ -175,7 +175,11 @@
 
       <p>Let's add a new CSS rule to make the page heading look different.</p>
 
-      <p><b>Add these lines</b> to your CSS, just above line that says <code>&lt;/style&gt;</code>.</p>
+      <ul>
+        <li>Find the line that says <code>&lt;/style&gt;</code></li>
+        <li>Add a blank line <b>above it</b>.</li>
+        <li>Add this code there:</li>
+      </ul>
 
 <pre><code class="language-css">h1 {
   text-align: center;
@@ -195,7 +199,7 @@
 
       <p>If something goes wrong, try reading your code slowly, letter by letter. Is it different from the example?</p>
 
-      <p>If you're with other people, ask someone else to look for the problem. It's always easier to spot problems in someone else's code!</p>
+      <p>If you're with other people, ask someone else to look for the problem. It's always easier to see problems in someone else's code!</p>
 
     </div>
 
@@ -275,7 +279,7 @@
 
     <p>HTML is for <b>what the page says</b>, but not <b>how it should look</b>.</p>
 
-    <h2>How CSS works</h2>
+    <h2>About CSS</h2>
 
     <p>A CSS rule tells your browser how to draw your HTML.</p>
 
@@ -304,7 +308,7 @@
 
       <div class="alert">
         <p>Remember that CSS goes in the <code>&lt;style></code> section of the page.</p>
-        <p>If it has curley brackets <code>{}</code>, it's CSS. If it has pointy brackets <code>&lt;&gt;</code> it's HTML.</p>
+        <p>If it has curly brackets <code>{}</code>, it's CSS. If it has pointy brackets <code>&lt;&gt;</code> it's HTML.</p>
       </div>
 
   <h2>Basic layout</h2>
@@ -322,7 +326,7 @@
 <pre><code class="language-markup">&lt;/main&gt;
 </code></pre>
 
-  <p>Now all your headings, paragraphs and images should be inside this new element. Finally, add a CSS rule to make the main element narrow:</p>
+  <p>Now all your headings, paragraphs and images should be inside this new element. Finally, add a CSS rule to your <code>&lt;style></code> section to make the main element narrow:</p>
 
 <pre><code class="language-css">main {
   max-width: 800px;
@@ -351,6 +355,17 @@
 
   <p>This means an image will be centered on its own line, and nothing is allowed to appear beside it.</p>
 
+  <div class="alert">
+    <p>Is your image too wide? If it is, you can set its size by adding a CSS rule to set the width:</p>
+
+  <pre><code class="language-css">width: 80%;</code></pre>
+
+  <p>Or try this one instead. Percentage (%) widths change based on the width of the parent. Pixel (px) widths do not:</p>
+
+  <pre><code class="language-css">width: 400px;</code></pre>
+
+  </div>
+
   <h2>How Borders, Padding and Margins work</h2>
 
   <p>Imagine that html tags create a box. The box can have a border.</p>
@@ -372,7 +387,7 @@
 
   <p>The border is very tight on the left side. We can add <i>padding</i>, which is space between the border and the words inside.</p>
 
-<p>Add this CSS between the curley brackets:</p>
+<p>Add this CSS between the curly brackets:</p>
 <pre><code class="language-css">padding: 10px;
 </code></pre>
 
@@ -385,7 +400,7 @@
 
   <p>Margin is space OUTSIDE the box.</p>
 
-<p>Add this CSS between the curley brackets:</p>
+<p>Add this CSS between the curly brackets:</p>
 <pre><code class="language-css">margin: 40px;
 </code></pre>
 
@@ -408,6 +423,36 @@
       <p>The Developer Tools are just for trying ideas out. The changes you make there are <b>not</b> saved and will disappear when you refresh the page.</p>
 
     </div>
+
+  <h2>Clean up your CSS</h2>
+
+  <p>You might now have two different CSS rules for <code>img</code> and two different rules for <code>p</code>. Keep your CSS easy to read by combining these rules together.</p>
+
+  <p>Messy example:</p>
+
+<pre><code class="language-css">p {
+  color: white;
+}
+img {
+  padding: 9px;
+}
+p {
+  margin: 10px;
+}
+</code></pre>
+
+<p>Tidy it up by combining the two <code>p</code> sections:</p>
+
+<pre><code class="language-css">p {
+  color: white;
+  margin: 10px;
+}
+img {
+  padding: 9px;
+}
+</code></pre>
+
+<p>Now all the rules for paragraphs are together. Nice and tidy!</p>
 
   <h2>Other CSS rules</h2>
 
@@ -500,7 +545,7 @@
 <p>How it looks:</p>
   <div class="example">
     <div class="survey">
-      <h4>How many cats is enough cats?</h4>
+      <h2>How many cats is enough cats?</h2>
       <div class="option">one cat</div>
       <div class="option">two cats</div>
       <div class="option">ten cats</div>
