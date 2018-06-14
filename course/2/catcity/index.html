@@ -164,16 +164,16 @@
     &lt;button class="button3">Give a cat to the SPCA&lt;/button>
     &lt;script>
 //Hello! This is the start of the JavaScript.
-var cats = 0;
-var catfood = 4;
-var medals = 0;
-var breadmakers = 0;
+let cats = 0;
+let catfood = 4;
+let medals = 0;
+let breadmakers = 0;
 
-var showInfo = function () {
+function showInfo() {
   $(".info").text("You have " + catfood + " tins of catfood, " + cats + " cats and " + medals + " SPCA medals.");
 }
 
-var getCat = function () {
+function getCat() {
   if (catfood > 0) {
     catfood = catfood - 1;
     cats = cats + 1;
@@ -242,7 +242,7 @@ $(".button2").on("click", getCat);
       <p>Can you add a new button that lets the player get a breadmaker?</p>
 
       <div class="alert">
-        <p>At the start of our JavaScript we say <code class="language-javascript">var breadmakers = 0;</code> so we are counting them, but we never show this information to the player. You have to update the <code class="language-javascript">showInfo</code> function to tell the player how many breadmakers they have.
+        <p>At the start of our JavaScript we say <code class="language-javascript">let breadmakers = 0;</code> so we are counting them, but we never show this information to the player. You have to update the <code class="language-javascript">showInfo</code> function to tell the player how many breadmakers they have.
       </div>
 
       <h2>Bonus: Emojis and loops</h2>
@@ -252,7 +252,7 @@ $(".button2").on("click", getCat);
       <p>Try adding this code to the end of the <code class="language-javascript">showInfo</code> function. It will need to go at the end – just before the curley bracket <code class="language-javascript">}</code></p>
 
 <pre><code class="language-javascript">
-for (var i = 0; i < cats; i++) {
+for (let i = 0; i < cats; i++) {
   $(".info").append("🐈");
 }
 </code></pre>

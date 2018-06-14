@@ -167,13 +167,13 @@
 
 //set up:
 //this variable holds the number to display
-var timer = 100000;
+let timer = 100000;
 //this variable decides if the timer is going or paused
-var isTimerOn = true;
+let isTimerOn = true;
 
 
 //tick tick tick tick...
-var tick = function () {
+function tick() {
   if (isTimerOn) {
     timer = timer + 1;
   }
@@ -181,17 +181,17 @@ var tick = function () {
   $(".time").text(timer);
 }
 
-var start = function () {
+function start() {
   //not working right...
   alert("Start!");
 }
 
-var stop = function () {
+function stop() {
   //um...
   timer = 0;
 }
 
-var reset = function () {
+function reset() {
   //not sure this is right
   $(".button3").fadeOut();
 }

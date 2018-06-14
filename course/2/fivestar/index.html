@@ -192,20 +192,20 @@
     &lt;script>
 //Hello! This is the start of the JavaScript.
 
-var greeting = function () {
+function greeting() {
   alert("Hello there!");
 }
 
-var addStar = function () {
-  var star = $('&lt;div class="star">&lt;/div>');
+function addStar() {
+  let star = $('&lt;div class="star">&lt;/div>');
   $(".star-box").append(star);
 }
 
-var removeStar = function () {
+function removeStar() {
   $('.star').first().remove();
 }
 
-var fadeStars = function () {
+function fadeStars() {
   $('.star').fadeToggle();
 }
 
