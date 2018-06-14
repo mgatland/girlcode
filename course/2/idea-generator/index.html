@@ -165,19 +165,19 @@ h2 {
 //Hello! This is the JavaScript.
 //You can skip this part for now. Jump ahead down to where I say 'LOOK HERE'
 
-var button = document.getElementById("next-page-button");
+let button = document.getElementById("next-page-button");
 
-var showThisMessage = function (message) {
-  var displayArea = document.getElementById("display-area");
+function showThisMessage(message) {
+  let displayArea = document.getElementById("display-area");
   displayArea.innerHTML = message;
 };
 
-var makeAndShowConcept = function () {
-  var randomConcept = getRandomConcept();
+function makeAndShowConcept() {
+  let randomConcept = getRandomConcept();
   showThisMessage(randomConcept);
 };
 
-var pickRandom = function (list) {
+function pickRandom (list) {
   return list[Math.floor(Math.random()*list.length)];
 };
 
@@ -188,16 +188,16 @@ button.addEventListener('click', makeAndShowConcept);
 // ***
 // Hello again! This is the part we are working on.
 
-var getRandomConcept = function () {
-  var people = [];
+function getRandomConcept() {
+  let people = [];
   people.push("time traveller");
   people.push("school teacher");
 
-  var jobs = [];
+  let jobs = [];
   jobs.push("runs a hotel");
   jobs.push("solves mysteries");
 
-  var myConcept = "A " + pickRandom(people) + " who " + pickRandom(jobs);
+  let myConcept = "A " + pickRandom(people) + " who " + pickRandom(jobs);
   return myConcept;
 };
 &lt;/script>
@@ -310,10 +310,10 @@ var getRandomConcept = function () {
 
 <pre><code class="language-javascript">
   //Good example
-  var myConcept = "A " + "&lt;i>" + pickRandom(people) + "&lt;/i>" + " who "
+  let myConcept = "A " + "&lt;i>" + pickRandom(people) + "&lt;/i>" + " who "
 
   //Bad example:
-  var myConcept = "A " + &lt;i> + pickRandom(people) + &lt;/i> + " who "
+  let myConcept = "A " + &lt;i> + pickRandom(people) + &lt;/i> + " who "
 </code></pre>
  
 <h2>Finished!</h2>

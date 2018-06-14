@@ -98,8 +98,8 @@ a {
 				<section>
 					<h2>JavaScript</h2>
 					<pre><code data-trim contenteditable>
-var addStar = function () {
-	var newStar = createStar();
+function addStar () {
+	let newStar = createStar();
 	$(".star-box").append(newStar);
 }
 $(".button1").on("click", addStar);
