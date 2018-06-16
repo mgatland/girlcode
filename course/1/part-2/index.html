@@ -52,7 +52,7 @@
     .p5 {
       border: 1px solid blue; padding: 10px; margin: 40px; border-radius: 10px; box-shadow: 3px 3px 5px 1px grey;
     }
-    .example .loud {
+    .example .warning {
       color: red;
       border: 2px solid orange;
       background-color: pink;
@@ -335,15 +335,17 @@
 }
 </code></pre>
 
-  <h2>OK</h2>
+  <h2>Customize your page!</h2>
 
-  <p>It's time to customize your web page and make it about anything you like!</p>
+  <p>It's time to customize your web page. Add a few more images, paragraphs and make it about anything you like!</p>
 
-  <p>If you need ideas, how about making a gallery with 5 really cute cat photos?</p>
+  <p>If you need ideas, how about making a gallery with 5 cute cat photos?</p>
 
-  <p>Here are some more techniques that might help:</p>
+  <img src="https://placekitten.com/400/400">
 
-  <h2>make an image centered</h2>
+  <p>Once you've added a few things, read on for some more advanced HTML and CSS tips.</p>
+
+  <h2>How to make an image centered</h2>
 
 <p>CSS:</p>
 <pre><code class="language-css">img {
@@ -353,7 +355,7 @@
 }
 </code></pre>
 
-  <p>This means an image will be centered on its own line, and nothing is allowed to appear beside it.</p>
+  <p><code>display: block;</code> means this element will be displayed on its own line with nothing on either side. The margin rules put it in the centre.</p>
 
   <div class="alert">
     <p>Is your image too wide? If it is, you can set its size by adding a CSS rule to set the width:</p>
@@ -424,6 +426,8 @@
 
     </div>
 
+  <p>Try adding margins, padding, or borders to different parts of your page.</p>
+
   <h2>Clean up your CSS</h2>
 
   <p>You might now have two different CSS rules for <code>img</code> and two different rules for <code>p</code>. Keep your CSS easy to read by combining these rules together.</p>
@@ -480,17 +484,17 @@ img {
 
       <p>What if you want one paragraph to be red, and another one to be blue?</p>
 
-      <p>You can give any HTML tag a 'class', which is like an extra label. You make up the label. Here I called it <code>loud</code>:</p>
+      <p>You can give any HTML tag a 'class', which is like an extra label. You make up the label. Here I called it <code>warning</code>:</p>
 
 <p>HTML:</p>
 <pre><code class="language-markup">&lt;p&gt;This is a normal paragraph.&lt;/p&gt;
-&lt;p class=&quot;loud&quot;&gt;This is a LOUD paragraph!.&lt;/p&gt;
+&lt;p class=&quot;warning&quot;&gt;This is a WARNING paragraph!.&lt;/p&gt;
 </code></pre>
 
       <p>Now you can write a CSS rule that applies to anything that has that class.</p>
 
 <p>CSS:</p>
-<pre><code class="language-css">.loud {
+<pre><code class="language-css">.warning {
   color: red;
   border: 2px solid orange;
   background-color: pink;
@@ -501,10 +505,10 @@ img {
 
   <div class="example">
     <p>This is a normal paragraph.</p>
-    <p class="loud">This is a LOUD paragraph!</p>
+    <p class="warning">This is a WARNING paragraph!</p>
   </div>
 
-      <p>Note that in our CSS rule, there is a dot in front of the word "loud". That shows that it's not a tag name (like <code>p</code> or <code>img</code>), it's a class name.</p>
+      <p>Note that in our CSS rule, there is a dot in front of the word "warning". That shows that it's not a tag name (like <code>p</code> or <code>img</code>), it's a class name.</p>
 
       <p>Classes let you quickly add your styles to anything you want.</p>
 
@@ -545,16 +549,40 @@ img {
 <p>How it looks:</p>
   <div class="example">
     <div class="survey">
-      <h2>How many cats is enough cats?</h2>
+      <h4>How many cats is enough cats?</h4>
       <div class="option">one cat</div>
       <div class="option">two cats</div>
       <div class="option">ten cats</div>
       <div class="option">no cats</div>
     </div>
   </div>
- 
-<p>Can you put a link (an <code>a</code> tag) inside one of the options?</p>
 
+<div class="alert">
+  <p>Try adding a navigation bar to your page.</p>
+  <img src="navbar.png" class="framed">
+  <p>Add a pair of <code>&lt;nav></code> tags, then put some link tags (<code>&lt;a></code>) inside.</p>
+  <p>Write a CSS rule to make the nav bar a different color from the rest of the page.</p>
+  <p>Write a rule to make the links inside the nav bar a different color. (If you want them to look different from other links on your page, you will need to give them a class like the 'warning' example we did earlier.)</p>
+  <p>Links have a built in style that makes them underlined. You may want to override that style by giving them the rule <code>text-decoration: none;</code></p>
+</div>
+
+<h2>Hover effects</h2>
+
+<p>When you hold the mouse over something, that's called "hovering".</p>
+
+<p>We can add special CSS rules that only apply when an element is being hovered over. Normally, this is only used on elements the user can interact with, like links:</p>
+
+<pre><code class="language-css">a:hover {
+  color: orange;
+}</code></pre>
+
+<p>However, you can add hover effects to anything you like! Even paragraphs:</p>
+
+<pre><code class="language-css">img:hover {
+  transform: rotate(4deg);
+}</code></pre>
+
+<p>If someone is using a phone to view your site, they won't have a mouse so they can't hover 😞 It's important that your website still makes sense without hover effects.</p>
 
 <h2>Some terms</h2>
 
@@ -577,12 +605,12 @@ img {
 <p>Some elements contain <b>attributes</b>:</p>
 
 <pre><code class="language-markup">
-&lt;a class='loud' href='https://www.google.com'&gt;My favourite website&lt;/a&gt;
+&lt;a class='warning' href='https://www.google.com'&gt;My favourite website&lt;/a&gt;
 </code></pre>
 
 <p>These parts are <b>attributes</b>:</p>
 <ul>
-  <li><code class="language-markup">class='loud'</code></li>
+  <li><code class="language-markup">class='warning'</code></li>
   <li><code class="language-markup">href='https://www.google.com'</code></li>
 </ul>
 
