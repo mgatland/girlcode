@@ -348,8 +348,8 @@
 
       <pre><code class="language-javascript">
 //set up
-var express = require('express')
-var app = express();
+let express = require('express');
+let app = express();
 
 //If a client asks for a file,
 //look in the public folder. If it's there, give it to them.
@@ -366,13 +366,13 @@ console.log("Hi! I am listening at http://localhost:3000");
       <p>Add this code at line 8 of your index.js file:</p>
 
       <pre><code class="language-javascript">
-var posts = [];
+let posts = [];
 
 posts.push("hi what is up everybody");
 posts.push("auckland is so nice in summer... and so bad in winter");
 posts.push("current status: playing sports");
 
-var sendPostsList = function (request, response) {
+function sendPostsList (request, response) {
   response.send(posts);
 }
 app.get('/posts', sendPostsList);
@@ -382,7 +382,7 @@ app.get('/posts', sendPostsList);
         <ul>
             <li>It creates a variable called <code>posts</code> which is an empty list</li>
             <li>It adds three messages to the list</li>
-            <li>It creates a variable <code>sendPostsList</code> which is a function, or command, that can send the posts to the client</li>
+            <li>It creates a function <code>sendPostsList</code>. This is a command that can send the posts to the client</li>
             <li>Finally, it tells the server that when a client tries to GET "/posts", use the function <code>sendPostsList</code> to reply - this means it will reply by sending them the list of posts.</li>
         </ul>
 
@@ -415,9 +415,9 @@ app.get('/posts', sendPostsList);
 
       <pre><code class="language-javascript">
 //set up
-var express = require('express')
-var app = express();
-var bodyParser = require('body-parser')
+let express = require('express')
+let app = express();
+let bodyParser = require('body-parser')
 
 //If a client asks for a file,
 //look in the public folder. If it's there, give it to them.
@@ -428,16 +428,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 //make an empty list
-var posts = [];
+let posts = [];
 
 //let a client GET the list
-var sendPostsList = function (request, response) {
+function sendPostsList(request, response) {
   response.send(posts);
 }
 app.get('/posts', sendPostsList);
 
 //let a client POST something new
-var saveNewPost = function (request, response) {
+function saveNewPost(request, response) {
   console.log(request.body.message); //write it on the command prompt so we can see
   posts.push(request.body.message); //save it in our list
   response.send("thanks for your message. Press back to add another");
@@ -461,6 +461,8 @@ console.log("Hi! I am listening at http://localhost:3000");
     <p>You can test the GET by using the same link as before.</p>
 
     <p><a href="http://localhost:3000/posts" target="_blank">http://localhost:3000/posts</a></p>
+
+    <p>This time you should see an empty list: <code>[]</code></p>
 
     <p>Testing POST is trickier because your web browser does not normally POST.</p>
 
@@ -532,15 +534,15 @@ console.log("Hi! I am listening at http://localhost:3000");
     &lt;script>
 //Hello! This is the start of the JavaScript.
 
-var displayMessage = function(post) {
-  var postElement = $('&lt;div class="post">&lt;/div>');
+function displayMessage(post) {
+  let postElement = $('&lt;div class="post">&lt;/div>');
   $(".message-list").append(postElement);
 
-  var messageElement = $('&lt;div class="message">' + post + '&lt;/div>');
+  let messageElement = $('&lt;div class="message">' + post + '&lt;/div>');
   postElement.append(messageElement);
 }
 
-var createFeed = function(posts) {
+function createFeed(posts) {
   posts.forEach(displayMessage);
 }
 
@@ -555,9 +557,9 @@ $.get("/posts", createFeed);
 
     <p>Test your new message feed with this link: <a href="http://localhost:3000/feed.html" target="_blank">http://localhost:3000/feed.html</a></p>
 
-    <p>The Message Feed is a page with some JavaScript. The script will GET the raw message list, then go through each item in the list. <b>For each item</b>, it creates a little bit of HTML and adds it into the page. (Just like in the fivestar activity.)</p>
+    <p>The Message Feed is a page with some JavaScript. The script will GET the raw message list, then go through each item in the list. <b>For each item</b>, it creates a little bit of HTML and adds it into the page. (Just like how we added starts in the fivestar activity.)</p>
 
-    <p>Right click on a message and choose 'Inspect' to look at the HTML code.</p>
+    <p>Try posting a few more posts using <a href="http://localhost:3000/post.html" target="_blank">http://localhost:3000/post.html</a>, then coming back to the feed and refreshing it. The new posts should appear.</p>
 
     <h2>That's all!</h2>
 
