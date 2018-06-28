@@ -598,6 +598,7 @@ audio {
     margin-top: 24px;   
     margin-bottom: 24px;
 }
+
 .codeclubstyle ul {
     font-size: 20px;
 }
@@ -727,4 +728,13 @@ small {
 
 .disabled .option-heading {
     color: grey;
+}
+
+/* hack to make links to text anchors not hide them under the page header */
+[id]:before { 
+  display: block; 
+  content: " "; 
+  margin-top: -95px; /* Set the Appropriate Height */
+  height: 95px; /* Set the Appropriate Height */
+  visibility: hidden; 
 }
