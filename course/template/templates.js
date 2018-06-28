@@ -1407,7 +1407,7 @@ You'll need to add the line above just after the line \`let data = {}\`. That me
 ]
 
 let mainEl = document.querySelector("main")
-let cleanIssues = "["
+//let cleanIssues = "["
 issues.sort((a,b) => a.number - b.number)
 for(let issue of issues) {
   let issueEl = document.createElement("div")
@@ -1415,21 +1415,23 @@ for(let issue of issues) {
   mainEl.appendChild(issueEl)
 
   let cleanIssue = issue
-  cleanIssues = cleanIssues + JSON.stringify(cleanIssue) + ",\n"
+//  cleanIssues = cleanIssues + JSON.stringify(cleanIssue) + ",\n"
 
   const titleEl = document.createElement("h3")
   titleEl.textContent = issue.title
+  titleEl.classList.add("selectAll")
   issueEl.appendChild(titleEl)
 
-  const closeEl = document.createElement("div")
+  const closeEl = document.createElement("a")
   closeEl.classList.add("close", "hidden")
+  closeEl.href = "#"
   closeEl.textContent = "Close"
   issueEl.appendChild(closeEl)
 
   const issueBodyEl = document.createElement("div")
   issueBodyEl.classList.add("issueBody")
   issueBodyEl.setAttribute("contentEditable", "true")
-  issueBodyEl.classList.add("hidden")
+  issueBodyEl.classList.add("hidden", "selectAll")
   issueBodyEl.textContent = issue.body
   issueEl.appendChild(issueBodyEl)
 
@@ -1437,11 +1439,17 @@ for(let issue of issues) {
     if (e.target.classList.contains("close")) {
       e.currentTarget.querySelector(".issueBody").classList.add("hidden")
       e.currentTarget.querySelector(".close").classList.add("hidden")            
+      e.preventDefault()
     } else {
       e.currentTarget.querySelector(".issueBody").classList.remove("hidden")
       e.currentTarget.querySelector(".close").classList.remove("hidden")      
     }
+    if (e.target.classList.contains("selectAll")) {
+      window.getSelection().selectAllChildren(e.target)  
+    }
   })
 
 }
-console.log(cleanIssues + "]")
+//cleanIssues = cleanIssues + "]"
+
+//to export: console.log(cleanIssues)
