@@ -1034,7 +1034,7 @@ Now new posts will be sent to the database.
 `},
 {"number":7,"title":"Display each post's time",
 "body":`**This task can only be done after #4**
-# ACT 1
+# PART 1
 
 Now that posts are objects, we can add other information to them.
 
@@ -1052,7 +1052,7 @@ postElement.append(timeElement);
 You'll need some careful use of quotation marks and pluses to make javascript include the actual \`post.time\`. inside the tags.
 
 After this change, when you look at http://localhost:3000/feed.html you should see the time for each post - but it's not pretty yet.
-# ACT 2
+# PART 2
 
 Working in _feed.html_
 
@@ -1087,7 +1087,7 @@ if (post.time === undefined) {
    post.time = new Date(\"2016-01-01\");
 }
 \`\`\`
-# ACT 3
+# PART 3
 
 It's kind of confusing that the time is the same color as the text and author name.
 
@@ -1180,7 +1180,7 @@ I googled it. The problem is that our app always listens at port 3000, but on He
 "body":`***This can only be done when #4 and #2  has been completed
 
 The post form in post.html should let you include a link (URL) to an image file
-# Act 1
+# PART 1
 - [ ] on post.html, add a new text input field inside the form. This is where the user can paste in the url of an image.
 - Don't add a whole new form - just add a new field (that's the empty space you write into) inside the form that's already there. This is _one line_ of HTML code.
 
@@ -1196,12 +1196,12 @@ How to check what is being sent to the server:
 > Now on the form, click the button 
 > You should see a new item 'posts', appear in the Developer Tools. This line is the POST request. Click on it to see what happened 
 > Choose the Headers section, scroll to the bottom to see the form data, and make sure all the form fields are visible - that means they were sent to the server. 
-# Act 2
+# PART 2
 - [ ] on the server (index.js), look for the code that runs when a new post is POSTed (it starts with \`app.post\` and calls a function) You need to add a line to that function so that the image url is saved into the new post object.
 - [ ] check that the image url is being saved by looking at the raw posts at http://localhost:3000/posts - do you see the image urls appearing?
 
 (Remember that because you're changing index.js you'll need to restart your server to make it read your changes.)
-# Act 3
+# PART 3
 - [ ] Now we have these images, we need to display them in the feed. In feed.html, you will need to modify the code that creates each post so that it includes the image URL. 
 
 In feed.html, find the code that creates a variable \`postElement\`. Add this code after it:
@@ -1245,7 +1245,7 @@ let obby = {}; //create an empty object
 obby.rating = 10; //created a name-value pair: the name is rating and the value is the number 10
 obby.greeting = \"hello!\"; //the name is greeting and the value is a string
 \`\`\`
-### Act 1:
+### PART 1:
 
 You will need to change the data structure a bit, so each idea is an object, not just a string.
 
@@ -1271,7 +1271,7 @@ These new lines do this:
 3. Save this object by pushing it into the end of the list of posts.
 
 _Because you've changed index.js, you will need to restart your server now._
-### Act 2: Displaying the message again
+### PART 2: Displaying the message again
 
 If you look at the message feed, and post a post, it won't look right any more. It comes out as \`[Object object]\`.
 
