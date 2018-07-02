@@ -653,7 +653,7 @@ If someone has already finished the issue **Clicking 'Post it!' should not go to
 
 Now it's (hopefully) being sent to the server, we need to teach the server to look out for this new information.
 - [ ] We're now working in _index.js_
-- [ ] find for the code that is run when a user POSTS a new post to the server.
+- [ ] look for the code that is run when a user POSTS a new post to the server.
 - [ ] there is a line that writes the post's message to the console using \`console.log(request.body.message);\`. Add another line that logs request.body.date as well.
 - [ ] Restart the server, post a new post and check that the event date now shows up in terminal/command prompt.
 - [ ] If the date is coming through, we can now save it. You do this by setting a new new name-value pair on the \`post\`. Your code might look like this:
