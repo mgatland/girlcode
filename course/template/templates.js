@@ -1428,7 +1428,7 @@ for(let issue of issues) {
 
   const issueBodyEl = document.createElement("div")
   issueBodyEl.classList.add("issueBody")
-  issueBodyEl.setAttribute("contentEditable", "true")
+  //issueBodyEl.setAttribute("contentEditable", "true")
   issueBodyEl.classList.add("hidden", "selectAll")
   issueBodyEl.textContent = issue.body
   issueEl.appendChild(issueBodyEl)
