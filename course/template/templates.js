@@ -333,8 +333,7 @@ Find the code where we add comments in *index.js*
 
 After the comment is added to the post, add this line. It will save the *updated* post over the old copy in the database.
 \`\`\`javascript
-let dbPosts = database.collection('posts');
-dbPosts.update({id: postId}, post);
+databasePosts.update({id: postId}, post);
 \`\`\`
 
 > The first part \`{id: postId}\` tells the database which post to update. The second part is the new version we want to save. So it says: Find the post with this id, and replace it with this new version.
@@ -499,8 +498,7 @@ Try restarting the server. The server gets all the posts from the database, so t
 ## delete the post from the database too
 
 \`\`\`javascript
-  let dbPosts = database.collection('posts');
-  dbPosts.deleteMany({ id : postIdNumber })
+  databasePosts.deleteOne({ id : postIdNumber })
 \`\`\`
 
 Test the post is gone for good, no matter what you do.
@@ -970,35 +968,36 @@ _After this change is merged, everyone else will have to run \`npm install\` to 
 Near the **start** of index.js, add this code which declares an empty variable:
 
 \`\`\` javascript
-let database = null;
+let databasePosts = null;
 \`\`\`
 
 At the **end** of index.js, add this code:
 
 \`\`\` javascript
-let mongodb = require('mongodb');
-let uri = 'mongodb://<dbuser>:<dbpassword>@ds015919.mlab.com:15919/girlcode1999-term1';
-mongodb.MongoClient.connect(uri, function(err, client) {
-  if(err) throw err;
-  console.log(\"yay we connected to the database\");
-  database = client.db(\"girlcode1999-term1\");
-  let dbPosts = database.collection('posts');
-  dbPosts.find(function (err, cursor) {
-    cursor.each(function (err, item) {
-      if (item != null) {
-        posts.push(item);
-      }
-    });
+
+let MongoClient = require('mongodb').MongoClient;
+let databaseUrl = 'mongodb://<dbuser>:<dbpassword>@ds015919.mlab.com:15919/girlcode1999-term1';
+let databaseName = 'girlcode1999-term1';
+ 
+MongoClient.connect(databaseUrl, {useNewUrlParser: true}, function(err, client) {
+  if (err) throw err;
+  console.log("yay we connected to the database");
+  let database = client.db(databaseName);
+  databasePosts = database.collection('posts');
+  databasePosts.find({}).toArray(function(err, results) {
+    console.log("Found " + results.length + " results")
+    posts = results
   });
 });
+
 \`\`\`
 
 This code needs a few changes.
 
-- [ ] The URI needs to be changed to point to *your* database. Look for the \"standard MongoDB URI\" on the mLab website and copy it in.
+- [ ] The databaseUrl needs to be changed to point to *your* database. Look for the \"standard MongoDB URI\" on the mLab website and copy it in.
 - [ ] In the URI, replace \`\`\`<dbuser>\`\`\` with the database username that you created. (Delete the pointy brackets.)
 - [ ] Also replace \`\`\`<dbpassword>\`\`\` with the database password that you created.
-- [ ] On the line that starts \`\`\`database = client.db(\`\`\`, you need to put in the name of *your* database inside the brackets.
+- [ ] On the line that starts \`\`\`let databaseName = (\`\`\`, you need to put in the name of *your* database.
 
 Try starting your server. You should see a message \"\"yay we connected to the database\" in your command prompt after a few seconds.
 
@@ -1006,8 +1005,8 @@ Try starting your server. You should see a message \"\"yay we connected to the d
 
 When the server starts, it will 
 1 connect to your database.
-2. Store this connection in the \`\`\`database\`\`\` variable so we can use it later.
-3. Load the collection called \"posts\" from the database. Go through the collection and copy each item into its own list of posts.
+2. Find the database's collection of posts.  Save this in the \`\`\`databasePosts\`\`\` variable so we can use it later.
+3. Find all the documents in this collection, and save this list of documents into the variable \`posts\`.
 
 # But the collection is empty
 
@@ -1015,11 +1014,10 @@ When someone makes a new post on our website, our server needs to save that post
 
 - [ ] In \`\`\`index.js\`\`\`, find the \`saveNewPost\` function 
 
-Add these lines inside the function, at the end.
+Add this lines inside the function, at the end.
 
 \`\`\` javascript
-let dbPosts = database.collection('posts');
-dbPosts.insert(post);
+databasePosts.insert(post);
 \`\`\`
 
 Now new posts will be sent to the database.
