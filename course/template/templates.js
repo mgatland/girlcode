@@ -149,7 +149,7 @@ Still in \`index.js\`, Add this code somewhere:
 function getMyProfile(request, response) {
   response.send(request.session.user);
 }
-app.get(\"/profile\",  #getMyProfile);
+app.get(\"/profile\",  getMyProfile);
 \`\`\`
 
 Use your web browser to ask for this new resource \`/profile\`. Does it work?
