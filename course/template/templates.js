@@ -569,22 +569,33 @@ $(\".filter\").on(\"keyup\", filterFeed);
 \`\`\`
 `},
 {"number":19,"title":"Instead of a feed, show just one post at a time (like Tinder)",
-"body":`Make a copy of feed.html and call it random.html
+"body":`We're going to make a new page on our site that shows one post at a time, instead of the whole feed.
 
-(We'll keep the feed for now because it's useful for testing - but it might not be part of our final site)
+[ ] Make a new file named feed2.html inside the public folder
+[ ] copy all the text from feed.html and paste it into feed2.html. This will be your starting point.
 
-In random.html, replace \` $.get(\"/posts\", createFeed);\` with \` $.get(\"/random\", createFeed);'
+(We'll keep original feed as well, because seeing all the posts at once is useful for testing. We might remove it from the final site.)
 
-It's now making a different request of our server. Our server doesn't know how to answer that request yet but we are going to show it how.
+[ ] In feed2.html, replace \` $.get("/posts", createFeed);\` with \` $.get("/random", createFeed);'
 
-In index.js, add this:
+Feed2 now asks the server for a random post.
+
+Our server doesn't know how to answer that request yet but we are going to show it how. That means moving to *index.js*
+
+In index.js, add this code, borrowed from our TV Show Idea generator back in week 1.
+
+You can add this anywhere, as long as it's not inside another function:
 
 \`\`\`javascript
 //pick and return a random element from the given list
 function pickRandomFrom(list) {
   return list[Math.floor(Math.random()*list.length)];
 };
+\`\`\`
 
+And then this code sets up the response to the request for "/random":
+
+\`\`\`javascript
 //give the client a random post
 function getRandomPost(request, response) {
   let randomPost = pickRandomFrom(posts);
@@ -595,15 +606,19 @@ function getRandomPost(request, response) {
 app.get('/random', getRandomPost);
 \`\`\`
 
-Restart your server, this should give you a new page random.html that shows a different random post each time you refresh.
+[ ] add both sections of code 
+
+[ ] Restart your server, then test the new feed2.html page
+
+You should get a randomly selected post each time you refresh the page.
 
 ### 'Next' button
 
 Can you add a link on the page that makes a new post appear?
 
 - [ ] You'll need to add a link in the HTML (you've done this before!) 
-- [ ] Give it a unique class i.e. \`class=\"showNextPost\"
-- [ ] You'll need to make a new function that contains this command: \`$.get(\"/random\", createFeed);\` - that command is already in your code, but it's not wrapped up in a function yet. You have to put it inside a function so you can refer to it in the next step.
+- [ ] Give it a unique class i.e. \`class="showNextPost"
+- [ ] You'll need to make a new function that contains this command: \`$.get("/random", createFeed);\` - that command is already in your code, but it's not wrapped up in a function yet. You have to put it inside a function so you can refer to it in the next step.
 - [ ] Use JavaScript to tell your browser to run a function when the link is clicked - you've done this before too!
 
 Does it work? Is there a weird side effect? Can you figure out why it's happening and how you might fix it?`},
