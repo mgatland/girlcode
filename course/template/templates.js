@@ -1109,51 +1109,71 @@ Let's give the time some CSS rules so it displays differently.
 
 Check the feed to see that the time is now in a different colour.
 `},
-{"number":6,"title":"Publish the app on Heroku ",
-"body":`Heroku is a host that will run our app online so anyone can access it.
+{"number":6,"title":"Publish our app on the internet",
+"body":`Until now, we have tested our site by running a local server on our own computers. These servers are not public.
 
-You're going to download a special Heroku tool to help set up the app and debug Heroku issues.
-- [ ] Download the Heroku CLI (command line interface) from here: https://devcenter.heroku.com/articles/heroku-command-line#download-and-install
+We are now going to make a public copy of our server, so anyone can use our app. We are using a company called Heroku to host our server.
 
-The Heroku CLI gives you new commands you can run in Command Prompt or Terminal.
-### Push to Heroku
-- [ ] get Girl Code's Heroku username and password from matthew or alice. You will need these to log into Heroku.
-- [ ] In Command Prompt or Terminal or Git Shell, make sure you are in the folder where our project is.
-- [ ] In Command Prompt/Terminal/Git Shell, run \`heroku create\` (i.e. type that in and press enter). This creates a place for our app to run on Heroku. It will probably ask you for the Heroku username and password.
-- [ ] To push our code to Heroku, run this command: \`git push heroku master\`
+- [ ] Ask one of our mentors to give you Girl Code's Heroku username and password
 
-This sends the code from your master branch to heroku. It will automatically start up the server and give you a link to view it online.
+- [ ] Go to heroku.com and log in.
+- [ ] You will see a long list of apps from previous Girl Code classes.
+- [ ] Click 'New' to create a new app.
+- [ ] Pick a name that's easy to remember, maybe the same as our github project name i.e. girlcode2016-term3
+- [ ] Create the app! The other options like region do not matter.
 
-You can open Google Chrome and type in the link to the Heroku site to view it.
+You should now see the control panel for our app.
 
- **However** the site not going to work properly yet.
+Now we need to tell Heroku where to get our code from.
 
-## fixing it up
+Select the 'Deploy' tab (it might already be selected).
 
-If you click the link you should see that our server is **not** working correctly. In Command Prompt or Terminal, it should have given you an error message explaining what went wrong.
+(We don't want to use Pipelines, so you can ignore any options to do with pipelines.)
 
-If it doesn't say what's wrong, type \`heroku logs\` to see a LOT of information.
+We need to connect the app to GitHub. We need to choose the GitHub user (should be *girlcodeakl*) and the repository name (something similar to *girlcode2016-term3*).
 
-Understanding error messages can be really hard. Usually a whole lot of information comes up and only one part of it is important. As you get more experienced you'll learn how to spot the important parts.
-## problem 1:
+- [ ] Connect GitHub with the right GitHub user and repository name.
 
-After you did the \`git push heroku master\` you probably got a lot of information, including this:
+Now we need to enable Automatic deploys. This means the public app will automatically update whenever we update the master branch of our app.
 
-\`\`\`
-remote:  !     This app may not specify any way to start a node process
-remote:        https://devcenter.heroku.com/articles/nodejs-support#default-web-process-type
-\`\`\`
+- [ ] Find for the 'Automatic deploys' section
+- [ ] Make sure the master branch is selected
+- [ ] *enable automatic deploys*
+
+This means the site will be deployed every time someone changes the master branch.
+
+### Testing and bug-fixing
+
+OK, we better test this out.
+
+Look for the 'Manual deploy' section and use it to deploy the master branch.
+
+Some text should appear to tell you what's going on. Eventually it will say your deploy succeeded. (If it doesn't, call a mentor as something unexpected is going on!)
+
+- [ ] Click the 'View' button to look at the app.
+
+Uh oh, your app is not working properly! (This is expected.)
+
+We need to look at the logs to see what went wrong.
+
+- [ ] Scroll to the top of the page, click 'More' and choose 'View logs'
+
+(Note that there are two different logs. We don't want to look at the 'build logs', which you might have seen further down the page.)
+
+There are two problems we expect you to get. The first is indicated by the line *npm ERR! missing script: start*
+
+- [ ] check that you see that error in the log
 
 Heroku is saying: You gave me this code, but you didn't tell me how to start it up.
 
-You start our app by running \`node index.js\` -- we know that, but how do we tell Heroku? We need to add the instructions into \`package.json\`
+To start our app, we run \`node index.js\` -- we know that, but how do we tell Heroku? We need to add the instructions into \`package.json\`
 
 - [ ] in Atom, open up \`package.json\`
 - [ ] add this in:
 
 \`\`\` javascript
-\"scripts\": {
-     \"start\": \"node index.js\"
+"scripts": {
+     "start": "node index.js"
    }
 \`\`\`
 Some tips:
@@ -1161,33 +1181,40 @@ Some tips:
 * You will need to add a comma somewhere to make this work. Notice where commas appear in this file -- can you work out what the rule is? Commas appear after a closing curly bracket, but not if it's the last one... have a look.
 * Look at the colour-coding in Atom -- if you you are missing a comma, or have it in the wrong place, you might see some words in a colour that doesn't match the pattern of everything else.
 
-- [ ] after your change to package.json, you need to _commit_ this change. Commit it straight to the master branch - normally this is bad manners but you have to today otherwise Heroku won't use it.
-- [ ] After you commit, try pushing your code again (\`git push heroku master\`)
-- [ ] The server still won't work, but you should get a **different** error this time.
-## Problem 2
+- [ ] after your change to package.json, restart your local server and test it (at localhost:3000) just to make sure you didn't break the site.
+- [ ] _commit_ this change. Commit it straight to the master branch - normally this is bad manners but you have to today to make Heroku use it.
+- [ ] After you commit, push your branch.
+- [ ] (You don't need to do a pull request, you've skipped that step by pushing straight into the master branch.)
 
-Now Heroku knows how to start our app, something else has gone wrong.
+Heroku should automatically deploy your change because we set up auto deploys.
 
-The error might not appear in the start up log, so run \`heroku logs\` to see more detail. Look for the familiar line that our app always says when it starts up. What happens after that?
+- [ ] Look at the log on the Heroku website again.
 
-**warning**: Some logs will be from last time the app tried to start up. Make sure you've scrolled down to the latest logs or you'll be trying to fix the problem you already fixed.
+After a few minutes, some new lines should appear. The app is starting up again! Is it working? Click on 'Open app' at the top right to view it.
 
-Somewhere you might see this line:
+Now, it's probably still not working. But you should get a **different** error this time, and that's a good sign.
+
+We expect you to see a line like this: 
 
 \`\`\`
 Error R10 (Boot timeout) -> Web process failed to bind to $PORT within 60 seconds of launch
 \`\`\`
 
-I googled it. The problem is that our app always listens at port 3000, but on Heroku you are only allowed to listen on the port it tells you to. If you don't listen to the correct port, it shuts you down.
-- [ ] in index.js, the port it listens on probably needs to change from \`3000\` to \`(process.env.PORT || 3000)\` - which means \"get the port number from the configuration, or if it hasn't been configured, just used 3000. 
+We've seen this before. If you hadn't, you'd have to google it. The problem is that our app always listens at port 3000, but on Heroku you are only allowed to listen on the port they give you -- and it might be different every time 
+
+If you don't start listening on the correct port, it shuts you down after 60 seconds.
+
+- [ ] in index.js, find the line that makes our app listen to port 3000. (Try searching for '3000')
+- [ ] Change from \`3000\` to \`(process.env.PORT || 3000)\` - which means "get the port number from the configuration, or if it hasn't been configured, just used 3000.
 - [ ] commit your change to the master branch
-- [ ] \`git push heroku master\`
-- [ ] see if it starts up without errors
-## it work
-- [ ] Log into heroku.com with the same username and password. FInd our app in the site of apps and go into the configuration pages.
-- [ ] Go into **settings** and rename the app to something better. This will change its URL.
-- [ ] You can link Heroku to Github so it automatically deploys. (It will effectively do \`git push heroku master\` every time the master branch is updated. Look in the **deploy** section for the option to do this. Look for _GitHub_ and link up the right GitHub repository to Heroku. (If it says 'mgatland' somewhere, click on that and change it to 'girlcodeakl'.)  Tick the box for **Deploy Automatically**
-- [ ] post the new link to the app in our slack channel so everyone can check it out!
+- [ ] Push your branch
+- [ ] Heroku will take a few minutes to deploy the new version. See if it's starting up properly now.
+
+(It should be working now!)
+
+Now we have a public version of our app. And it will update every time we update the master branch.
+
+- [ ] post the link to the app in our slack channel so everyone can check it out!
 `},
 {"number":5,"title":"User can include a picture with their post (no css, just make it work)",
 "body":`***This can only be done when #4 and #2  has been completed
