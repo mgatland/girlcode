@@ -817,7 +817,36 @@ posts.reverse();
 {"number":13,"title":"removed",
 "body":`- [ ] this page is pretty useless? let's get rid of it\n- [ ] Let's rename feed.html to index.html so it comes up by default if you don't ask for a particular page.\n`},
 {"number":12,"title":"Default picture if user doesn't include a picture",
-"body":`(This ticket can only be done after we have added the pictures feature)\n\nIf the user leaves the image link blank, include a cute default picture.\n\nMake the change in \`index.js\` at the point when it receives a POST request. Just before it saves the post, check if the image url is an empty string (i.e. if it \`=== \"\"\`) and if it is, set it to be a link to a nice default image instead.\n\nIf you need a reminder on how if statements work, look back to the Cat City activity we did earlier in the course! http://girlcode.co.nz/course/2/catcity/\n`},
+"body":`
+(This ticket can only be done after we have added the pictures feature)
+
+If the user leaves the image link blank, include a cute default picture.
+
+Look at \`index.js\` in the \`saveNewPost\` function.
+
+Currently, the server copies information from the request (accessed through request.body) into a new post object.
+
+Once it finishes, it saves the post.
+
+*Before* it saves the post, we can make corrections to the post. Add something like this:
+
+\`\`\`
+  if (post.image === "") {
+    post.image = "http://example.com/a-nice-picture.jpg"
+  }
+\`\`\`
+
+Replace the URL with a link to an actual picture.
+
+Test that it works.
+
+While we're here, do we want to add default values for anything else that the user might leave blank? For example, if they leave the author name blank, we could replace it with "A community member" or "anonymous".
+
+- [ ] add default values for any other fields you think should have a default value
+
+
+
+`},
 {"number":11,"title":"Make the form look good on phones",
 "body":`Our post.html page looks really bad. Let's improve it!
 
