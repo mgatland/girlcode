@@ -1126,11 +1126,11 @@ You should now see the control panel for our app.
 
 Now we need to tell Heroku where to get our code from.
 
-Select the 'Deploy' tab (it might already be selected).
+- [ ] Select the 'Deploy' tab (it might already be selected).
 
 (We don't want to use Pipelines, so you can ignore any options to do with pipelines.)
 
-We need to connect the app to GitHub. We need to choose the GitHub user (should be *girlcodeakl*) and the repository name (something similar to *girlcode2016-term3*).
+We need to connect the app to GitHub. Choose the GitHub user *girlcodeakl* and the repository name (something similar to *girlcode2016-term3*).
 
 - [ ] Connect GitHub with the right GitHub user and repository name.
 
