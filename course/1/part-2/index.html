@@ -72,6 +72,19 @@
       margin: 4px;
       border-radius: 15px;
     }
+
+    .quotebox {
+      background-color: #e4e4e4;
+    }
+    .quotetext {
+      font-size: 24px;
+      display: inline;
+    }
+    .quoteimg {
+      display: inline-block;
+      margin: 40px;
+      border-radius: 5px;
+    }
     </style>
 </head>
 
@@ -252,7 +265,7 @@
 
     <p>An <code>&lt;img&gt;</code> tag shows an image. You can change the image by putting in a different link.</p>
 
-    <p>Side note: <code>&lt;img&gt;</code> tags are unusual because they don't have a closing tag. There's no such thing as <code>&lt;/img&gt;</code>.</p>
+    <p>Side note: <code>&lt;img&gt;</code> tags are unusual because they don't have an end tag. There's no such thing as <code>&lt;/img&gt;</code>.</p>
 
 <!-- todo: show how to grab images from Google Image Search?-->
 
@@ -297,12 +310,12 @@
 
     <p>Each instruction is like this:</p>
 
-<pre><code class="language-css">border: 10px dashed green;
+<pre><code class="language-css">margin: 30px;
 </code></pre>
 
-    <p>There are hundreds of different rules you can use! They always have a <code>:</code> in the middle and a <code>;</code> at the end. This one says to draw a dashed green border around the edge.</p>
+    <p>There are <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index" target="_blank">hundreds of different rules</a> you can use! They always have a <code>:</code> in the middle and a <code>;</code> at the end. This one says to leave a 30 pixel wide margin around the element.</p>
 
-    <p>So the whole thing says: When you draw an <code>img</code> tag (an image), you must draw a border that is 10 pixels thick, green and dashed, and you must leave a margin of empty space around it that is 30 pixels wide.</p>
+    <p>So the whole thing says: When you draw an <code>img</code> element (an image), you must draw a border that is 10 pixels thick, green and dashed, and you must leave a margin of empty space around it that is 30 pixels wide.</p>
 
     <p>Add the CSS to your page and see if it works!</p>
 
@@ -458,6 +471,8 @@ img {
 
 <p>Now all the rules for paragraphs are together. Nice and tidy!</p>
 
+<p>Look through your CSS and combine any sections that have the same selector. (The selectors are coloured green in the example above.)</p>
+
   <h2>Other CSS rules</h2>
 
   <p>Let's add a rounded corners. The rule is called <b>border-radius</b>.</p>
@@ -484,7 +499,7 @@ img {
 
       <p>What if you want one paragraph to be red, and another one to be blue?</p>
 
-      <p>You can give any HTML tag a 'class', which is like an extra label. You make up the label. Here I called it <code>warning</code>:</p>
+      <p>You can give any HTML tag a 'class', which is like an extra label we can use to select it. You make up the label. Here I called it <code>warning</code>:</p>
 
 <p>HTML:</p>
 <pre><code class="language-markup">&lt;p&gt;This is a normal paragraph.&lt;/p&gt;
@@ -508,7 +523,7 @@ img {
     <p class="warning">This is a WARNING paragraph!</p>
   </div>
 
-      <p>Note that in our CSS rule, there is a dot in front of the word "warning". That shows that it's not a tag name (like <code>p</code> or <code>img</code>), it's a class name.</p>
+      <p>Note that in our CSS rule, there is a dot in front of the selector for ".warning". That shows that it's not a tag name (like <code>p</code> or <code>img</code>), it's a class name.</p>
 
       <p>Classes let you quickly add your styles to anything you want.</p>
 
@@ -576,7 +591,7 @@ img {
   color: orange;
 }</code></pre>
 
-<p>However, you can add hover effects to anything you like! Even paragraphs:</p>
+<p>However, you can add hover effects to anything you like!</p>
 
 <pre><code class="language-css">img:hover {
   transform: rotate(4deg);
@@ -616,9 +631,22 @@ img {
 
 <p>Attributes always appear inside the <b>start tag</b>.</p>
 
-<p>Some special tags like <code class="language-markup">&lt;img&gt;</code> only have a start tag, no closing tag and no content!</p>
+<p>Some special tags like <code class="language-markup">&lt;img&gt;</code> only have a start tag, no end tag and no content!</p>
 
 <p>So now you know: HTML is made out of elements, and elements are made out of a start tag, content, and an end tag. The start tag might have attributes inside it.</p>
+
+      <h2>Extra for experts</h2>
+
+      <p>Try making some elements that display an image and a comment, like this:</p>
+
+      <div class="quotebox">
+        <img class="quoteimg" src="https://placekitten.com/160/160">
+        <p class="quotetext">I wake up. I nap. I go to bed.</p>
+      </div>
+
+      <p>We used the rule <code>display: inline-block</code> on the image and the text to allow them to appear side-by-side instead of on their own lines.</p>
+
+      <p>The image and the text are both inside a div element which provides the grey background.</p>
 
       <h2>That's the end!</h2>
 
