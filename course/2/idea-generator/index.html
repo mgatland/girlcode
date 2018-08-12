@@ -159,36 +159,36 @@ h2 {
 &lt;/head>
 &lt;body>
 &lt;h1>TV concept generator&lt;/h1>
-&lt;h2 id="display-area">Click the button!&lt;/h2>
-&lt;button id="next-page-button">Next idea&lt;/button>
+&lt;h2 class="display-area">Click the button!&lt;/h2>
+&lt;button class="next-idea-button">Next idea&lt;/button>
 &lt;script>
 //Hello! This is the JavaScript.
 //You can skip this part for now. Jump ahead down to where I say 'LOOK HERE'
 
-let button = document.getElementById("next-page-button");
+let button = document.querySelector(".next-idea-button");
 
-function showThisMessage(message) {
-  let displayArea = document.getElementById("display-area");
+function displayThisMessage(message) {
+  let displayArea = document.querySelector(".display-area");
   displayArea.innerHTML = message;
 };
 
-function makeAndShowConcept() {
-  let randomConcept = getRandomConcept();
-  showThisMessage(randomConcept);
+function makeAndDisplayIdea() {
+  let randomIdea = getRandomIdea();
+  displayThisMessage(randomIdea);
 };
 
 function pickRandom (list) {
-  return list[Math.floor(Math.random()*list.length)];
+  return list[Math.floor(Math.random() * list.length)];
 };
 
-button.addEventListener('click', makeAndShowConcept);
+button.addEventListener('click', makeAndDisplayIdea);
 
 // ***
 // LOOK HERE
 // ***
 // Hello again! This is the part we are working on.
 
-function getRandomConcept() {
+function getRandomIdea() {
   let people = [];
   people.push("time traveller");
   people.push("school teacher");
@@ -197,8 +197,8 @@ function getRandomConcept() {
   jobs.push("runs a hotel");
   jobs.push("solves mysteries");
 
-  let myConcept = "A " + pickRandom(people) + " who " + pickRandom(jobs);
-  return myConcept;
+  let myIdea = "How about: A " + pickRandom(people) + " who " + pickRandom(jobs);
+  return myIdea;
 };
 &lt;/script>
 &lt;/body>
@@ -226,26 +226,44 @@ function getRandomConcept() {
 <h2>Part 2: pushing the limits</h2>
 
 <div class="alert">
-  <p>1. Add two new people ideas to the app.</p>
-  <p>2. Add two new job ideas to the app.</p>
+  <p>Right now, there are only two options for people the app can choose from.</p>
+  <p>Add <b>two more people</b> to the list of people.</p>
 </div>
 
 <p>Clues:</p>
 
-<p>This is the symbol for an empty list: <code>[]</code></p>
+<p>The <code>push</code> command adds something to a list.</p>
 
-<p>This is the command to add something to a list: <code>push</code></p>
+<p>Find a line of code that uses <code>push</code> to add people to the list of people.</p>
 
-<p>Remember, you only need to make changes from line 44 to the end.</p>
+<p>Make a copy of the line and edit it to add new person to the list.</p>
+
+<p>Test your change. Does it work? (Remember to save the code, and refresh the page.)</p>
+
+<p>if it works, repeat the process to add another person to the list.</p>
+
+<p>Stuck? Remember, in this activity you can ignore everything before line 44.</p>
+
+<div class="alert">
+  <p>Add <b>two more jobs</b> to the list of jobs.</p>
+</div>  
+
+<p>Add two new jobs and test your change.</p>
 
 <h2>Part 3: Two Characters</h2>
 
 <p>I like shows that have two main characters.</p>
 
 <div class="alert">
-  <p>Make it so when you click the button, it picks <b>two</b> people from the list.</p>
-  <p>You should include the words "and a" between the two people.</p>
+  <p>Let's make the app choose <b>two main characters</b> instead of just one.</p>
+  <p>Look for the line that starts with <code>let myIdea =</code>. This is the only line you need to change!</p>
 </div>
+
+<p>This line sticks text together using the <code>+</code> symbol. Compare this line of code to what appears on the page when you click the button. Can you work out what each piece of code does?</p>
+
+<p>Make the line pick another random person from the 'people' list.</p>
+
+<p>You will need to include the words "and a" between the two random picks. Look closely at the code that's already there. Also look at the <b>colour</b> of the code - what do the colours mean?</p>
 
 <p>When it's working it should make ideas like this:</p>
 
@@ -254,11 +272,7 @@ function getRandomConcept() {
 
 <blockquote><p>A school teacher and a school teacher who solves mysteries</p></blockquote>
 
-<p>Clue:</p>
-
-<p>Look for the word <b>myConcept</b> in 2 lines of code near the end. Take a close look at those two lines, and what happens when you click 'Next idea'.</p>
-
-<h2>What is if stopped working!?</h2>
+<h2>What if it stopped working!?</h2>
 
 <p>During these activities, you may find that your code suddenly stops working. Just one mistake can make the whole page stop responding to your actions!</p>
 
@@ -280,15 +294,15 @@ function getRandomConcept() {
 
 <p>Hopefully that helps. The most common error here is that you are missing a <code>+</code> symbol between two things that need a plus to join them.</p>
 
-<p>Other common mistakes are missing brackets - for every "<b>{</b>" there must be a matching "<b>}</b>" and for every "<b>(</b>" there is a matching "<b>)</b>".</p>
+<p>Other common mistakes are missing brackets - for every <code>{</code> there must be a matching <code>}</code> and for every <code>(</code> there is a matching <code>)</code>.</p>
 
 <h2>Part 4: New York City</h2>
 
 <div class="alert">
-  <p>We need to say what city the show is set in.</p>
-  <p>It should say <b>in New York</b> or <b>in London</b> at the end of each concept.</p>
+  <p>We need to say what area the show is set in.</p>
+  <p>It should say <b>in New York</b> or <b>in London</b> at the end of each idea.</p>
   <p>1. We will need a list of cities</p>
-  <p>2. We need to pick a random city, and display it somehow.</p>
+  <p>2. We need to pick a random city, and add it to the final idea.</p>
 </div>
 
 <p>Clues:</p>
@@ -308,7 +322,7 @@ function getRandomConcept() {
 
 <p>In your JavaScript code, you need to add the <code>&lt;i></code> and <code>&lt;/i></code> tags.</p>
 
-<p>You need to put these tags inside speech marks. Speech marks tell JavaScript that you are writing the actual text you want it to put into the HTML page - not instructions that it should think about and do.</p>
+<p>You need to put these tags inside speech marks. Speech marks tell JavaScript that you are writing the actual text you want it to put into the HTML page - not JavaScript instructions that it should think about and do.</p>
 
 <p>For example, when our code says <code>pickRandom</code>, we don't put it in speech marks. We don't our webpage to say "pickRandom"! We want javaScript to pick a random thing. But for the <code>&lt;i></code> tags, we want them to go straight into the web page as they are.</p>
 
@@ -316,10 +330,10 @@ function getRandomConcept() {
 
 <pre><code class="language-javascript">
   //Good example
-  let myConcept = "A " + "&lt;i>" + pickRandom(people) + "&lt;/i>" + " who "
+  let myIdea = "How about: A " + "&lt;i>" + pickRandom(people) + "&lt;/i>" + " who "
 
   //Bad example:
-  let myConcept = "A " + &lt;i> + pickRandom(people) + &lt;/i> + " who "
+  let myIdea = "How about: A " + &lt;i> + pickRandom(people) + &lt;/i> + " who "
 </code></pre>
  
 <h2>Finished!</h2>

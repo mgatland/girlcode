@@ -103,7 +103,7 @@
 
       <p>I asked a programmer to make a stopwatch to help me practice my speech. But they made it all wrong!</p>
 
-      <p>(This activity uses JavaScript and jQuery.)</p>
+      <p>(This activity uses JavaScript.)</p>
 
       <h2>What skills do I need?</h2>
 
@@ -139,7 +139,7 @@
 &lt;html>
   &lt;head>
     &lt;meta charset='utf-8'>
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1">
     &lt;title>Stopwatch&lt;/title>
     &lt;style>
     /*This is the start of the CSS*/
@@ -173,12 +173,14 @@ let isTimerOn = true;
 
 
 //tick tick tick tick...
+//(This function works, you don't have to change anything in here!)
 function tick() {
   if (isTimerOn) {
     timer = timer + 1;
   }
   //display the timer value
-  $(".time").text(timer);
+  let timeElement = document.querySelector(".time");
+  timeElement.innerHTML = timer;
 }
 
 function start() {
@@ -193,16 +195,21 @@ function stop() {
 
 function reset() {
   //not sure this is right
-  $(".button3").fadeOut();
+  document.querySelector(".button3").style.width = "200px";
 }
 
 //call the function 'tick' over and over again
-setInterval(tick, 50);
+setInterval(tick, 1);
 
 //When you click on a button it will call a function:
-$(".button1").on("click", start);
-$(".button2").on("click", stop);
-$(".button3").on("click", reset);
+let button1 = document.querySelector(".button1");
+button1.addEventListener("click", start);
+
+let button2 = document.querySelector(".button2");
+button2.addEventListener("click", stop);
+
+let button3 = document.querySelector(".button3");
+button3.addEventListener("click", reset);
 
 //This is the end of the javascript
     &lt;/script>
@@ -232,7 +239,21 @@ $(".button3").on("click", reset);
 
       <p>The JavaScript starts with a <code>&lt;script></code> tag.</p>
 
-      <h2>Part 2: Start from zero</h2>
+      <h2>Part 2: What's going on here?</h2>
+
+      <p>Try using the stopwatch. See what works and what doesn't.</p>
+
+      <p>Look through all the JavaScript and try to get a sense of what it does. Now you're ready to fix it!</p>
+
+      <h2>Part 3: Wait until we're ready</h2>
+
+      <p>The timer starts counting automatically. I want it to be stopped at first, so nothing happens until I click "start".</p>
+
+      <p>Find out why the timer starts automatically. Have a look around in the JavaScript - you only need to change one word.</p>
+
+      <p>CHECK: the timer does not start counting automatically.</p>
+
+      <h2>Part 4: Start from zero</h2>
 
       <p>The timer should start from zero, not from 100000.</p>
 
@@ -240,15 +261,7 @@ $(".button3").on("click", reset);
 
       <p>CHECK the timer starts from zero.</p>
 
-      <h2>Part 3: Wait until we're ready</h2>
-
-      <p>The timer starts counting automatically. I want it to be stopped at first, so nothing happens until I click "start".</p>
-
-      <p>Find out why the timer starts automatically. Have a look around in the JavaScript, you only need to change one word.</p>
-
-      <p>CHECK: the timer just waits and does not start counting automatically.</p>
-
-      <h2>Part 4: Start</h2>
+      <h2>Part 5: Start</h2>
 
       <p>Now we need to be able to start. There is already a 'start' button, connected to a start function, but the function makes a message pop up!</p>
 
@@ -258,21 +271,29 @@ $(".button3").on("click", reset);
 
       <p>CHECK the start button tells the program to start counting.</p>
 
-      <h2>Part 5: Stop</h2>
+      <h2>Part 6: Stop</h2>
 
-      <p>The stop button should stop counting. It should leave the same number on the screen (so I can tell how long I was talking for!) It should NOT reset the counter to zero.</p>
+      <p>The stop button should stop counting. (Kind of like the start button, but the opposite!)</p>
 
-      <h2>Part 6: Reset</h2>
+      <p>It should not reset the timer to zero. The same number should stay on the screen so I can tell how long I was talking for!</p>
 
-      <p>This button should make the counter go back to zero.</p>
+      <h2>Part 7: Reset</h2>
 
-      <h2>Part 7: investigate setInterval</h2>
+      <p>This button should make the counter go back to zero. That's what the 'Stop' function used to do, until you fixed it.</p>
 
-      <p>This code uses a command called <b>setInterval</b>. We haven't seen this before. Can you work out what it does?</p>
+      <h2>Part 8: investigate setInterval</h2>
+
+      <p>This code uses a command called <b>setInterval</b>. We haven't seen this before. Can you work out what it does? (Try googling it!)</p>
 
       <p>What happens if you change the number used in setInterval?</p>
 
-      <p>What does the word 'tick' mean? Why is it used? Could you put a different word there instead?</p>
+      <p>Can you make the timer count one second at a time?</p>
+
+      <h2>Part 9: CSS</h2>
+
+      <p>Can you improve the layout by changing the CSS? I would like the number be displayed in a huge font so I can read it from across the room.</p>
+
+      <p>Please check how the page looks on your phone, because there's where I'm going to be using this.</p>
 
       <h2>Extra: links</h2>
 

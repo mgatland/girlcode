@@ -119,14 +119,13 @@
 
 	  <p>It could be for giving ratings, or it could be for a game where you click on stars to get stardust.</p>
 
-      <p>(This activity uses JavaScript and jQuery.)</p>
+      <p>(This activity uses JavaScript.)</p>
 
       <h2>What skills do I need?</h2>
 
+      <p>We recommend doing this after doing our "Make a page" and "TV Show Idea Generator" activities first.</p>
+
       <p>It helps if you know the difference between HTML, CSS and JavaScript.</p>
-
-      <p>We recommend doing this after doing our "Make a page" and "Idea generator" activities first.</p>
-
 
       <h2>Part 1: Set up Neocities</h2>
 
@@ -162,7 +161,6 @@
 &lt;html>
   &lt;head>
     &lt;meta charset='utf-8'>
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
     &lt;title>Five Star&lt;/title>
     &lt;style>
     /*This is the start of the CSS*/
@@ -177,9 +175,13 @@
     .star {
       width: 120px;
       height: 120px;
-      background-image: url("http://codeclubakl.github.io/linked/goldstar.png");
+      background-image: url("https://girlcode.co.nz/course/2/fivestar/goldstar.png");
+      transition: opacity 1s;
     }
 
+    .faded {
+      opacity: 0;
+    }
     /*end of CSS */
     &lt;/style>
   &lt;/head>
@@ -190,27 +192,34 @@
     &lt;/div>
     &lt;button class="button1">hello&lt;/button>
     &lt;script>
-//Hello! This is the start of the JavaScript.
+//Hi there! This is the start of the JavaScript.
 
 function greeting() {
-  alert("Hello there!");
+  alert("Welcome!");
 }
 
 function addStar() {
-  let star = $('&lt;div class="star">&lt;/div>');
-  $(".star-box").append(star);
+  let star = document.createElement("div");
+  star.classList.add("star");
+  let starContainer = document.querySelector(".star-box");
+  starContainer.appendChild(star);
 }
 
 function removeStar() {
-  $('.star').first().remove();
+  let firstStar = document.querySelector(".star");
+  firstStar.parentElement.removeChild(firstStar);
 }
 
 function fadeStars() {
-  $('.star').fadeToggle();
+  let allStars = document.querySelectorAll(".star");
+  for (let star of allStars) {
+    star.classList.toggle("faded");
+  }
 }
 
 //make the buttons call functions when clicked
-$(".button1").on("click", greeting);
+let button1 = document.querySelector(".button1");
+button1.addEventListener("click", greeting);
 
 //This is the end of the JavaScript.
     &lt;/script>
@@ -234,8 +243,9 @@ $(".button1").on("click", greeting);
 
       <div class="alert">
         <p>1. Find the JavaScript. It starts with <code class="language-markup">&lt;script></code> and ends with <code class="language-markup">&lt;/script></code></p>
-        <p>2. Find this line: <code class="language-javascript">$(".button1").on("click", greeting);</code>. (It's near the end.)</p>
-        <p>3. Replace the word <b>greeting</b> with <b>addStar</b>.</p>
+        <p>2. Find this line: <code class="language-javascript">button1.addEventListener("click", greeting);</code>. (It's near the end.)</p>
+        <p>3. The word 'greeting' is the name of the function that the button is connected to.</p>
+        <p>4. Replace the word <b>greeting</b> with <b>addStar</b>.</p>
       </div>
 
       <p>We just changed what happens when you click on the button, using <b>JavaScript</b>.</p>
@@ -248,8 +258,8 @@ $(".button1").on("click", greeting);
 
       <div class="alert">
         <p>1. Find the HTML that adds a button to the page.
-        <p>This is NOT the same line we were before! It's not part of the JavaScript.</p>
-        <p>2. Give the button a better label.</p>
+        <p>This is not the same line we were at before! This line is in the HTML, not the JavaScript.</p>
+        <p>2. Look for where it says 'hello' and replace 'hello' with a better label.</p>
       </div>
 
       <p>CHECK: The button has a better label instead of "hello".</p>
@@ -259,22 +269,26 @@ $(".button1").on("click", greeting);
       <p>Let's make a new button that removes stars.</p>
 
       <div class="alert">
-        <p>1. Add a new button to the HTML. Do this by copying the HTML code for the old button. (Remember, HTML means pointy brackets like these <b>&lt;button</b>...<b>></b>)</p>
-        <p>2. Give your new button a different <b>class</b>. This means the JavaScript can know which is which.</p>
+        <p>1. Add a new button to the HTML. Do this by copying the HTML code for the old button. (Remember, HTML means pointy brackets like these: <code><b>&lt;button</b></code>...<code><b>></b></code>)</p>
+        <p>2. Give your new button a different <b>class</b>. So our JavaScript can tell which is which.</p>
         <p>3. CHECK that there are now two different buttons when you view the page.</p>
         <p>4. In the JavaScript, make your new button work. Make it call the <code>removeStar</code> function when it is clicked.</p>
-        <p>CLUE: Remember the line right at the end? It starts with <code class="language-javascript">$('.button1')</code>. You will need to copy that line and then change a few things to make your new button work.</p>
+        <p>CLUE: Remember the line right at the end? It starts with <code class="language-javascript">button1.addEventListener(</code>. You will need to copy that line and the line above, and then change a few things to make your new button work.</p>
       </div>
 
       <p>CHECK: You have 2 buttons. One adds stars, one removes stars.</p>
 
-      <h2>Part 5: More functions</h2>
+      <h2>Part 5: Bonus function</h2>
 
-      <p>There is one more function in the code. Can you see it? Can you make a new button that calls that function?</p>
+      <p>We have connected buttons to the addStar and removeStar functions.</p>
+
+      <p>There is one more function in the code that we haven't used yet. Can you see it?</p>
+
+      <p>Add a third button, and make it call the other function.</p>
 
       <h2>Part 6: Styles</h2>
 
-      <p>You could probably change the CSS (between &lt;style> and &lt;/style>) to make the page look a lot better. You can make the buttons look different!</p>
+      <p>You could probably change the CSS (between &lt;style> and &lt;/style>) to make the page look a lot better. Try giving the buttons a border, background-color, margin and padding!</p>
 
       <h2>What's next?</h2>
 

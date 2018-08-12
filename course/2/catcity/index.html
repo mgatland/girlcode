@@ -103,7 +103,7 @@
 
       <p><b>IF</b> you rescue five cats <b>THEN</b> you win a free breadmaker!</p>
 
-      <p>(This activity uses JavaScript and jQuery.)</p>
+      <p>(This activity uses JavaScript.)</p>
 
       <h2>What skills do I need?</h2>
 
@@ -111,9 +111,9 @@
 
       <h2>Part 1: Set up Neocities</h2>
 
-      <p><b>IF</b> you have a Neocities account, Log in to <a href="http://neocities.org">Neocities.org</a>. <b>OTHERWISE,</b> create a new Neocities account and log in. (It's free.)</p>
+      <p><b>IF</b> you have a Neocities account, <b>THEN</b> Log in to <a href="http://neocities.org">Neocities.org</a>. <b>OTHERWISE,</b> create a new Neocities account and log in. (It's free.)</p>
 
-      <p>Make a new file:</p>
+      <p>In the Neocities dashboard, Make a new file:</p>
 
       <img src="new-file.png">
 
@@ -139,7 +139,6 @@
 &lt;html>
   &lt;head>
     &lt;meta charset='utf-8'>
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
     &lt;title>Cat City&lt;/title>
     &lt;style>
     /*This is the start of the CSS*/
@@ -165,12 +164,15 @@
     &lt;script>
 //Hello! This is the start of the JavaScript.
 let cats = 0;
-let catfood = 4;
+let catfood = 5;
 let medals = 0;
 let breadmakers = 0;
 
+let messageElement = document.querySelector(".message");
+
 function showInfo() {
-  $(".info").text("You have " + catfood + " tins of catfood, " + cats + " cats and " + medals + " SPCA medals.");
+  let infoElement = document.querySelector(".info");
+  infoElement.innerHTML = "You have " + catfood + " tins of catfood, " + cats + " cats and " + medals + " SPCA medals.";
 }
 
 function getCat() {
@@ -178,13 +180,14 @@ function getCat() {
     catfood = catfood - 1;
     cats = cats + 1;
     showInfo();
-    $(".message").text("You found a cat!");
+    messageElement.innerHTML = "You found a cat!";
   } else {
-    $(".message").text("You need to buy more catfood first.");
+    messageElement.innerHTML = "You need to buy more catfood first.";
   }
 }
 
-$(".button2").on("click", getCat);
+let button2 = document.querySelector(".button2");
+button2.addEventListener("click", getCat);
     &lt;/script>
   &lt;/body>
 &lt;/html>
@@ -203,8 +206,8 @@ $(".button2").on("click", getCat);
       <div class="alert">
         <p>1. <b>Buy catfood</b> – this button gives you 1 more catfood. You can ALWAYS buy more catfood so we don't need an <code>if</code> in this code.</p>
         <p>2. <b>Catch a cat</b> – <b>If</b> you have some catfood (i.e. more than 0 catfoods), then you get 1 cat but you lose 1 catfood. <em>This part is already done for you!</em></p>
-        <p>3. <b>Give a cat to the SPCA</b> – <b>If</b> you more than 0 cats, <b>then</b> you can lose 1 cat and gain 1 medal.</p>
-        <p><b>For every button</b>: Every time you click a button, we need to call <code>showInfo()</code> which will write the new number of cats, catfood and medals into the page so the player can see what is happening.</p>
+        <p>3. <b>Give a cat to the SPCA</b> – <b>If</b> you more than 0 cats, <b>then</b> you lose 1 cat and gain 1 medal.</p>
+        <p><b>On every button</b>: Every time you click a button, we need to call <code>showInfo()</code> which will write the new number of cats, catfood and medals into the page so the player can see what is happening. We also need to display an appropriate message inside the <b>messageElement</b>.</p>
       </div>
 
       <p>Try the buttons. One already works – easy! But you will have to make the other two work.</p>
@@ -217,11 +220,13 @@ $(".button2").on("click", getCat);
 
       <div class="alert">
         <p>1. Find the JavaScript. It starts with <code class="language-markup">&lt;script></code> and ends with <code class="language-markup">&lt;/script></code></p>
-        <p>2. Find this line: <code class="language-javascript">$(".button2").on("click", getCat);</code>. It is right at the end.</p>
+        <p>2. Find this line: <code class="language-javascript">button2.addEventListener("click", getCat);</code>. It is right at the end.</p>
         <p>3. <b>"button2"</b> and <b>getCat</b> are words that appear somewhere else in the code. Can you find them, and work out what this line does?</p>
       </div>
 
       <p>Make the other buttons work. You will need to make a new <b>function</b> and then connect the button to the function.</p>
+
+      <p>I recommend starting with 'Give a cat to the SPCA' because it's the most similar to the example you already have.</p>
 
       <h2>Oops, my page stopped working?</h2>
 
@@ -237,6 +242,8 @@ $(".button2").on("click", getCat);
 
       <h2>Part 4: free breadmaker</h2>
 
+      <p>(Make sure you have the other three buttons working before starting this.)</p>
+
       <p>The rule for breadmakers is: If you have 5 medals (or more), you can trade in 5 medals to get a free breadmaker!</p>
 
       <p>Can you add a new button that lets the player get a breadmaker?</p>
@@ -245,25 +252,33 @@ $(".button2").on("click", getCat);
         <p>At the start of our JavaScript we say <code class="language-javascript">let breadmakers = 0;</code> so we are counting them, but we never show this information to the player. You have to update the <code class="language-javascript">showInfo</code> function to tell the player how many breadmakers they have.
       </div>
 
-      <h2>Bonus: Emojis and loops</h2>
+      <p>Test all the different actions. Remember to test both success and failure. For example:</p>
+
+      <ul>
+        <li>Give a cat to the SPCA - if I have 1 cat, it should work.</li>
+        <li>Give a cat to the SPCA - if I have 0 cats, it should not work!</li>
+      </ul>
+
+      <h2>Part 5: Emojis and loops</h2>
 
       <p>We can use a <b>for loop</b> to repeat some code a certain number of times.</p>
 
-      <p>Try adding this code to the end of the <code class="language-javascript">showInfo</code> function. It will need to go at the end – just before the curley bracket <code class="language-javascript">}</code></p>
+      <p>Try adding this code to the end of the <code class="language-javascript">showInfo</code> function. It will need to go at the end – just before the curly bracket <code class="language-javascript">}</code></p>
 
 <pre><code class="language-javascript">
 for (let i = 0; i < cats; i++) {
-  $(".info").append("🐈");
+  document.querySelector(".info").innerHTML += "🐈";
 }
 </code></pre>
 
       <p>It's pretty hard to read, but it basically says: Count up to how many cats you have, and for every number you count, add a cat emoji to the end the info element.</p>
 
-      <p>Can you add more loops to show catfood, medals and breadmakers as emoji too? You will need to copy and paste the emojis from an <a href="http://emojipedia.org/" target="_blank">emoji dictionary</a>.</p>
 
-      <h2>Extra ideas</h2>
+      <div class="alert">
+        <p>Add more loops to show catfood, medals and breadmakers as emoji too!</p>
 
-      <p>What new options should you get, now that you have a breadmaker?</p>
+        <p>If you can't type emojis on your computer, you can copy and paste emojis from an <a href="http://emojipedia.org/" target="_blank">emoji dictionary</a>.
+      </div>
 
       <h2>What's next?</h2>
 
