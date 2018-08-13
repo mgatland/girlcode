@@ -199,10 +199,9 @@ function greeting() {
 }
 
 function addStar() {
-  let star = document.createElement("div");
-  star.classList.add("star");
+  let starHtml = '&lt;div class="star">&lt;/div>';
   let starContainer = document.querySelector(".star-box");
-  starContainer.appendChild(star);
+  starContainer.innerHTML += starHtml;
 }
 
 function removeStar() {
