@@ -342,7 +342,7 @@
 
       <p>Use Atom to open <b>index.js</b>, a file in the  in the main <b>nodestart folder</b>. Note that this is not in the <b>public</b> folder, it's in the NodeStart folder which is outside the public folder.</p>
 
-      <p>This is a <b>js</b> file, which means JavaScript. There are 5 lines of code, plus some comments (lines that start with // are comments for humans to read, the computer does not read them.)</p>
+      <p>This is a <b>js</b> file, which means JavaScript. There are 5 lines of code, plus some comments. (Lines that start with // are comments for humans to read - they have no effect on how the program works.)</p>
 
       <p>Your code will look exactly the same as this:</p>
 
@@ -363,7 +363,7 @@ console.log("Hi! I am listening at http://localhost:3000");
 
       <h2>Special requests</h2>
 
-      <p>Add this code at line 8 of your index.js file:</p>
+      <p>Add this code at <b>line 8</b> of your index.js file:</p>
 
       <pre><code class="language-javascript">
 let posts = [];
@@ -534,19 +534,30 @@ console.log("Hi! I am listening at http://localhost:3000");
     &lt;script>
 //Hello! This is the start of the JavaScript.
 
-function displayMessage(post) {
-  let postElement = $('&lt;div class="post">&lt;/div>');
-  $(".message-list").append(postElement);
+function displayMessage(message) {
+  //family tree:
+  //messageList -> postElement -> messageElement -> our message text
+  let messageList = document.querySelector(".message-list");
 
-  let messageElement = $('&lt;div class="message">' + post + '&lt;/div>');
-  postElement.append(messageElement);
+  let postElement = document.createElement("div");
+  postElement.classList.add("post");
+
+  let messageElement = document.createElement("div");
+  messageElement.classList.add("message");
+  messageElement.innerHTML = message;
+
+  messageList.appendChild(postElement);
+  postElement.appendChild(messageElement);
 }
 
 function createFeed(posts) {
+  console.log(posts);
   posts.forEach(displayMessage);
 }
 
-$.get("/posts", createFeed);
+fetch("/posts")
+  .then(response => response.json())
+  .then(createFeed);
 
 //This is the end of the JavaScript.
     &lt;/script>
