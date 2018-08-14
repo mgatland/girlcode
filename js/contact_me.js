@@ -32,7 +32,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "http://formspree.io/girlcodeakl@gmail.com",
+                url: "https://formspree.io/girlcodeakl@gmail.com",
                 type: "POST",
                 data: {
                     _subject: "Girl Code Signup - " + name,
