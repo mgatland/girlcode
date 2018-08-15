@@ -165,7 +165,7 @@ yeah. Fixing that is big enough to be a whole other ticket though. We have to:
 ##  when you sign up, the sign up should fail if there is already an account with the same email address.
 
 Yeah. Can you fix it?`},
-{"number":25,"title":"Sign up + Log in page (accounts feature)",
+{"number":25,"title":"Sign up + Log in page (accounts feature) NOT UPDATED FOR NO JQUERY",
 "body":`(note to Matthew: this task is quite long and could be split in half from 'make the server react'
 
 # Sign Up and Log In page
@@ -289,8 +289,8 @@ We will need 2 pieces of information to give the server:
 \`\`\`javascript
 let data = {};
 data.postId = post.id;
-data.comment = \"test\" //fixme: replace this with the actual comment
-$.post(\"/comment\", data);
+data.comment = "test" //fixme: replace this with the actual comment
+fetch("/comment", {method:"POST"} body: JSON.stringify(data)});
 console.log(\"i asked the server to save your comment\");
 \`\`\`
 
@@ -528,17 +528,19 @@ Give it a class of \`filter\`
 ### write a search function
 
 Make a function called \`filterFeed\`, which:
-1. creates a variable \`searchText\` by getting the val() from our new filter input
+1. creates a variable \`searchText\` by getting the value from our new filter input
 2. loops over each of the children in \`message-list\`, and does something. Here's the code to do that:
 
 \`\`\`javascript
-  $(\".message-list\").children().each(function(number, element) {
+  document.querySelectorAll(".message-list").forEach(function(element) {
    //code in here will be run once for each post in the list
  });
 \`\`\`
-1. for each post, we need to search it and see if it contains our search text. If it does not, we'll add a class \`hidden\` to our post. if it does not, we'll remove the class \`hidden\` (in case a previous search added it.
+1. for each post, we need to search its contents and see if it contains our search text. Then we'll add or remove the class \`hidden\` to that post.
 
 You'll have to combine a few different things: an if statement, code to add a class, and code to search for text. This code example will print out 'yes' or 'no' based on whether the search text is found or not:
+
+Here's an example that searches an html element for particular text:
 
 \`\`\`javascript
 searchText = \"hi\";
@@ -549,26 +551,28 @@ if (element.innerHTML.toLowerCase().includes(searchText.toLowerCase())) {
 }
 \`\`\`
 
-This is how you add or remove a class
+This is how you add or remove a class:
 
 \`\`\`javascript
-$(element).addClass(\"hidden\");
-$(element).removeClass(\"hidden\");
+element.classList.add("hidden");
+element.classList.add("hidden");
 \`\`\`
 
-2. Add a new css rule: 
+2. Add a new css rule
+
+The 'hidden' class doesn't do anything unless we tell it to. Let's do that:
 
 \`\`\` css
 .hidden {display: none}
 \`\`\`
 
-3. Make this function run as you type in the filter box.
+3. Connect the search box to your new function so the function is run every time you type a letter:
 
 \`\`\`javascript
-$(\".filter\").on(\"keyup\", filterFeed);
+document.querySelector(".filter").addEventListener("keyup", filterFeed);
 \`\`\`
 `},
-{"number":19,"title":"Instead of a feed, show just one post at a time (like Tinder)",
+{"number":19,"title":"Instead of a feed, show just one post at a time (like Tinder) NOT UPDATED FOR NO JQUERY",
 "body":`We're going to make a new page on our site that shows one post at a time, instead of the whole feed.
 
 [ ] Make a new file named feed2.html inside the public folder
@@ -622,7 +626,7 @@ Can you add a link on the page that makes a new post appear?
 - [ ] Use JavaScript to tell your browser to run a function when the link is clicked - you've done this before too!
 
 Does it work? Is there a weird side effect? Can you figure out why it's happening and how you might fix it?`},
-{"number":18,"title":"User can set the date of an event",
+{"number":18,"title":"User can set the date of an event - NOT UPDATED FOR NO JQUERY",
 "body":`When a user posts a new event, let them set a date (what day).
 
 We'll add a new text input (the white box you type words into) to _post.html_
@@ -951,14 +955,16 @@ post.author = request.body.author;
 \`\`\`
 ### Part 4
 - [ ] Save some new posts then check how they look in raw form at http://localhost:3000/posts – each post should have a _message_ and an _author_.
-- [ ] modify feed.html so that each post displays the author (\`post.author\`). Try this code to start with (add it after the code that creates postElement:
+- [ ] modify feed.html so that each post displays the author (\`post.author\`). Find the line that creates the \`postHTML\` variable and add this to the HTML that's added:
 
 \`\`\`javascript
-let authorElement = $('<div>author goes here</div>');
-postElement.append(authorElement);
++ '  <div>author goes here</div>';
 \`\`\`
 
-You'll need to change it to include the actual author value \`post.author\` - you may need to use quotation marks to make it clear that you want the actual \`post.author\` and don't want it to literally say \"post.author\"
+First check that that works - it should display 'author goes here' after every post.
+
+Once that's working, change it to include the actual author value \`post.author\` - you may need to use quotation marks to make it clear that you want the actual \`post.author\` and don't want it to literally say \"post.author\"
+
 ### notes
 
 This task does not include updating the CSS look + feel of the post.html page. Just make it work, don't focus on making it pretty in this ticket.
@@ -1083,43 +1089,50 @@ Now that posts are objects, we can add other information to them.
 We're going to give each post a time stamp.
 - [ ] When a post is saved on the server (index.js), as well as saving the message into \`post.message\`, create a new name-value pair like this: \`post.time = \"test\";\`
 - [ ] Restart you server and test that it's working: in your web browser, post some new messages, then go to http://localhost:3000/posts and look at the raw list of posts. You should see that each post now has a time as well as a message.
-- [ ] Instead of always setting the time to \"test\", get the actual date and time - try googling \"how do i get the current date in javascript\"… if you get stuck for more than 5 minutes, ask for help :)
-- [ ] Now In feed.html add the post.time so it displays after the post.message. Try some code like this, just after the code that creates \`postElement\`:
+- [ ] Instead of always setting the time to "test", get the actual date and time - try googling "how do i get the current date in javascript"… if you get stuck for more than 5 minutes, ask for help :)
+- [ ] Now in feed.html add the post.time so it displays after the post.message. Find the line that creates the \`postHTML\` variable and add this to the HTML that's added:
 
 \`\`\`javascript
-let timeElement = $('<div class=\"time\">time goes here</div>');
-postElement.append(timeElement);
++ '  <div class="time">time goes here</div>';
 \`\`\`
 
-You'll need some careful use of quotation marks and pluses to make javascript include the actual \`post.time\`. inside the tags.
+Test that that displays 'time goes here' in the place where you want the time to appear.
+
+Now, you'll need some careful use of quotation marks and pluses to make javascript include the actual \`post.time\` inside the tags. Look at the nearby code for reference!
 
 After this change, when you look at http://localhost:3000/feed.html you should see the time for each post - but it's not pretty yet.
+
 # PART 2
 
 Working in _feed.html_
 
-Right now, it looks like this: \`2015-09-09T03:42:18.991Z\`. Only good if you are a robot  🤖
+Right now, our timestamp should like this: \`2015-09-09T03:42:18.991Z\`. Only good if you are a robot  🤖
 
-We can make that nicer, but it will take a lot of code. _Fortunately, someone else has already written the code for us!_ I found a plugin that will work, it's called jquery-dateFormat.
-- [ ] Include jquery-dateFormat by adding this line to the _head_ section of feed.html
+We can make that nicer, but it will take a lot of code. _Fortunately, someone else has already written the code for us!_ I found a plugin that will work, it's called timeago.js.
 
-\`<script src=\"//cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js\"></script>\`
+- [ ] Download timeago.min.js from here: https://raw.githubusercontent.com/hustcc/timeago.js/master/dist/timeago.min.js
+- [ ] Move timeago.min.js into our project's public folder.
+- [ ] Include the script in our feed by adding this link to the _head_ section of feed.html
+
+\`<script src=\"/timeago.min.js\"></script>\`
 
 (It should go just below the other \`<script>\` line in the head section)
 
-This will download the pretty date code every time someone loads our page.
+Now your web browser will include that script every time the feed is loaded.
 
-Now we can use some new commands. The full documentation is at https://github.com/phstc/jquery-dateFormat, but I pulled out the interesting parts for you here:
+The script gives us some new commands. (The full documentation is at https://github.com/hustcc/timeago.js if you need to look up something that's not written here.)
+
 - [ ] to display the post time nicely, replace \`post.time\` with this:
 
-\`$.format.prettyDate(post.time)\`
+\`new timeago().format(post.time)\`
+
 - [ ] check that your times are now pretty! They should say something like \"11 minutes ago\"
 
 **Problems!**
 
 Is your feed broken? Not all the posts are appearing?
 
-The prettyDate command gets angry if you ask it to make an invalid time pretty. All the posts we've made so far don't have a \`post.time\` value, so it breaks on them.
+The timeago command gets angry if you ask it to make an invalid time pretty. All the posts we've made so far don't have a \`post.time\` value, so it breaks on them.
 
 In \`feed.html\`, add this little hack that adds a fake time to any post that was missing a time stamp.
 
@@ -1129,6 +1142,9 @@ if (post.time === undefined) {
    post.time = new Date(\"2016-01-01\");
 }
 \`\`\`
+
+Add it just before the part we've been working on, which displays the pretty time.
+
 # PART 3
 
 It's kind of confusing that the time is the same color as the text and author name.
@@ -1273,11 +1289,10 @@ How to check what is being sent to the server:
 # PART 3
 - [ ] Now we have these images, we need to display them in the feed. In feed.html, you will need to modify the code that creates each post so that it includes the image URL. 
 
-In feed.html, find the code that creates a variable \`postElement\`. Add this code after it:
+In feed.html, find the code that creates a variable \`postHTML\`. There are several lines that add different elements to the HTML. Find the line that adds the message, and add this new line before it (so the image appears above the message):
 
 \`\`\`javascript
-let imageElement = $('<img src=\"http://example.com/image.jpg\">');
-postElement.append(imageElement);
+  + '  <img src=\"http://example.com/image.jpg\">'
 \`\`\`
 
 This should create an image, but it will be a broken image link because the URL is wrong. You need to include \`post.image\` as the URL. You'll need some careful use of quotation marks and pluses to make javascript include the actual \`post.image\` instead of just literally saying post.image.
