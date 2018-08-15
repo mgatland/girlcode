@@ -11,7 +11,7 @@
 			font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
 		}
 		main {
-			max-width: 800px;
+			max-width: 1200px;
 			margin: auto;
 		}
 		h3 {
@@ -46,13 +46,51 @@
 			color: grey;
 			margin: 14px;
 		}
+		/*copying GitHub Markdown styles: */
+		.markdown {
+			border: 1px solid rgb(190, 210, 230);
+			padding: 15px;
+		}
+		.markdown p {
+			margin-bottom: 16px;
+			font-size: 14px;
+			line-height: 1.5;
+			word-wrap: break-word;
+			border-collapse: collapse;
+		}
+		.markdown li {
+			font-size: 14px;
+			line-height: 21px;
+		}
+		.markdown h2 {
+			border-bottom: 1px solid rgb(230, 230, 230);
+			font-size: 21px;
+			font-weight: 600;
+		}
+		.markdown h3 {
+			font-size: 17.5px;
+			font-weight: 600;
+		}
+		.markdown pre {
+			background-color: rgb(230, 230, 230);
+    		padding: 12px;
+		}
+		.markdown blockquote {
+			border-left: 3.5px solid lightgrey;
+			color: grey;
+			margin-left: 0;
+			padding-left: 20px;
+		}
 		</style>
 	</head>
 
 	<body>
 		<h1>Girl Code template</h1>
+		<button class="previewButton">Show formatted</button>
+		<button class="expandAllButton">Expand All</button>
 		<main>
 		</main>
+<script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.5/dist/showdown.min.js"></script>
 <script src="templates.js"></script>
 	</body>
 </html>

@@ -286,7 +286,7 @@ We will need 2 pieces of information to give the server:
 * post.id (which post do you want to comment on)
 * the actual comment
 
-\`\`\` javascript
+\`\`\`javascript
 let data = {};
 data.postId = post.id;
 data.comment = \"test\" //fixme: replace this with the actual comment
@@ -301,7 +301,7 @@ Now we need to go to \`index.js\` and teach it how to respond to a new kind of P
 
 Start by adding this empty post handler to the server:
 
-\`\`\` javascript
+\`\`\`javascript
 function commentHandler(req, res) {
     //more code goes here
    res.send(\"ok\");
@@ -531,7 +531,7 @@ Make a function called \`filterFeed\`, which:
 1. creates a variable \`searchText\` by getting the val() from our new filter input
 2. loops over each of the children in \`message-list\`, and does something. Here's the code to do that:
 
-\`\`\` javascript
+\`\`\`javascript
   $(\".message-list\").children().each(function(number, element) {
    //code in here will be run once for each post in the list
  });
@@ -564,7 +564,7 @@ $(element).removeClass(\"hidden\");
 
 3. Make this function run as you type in the filter box.
 
-\`\`\` javascript
+\`\`\`javascript
 $(\".filter\").on(\"keyup\", filterFeed);
 \`\`\`
 `},
@@ -671,7 +671,7 @@ Now it's (hopefully) being sent to the server, we need to teach the server to lo
 - [ ] Restart the server, post a new post and check that the event date now shows up in terminal/command prompt.
 - [ ] If the date is coming through, we can now save it. You do this by setting a new new name-value pair on the \`post\`. Your code might look like this:
 
-\`\`\` javascript
+\`\`\`javascript
 post.date = request.body.date;
 \`\`\`
 ### Part 4
@@ -715,7 +715,7 @@ _Imagine you want to 'like' a post, or reply to it. We need a way that the clien
 
 In _index.js_, when we create a new post, give it a random ID number
 
-\`\`\` javascript
+\`\`\`javascript
 post.id = Math.round(Math.random() * 10000);
 \`\`\`
 
@@ -734,15 +734,15 @@ In Chrome, open the Developer Tools and choose 'Console'
 
 Try typing these commands into the console (hit Enter after each one) and see if you can work out what each command does:
 
-\`\`\` javascript
+\`\`\`javascript
 Math.random()
 \`\`\`
 
-\`\`\` javascript
+\`\`\`javascript
 Math.random() * 1000
 \`\`\`
 
-\`\`\` javascript
+\`\`\`javascript
 Math.round(Math.random() * 1000)
 \`\`\`
 # OK back to work (Part 2)
@@ -774,7 +774,7 @@ Now our posts have unique ids, we can give our server a function to get a partic
 
 In \`index.js\`, let's make a new special GET request that the server listens to.
 
-\`\`\` javascript
+\`\`\`javascript
 app.get('/post', function (req, res) {
    let searchId = req.query.id;
    console.log(\"Searching for post \" + searchId);
@@ -808,7 +808,7 @@ In **feed.html**, we need to _reverse_ the order of the posts, _after_ we GET th
 
 Once you figure out where in the code to do this, actually doing it is simple. If the list object was called posts, we'd use this line:
 
-\`\`\` javascript
+\`\`\`javascript
 posts.reverse();
 \`\`\`
 
@@ -946,14 +946,14 @@ Now it's (hopefully) being sent to the server, we need to teach the server to lo
 - [ ] Restart the server, post a new post and check that your author name now shows up in terminal/command prompt.
 - [ ] If the author name is coming through, we can now save it. You do this by setting a new new name-value pair on the \`post\`. Your code might look like this:
 
-\`\`\` javascript
+\`\`\`javascript
 post.author = request.body.author;
 \`\`\`
 ### Part 4
 - [ ] Save some new posts then check how they look in raw form at http://localhost:3000/posts – each post should have a _message_ and an _author_.
 - [ ] modify feed.html so that each post displays the author (\`post.author\`). Try this code to start with (add it after the code that creates postElement:
 
-\`\`\` javascript
+\`\`\`javascript
 let authorElement = $('<div>author goes here</div>');
 postElement.append(authorElement);
 \`\`\`
@@ -1011,13 +1011,13 @@ _After this change is merged, everyone else will have to run \`npm install\` to 
 
 Near the **start** of index.js, add this code which declares an empty variable:
 
-\`\`\` javascript
+\`\`\`javascript
 let databasePosts = null;
 \`\`\`
 
 At the **end** of index.js, add this code:
 
-\`\`\` javascript
+\`\`\`javascript
 
 let MongoClient = require('mongodb').MongoClient;
 let databaseUrl = 'mongodb://<dbuser>:<dbpassword>@ds015919.mlab.com:15919/girlcode1999-term1';
@@ -1060,7 +1060,7 @@ When someone makes a new post on our website, our server needs to save that post
 
 Add this lines inside the function, at the end.
 
-\`\`\` javascript
+\`\`\`javascript
 databasePosts.insert(post);
 \`\`\`
 
@@ -1086,7 +1086,7 @@ We're going to give each post a time stamp.
 - [ ] Instead of always setting the time to \"test\", get the actual date and time - try googling \"how do i get the current date in javascript\"… if you get stuck for more than 5 minutes, ask for help :)
 - [ ] Now In feed.html add the post.time so it displays after the post.message. Try some code like this, just after the code that creates \`postElement\`:
 
-\`\`\` javascript
+\`\`\`javascript
 let timeElement = $('<div class=\"time\">time goes here</div>');
 postElement.append(timeElement);
 \`\`\`
@@ -1123,7 +1123,7 @@ The prettyDate command gets angry if you ask it to make an invalid time pretty. 
 
 In \`feed.html\`, add this little hack that adds a fake time to any post that was missing a time stamp.
 
-\`\`\` javascript
+\`\`\`javascript
 ///hack: fix invalid dates
 if (post.time === undefined) {
    post.time = new Date(\"2016-01-01\");
@@ -1200,7 +1200,7 @@ To start our app, we run \`node index.js\` -- we know that, but how do we tell H
 - [ ] in Atom, open up \`package.json\`
 - [ ] add this in:
 
-\`\`\` javascript
+\`\`\`javascript
 "scripts": {
      "start": "node index.js"
    }
@@ -1275,7 +1275,7 @@ How to check what is being sent to the server:
 
 In feed.html, find the code that creates a variable \`postElement\`. Add this code after it:
 
-\`\`\` javascript
+\`\`\`javascript
 let imageElement = $('<img src=\"http://example.com/image.jpg\">');
 postElement.append(imageElement);
 \`\`\`
@@ -1300,7 +1300,7 @@ A string is a sequence of letters - like a word, a sentence, or a paragraph.
 
 here are some example strings
 
-\`\`\` javascript
+\`\`\`javascript
 let string = \"hello, i am a string\";
 let string2 = \"i am another string\";
 let string3 = \"a\";
@@ -1309,7 +1309,7 @@ let string4 = \"\"; //this is an empty string!
 
 An object, in JavaScript, is a bit like a filing cabinet or a dictionary or a phone book. It can have lots of values and each value is filed under a certain label. Programmers call these \"name-value pairs\" because each value has a name.
 
-\`\`\` javascript
+\`\`\`javascript
 let obby = {}; //create an empty object
 obby.rating = 10; //created a name-value pair: the name is rating and the value is the number 10
 obby.greeting = \"hello!\"; //the name is greeting and the value is a string
@@ -1322,13 +1322,13 @@ Look in index.js for the line that pushes the user's new post into the list of p
 
 We currently get the value \`req.body.message\` which is a string, and save it straight into the posts list.
 
-\`\`\` javascript
+\`\`\`javascript
 posts.push(request.body.message);
 \`\`\`
 
 Replace that line with this:
 
-\`\`\` javascript
+\`\`\`javascript
 let post= {};
 post.message = request.body.message;
 posts.push(post);
@@ -1389,39 +1389,31 @@ This is confusing and not very attractive.
 
 After this change, when you click the button,
 1. you stay on the same page
-2. a little box pops up that says \"Thanks! Your message was saved!\"
+2. a little box pops up that says "Thanks! Your message was saved!"
 
-All these changes are in post.html
+All these changes are in post.html.
 
 ## Part 1
 
-You will need to include jQuery in the page (if it is not already included). You do this by adding **one line** of HTML code to the HEAD of the page. Look in the \`<head>\` of the feed.html for the line you need to copy.
-
-jQuery is a library (a whole lot of javascript code that someone else wrote so we don't have to).
-
-- [ ] Add jQuery to **post.html** by copying the line from **feed.html** into **post.html**
-
-In **post.html**, use jQuery to make something happen when you click the 'Post it!' button:
+In **post.html**, we're going to use JavaScript to change what happens when you click the 'Post it!' button:
 - [ ] in the html, add a class to the \`<button>\` so we can find it using javascript - it should end up looking like \`<button class=\"postButton\">\`
 - [ ] add a pair of \`<script>\` tags so we can add some javascript between them. Add these near the end of the file, just above \`</body>\` and \`</html>\`
 - [ ] in your script, add this function:
 
-\`\`\` javascript
-function myCoolFunction(e) {
+\`\`\`javascript
+function sendMessageToServer(e) {
     e.preventDefault();
     alert(\"nothing happens - except this alert!\");
 }
 \`\`\`
 
-Now we must tell the button to run the function when you click on it. This is similar to what we did in the fivestar and tvshow activities
+Now we must tell the button to run the function when you click on it. This is similar to what we did in the fivestar and tvshow activities.
 
 - [ ] add this line to your javascript:
 
-\`\`\` javascript
-$(\".postButton\").on(\"click\", myCoolFunction);
+\`\`\`javascript
+document.querySelector(\".postButton\").addEventListener(\"click\", sendMessageToServer);
 \`\`\`
-
-**PROTIP**: You must define your function must _before_ (i.e. above) where you use it. Your \`on(\"click\"\` command must come after you explain what your cool function is, otherwise it won't know what you're talking about when you refer to \`myCoolFunction\`.
 
 _What is this doing?_
 * We told the button to call the function when you click on it
@@ -1437,28 +1429,31 @@ history lesson (you can skip this):
 
 In your new function, we now need to do the same thing but write it ourselves: make it do a POST that sends the right info to the server.
 
-You could look up \"how to POST using jQuery\" on google and find some examples, but to save you time I've pulled a good example out here:
+Here is an example of how to post something to the server:
 
-\`\`\` javascript
+\`\`\`javascript
 let data = {};
-$.post( \"url\" , data );
+fetch(\"url\", {method:"POST"} body: JSON.stringify(data)});
 \`\`\`
-- [ ] add that code **inside** your cool function.
+- [ ] add that code **inside** the sendMessageToServer function.
 - [ ] Change the first argument from \"url\" to \"/posts\" - this is where we are posting to. (It has to match the address the server is listening to in index.js)
 - [ ] TEST: clicking the button should now add a new message to the message feed - but it will be \`null\`, instead of what you typed in.
-- [ ] delete that annoying \`alert\` command.
+- [ ] delete the annoying \`alert\` command.
+
 ### Part 3
 
 How do we get the words the user typed in, and send them to the server?
 
-We will use jQuery to get the part of the HTML page the user is typing into.
+We will use javascript to get the part of the HTML page the user is typing into.
 Just like the button, we need to give this part of the HTML a class so our javascript can select it.
 - [ ] Add a _class_ to the \`<input>\` where your message goes. i.e. \`class=\"messageInput\"\`
 
-Now we can select it with jQuery, and get the value out of it using the \`.val()\` function.
+Now we can select it with javascript, and get the value out of it using the \`.value\` function.
 
-\`\`\` javascript
-data.message = $(\".messageInput\").val();
+We save the value into the data object.
+
+\`\`\`javascript
+data.message = document.querySelector(\".messageInput\").value;
 \`\`\`
 
 You'll need to add the line above just after the line \`let data = {}\`. That means, after we create an empty object named 'data', but before we send the object to the server, we add some information to it.
@@ -1466,7 +1461,7 @@ You'll need to add the line above just after the line \`let data = {}\`. That me
 
 ### Part 4: show feedback
 - [ ] Add an empty div to the page (inside the \`body\`) with a class 'note' i.e. \`<div class=\"note\"></div>\`
-- [ ] In your cool function, tell jquery to select that div and change the text inside it to say \"Thanks! Your message was saved!\" using some code like this: \`$(\".note\").text(\"Thanks! Your message was saved!\");\`
+- [ ] In your sendMessageToServer function, add a line that selects that div and changes the text inside it to say \"Thanks! Your message was saved!\" using some code like this: \`document.querySelector(\".note\").innerHTML = \"Thanks! Your message was saved!\";\`
 
 - [ ] TEST: when you post, the page shows some feedback to let you know it saved your post.
 - [ ] TEST: the page doesn't show the feedback until you post something.
@@ -1507,7 +1502,7 @@ for(let issue of issues) {
   issueEl.addEventListener("click", function (e) {
     if (e.target.classList.contains("close")) {
       e.currentTarget.querySelector(".issueBody").classList.add("hidden")
-      e.currentTarget.querySelector(".close").classList.add("hidden")            
+      e.currentTarget.querySelector(".close").classList.add("hidden")
       e.preventDefault()
     } else {
       e.currentTarget.querySelector(".issueBody").classList.remove("hidden")
@@ -1522,3 +1517,23 @@ for(let issue of issues) {
 //cleanIssues = cleanIssues + "]"
 
 //to export: console.log(cleanIssues)
+
+document.querySelector(".previewButton").addEventListener("click", function () {
+  const converter = new showdown.Converter()
+  converter.setFlavor('github')
+  document.querySelectorAll(".issueBody").forEach(function (el) {
+    let source = el.innerHTML
+    source = source.replace(/&lt;/g, "<")
+    source = source.replace(/&gt;/g, ">")
+    const result = converter.makeHtml(source)
+    el.classList.add("hidden")
+    el.parentNode.innerHTML += "<div class='markdown'>" + result + "</div>"
+  })  
+})
+
+document.querySelector(".expandAllButton").addEventListener("click", function () {
+  document.querySelectorAll(".issueBody").forEach(function (el) {
+    el.classList.remove("hidden")
+    el.parentNode.querySelector(".close").classList.remove("hidden")
+  })  
+})
