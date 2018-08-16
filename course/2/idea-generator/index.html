@@ -160,22 +160,13 @@ h2 {
 &lt;body>
 &lt;h1>TV concept generator&lt;/h1>
 &lt;h2 class="display-area">Click the button!&lt;/h2>
-&lt;button class="next-idea-button">Next idea&lt;/button>
+&lt;button class="button1">Next idea&lt;/button>
 &lt;script>
 //Hello! This is the JavaScript.
 //You can skip this part for now. Jump ahead down to where I say 'LOOK HERE'
 
-let button = document.querySelector(".next-idea-button");
-
-function displayThisMessage(message) {
-  let displayArea = document.querySelector(".display-area");
-  displayArea.innerHTML = message;
-};
-
-function makeAndDisplayIdea() {
-  let randomIdea = getRandomIdea();
-  displayThisMessage(randomIdea);
-};
+let button = document.querySelector(".button1");
+let displayElement = document.querySelector(".display-area");
 
 function pickRandom (list) {
   return list[Math.floor(Math.random() * list.length)];
@@ -188,7 +179,7 @@ button.addEventListener('click', makeAndDisplayIdea);
 // ***
 // Hello again! This is the part we are working on.
 
-function getRandomIdea() {
+function makeAndDisplayIdea() {
   let people = [];
   people.push("time traveller");
   people.push("school teacher");
@@ -198,7 +189,7 @@ function getRandomIdea() {
   jobs.push("solves mysteries");
 
   let myIdea = "How about: A " + pickRandom(people) + " who " + pickRandom(jobs);
-  return myIdea;
+  displayElement.innerHTML = myIdea;
 };
 &lt;/script>
 &lt;/body>
@@ -218,8 +209,8 @@ function getRandomIdea() {
 <p>Now you have your own copy of the TV show idea generator, and you can make changes to it.</p>
 
 <div class="alert">
-  <p>In the code, find line number 44.</p>
-  <p>For now, we are <b>only</b> looking from line 44 to the end.</p>
+  <p>In the code, find line number 35.</p>
+  <p>For now, we are <b>only</b> looking from line 35 to the end.</p>
   <p>Can you see any connection between this code and what happens when you click 'Next idea'?</p>
 </div>
 
@@ -238,17 +229,12 @@ function getRandomIdea() {
 
 <p>Make a copy of the line and edit it to add new person to the list.</p>
 
-<p>Test your change. Does it work? (Remember to save the code, and refresh the page.)</p>
-
-<p>if it works, repeat the process to add another person to the list.</p>
-
-<p>Stuck? Remember, in this activity you can ignore everything before line 44.</p>
-
 <div class="alert">
-  <p>Add <b>two more jobs</b> to the list of jobs.</p>
+  <p>Test your change. Does it work? (Remember to save the code, and refresh the page.)</p>
+  <p>Once it's working, add <b>two more jobs</b> to the list of jobs.</p>
 </div>  
 
-<p>Add two new jobs and test your change.</p>
+<p>Now your TV show generator can make lots of different TV ideas!</p>
 
 <h2>Part 3: Two Characters</h2>
 
@@ -272,7 +258,7 @@ function getRandomIdea() {
 
 <blockquote><p>A school teacher and a school teacher who solve mysteries</p></blockquote>
 
-<p>(I also had to update the jobs to fix the grammar. "runs a hotel" becomes "run a hotel", etc.)</p>
+<p>(I also had to update the jobs to fix the grammar. "<b>runs</b> a hotel" becomes "<b>run</b> a hotel", etc.)</p>
 
 <h2>What if it stopped working!?</h2>
 
@@ -315,7 +301,7 @@ function getRandomIdea() {
 
 <p>Make the characters and the city appear <i>italic</i>. It should look like this in your web browser:</p>
 
-<blockquote><p>A <i>school teacher</i> and a <i>cat</i> who solves mysteries in <i>London</i></p></blockquote>
+<blockquote><p>A <i>school teacher</i> and a <i>cat</i> who solve mysteries in <i>London</i></p></blockquote>
 
 <p>If you right click and 'Inspect' the HTML code, it should look like this:</p>
 
