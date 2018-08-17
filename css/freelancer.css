@@ -594,6 +594,26 @@ audio {
 
 /* styles for content copied from Code Club Akl */
 
+.spoiler {
+    color: #acacac;
+    background-color: #acacac;
+    padding: 2px;
+}
+
+.spoiler:hover {
+    color: black;
+}
+
+.spoiler:before {
+    content: "(hover for answer)";
+    color: black;
+    padding-right: 4px;
+}
+
+.spoiler:hover:before {
+    content: "";
+}
+
 .codeclubstyle h1, .codeclubstyle h2 {
     margin-top: 24px;   
     margin-bottom: 24px;
