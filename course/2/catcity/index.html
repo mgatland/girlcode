@@ -163,31 +163,23 @@
     &lt;button class="button3">Give a cat to the SPCA&lt;/button>
     &lt;script>
 //Hello! This is the start of the JavaScript.
-let cats = 0;
-let catfood = 5;
-let medals = 0;
-let breadmakers = 0;
+let catfood = 0;
 
 let messageElement = document.querySelector(".message");
 
 function showInfo() {
   let infoElement = document.querySelector(".info");
-  infoElement.innerHTML = "You have " + catfood + " tins of catfood, " + cats + " cats and " + medals + " SPCA medals.";
+  infoElement.innerHTML = "You have " + catfood + " tins of catfood.";
 }
 
-function getCat() {
-  if (catfood > 0) {
-    catfood = catfood - 1;
-    cats = cats + 1;
-    showInfo();
-    messageElement.innerHTML = "You found a cat!";
-  } else {
-    messageElement.innerHTML = "You need to buy more catfood first.";
-  }
+function getCatfood() {
+  catfood = catfood + 1;
+  showInfo();
+  messageElement.innerHTML = "You bought some catfood.";
 }
 
-let button2 = document.querySelector(".button2");
-button2.addEventListener("click", getCat);
+let button1 = document.querySelector(".button1");
+button1.addEventListener("click", getCatfood);
     &lt;/script>
   &lt;/body>
 &lt;/html>
@@ -204,29 +196,118 @@ button2.addEventListener("click", getCat);
       <p>Here are the rules in Cat City:</p>
 
       <div class="alert">
-        <p>1. <b>Buy catfood</b> – this button gives you 1 more catfood. You can ALWAYS buy more catfood so we don't need an <code>if</code> in this code.</p>
-        <p>2. <b>Catch a cat</b> – <b>If</b> you have some catfood (i.e. more than 0 catfoods), then you get 1 cat but you lose 1 catfood. <em>This part is already done for you!</em></p>
-        <p>3. <b>Give a cat to the SPCA</b> – <b>If</b> you more than 0 cats, <b>then</b> you lose 1 cat and gain 1 medal.</p>
-        <p><b>On every button</b>: Every time you click a button, we need to call <code>showInfo()</code> which will write the new number of cats, catfood and medals into the page so the player can see what is happening. We also need to display an appropriate message inside the <b>messageElement</b>.</p>
+        <p>1. <b>Buy catfood</b> – this button gives you 1 more catfood. <em>This part is already done for you!</em></p>
+        <p>2. <b>Catch a cat</b> – <b>If</b> you have some catfood (i.e. more than 0 catfoods), <b>then</b> you gain 1 cat but lose 1 catfood.</p>
+        <p>3. <b>Give a cat to the SPCA</b> – <b>If</b> you have some cats (more than 0 cats), <b>then</b> you lose 1 cat and gain 1 medal.</p>
+        <p><b>On every action</b>, we need to call <code>showInfo()</code> which will write the new total amount of catfood and other numbers onto the page for the player to see.</p>
+        <p>We also need to display an appropriate message inside the <b>messageElement</b>.</p>
       </div>
 
       <p>Try the buttons. One already works – easy! But you will have to make the other two work.</p>
 
-      <h2>Part 3: Make the other buttons work!</h2>
+      <h2>Part 3: Counting cats</h2>
 
-      <p>We use JavaScript to make the button <em>call a function</em> when you click on it.</p>
+      <p>Find the JavaScript. It starts with <code class="language-markup">&lt;script></code> and ends with <code class="language-markup">&lt;/script></code></p>
 
-      <p>One button already works. You'll need to look at the code, see what makes it work, and copy this code to make the other buttons work as well.</p>
+      <p>Look at the first line of JavaScript code. It creates a variable called <b>catfood</b> and sets it to 0.</p>
 
-      <div class="alert">
-        <p>1. Find the JavaScript. It starts with <code class="language-markup">&lt;script></code> and ends with <code class="language-markup">&lt;/script></code></p>
-        <p>2. Find this line: <code class="language-javascript">button2.addEventListener("click", getCat);</code>. It is right at the end.</p>
-        <p>3. <b>"button2"</b> and <b>getCat</b> are words that appear somewhere else in the code. Can you find them, and work out what this line does?</p>
-      </div>
+      <p>That variable represents how many tins of catfood the user has.</p>
 
-      <p>Make the other buttons work. You will need to make a new <b>function</b> and then connect the button to the function.</p>
+      <p><b>Add this line</b> after it. This line creates a variable called <b>cats</b> and set it to 0.</p>
 
-      <p>I recommend starting with 'Give a cat to the SPCA' because it's the most similar to the example you already have.</p>
+<pre><code class="language-javascript">
+let cats = 0;
+</code></pre>
+
+      <p>Look at the function named <b>showInfo</b>. It tells you how much <b>catfood</b> you have.</p>
+
+      <p>Let's edit the <b>showInfo</b> function so it also shows how many <b>cats</b> you have.</p>
+
+      <p>You need to change the line that starts with <code>infoElement.innerHTML =</code></p>
+
+      <p>Here's the updated line, if you need it:</p>
+
+      <p class="spoiler">infoElement.innerHTML = "You have " + catfood + " tins of catfood and " + cats + " cats.";</p>
+
+      <p>Test the page. When you click the first button, it should say "You have 1 tins of catfood and 0 cats."</p>
+
+      <p>OK.</p>
+
+      <p>Now we're going to add a way to catch a cat, by using some catfood.</p>
+
+      <p>Look at the function named <b>getCatfood</b>.</p>
+
+      <p>This function adds 1 to the number in the catfood variable.</p>
+
+      <p>Now you need to do a few things:</p>
+
+      <ul>
+        <li>Make a copy of the <b>getCatfood</b> function.</li>
+        <li>Rename it to <b>getCat</b>.</li>
+        <li>In the new function, Instead of adding 1 to your catfood, subtract 1 from your catfood.</li>
+        <li>Add a new line that adds 1 to your cats. It will be very similar to the line that adds 1 to your catfood.</li>
+        <li>Update the message that is displayed to say "You used some catfood to catch a cat!"</li>
+      </ul>
+
+      <p>To use this new function, it must be connected to a button. Do you remember how we connect a button to a function?</p>
+
+      <p>Connect the <b>getCatfood</b> function to button2. Look at the code at the end of the file for reference.</p>
+
+      <p>Test it out:</p>
+
+      <p>A user should be able to click 'Buy catfood' to increase catfood by 1.</p>
+
+      <p>A user should be able to click 'Catch a cat' to increase cats by 1, but decrease catfood by 1.</p>
+
+      <p>What happens if you have no catfood, but you still 'Catch a cat?'</p>
+
+      <h2>Part 4: If and Else</h2>
+
+      <p>A user should not be able to catch a cat if they have no catfood!</p>
+
+      <p>We can use the <b>if</b> command to make different things happen in different situations.</p>
+
+      <p>Add this inside your <b>getCat</b> function:</p>
+
+<pre><code class="language-javascript">
+if (catfood > 0) {
+  //you have catfood
+} else {
+  //you do not have catfood
+}
+</code></pre>
+
+      <p>Any instructions in the first pair of curly brackets will only happen if the test (catfood is more than 0) is true. The second pair of brackets has instructions that will happen if the test is false.</p>
+
+      <p>Move the appropriate code into the appropriate place so it only happens when the user has some catfood.</p>
+
+      <p>If they do not have any catfood, we shouldn't change any variables. But we should display a message:</p>
+
+<pre><code class="language-javascript">
+messageElement.innerHTML = "You can't catch a cat until you buy some cat food!";
+</code></pre>
+
+      <p>Testing time!</p>
+
+      <p>Test that you can buy catfood.</p>
+
+      <p>Test that you can catch cats, but it costs catfood.</p>
+
+      <p>Test that you <b>cannot</b> catch cats if catfood is 0.</p>
+
+      <h2>Part 5: Make the third button work!</h2>
+
+      <p>Make the third button work. This button is very similar to the one you just did. Except instead of taking catfood and giving cats, it takes cats and gives medals.</p>
+
+      <p>Look at the section "Part 2" above for a reminder of what each button should do.</p>
+
+      <p>You will need to make a new variable <b>medals</b> and set it to 0.</p>
+
+      <p>You will need to make the showInfo function say how many medals the user has.</p>
+
+      <p>You will need to make a new function that subtracts 1 from cats and adds 1 to medals.</p>
+
+      <p>You will need to connect the function to button3.</p>
 
       <h2>Oops, my page stopped working?</h2>
 
@@ -240,17 +321,18 @@ button2.addEventListener("click", getCat);
 
       <p>Once the console is open, refresh the page. Any errors will be listed and the console will tell you exactly which line they happen on.</p>
 
-      <h2>Part 4: free breadmaker</h2>
+      <div class="alert">
+        <p>If the error message is <b>"unexpected end of input"</b>, then the line number it tells you will be wrong. This error means that you haven't closed all of your brackets. (You're probably missing a closing curly bracket at the end of one of your functions.)</p>
+        <p>Your computer doesn't know where you left out a bracket. It just knows that one is missing, somewhere!</p>
+      </div>
+
+      <h2>Part 6: free breadmaker</h2>
 
       <p>(Make sure you have the other three buttons working before starting this.)</p>
 
-      <p>The rule for breadmakers is: If you have 5 medals (or more), you can trade in 5 medals to get a free breadmaker!</p>
+      <p>The rule for breadmakers is: If you have 5 medals (more than 4 medals), you can trade in 5 medals to get a free breadmaker!</p>
 
       <p>Can you add a new button that lets the player get a breadmaker?</p>
-
-      <div class="alert">
-        <p>At the start of our JavaScript we say <code class="language-javascript">let breadmakers = 0;</code> so we are counting them, but we never show this information to the player. You have to update the <code class="language-javascript">showInfo</code> function to tell the player how many breadmakers they have.
-      </div>
 
       <p>Test all the different actions. Remember to test both success and failure. For example:</p>
 
@@ -259,23 +341,19 @@ button2.addEventListener("click", getCat);
         <li>Give a cat to the SPCA - if I have 0 cats, it should not work!</li>
       </ul>
 
-      <h2>Part 5: Emojis and loops</h2>
+      <h2>Part 7: Emojis</h2>
 
-      <p>We can use a <b>for loop</b> to repeat some code a certain number of times.</p>
-
-      <p>Try adding this code to the end of the <code class="language-javascript">showInfo</code> function. It will need to go at the end – just before the curly bracket <code class="language-javascript">}</code></p>
+      <p>Try adding this code to the end of the line in <code class="language-javascript">showInfo</code> function that starts with <code class="language-javascript">infoElement.innerHTML =</code></p>
 
 <pre><code class="language-javascript">
-for (let i = 0; i < cats; i++) {
-  document.querySelector(".info").innerHTML += "🐈";
-}
+  + "🐈".repeat(cats);
 </code></pre>
 
-      <p>It's pretty hard to read, but it basically says: Count up to how many cats you have, and for every number you count, add a cat emoji to the end the info element.</p>
+      <p>It will repeat the cat emoji as many times as the number of cats.</p>
 
 
       <div class="alert">
-        <p>Add more loops to show catfood, medals and breadmakers as emoji too!</p>
+        <p>Add similar code to show the other variables - catfood, medals and breadmakers - as emoji too!</p>
 
         <p>If you can't type emojis on your computer, you can copy and paste emojis from an <a href="http://emojipedia.org/" target="_blank">emoji dictionary</a>.
       </div>
