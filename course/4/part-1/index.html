@@ -100,13 +100,13 @@
 
       <p>Until now, all our code has been <i>client-side code</i>. That means the code is downloaded onto the user's computer, and their computer runs the code.</p>
 
-      <p>This time, we are adding some server-side code. This code is run on the server - the computer that our website comes from. If we want to save a post online for other people to read, we need to save it on the server so its there for everyone.</p>
+      <p>This time, we are adding some server-side code. This code is run on the server - the computer that our website comes from.</p>
 
       <p>In this workshop we will set up a server using Node.js which will serve files to a client.</p>
 
       <h2>Setting up Node.js</h2>
 
-      <p>Node.js (sometimes just called Node) is a server program.</p>
+      <p>Node.js (called Node for short) is a server program.</p>
 
       <p><a href="https://nodejs.org/" target="_blank">Download Node</a> (choose the 'LTS' option, which says 'Recommended For Most Users') and install it. (Basically just click 'next' on all the pages, you don't need to change any settings.)</p>
 
@@ -277,14 +277,15 @@
       <p>The link you just clicked has two parts:</p>
 
       <ul>
-        <li><b>localhost:3000</b> is the server - the computer who we want to talk to.</li>
-        <li><b>/index.html</b> is the request - what we want it to give us.</li>
+        <li><b>localhost:3000</b> is the host, or server - the computer who we want to talk to.</li>
+        <li><b>/index.html</b> is the path - this says what we are asking for.</li>
       </ul>
 
       <div class="alert">
-        <p>What if I don't make a request?</p>
+        <p>What if I don't include a path?</p>
         <p>Try this link: <a href="http://localhost:3000">http://localhost:3000</a></p>
-        <p>If you don't say what you want, the server assumes you want <b>index.html</b> and gives you that.</p>
+        <p>It's showing us the same page!</p>
+        <p>If you don't say what you want, the server gives you <b>index.html</b> because it's a good starting point.</p>
       </div>
 
       <h2>Serving Files</h2>
@@ -305,7 +306,7 @@
 
         <img class="framed" src="atom-showing-nodestart.png">
 
-        <p>Use Atom to make a new file, name it <b>new.html</b> and save it as in the 'nodestart/public' folder.</p>
+        <p>Use Atom to make a new file, name it <b>new.html</b> and save in the 'nodestart/public' folder.</p>
 
         <p>Put this code inside new.html and save it again.</p>
 
@@ -334,7 +335,7 @@
 
       <h2>Our server is clever</h2>
 
-      <p>It's easy to serve pages that have already been made! But sites like Facebook, pinterest and TradeMe serve us special pages that are always changing – pages that update and change all the time.</p>
+      <p>It's easy to serve pages that have already been made! But sites like Facebook, pinterest and TradeMe serve us special pages that they prepared just for us – custom-made pages that might include our friends' posts, or products we searched for.</p>
 
       <p>Let's tell our server, when we make a special request, it should give us a special reply - not just a premade page.</p>
 
