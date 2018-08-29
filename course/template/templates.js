@@ -304,7 +304,7 @@ Start by adding this empty post handler to the server:
 \`\`\`javascript
 function commentHandler(req, res) {
     //more code goes here
-   res.send(\"ok\");
+   response.send(\"ok\");
 }
 app.post(\"/comment\", commentHandler);
 \`\`\`
@@ -312,10 +312,10 @@ app.post(\"/comment\", commentHandler);
 > Remember to restart the server whenever you change index.js!
 
 Now you'll need to teach the server what to do:
-- [ ] check what value was sent through: try \`console.log(req.body.postId);\` and \`console.log(req.body.comment);\` and see if the comment and post number appear in the server log when you comment
+- [ ] check what value was sent through: try \`console.log(request.body.postId);\` and \`console.log(request.body.comment);\` and see if the comment and post number appear in the server log when you comment
 - [ ] Use the id value to find the matching post in the posts list.
 \`\`\`javascript
-  let post = posts.find(x => x.id == req.body.postId);
+  let post = posts.find(x => x.id == request.body.postId);
 \`\`\`
 - [ ] log that whole post to the console to make sure you've got it right. \`console.log(post)\`, check it is finding the right post
 - [ ] when you find the matching post, add the comment. Look at how we add the fake test comment on every post for an example.
@@ -472,9 +472,9 @@ Add this code:
 
 \`\`\`javascript
 function deleteHandler(req, res) {
-   console.log(\"client wants to delete this post: \" + req.body.postId );
+   console.log(\"client wants to delete this post: \" + request.body.postId );
     //code goes here
-   res.send(\"ok\");
+   response.send(\"ok\");
 }
 app.post(\"/delete\", deleteHandler);
 \`\`\`
@@ -508,7 +508,7 @@ Test the post is gone for good, no matter what you do.
 Let's make it only delete the post if you entered the right secret code. Use an if statement, and put all the deleting stuff inside it.
 
 \`\`\`javascript
-if (req.body.password === \"1234\") {
+if (request.body.password === \"1234\") {
  //things that happen if the password was correct
 } else {
   console.log(\"Wrong password\");
@@ -780,9 +780,9 @@ In \`index.js\`, let's make a new special GET request that the server listens to
 
 \`\`\`javascript
 app.get('/post', function (req, res) {
-   let searchId = req.query.id;
+   let searchId = request.query.id;
    console.log(\"Searching for post \" + searchId);
-   res.send(\"fix this later\");
+   response.send(\"fix this later\");
 });
 \`\`\`
 
@@ -800,7 +800,7 @@ We can use the 'find' function to search a list for something that passes a cert
 
 \`\`\`javascript
    let post = posts.find(x => x.id == searchId);
-   res.send(post);
+   respose.send(post);
 \`\`\`
 
 Test that it's working by going to http://localhost:3000/post?id=1001 again. Instead of 1001 put in the id of an actual post. It should show details of that post.
@@ -1335,7 +1335,7 @@ You will need to change the data structure a bit, so each idea is an object, not
 
 Look in index.js for the line that pushes the user's new post into the list of posts.
 
-We currently get the value \`req.body.message\` which is a string, and save it straight into the posts list.
+We currently get the value \`request.body.message\` which is a string, and save it straight into the posts list.
 
 \`\`\`javascript
 posts.push(request.body.message);
