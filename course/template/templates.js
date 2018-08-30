@@ -290,7 +290,7 @@ We will need 2 pieces of information to give the server:
 let data = {};
 data.postId = post.id;
 data.comment = "test" //fixme: replace this with the actual comment
-fetch("/comment", {method:"POST"} body: JSON.stringify(data)});
+fetch("/comment", {method:"POST", body: JSON.stringify(data)});
 console.log(\"i asked the server to save your comment\");
 \`\`\`
 
