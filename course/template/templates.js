@@ -1459,7 +1459,7 @@ Here is an example of how to post something to the server:
 let data = {};
 fetch(\"url\", {method:"POST"} body: JSON.stringify(data)});
 \`\`\`
-- [ ] add that code **inside** the sendMessageToServer function.
+- [ ] add that code **inside** the sendMessageToServer function. (Look for \`function sendMessageToServer\`. The code inside the function is the next few lines, between the \`{\` and the \`}\`.)
 - [ ] Change the first argument from \"url\" to \"/posts\" - this is where we are posting to. (It has to match the address the server is listening to in index.js)
 - [ ] TEST: clicking the button should now add a new message to the message feed - but it will be \`null\`, instead of what you typed in.
 - [ ] delete the annoying \`alert\` command.
