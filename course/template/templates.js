@@ -974,6 +974,14 @@ This task does not include updating the CSS look + feel of the post.html page. J
 
 Right now, all the posts disappear each time the server restarts.
 
+Let's check that this is trues. Start your server by running \`node index.js\` in Terminal or Command Prompt. Visit your server \`localhost:3000\` in your web browser. Make a post, and look at the feed. 
+
+You should see the post you made.
+
+Now stop and restart the server. (Go to Terminal or Command Prompt, press Control+C to stop the server. Then start it again using the instruction above.)
+
+You should see that the post has disappeared.
+
 To keep the posts saved even after the server restarts, we need to save them somewhere else.
 
 We're going to use mongoDB, a database, to store our posts. Girl Code has already signed up with a company that provides free Mongo databases, so we won't need to install any database software ourselves.
@@ -983,9 +991,9 @@ We're going to use mongoDB, a database, to store our posts. Girl Code has alread
 - [ ] Use the Girl Code account details to log in
 - [ ] Create a new database (a.k.a new Deployment). Look for a 'Create New' button.
 
-Most of the options don't matter. You don't want to pay any money so click _Single Node_ and choose the free option.
+Most of the options don't matter. You don't want to pay any money choose the free option when you see one. Other options like Cloud Provider or Location can be left alone.
 
-- [ ] Under _Database Name_ give it the same name as our project.
+- [ ] Under _Database Name_ give it the same name as our GitHub project, i.e. girlcode2015-term4.
 
 Once it's created, click on it in the database list. We need to do two things:
 - [ ] Add a Collection. Call it 'posts'. This is a collection of things we can save and load.
@@ -1062,9 +1070,9 @@ When the server starts, it will
 
 When someone makes a new post on our website, our server needs to save that post into the database collection.
 
-- [ ] In \`\`\`index.js\`\`\`, find the \`saveNewPost\` function 
+- [ ] In \`\`\`index.js\`\`\`, find \`function saveNewPost\`
 
-Add this lines inside the function, at the end.
+Add this lines inside the function, at the end. (The function ends with a \`}\` symbol, usually on a line by itself.)
 
 \`\`\`javascript
 databasePosts.insert(post);
