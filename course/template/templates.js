@@ -974,7 +974,7 @@ This task does not include updating the CSS look + feel of the post.html page. J
 
 Right now, all the posts disappear each time the server restarts.
 
-Let's check that this is trues. Start your server by running \`node index.js\` in Terminal or Command Prompt. Visit your server \`localhost:3000\` in your web browser. Make a post, and look at the feed. 
+Let's check that this is true. Start your server by running \`node index.js\` in Terminal or Command Prompt. Visit your server \`localhost:3000\` in your web browser. Make a post, and look at the feed. 
 
 You should see the post you made.
 
@@ -991,7 +991,7 @@ We're going to use mongoDB, a database, to store our posts. Girl Code has alread
 - [ ] Use the Girl Code account details to log in
 - [ ] Create a new database (a.k.a new Deployment). Look for a 'Create New' button.
 
-Most of the options don't matter. You don't want to pay any money choose the free option when you see one. Other options like Cloud Provider or Location can be left alone.
+You don't want to pay any money so choose the free option when you see one. Other options like Cloud Provider or Location can be left alone.
 
 - [ ] Under _Database Name_ give it the same name as our GitHub project, i.e. girlcode2015-term4.
 
@@ -999,7 +999,7 @@ Once it's created, click on it in the database list. We need to do two things:
 - [ ] Add a Collection. Call it 'posts'. This is a collection of things we can save and load.
 - [ ] Add a Database User. This is an account that can use this database. Give them a name and password, maybe 'girlcode' and 'hats123'.
 
-(Don't tick 'read only' user. That would mean that this user can look at posts but is not allowed to make new ones. We need them to be able to create new posts.)
+(Leave the 'read only' box unticked. That would mean that this user can look at posts but is not allowed to make new ones. We need them to be able to create new posts.)
 
 # Add mongodb dependency
 
@@ -1043,7 +1043,8 @@ MongoClient.connect(databaseUrl, {useNewUrlParser: true}, function(err, client) 
   let database = client.db(databaseName);
   databasePosts = database.collection('posts');
   databasePosts.find({}).toArray(function(err, results) {
-    console.log("Found " + results.length + " results")
+    if (err) throw err;
+    console.log("Found " + results.length + " results");
     posts = results
   });
 });
@@ -1055,7 +1056,7 @@ This code needs a few changes.
 - [ ] The databaseUrl needs to be changed to point to *your* database. Look for the \"standard MongoDB URI\" on the mLab website and copy it in.
 - [ ] In the URI, replace \`\`\`<dbuser>\`\`\` with the database username that you created. (Delete the pointy brackets.)
 - [ ] Also replace \`\`\`<dbpassword>\`\`\` with the database password that you created.
-- [ ] On the line that starts \`\`\`let databaseName = (\`\`\`, you need to put in the name of *your* database.
+- [ ] On the line that starts \`\`\`let databaseName = \`\`\`, you need to put in the name of *your* database.
 
 Try starting your server. You should see a message \"\"yay we connected to the database\" in your command prompt after a few seconds.
 
@@ -1072,7 +1073,7 @@ When someone makes a new post on our website, our server needs to save that post
 
 - [ ] In \`\`\`index.js\`\`\`, find \`function saveNewPost\`
 
-Add this lines inside the function, at the end. (The function ends with a \`}\` symbol, usually on a line by itself.)
+Add this lines inside the function, at the end. (The function ends with a \`}\` symbol, usually on a line by itself. You want to add this just before that.)
 
 \`\`\`javascript
 databasePosts.insert(post);
