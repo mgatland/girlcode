@@ -562,7 +562,7 @@ element.classList.add("hidden");
 
 The 'hidden' class doesn't do anything unless we tell it to. Let's do that:
 
-\`\`\` css
+\`\`\`css
 .hidden {display: none}
 \`\`\`
 
@@ -696,11 +696,11 @@ Use css to make the images in the feed always appear the same size - or at least
 
 css rules to try:
 
-\`\`\` css
+\`\`\`css
 width: 100%
 \`\`\`
 
-\`\`\` css
+\`\`\`css
 width: 100px;
 \`\`\`
 Decide which you prefer, and try changing the number a little bit. Make sure you try resizing your browser window to see how it looks on smaller screens too!
@@ -765,7 +765,7 @@ Don't worry about making it look good, because we are going to use CSS To make i
 
 In the style.css file, add a rule to make the ids invisible:
 
-\`\`\` css
+\`\`\`css
 .postId {
     display: none;
 }
@@ -872,7 +872,7 @@ Make our form look a bit more like the TradeMe one by making some of these chang
 
 Try adding this code to **style.css** as a starting point.
 
-\`\`\` css
+\`\`\`css
 input {
     border: 1px solid orange;
     background-color: green;
@@ -1054,9 +1054,9 @@ MongoClient.connect(databaseUrl, {useNewUrlParser: true}, function(err, client) 
 This code needs a few changes.
 
 - [ ] The databaseUrl needs to be changed to point to *your* database. Look for the \"standard MongoDB URI\" on the mLab website and copy it in.
-- [ ] In the URI, replace \`\`\`<dbuser>\`\`\` with the database username that you created. (Delete the pointy brackets.)
-- [ ] Also replace \`\`\`<dbpassword>\`\`\` with the database password that you created.
-- [ ] On the line that starts \`\`\`let databaseName = \`\`\`, you need to put in the name of *your* database.
+- [ ] In the URI, replace \`<dbuser>\` with the database username that you created. (Delete the pointy brackets.)
+- [ ] Also replace \`<dbpassword>\` with the database password that you created.
+- [ ] On the line that starts \`let databaseName = \`, you need to put in the name of *your* database.
 
 Try starting your server. You should see a message \"\"yay we connected to the database\" in your command prompt after a few seconds.
 
@@ -1064,14 +1064,14 @@ Try starting your server. You should see a message \"\"yay we connected to the d
 
 When the server starts, it will 
 1 connect to your database.
-2. Find the database's collection of posts.  Save this in the \`\`\`databasePosts\`\`\` variable so we can use it later.
+2. Find the database's collection of posts.  Save this in the \`databasePosts\` variable so we can use it later.
 3. Find all the documents in this collection, and save this list of documents into the variable \`posts\`.
 
 # But the collection is empty
 
 When someone makes a new post on our website, our server needs to save that post into the database collection.
 
-- [ ] In \`\`\`index.js\`\`\`, find \`function saveNewPost\`
+- [ ] In \`index.js\`, find \`function saveNewPost\`
 
 Add this lines inside the function, at the end. (The function ends with a \`}\` symbol, usually on a line by itself. You want to add this just before that.)
 
@@ -1397,7 +1397,7 @@ https://www.w3schools.com/howto/howto_js_topnav.asp
 
 Note: Links have a built in style that makes them blue and underlined. This rule will override the rules they inherit from the navbar. You need to make a _more specific style_ to override the link styles. For example, if your navbar has class=\"navbar\", this rule will change the color of the links inside the navbar and remove their underline:
 
-\`\`\` css
+\`\`\`css
 .navbar a {
     color: pink;
     text-decoration: none;
@@ -1551,7 +1551,7 @@ document.querySelector(".previewButton").addEventListener("click", function () {
     source = source.replace(/&gt;/g, ">")
     const result = converter.makeHtml(source)
     el.classList.add("hidden")
-    el.parentNode.innerHTML += "<div class='markdown'>" + result + "</div>"
+    el.parentNode.innerHTML += "<div class='markdown-body'>" + result + "</div>"
   })  
 })
 
