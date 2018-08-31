@@ -1406,7 +1406,7 @@ Note: Links have a built in style that makes them blue and underlined. This rule
 
 That rule applies to links \`<a>\` that are _inside something_ that has class=\"navbar\"
 `},
-{"number":2,"title":"Clicking 'Post it!' should not go to a new page - must be done first!",
+{"number":2,"title":"Clicking 'Post it!' should not go to a new page",
 "body":`Currently, when you click 'Post it!' on the **post.html** page, you are taken to a new page that says \"thanks for your message. Press back to add another\"
 
 This is confusing and not very attractive.
@@ -1457,7 +1457,7 @@ Here is an example of how to post something to the server:
 
 \`\`\`javascript
 let data = {};
-fetch(\"url\", {method:"POST"} body: JSON.stringify(data)});
+fetch(\"url\", {method:"POST", body: JSON.stringify(data)});
 \`\`\`
 - [ ] add that code **inside** the sendMessageToServer function. (Look for \`function sendMessageToServer\`. The code inside the function is the next few lines, between the \`{\` and the \`}\`.)
 - [ ] Change the first argument from \"url\" to \"/posts\" - this is where we are posting to. (It has to match the address the server is listening to in index.js)
@@ -1508,13 +1508,24 @@ for(let issue of issues) {
   const titleEl = document.createElement("h3")
   titleEl.textContent = issue.title
   titleEl.classList.add("selectAll")
+  titleEl.classList.add("title")
   issueEl.appendChild(titleEl)
 
-  const closeEl = document.createElement("a")
-  closeEl.classList.add("close", "hidden")
-  closeEl.href = "#"
-  closeEl.textContent = "Close"
+  const closeEl = document.createRange().createContextualFragment(
+      `<a href="#" class="close hidden">Close</button>`)
   issueEl.appendChild(closeEl)
+
+  const addEl = document.createRange().createContextualFragment(
+      `<button class="addToProject">Add to project</button>`)
+  issueEl.appendChild(addEl)
+
+  const viewMarkdownEl = document.createRange().createContextualFragment(
+      `<a class="viewMarkdown linkButton" href="#">view markdown</div>`)
+  issueEl.appendChild(viewMarkdownEl)
+
+  const viewFormattedEl = document.createRange().createContextualFragment(
+      `<a class="viewFormatted linkButton" href="#">view formatted</div>`)
+  issueEl.appendChild(viewFormattedEl)
 
   const issueBodyEl = document.createElement("div")
   issueBodyEl.classList.add("issueBody")
@@ -1527,10 +1538,23 @@ for(let issue of issues) {
     if (e.target.classList.contains("close")) {
       e.currentTarget.querySelector(".issueBody").classList.add("hidden")
       e.currentTarget.querySelector(".close").classList.add("hidden")
+      hidePreview(e.currentTarget)
       e.preventDefault()
-    } else {
+    } else if (e.target.classList.contains("addToProject")) {
+      const title = e.currentTarget.querySelector(".title").innerHTML
+      const body = e.currentTarget.querySelector(".issueBody").innerHTML
+      e.target.classList.add("hidden") //immediately hide to prevent double clicks
+      addIssueToProject(title, body)
+    } else if (e.target.classList.contains("viewMarkdown")) {
+      e.preventDefault()
       e.currentTarget.querySelector(".issueBody").classList.remove("hidden")
-      e.currentTarget.querySelector(".close").classList.remove("hidden")      
+      hidePreview(e.currentTarget)
+      e.currentTarget.querySelector(".close").classList.remove("hidden")
+    } else if (e.target.classList.contains("viewFormatted")) {
+      e.preventDefault()
+      addPreviewTo(e.currentTarget)
+      e.currentTarget.querySelector(".issueBody").classList.add("hidden")
+      e.currentTarget.querySelector(".close").classList.remove("hidden")
     }
     if (e.target.classList.contains("selectAll")) {
       window.getSelection().selectAllChildren(e.target)  
@@ -1542,18 +1566,28 @@ for(let issue of issues) {
 
 //to export: console.log(cleanIssues)
 
-document.querySelector(".previewButton").addEventListener("click", function () {
+function hidePreview(parentEl) {
+  const preexisting = parentEl.querySelector(".preview")
+  if (preexisting) {
+    preexisting.classList.add("hidden")
+  }
+}
+
+function addPreviewTo(parentEl) {
+  const preexisting = parentEl.querySelector(".preview")
+  if (preexisting) {
+    preexisting.classList.remove("hidden")
+    return
+  }
   const converter = new showdown.Converter()
   converter.setFlavor('github')
-  document.querySelectorAll(".issueBody").forEach(function (el) {
-    let source = el.innerHTML
-    source = source.replace(/&lt;/g, "<")
-    source = source.replace(/&gt;/g, ">")
-    const result = converter.makeHtml(source)
-    el.classList.add("hidden")
-    el.parentNode.innerHTML += "<div class='markdown-body'>" + result + "</div>"
-  })  
-})
+  const el = parentEl.querySelector(".issueBody")
+  let source = el.innerHTML
+  source = source.replace(/&lt;/g, "<")
+  source = source.replace(/&gt;/g, ">")
+  const result = converter.makeHtml(source)
+  parentEl.innerHTML += "<div class='preview'><div class='markdown-body'>" + result + "</div></div>"
+}
 
 document.querySelector(".expandAllButton").addEventListener("click", function () {
   document.querySelectorAll(".issueBody").forEach(function (el) {
@@ -1561,3 +1595,95 @@ document.querySelector(".expandAllButton").addEventListener("click", function ()
     el.parentNode.querySelector(".close").classList.remove("hidden")
   })  
 })
+
+function refreshUsedIndicators() {
+
+  fetch(`https://api.github.com/repos/girlcodeakl/${getProjectName()}/issues?state=all`,
+    {
+      headers: {
+        'Authorization': 'token ' + getToken()
+      }
+    }
+  )
+  .then(function (response) {return response.json()})
+  .then(function(issues) {
+    for (let issue of issues) {
+      markIssueAsUsed(issue.title)
+    }
+  })
+
+  function markIssueAsUsed (title) {
+    const titleElements = document.querySelectorAll('.title')
+    for (var i = 0; i < titleElements.length; i++) {
+      if (titleElements[i].textContent.toLowerCase() == title.toLowerCase()) {
+        titleElements[i].parentNode.classList.add("used")
+        titleElements[i].parentNode.querySelector(".addToProject").classList.add("hidden")
+        break
+      }
+    }
+  }
+}
+
+function addIssueToProject(title, body) {
+  let data = {}
+  data.title = title
+  data.body = body
+  fetch(`https://api.github.com/repos/girlcodeakl/${getProjectName()}/issues`,
+  {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      'Authorization': 'token ' + getToken()
+    }
+  })
+  .then(function (response) {return response.json()})
+  .then(function(response) {
+    console.log(response.title + " created")
+    refreshUsedIndicators()
+  })
+}
+
+refreshUsedIndicators()
+
+const settingsWarning = document.querySelector(".settingsWarning")
+
+if (getToken() === null || getToken() === "") {
+  settingsWarning.classList.remove("hidden")
+}
+
+document.querySelector(".showSettings").addEventListener("click", 
+  function (e) {
+      document.querySelector(".settings").classList.toggle("hidden")
+      settingsWarning.classList.add("hidden")
+    }
+  )
+
+
+const projectNameInput = document.querySelector(".projectNameInput")
+projectNameInput.value = getProjectName()
+projectNameInput.addEventListener("keyup", function (e) {
+  setProjectName(projectNameInput.value)
+})
+
+const tokenInput = document.querySelector(".tokenInput")
+tokenInput.value = getToken()
+tokenInput.addEventListener("keyup", function (e) {
+  setToken(tokenInput.value)
+})
+
+function getToken () {
+  return window.localStorage.getItem('token')
+}
+
+function setToken (value) {
+  window.localStorage.setItem('token', value)
+}
+
+//could be shared
+function getProjectName () {
+  return window.localStorage.getItem('projectName')
+}
+
+function setProjectName (value) {
+  window.localStorage.setItem('projectName', value)
+}
