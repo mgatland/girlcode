@@ -634,7 +634,7 @@ We'll add a new text input (the white box you type words into) to _post.html_
 ### Part 1
 - [ ] in post.html, add a new text \`<input>\` field where the user can write the date. You can copy and paste the input where they write their message.
 - (Don't copy the whole form - we're just adding a new input, which is the empty space you write into, to the existing form. There should still only be one 'Post it!' button for the whole form.
-- [ ] Give your new \`<input>\` field has a unique class name, e.g. \`class=\"dateInput\"\`
+- [ ] Make your new \`<input>\` field have a unique class name, e.g. \`class=\"dateInput\"\`
 - [ ] Check: open localhost:3000/post.html and check your new input field appears on the form.
 
 ### Part 1.5
@@ -945,7 +945,7 @@ If someone has already finished the issue **Clicking 'Post it!' should not go to
 
 Now it's (hopefully) being sent to the server, we need to teach the server to look out for this new information.
 - [ ] We're now working in _index.js_
-- [ ] find for the code that is run when a user POSTS a new post to the server.
+- [ ] look for the code that is run when a user POSTS a new post to the server.
 - [ ] there is a line that writes the post's message to the console using \`console.log(request.body.message);\`. Add another line that logs request.body.author as well. ('author' needs to match whatever you saved it as in the data object back in post.html)
 - [ ] Restart the server, post a new post and check that your author name now shows up in terminal/command prompt.
 - [ ] If the author name is coming through, we can now save it. You do this by setting a new new name-value pair on the \`post\`. Your code might look like this:
@@ -1137,23 +1137,6 @@ The script gives us some new commands. (The full documentation is at https://git
 
 - [ ] check that your times are now pretty! They should say something like \"11 minutes ago\"
 
-**Problems!**
-
-Is your feed broken? Not all the posts are appearing?
-
-The timeago command gets angry if you ask it to make an invalid time pretty. All the posts we've made so far don't have a \`post.time\` value, so it breaks on them.
-
-In \`feed.html\`, add this little hack that adds a fake time to any post that was missing a time stamp.
-
-\`\`\`javascript
-///hack: fix invalid dates
-if (post.time === undefined) {
-   post.time = new Date(\"2016-01-01\");
-}
-\`\`\`
-
-Add it just before the part we've been working on, which displays the pretty time.
-
 # PART 3
 
 It's kind of confusing that the time is the same color as the text and author name.
@@ -1190,7 +1173,7 @@ We need to connect the app to GitHub. Choose the GitHub user *girlcodeakl* and t
 
 Now we need to enable Automatic deploys. This means the public app will automatically update whenever we update the master branch of our app.
 
-- [ ] Find for the 'Automatic deploys' section
+- [ ] Look for the 'Automatic deploys' section
 - [ ] Make sure the master branch is selected
 - [ ] *enable automatic deploys*
 
@@ -1260,6 +1243,7 @@ If you don't start listening on the correct port, it shuts you down after 60 sec
 
 - [ ] in index.js, find the line that makes our app listen to port 3000. (Try searching for '3000')
 - [ ] Change from \`3000\` to \`(process.env.PORT || 3000)\` - which means "get the port number from the configuration, or if it hasn't been configured, just used 3000.
+- [ ] On your computer, restart your server and just check you haven't broken anything.
 - [ ] commit your change to the master branch
 - [ ] Push your branch
 - [ ] Heroku will take a few minutes to deploy the new version. See if it's starting up properly now.
