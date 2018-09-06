@@ -399,7 +399,7 @@ There is lots of code in displayMessage to make things appear in the page. Try c
 *Test*: Each post should display the fake comment
 
 That's all we're doing in this ticket. Other tickets will finish off the comments feature.`},
-{"number":22,"title":"Add a text input and 'reply' button after every post (comments feature)",
+{"number":22,"title":"Add a text input and 'reply' button after every post (comments feature) (not updated for no jquery)",
 "body":`_Making comments work is a big job, split across several tickets. This is one part._
 
 **This ticket depends on the 'unique ids' ticket being done first**
