@@ -704,7 +704,11 @@ section.success .fa-inverse {
 /* for the radio button on the form, and new form layout */
 
 .radio {
-  
+}
+
+.radio+.radio, .checkbox+.checkbox {
+    /* override bootstrap margin-top: -5px; */
+    margin-top: inherit;
 }
 
 .radio:hover {

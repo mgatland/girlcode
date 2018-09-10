@@ -132,9 +132,9 @@
       </div>
       <div class="row">
         <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-          <p>At Girl Code, beginners work together to build a web application. We meet on <b>Thursday nights</b> for eight weeks.</p>
+          <p>At Girl Code, beginners work together to build a web application. We meet <b>one night a week</b> for eight weeks.</p>
 
-          <p>Our next course is open to any women aged 15 or over.</p>
+          <p>Our classes are open to any women aged 15 or over.</p>
           
           <p>We teach the same tools used by top employers like TradeMe, Spark and Air New Zealand. You'll discover what coders really do all day and what it's like to work in tech.</p>
 
@@ -305,17 +305,14 @@
 
         <p><i>Note: Girl Code is a short course and not a full software education. If you want to become a work-ready developer, you will need to enrol in a longer course like <a href="https://devacademy.co.nz/" target="_blank">Devacademy</a> or the University of Auckland's <a href="http://www.science.auckland.ac.nz/en/for/future-undergraduates-4/fu-admission-and-enrolment.html" target="_blank">Computer Science degree</a>.</i></p>
 
-        <h3>Dates and Times</h3>
-          <p>
-            Our next course runs for 8 weeks, from <b><span class="dateFrom"></span></b> to <b><span class="dateTo"></span></b>.
-            <span class="soldOut hidden"><span class="text-danger">These dates are now <b>sold out!</b> We will announce a new course soon. You can <a href="#signup">click here</a> to join the waiting list in case a space becomes available.</span></span>
-          </p>
+        <h3>Cost and Times</h3>
+          <p>Each course runs for 8 weeks.</p>
 
-
-
-          <p>We meet on <span class="meetingDayTime">Thursday nights</span> from <b><span class="courseHours">6:30 PM to 8:30 PM</span></b>.</p>
+          <p>We meet one night each week from <b><span class="courseHours">6:30 PM to 8:30 PM</span></b>.</p>
 
           <p>The cost is <b><span class="cost"></span></b> for the entire 16-hour course.</p>
+
+          <p>Scroll down to the <a href="#signup">Sign Up</a> section to see what courses are open for sign-ups.</p>
         </div>
       </div>
       <div class="row">
@@ -413,14 +410,14 @@
                   </div>
                   </label>
                 </div>
-                <div class="radio soldOut hidden">
+                <div class="radio">
                   <label>
                   <input type="radio" name="course-options" required data-validation-required-message="Please choose a course" value="waiting list">
                   <div class="option-heading">
                     Join the waiting list
                   </div>
                   <div class="option-description">
-                     We will email you if a space becomes available, or when the next course is announced.
+                     We will email you when the next course is announced.
                   </div>
                   </label>
                 </div>
@@ -594,18 +591,16 @@
   <script src="js/spin.js"></script>
   <script>
   //change each term:
-  var dateFrom = "9th August"
-  var dateTo = "27th September"
-  var courseCode = "Term 3 2018-09-07" //sent to us in the form
+  var dateFrom = "18th October"
+  var dateTo = "6th December"
+  var courseCode = "Term 4-A 2018-10-18" //sent to us in the form
   var almostSoldOut = false
-  var soldOut = true
+  var soldOut = false
 
   //maybe never change:
-  var meetingDayTime = "Thursday nights" //we meet on 'Thursday nights'
   var meetingDay = "Thursday" //every 'Thursday' from 6:30 to 8:30
   var courseHours = "6:30 PM to 8:30 PM"
   var cost = "$400"
-  $(".meetingDayTime").text(meetingDayTime)
   $(".dateFrom").text(dateFrom)
   $(".dateTo").text(dateTo)
   $(".courseHours").text(courseHours)
