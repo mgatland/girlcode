@@ -290,7 +290,13 @@ We will need 2 pieces of information to give the server:
 let data = {};
 data.postId = post.id;
 data.comment = "test" //fixme: replace this with the actual comment
-fetch("/comment", {method:"POST", body: JSON.stringify(data)});
+fetch("/comment", {
+  method:"POST",
+  body: JSON.stringify(data),
+  headers: {'Content-Type': 'application/json'}
+});
+
+
 console.log(\"i asked the server to save your comment\");
 \`\`\`
 
@@ -1441,7 +1447,12 @@ Here is an example of how to post something to the server:
 
 \`\`\`javascript
 let data = {};
-fetch(\"url\", {method:"POST", body: JSON.stringify(data)});
+fetch("/url", {
+  method:"POST",
+  body: JSON.stringify(data),
+  headers: {'Content-Type': 'application/json'}
+});
+
 \`\`\`
 - [ ] add that code **inside** the sendMessageToServer function. (Look for \`function sendMessageToServer\`. The code inside the function is the next few lines, between the \`{\` and the \`}\`.)
 - [ ] Change the first argument from \"url\" to \"/posts\" - this is where we are posting to. (It has to match the address the server is listening to in index.js)
