@@ -561,7 +561,7 @@ This is how you add or remove a class:
 
 \`\`\`javascript
 element.classList.add("hidden");
-element.classList.add("hidden");
+element.classList.remove("hidden");
 \`\`\`
 
 2. Add a new css rule
@@ -742,7 +742,7 @@ NOTE: our posts also have a *_id* field (with the underscore in front) - that's 
 
 In Chrome, open the Developer Tools and choose 'Console'
 
-Try typing these commands into the console (hit Enter after each one) and see if you can work out what each command does:
+Try typing these commands into the console (press Enter after each one) and see if you can work out what each command does:
 
 \`\`\`javascript
 Math.random()
