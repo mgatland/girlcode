@@ -308,7 +308,7 @@ Now we need to go to \`index.js\` and teach it how to respond to a new kind of P
 Start by adding this empty post handler to the server:
 
 \`\`\`javascript
-function commentHandler(req, res) {
+function commentHandler(request, response) {
     //more code goes here
    response.send(\"ok\");
 }
@@ -477,7 +477,7 @@ In **index.js** teach the server how to respond to this new kind of request.
 Add this code:
 
 \`\`\`javascript
-function deleteHandler(req, res) {
+function deleteHandler(request, response) {
    console.log(\"client wants to delete this post: \" + request.body.postId );
     //code goes here
    response.send(\"ok\");
@@ -785,7 +785,7 @@ Now our posts have unique ids, we can give our server a function to get a partic
 In \`index.js\`, let's make a new special GET request that the server listens to.
 
 \`\`\`javascript
-app.get('/post', function (req, res) {
+app.get('/post', function (request, response) {
    let searchId = request.query.id;
    console.log(\"Searching for post \" + searchId);
    response.send(\"fix this later\");
@@ -1539,7 +1539,7 @@ for(let issue of issues) {
       const title = e.currentTarget.querySelector(".title").innerHTML
       const body = e.currentTarget.querySelector(".issueBody").innerHTML
       e.target.classList.add("hidden") //immediately hide to prevent double clicks
-      addIssueToProject(title, body)
+      addIssueToProject(issue.title, issue.body)
     } else if (e.target.classList.contains("viewMarkdown")) {
       e.preventDefault()
       e.currentTarget.querySelector(".issueBody").classList.remove("hidden")
