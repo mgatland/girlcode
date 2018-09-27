@@ -265,7 +265,7 @@ $(\".note\").text(data);
 
 - [ ] Try out your page now. Clicking the Log In button should show the server's response, which is always \"OK\" at the moment.
 `},
-{"number":24,"title":"Make comments work (comments feature)",
+{"number":24,"title":"Make comments work (comments feature part 3)",
 "body":`_Making comments work is a big job, split across several tickets. This is the third part, and the other two must be completed first._
 
 The previous comment tickets did this:
@@ -1536,8 +1536,6 @@ for(let issue of issues) {
       hidePreview(e.currentTarget)
       e.preventDefault()
     } else if (e.target.classList.contains("addToProject")) {
-      const title = e.currentTarget.querySelector(".title").innerHTML
-      const body = e.currentTarget.querySelector(".issueBody").innerHTML
       e.target.classList.add("hidden") //immediately hide to prevent double clicks
       addIssueToProject(issue.title, issue.body)
     } else if (e.target.classList.contains("viewMarkdown")) {
