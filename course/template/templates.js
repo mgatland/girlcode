@@ -1591,7 +1591,7 @@ document.querySelector(".expandAllButton").addEventListener("click", function ()
 
 function refreshUsedIndicators() {
 
-  fetch(`https://api.github.com/repos/girlcodeakl/${getProjectName()}/issues?state=all?per_page=100`,
+  fetch(`https://api.github.com/repos/girlcodeakl/${getProjectName()}/issues?state=all&per_page=100`,
     {
       headers: {
         'Authorization': 'token ' + getToken()
