@@ -538,8 +538,8 @@ Make a function called \`filterFeed\`, which:
 2. loops over each of the children in \`message-list\`, and does something. Here's the code to do that:
 
 \`\`\`javascript
-  document.querySelectorAll(".message-list").forEach(function(element) {
-   //code in here will be run once for each post in the list
+  document.querySelectorAll(".post").forEach(function(element) {
+   //code in here will be run once for each post
  });
 \`\`\`
 1. for each post, we need to search its contents and see if it contains our search text. Then we'll add or remove the class \`hidden\` to that post.
