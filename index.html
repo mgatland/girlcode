@@ -400,10 +400,10 @@
                     <div class="soldOut hidden text-danger">Sold out!</div>
                   </div>
                   <div class="option-description">
-                    <span class="dateFrom"></span> to <span class="dateTo"></span>
+                    <span class="dateFrom"></span> to <span class="dateTo"></span>, <span class="courseYear"></span>
                   </div>
                   <div class="option-description-2">
-                    Every <span class="meetingDay"></span> from <span class="courseHours"></span>
+                    Each <span class="meetingDay"></span> from <span class="courseHours"></span>
                   </div>
                   <!--<div class="option-description-2">
                     Mentors: Greta and Matthew</span>
@@ -417,7 +417,7 @@
                     Join the waiting list
                   </div>
                   <div class="option-description">
-                     We will email you when the next course is announced.
+                     We will email you when the next course is announced. We usually run four courses each year.
                   </div>
                   </label>
                 </div>
@@ -593,6 +593,7 @@
   //change each term:
   var dateFrom = "14th February"
   var dateTo = "4th April"
+  const courseYear = "2019"
   var courseCode = "Term 1 2019-02-14" //sent to us in the form
   var almostSoldOut = false
   var soldOut = false
@@ -603,6 +604,7 @@
   var cost = "$420"
   $(".dateFrom").text(dateFrom)
   $(".dateTo").text(dateTo)
+  $(".courseYear").text(courseYear)
   $(".courseHours").text(courseHours)
   $(".cost").text(cost)
   $(".meetingDay").text(meetingDay)
