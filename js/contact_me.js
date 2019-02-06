@@ -59,6 +59,9 @@ $(function() {
 
                     //clear all fields
                     $('#contactForm').trigger("reset");
+
+                    //For analytics
+                    $.get("/tracking/signup")
                 },
                 error: function() {
                     // Fail message
@@ -69,6 +72,9 @@ $(function() {
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");
+
+                    //For analytics
+                    $.get("/tracking/signup-error")
                 },
             })
         },
