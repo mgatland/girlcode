@@ -1125,7 +1125,7 @@ Right now, our timestamp should like this: \`2015-09-09T03:42:18.991Z\`. Only go
 
 We can make that nicer, but it will take a lot of code. _Fortunately, someone else has already written the code for us!_ I found a plugin that will work, it's called timeago.js.
 
-- [ ] Download timeago.min.js from here: https://raw.githubusercontent.com/hustcc/timeago.js/master/dist/timeago.min.js
+- [ ] Download timeago.min.js from here: https://raw.githubusercontent.com/hustcc/timeago.js/master/gh-pages/timeago.min.js
 - [ ] Move timeago.min.js into our project's public folder.
 - [ ] Include the script in our feed by adding this link to the _head_ section of feed.html
 
