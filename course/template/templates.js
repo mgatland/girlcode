@@ -1139,7 +1139,7 @@ The script gives us some new commands. (The full documentation is at https://git
 
 - [ ] to display the post time nicely, replace \`post.time\` with this:
 
-\`new timeago().format(post.time)\`
+\`timeago.format(post.time)\`
 
 - [ ] check that your times are now pretty! They should say something like \"11 minutes ago\"
 
