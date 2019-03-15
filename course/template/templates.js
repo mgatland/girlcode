@@ -806,7 +806,7 @@ We can use the 'find' function to search a list for something that passes a cert
 
 \`\`\`javascript
    let post = posts.find(x => x.id == searchId);
-   respose.send(post);
+   response.send(post);
 \`\`\`
 
 Test that it's working by going to http://localhost:3000/post?id=1001 again. Instead of 1001 put in the id of an actual post. It should show details of that post.
