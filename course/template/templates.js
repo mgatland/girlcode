@@ -578,7 +578,7 @@ The 'hidden' class doesn't do anything unless we tell it to. Let's do that:
 document.querySelector(".filter").addEventListener("keyup", filterFeed);
 \`\`\`
 `},
-{"number":19,"title":"Instead of a feed, show just one post at a time (like Tinder) NOT UPDATED FOR NO JQUERY",
+{"number":19,"title":"Instead of a feed, show just one post at a time",
 "body":`We're going to make a new page on our site that shows one post at a time, instead of the whole feed.
 
 [ ] Make a new file named feed2.html inside the public folder
@@ -586,15 +586,25 @@ document.querySelector(".filter").addEventListener("keyup", filterFeed);
 
 (We'll keep original feed as well, because seeing all the posts at once is useful for testing. We might remove it from the final site.)
 
-[ ] In feed2.html, replace \` $.get("/posts", createFeed);\` with \` $.get("/random", createFeed);'
+[ ] In feed2.html, replace \`fetch("/posts")\` with \`fetch("/random")'
+
+This changes the request we are making to the server. We will ask for 1 random post instead of the whole feed.
+
+[ ] In feed2.html, replace \`.then(createFeed);\` with \`.then(displayMessage);\`
+
+The createFeed function expects a list of posts. The displayMessage function expects one post by itself. Because the server is going to give us one post, we should call the function that expects on post.
+
+[ ] In feed2.html, delete the createFeed function, since we no longer use it. Delete the whole function including its pair of curly brackets and their contents.
 
 Feed2 now asks the server for a random post.
 
-Our server doesn't know how to answer that request yet but we are going to show it how. That means moving to *index.js*
+[ ] You can test the page at /feed2.html but it won't work yet.
 
-In index.js, add this code, borrowed from our TV Show Idea generator back in week 1.
+Our server doesn't know how to answer the new "/random" request. We need to move on to the server code in *index.js*
 
-You can add this anywhere, as long as it's not inside another function:
+In index.js, add this code, borrowed from our TV Show Idea generator back in week 2.
+
+You can add this anywhere that is not inside another function:
 
 \`\`\`javascript
 //pick and return a random element from the given list
@@ -603,15 +613,14 @@ function pickRandomFrom(list) {
 };
 \`\`\`
 
-And then this code sets up the response to the request for "/random":
+And then this function sets up the response to the request for "/random":
 
 \`\`\`javascript
 //give the client a random post
 function getRandomPost(request, response) {
   let randomPost = pickRandomFrom(posts);
-  let list = [randomPost]; //we put it inside a list, just because it makes our existing feed code work
-  response.send(list);
-}
+  response.send(randomPost);
+};
 
 app.get('/random', getRandomPost);
 \`\`\`
@@ -626,12 +635,14 @@ You should get a randomly selected post each time you refresh the page.
 
 Can you add a link on the page that makes a new post appear?
 
-- [ ] You'll need to add a link in the HTML (you've done this before!) 
+- [ ] You'll need to add a link for the user to click on - you've done this before!
 - [ ] Give it a unique class i.e. \`class="showNextPost"
-- [ ] You'll need to make a new function that contains this command: \`$.get("/random", createFeed);\` - that command is already in your code, but it's not wrapped up in a function yet. You have to put it inside a function so you can refer to it in the next step.
-- [ ] Use JavaScript to tell your browser to run a function when the link is clicked - you've done this before too!
 
-Does it work? Is there a weird side effect? Can you figure out why it's happening and how you might fix it?`},
+- [ ] You'll need to make a new function that contains the 'fetch, then then' lines. These lines are already in your code, but they are not wrapped up in a function yet. This means they run when the page loads but cannot run again. You need to put them inside a new function so you can call them whenver you like.
+- [ ] Use JavaScript to tell your browser to run that function when the link is clicked - you've done this before too! Think back to Week 2 when we made the buttons add and remove stars in \`fivestar.html\`
+
+Does it work? Is there a weird side effect? Can you figure out why it's happening and how you might fix it?
+`},
 {"number":18,"title":"User can set the date of an event - NOT UPDATED FOR NO JQUERY",
 "body":`When a user posts a new event, let them set a date (what day).
 
