@@ -221,7 +221,7 @@
     <p>Let's add one more CSS rule, which changes the style of the paragraph text.</p>
 
 <pre><code class="language-css">p {
-  border: 2px solid white;
+  border: 2px solid aliceblue;
   padding: 12px;
   background-color: maroon;
   color: pink;
@@ -334,17 +334,20 @@
   <p>Some people have wide screens, but it's hard to read text that is too wide.</p>
   <p>Let's put the contents of our webpage inside a container that won't get too wide.</p>
 
-  <p>Add this tag just before your <code>&lt;h1></code> tag:</p>
+  <p>We're going to rearrange the HTML tree so the body's only child is a new section, <code>&lt;main></code>, and everything else is now a child of the main.</p>
+
+  <p>Add the following tag inside your page <code>&lt;body></code> (so before your <code>&lt;h1></code> tag):</p>
+
 
 <pre><code class="language-markup">&lt;main&gt;
 </code></pre>
 
-  <p>Add this tag just after your last paragraph or image tag:</p>
+  <p>Add this tag at the end of the page, after your last paragraph or image tag and before the closing <code>&lt;/body></code>tag:</p>
 
 <pre><code class="language-markup">&lt;/main&gt;
 </code></pre>
 
-  <p>Now all your headings, paragraphs and images should be inside this new element. Finally, add a CSS rule to your <code>&lt;style></code> section to make the main element narrow:</p>
+  <p>Now the HTML tree should go: body → main → everything else. Finally, add a CSS rule to your <code>&lt;style></code> section to make the main element narrow:</p>
 
 <pre><code class="language-css">main {
   max-width: 800px;
@@ -352,6 +355,8 @@
   background-color: lightblue;
 }
 </code></pre>
+
+  <p>The narrow main element will shrink its children.</p>
 
   <h2>Customize your page!</h2>
 
@@ -596,6 +601,12 @@ p {
 
 <pre><code class="language-css">img:hover {
   transform: rotate(4deg);
+}</code></pre>
+
+<p>or</p>
+
+<pre><code class="language-css">p:hover {
+  background-color: slategray;
 }</code></pre>
 
 <p>If someone is using a phone to view your site, they won't have a mouse so they can't hover 😞 It's important that your website still makes sense without hover effects.</p>
