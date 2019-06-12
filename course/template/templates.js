@@ -1222,7 +1222,7 @@ Heroku is saying: You gave me this code, but you didn't tell me how to start it 
 
 To start our app, we run \`node index.js\` -- we know that, but how do we tell Heroku? We need to add the instructions into \`package.json\`
 
-- [ ] in Atom, open up \`package.json\`
+- [ ] in VS Code, open up \`package.json\`
 - [ ] add this in:
 
 \`\`\`javascript
@@ -1233,7 +1233,7 @@ To start our app, we run \`node index.js\` -- we know that, but how do we tell H
 Some tips:
 * You need to add this inside the outermost pair of curly brackets
 * You will need to add a comma somewhere to make this work. Notice where commas appear in this file -- can you work out what the rule is? Commas appear after a closing curly bracket, but not if it's the last one... have a look.
-* Look at the colour-coding in Atom -- if you you are missing a comma, or have it in the wrong place, you might see some words in a colour that doesn't match the pattern of everything else.
+* Look at the colour-coding in VS Code -- if you you are missing a comma, or have it in the wrong place, you might see some words in a colour that doesn't match the pattern of everything else.
 
 - [ ] after your change to package.json, restart your local server and test it (at localhost:3000) just to make sure you didn't break the site.
 - [ ] _commit_ this change. Commit it straight to the master branch - normally this is bad manners but you have to today to make Heroku use it.
