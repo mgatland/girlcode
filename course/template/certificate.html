@@ -1,0 +1,89 @@
+<doctype html>
+  <head lang="en">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 2em;
+        margin: 3em;
+        margin-bottom: 0;
+      }
+      main {
+        width: 40em;
+        margin: 0 auto;
+      }
+      h1 {
+        font-weight: inherit;
+      }
+      h1 b {
+        font-size: 1.25em;
+      }
+      .dotted {
+        border-bottom: 1px dotted black;
+        height: 1em;
+        min-width: 4em;
+      }
+      .column {
+        display: inline-block;
+        margin: 0 1em;
+      }
+      .small {
+        font-size: 0.65em;
+      }
+      section {
+        text-transform: none;
+        font-size: 0.6em;
+        margin: 0 auto;
+        margin-top: 50px;
+        max-width: 80%;
+      }
+      .studentDetails {
+        color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1><b>Certificate</b><br>of completion</h1>
+      <p>This acknowledges that</p>
+      <div class="column">
+        <span class="name studentDetails">THE STUDENT</span>
+        <p>has successfully completed Girl Code</p>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div class="date studentDetails">2019-01-01</div>
+          <p class="small">Graduation Date</p>
+        </div>
+        <div class="column">
+            <img class="sigImage" height="60px" style="margin-bottom: -60px; margin-top: -30px;" src="">
+            <div class="dotted"></div>
+            <p class="small">Alice Gatland, Programme Educator</p>
+        </div>
+      </div>
+      <section>
+        <p>This certificate acknowledges <span class="name">THE STUDENT</span>'s achievement of completing the Girl Code beginner programming course.</p>
+        <p>Girl Code is a short course that covers practical programming and software development skills. <span class="name">THE STUDENT</span> has completed 16 hours of work on individual and team projects.</p>
+        <!--Visual Studio Code-->
+        <p><span class="name">THE STUDENT</span> has worked with HTML, CSS, JavaScript, Git, GitHub, Node, the command line, Atom, debugging web pages, pair programming, and simple project management.</p>
+        <p>For more information on <span class="name">THE STUDENT</span>'s studies please contact Girl Code Auckland.</p>
+      </section>
+    </main>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search)
+      const name = urlParams.get('name')
+      const date = urlParams.get('date')
+      const sigPath = urlParams.get('sigPath')
+      document.querySelectorAll('.name').forEach(n => n.innerText = name)
+      document.querySelectorAll('.date').forEach(n => n.innerText = date)
+      if (sigPath) {
+        document.querySelectorAll('.sigImage').forEach(n => n.src = sigPath)
+      } else {
+        document.querySelectorAll('.sigImage').forEach(n => n.style.display = "none")
+      }
+      
+    </script>
+  </body>
+</doctype>
