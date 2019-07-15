@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<title>Girl Code project tasks</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-		<link rel="stylesheet" href="https://assets-cdn.github.com/assets/github-a3ddc8e75406c12cb3869d5cc966caed.css">
-		<link rel="stylesheet" href="https://assets-cdn.github.com/assets/frameworks-95aff0b550d3fe338b645a4deebdcb1b.css">
+		<link rel="stylesheet" href="css/github-light.css">
+		<link rel="stylesheet" href="css/github-primer.css">
 		<style>
 		body {
 			color: rgb(35, 40, 48);
@@ -59,11 +59,12 @@
 			margin: 16px;
 		}
 		.hidden {
-			display: none;
+			display: none !important;
 		}
 		.close {
 			color: grey;
 			margin: 14px;
+			display: block;
 		}
 		.used {
 			background-color: #d8e3ef;
@@ -83,9 +84,13 @@
 
 	<body>
 		<h1>Girl Code template</h1>
-		<button class="expandAllButton">Expand All</button>
-		<button class="showSettings">Show settings</button>
+		<button class="btn expandAllButton">Expand All</button>
+		<button class="btn showSettings">Show settings</button>
 		<div class="settingsWarning hidden"><h3>Please configure your settings!</h3></div>
+		<p>Cat facts files: 
+			<a href="./catfacts/cat-trivia.txt" target="_blank" download>1</a> and 
+			<a href="./catfacts/famous-cats.txt" target="_blank" download>2</a>
+		</p>
 		<div class="settings hidden">
 			Project name on GitHub: <input type="text" class="projectNameInput" value="girlcode2018-">
 			Personal access token: <input type="text" class="tokenInput" value="">
@@ -95,9 +100,6 @@
 		</div>
 		<main>
 		</main>
-		<p>Cat facts files: 
-			<a href="./catfacts/cat-trivia.txt" target="_blank" download>1</a> and 
-			<a href="./catfacts/famous-cats.txt" target="_blank" download>2</a></p>
 <script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.5/dist/showdown.min.js"></script>
 <script src="templates.js"></script>
 	</body>

@@ -1805,7 +1805,7 @@ for (let issue of issues) {
 
   issueEl.appendChild(fragment(`<h3 class="selectAll title">${escapeForHTML(issue.title)}</h3>`))
   issueEl.appendChild(fragment(`<a href="#" class="close hidden">Close</button>`))
-  issueEl.appendChild(fragment(`<button class="addToProject">Add to project</button>`))
+  issueEl.appendChild(fragment(`<button class="btn addToProject">Add to project</button>`))
   issueEl.appendChild(fragment(`<a class="viewMarkdown linkButton" href="#">view markdown</div>`))
   issueEl.appendChild(fragment(`<a class="viewFormatted linkButton" href="#">view formatted</div>`))
   issueEl.appendChild(fragment(`<div class="issueBody hidden selectAll">${escapeForHTML(issue.body)}</div>`))
