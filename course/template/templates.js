@@ -1,6 +1,289 @@
+/* eslint indent: "off" */
 const issues = [
-{"number":30,"title":"Add the new logo",
-"body":`The logo image should be attached to this issue.
+{ 'title': 'Show a graph of how many people chose each answer',
+'body': `
+let users view a graph of how many people chose each answer.
+
+Here's an example:
+
+![](https://www.popovergenie.com/wp-content/uploads/2016/12/amazon_asks_example_1.png)
+
+This issue is going to only focus on drawing the graph, not on recording the stats.
+
+Eventually we will only show the graph after the user chooses an answer. *But to start with, we will always show the graph*.
+
+- [ ] open *feed.html* in VS Code
+- [ ] find the line \`function displayMessage(post) {\`
+
+This is the code that displays each post. Let's add some fake stats that we can display, by adding this line near the start of the function.
+
+\`\`\`javascript
+if (post.answerCount === undefined) {
+  post.answerCount = [1, 4, 5, 10];
+  post.totalAnswers = 20;
+}
+\`\`\`
+
+(This is saying that the first answer was chosen 1 time, the second was chosen 4 times, the third was chosen 5 times, and the last was chosen 10 times.  The \`if\` statement will stop this from overriding the real stats, when someone gets the real stats working. We only add fake stats if the stats are missing.)
+
+OK, now we're going to draw nice bars to represent the answers.
+
+In the big block of code that creates the HTML for each post, add some to show the stats:
+
+\`\`\`javascript
+ +  '<div class="stats">'
+  +  '<div class="answerStat" style="width:50%"></div>'
+  +  '<div class="answerStat" style="width:10%"></div>'
+  +  '<div class="answerStat" style="width:60%"></div>'
+  + '<div class="answerStat" style="width:20%"></div>'
+  + '</div>'
+\`\`\`
+
+This will be invisible because they are empty and have no borders or anything.
+
+Open *style.css* and add some styles for answerStat so that it displays as bar. Give it a fixed height and a border or background color. Don't set its width because we will set each bar to its own custom width in the code.
+
+- [ ] you should see four bars in each post, each a different width.
+
+So far we have 'hard-coded' the width of each bar. We need to instead work out the width using post.answerCount[0] for the first answer, post.answerCount[1] for the next and so on.
+
+- [ ] calculate the correct width for each post
+
+Hey the answerStat bars also need to display the text of the answer. You can look at the code for the answer buttons to see how to do this.
+
+- [ ] display the text of the answer on or next to the corresponding answer bar.
+`
+},
+{ 'title': 'Record how many people choose each answer',
+'body': `
+When someone chooses an answer, record their response on the server.
+
+This issue is to record the stats on the server. **We won't draw the graph in this issue**.
+
+Summary:
+* When the user chooses an answer, send a message to the server saying which answer they picked *and* which question it was for.
+* The server will record there response by adding 1 to a counter.
+
+- [ ] Open *feed.html* in VS Code
+- [ ] Find the code that creates the four answer buttons
+
+We want to make it easier to tell which answer is which. Give each of the HTML elements an attribute, like this: \`data-id="0"\` - give each a different id value: 0, 1, 2 and 3.
+
+- [ ] each answer button now has a \`data-id\` attribute with a different value
+
+- [ ] in *feed.html* find the function that is run when the user clicks on an answer button. (Look for \`console.log("button clicked!")\`)
+
+We can new code after that line and it will only run when an answer button is clicked.
+
+We need to get 2 pieces of information: the post ID (which post is this?) and the answer number (which answer did they choose?)
+
+\`\`\`javascript
+let answerNumber = e.target.dataset.id;
+let postIdElement = e.target.parentNode.querySelector(".postId");
+let postId = postIdElement.innerHTML;
+console.log("You chose post " + postId + ", answer " + answerNumber);
+\`\`\`
+The code above puts the values you need into \`postId\` and \`answerNumber\`, and writes them in the dev tools console.
+
+- [ ] test that choosing an answer logs the right post ID and answer number
+
+Now you need to send these values to the server. Take a look at post.html for an example of sending values to the server.
+
+You'll create a data object, put the values you want to send into the data object, and then use the fetch command to post it to the server.
+
+In *post.html* we used the path "/post". Change that to "/answerChosen" so the server knows it is a new kind of request.
+
+- [ ] Use a fetch command to send a message to the server with the two pieces of information we need
+
+> You can check what is being sent by opening your Chrome Developer Tools and looking at the network tab. There's a list of requests. Click on an answer to make a new request. It should appear at the end of the list. Click on it then look under 'headers' at the very end to see what is being sent.
+
+# server side
+
+- [ ] open index.js
+
+Add this to *index.js*:
+
+\`\`\`javascript
+function answerChosen(request, response) {
+   console.log("Post id: " + request.body.postId);
+   console.log("Answer number: " + request.body.answerNumber);
+   response.send("ok");
+}
+app.post("/answerChosen", answerChosen);
+\`\`\`
+
+The server can now reply to 'answerChosen' requests using this new function.
+
+The server should log the values you sent through. Try it out and see if the right values come through.
+
+- [ ] the server log (in Terminal or Command Prompt) shows the same post ID and answer number as you saw in Chrome
+
+Once you have the right values you can use them to get the appropriate post:
+
+\`\`\`javascript
+let post = posts.find(x => x.id == request.body.postId);
+\`\`\`
+
+Lets save the answer id into a variable with a shorter name, and convert it to a number instead of a string:
+
+\`\`\`javascript
+let answerNumber = parseInt(request.body.answerNumber);
+\`\`\`
+
+Record stats about who has answered the question so far:
+
+\`\`\`
+if (post.answerCount === undefined) {
+  post.answerCount = [0, 0, 0, 0]; //starting values
+  post.totalAnswers = 0;
+}
+post.answerCount[answerNumber]++; //increase counter by one
+post.totalAnswers++; //increase counter by one
+\`\`\`
+
+
+Next we have to save a copy of the post into the database. If the server is restarted, it will forget any changes it made that were not recorded in the database.
+
+To resave the post:
+
+\`\`\`javascript
+databasePosts.update({id: post.id}, post);
+\`\`\`
+
+
+These stats are not displayed anywhere, but you can see them by looking at the raw view of the posts: \`http://localhost:3000/posts\`
+
+Check that the system is recording what answers you choose. Check that the record is still correct even after restarting the server.
+`
+},
+{ 'title': 'The feed displays polls (front end only)',
+'body': `
+In *feed.html*, each post is now going to include a poll.
+
+We want to display the four possible answers for each poll.
+
+Open *feed.html* and find the function *displayMessage*.
+
+- [ ] Inside the function, at the start, add this line. This adds some answers to every post. This is just for testing and will be deleted when we add the ability for users to attach their own answers to their post.
+
+\`\`\`javascript
+if (!post.answers) post.answers = ["one", "two", "three", "four"]; // For testing only
+\`\`\`
+
+Now look at the code in the function that creates the postHTML. You need to add some new div tags into the HTML to contain each of the four answers.
+
+- [ ] do that!
+
+You can get the value of an answer like this: \`post.answers[0]\` or \`post.answers[1]\`. The answers are numbered 0, 1, 2 and 3.
+
+Once you've finished, you should see the four answers appear in the feed on every post.
+
+- [ ] We see the four answers appear after every post
+
+We want the answers to look clickable. Give the answers the css class \`answerButton\` so you can style them. Then open up the css file and add some styles to make them look clickable.
+
+In your css file:
+\`\`\`css
+.answerButton {
+  
+}
+\`\`\`
+
+Look at some other websites for ideas. (How about this GitHub page you're looking at right now?) How can you tell what you're supposed to click on?
+
+Some ideas to try:
+* the mouse pointer arrow turns into a pointing finger
+* the HTML element changes color when you *hover* over it with your mouse
+* sometimes, the text is underlined, or gets an underline when you hover
+* sometimes, there is a border and background color so it looks like a button
+
+- [ ] the answers look clickable
+
+## make the buttons do something
+
+Normally, we add an event listener to a single button. Here, there could be lots of different answer buttons in the message feed. We're going to add a special event listener that works for all the buttons at the same time.
+
+Add this code to your JavaScript, somewhere that is not inside any other function. 
+\`\`\`
+function messageListClick(e) {
+  if (e.target.classList.contains("answerButton")) {
+    console.log("button clicked!")
+  } else {
+    console.log("something else was clicked")
+  }
+}
+
+let messageList = document.querySelector(".message-list");
+messageList.addEventListener("click", messageListClick);
+\`\`\`
+
+- [ ] add the code
+
+This adds an event listener to the entire message list. Every time you click on anything inside the list, the function runs.
+
+When the function runs, it checks if you clicked on something with the class \`answerButton\`. If you did, we're going to do something. Otherwise we won't.
+
+- [ ] Open your developer tools to the Console page and try clicking on the button and other parts of the message feed.
+- [ ] test: clicking a button should display 'button clicked!'
+
+If it doesn't, make sure your buttons have the same class that the code is looking for.
+
+- [ ] test: clicking on any part of a post except the button should display 'something else was clicked'
+
+`
+},
+{ 'title': 'user can add and save a poll question and 4 options',
+'body': `
+This will be very similar to the save an author ticket, except we're adding 5 new input fields!
+
+Use the instructions from the old *Save and display the author of each post* as a reference.
+
+We need to add 5 new inputs on the form at post.html:
+- [ ] question
+- [ ] answer 1
+- [ ] answer 2
+- [ ] answer 3
+- [ ] answer 4
+
+- [ ] Make the server expect and save all 5 inputs in index.js
+
+### move answers into a list
+
+In index.js, instead of saving the answers as answer1, answer2, answer3 and answer4, we want to save them into a list. This makes it easier to treat each answer the same way.
+
+Currently, you should have some code a bit like this:
+\`\`\`javascript
+//old code
+post.answer1 = request.body.answer1;
+post.answer2 = request.body.answer2;
+\`\`\`
+and so on for answer3 and answer4
+
+Replace with this:
+\`\`\`javascript
+post.answers = []; // empty list
+post.answers.push(request.body.answer1);
+post.answers.push(request.body.answer2);
+\`\`\`
+and so on for answer3 and answer4
+
+Check:
+
+When you look at http://localhost:3000/posts you will see all of the posts in raw form
+
+Make a new post then find it at http://localhost:3000/posts
+
+If the answers were "one", "two", "three", "four" you should see something like this in that page:
+
+\`\`\`javascript
+answers: ["one", "two", "three", "four"]
+\`\`\`
+
+- [ ] Yes, I can see that the answers are being saved as a list
+`
+},
+{"title": "Add the new logo",
+"body": `The logo image should be attached to this issue.
 
 - [ ] Right click on the logo to download it to your computer.
 - [ ] Copy the logo into our project's \`public\` folder (using Windows Explorer or Finder)
@@ -16,10 +299,10 @@ You can add the logo to any HTML page as an image tag, for example:
 \`\`\`
 
 - [ ] add the logo to every page in our site`},
-{"number":29,"title":"User can set their post's background color? (unfinished)",
-"body":``},
-{"number":28,"title":"Search feed improvement - display 'no results found' if no results are found",
-"body":`We put a message 'No results found' under the feed, but make it hidden with CSS.
+{"title": "User can set their post's background color? (unfinished)",
+"body": ``},
+{"title": "Search feed improvement - display 'no results found' if no results are found",
+"body": `We put a message 'No results found' under the feed, but make it hidden with CSS.
 When we search the feed, we set a variable \`foundAnything\` to false
 Each time we find a matching result, we set \`foundAnything\` to true. So it will be true if we found 1 or more results.
 After the search is finished, we show or hide the 'No results found' message based on whether \`foundAnything\` is true or false.
@@ -38,8 +321,8 @@ let foundAnything = false
 
 - [ ] After we search, add or remove the class \`hidden\` from the message so it appears or disappears
 `},
-{"number":27,"title":"Swear filter",
-"body":`Add a profanity filter. When the server receives messages from a client, it should run them through the filter to get the censored versions. The server should only save the censored versions of messages.
+{"title": "Swear filter",
+"body": `Add a profanity filter. When the server receives messages from a client, it should run them through the filter to get the censored versions. The server should only save the censored versions of messages.
 
 You could write your own, but we might as well use a pre-made one. This one looks ok:
 
@@ -52,8 +335,8 @@ https://www.npmjs.com/package/bad-words
 - [ ] make sure every place a user could post a swear word is filtered
 
 Discussion point: who gets to decide what is or isn't a swear word? you might find some words are filtered that you think should be allowed.`},
-{"number":26,"title":"Make Sign up and Login work on the server (accounts feature)",
-"body":`The other Sign Up and Log In issue must be completed first.
+{"title": "Make Sign up and Login work on the server (accounts feature)",
+"body": `The other Sign Up and Log In issue must be completed first.
 
 OK we have a login page at http://localhost:3000/login.html
 
@@ -165,8 +448,8 @@ yeah. Fixing that is big enough to be a whole other ticket though. We have to:
 ##  when you sign up, the sign up should fail if there is already an account with the same email address.
 
 Yeah. Can you fix it?`},
-{"number":25,"title":"Sign up + Log in page (accounts feature) NOT UPDATED FOR NO JQUERY",
-"body":`(note to Matthew: this task is quite long and could be split in half from 'make the server react'
+{"title": "Sign up + Log in page (accounts feature) NOT UPDATED FOR NO JQUERY",
+"body": `(note to Matthew: this task is quite long and could be split in half from 'make the server react'
 
 # Sign Up and Log In page
 
@@ -265,8 +548,8 @@ $(\".note\").text(data);
 
 - [ ] Try out your page now. Clicking the Log In button should show the server's response, which is always \"OK\" at the moment.
 `},
-{"number":24,"title":"Make comments work (comments feature part 3)",
-"body":`_Making comments work is a big job, split across several tickets. This is the third part, and the other two must be completed first._
+{"title": "Make comments work (comments feature part 3)",
+"body": `_Making comments work is a big job, split across several tickets. This is the third part, and the other two must be completed first._
 
 The previous comment tickets did this:
 * One made a place on the page where the user can write comments
@@ -354,8 +637,8 @@ In *feed.html* we can post a new comment. The comment is saved to the server, an
 * Find the code that POSTs a comment to the server
 
 it so: when your comment is posted to the server, it also writes your comment straight onto the page`},
-{"number":23,"title":"Make the server keep track of comments and display them in the feed (comments feature)",
-"body":`_Making comments work is a big job, split across several tickets. This is one part._
+{"title": "Make the server keep track of comments and display them in the feed (comments feature)",
+"body": `_Making comments work is a big job, split across several tickets. This is one part._
 
 # Give every post a list of comments
 
@@ -405,8 +688,8 @@ There is lots of code in displayMessage to make things appear in the page. Try c
 *Test*: Each post should display the fake comment
 
 That's all we're doing in this ticket. Other tickets will finish off the comments feature.`},
-{"number":22,"title":"Add a text input and 'reply' button after every post (comments feature) (not updated for no jquery)",
-"body":`_Making comments work is a big job, split across several tickets. This is one part._
+{"title": "Add a text input and 'reply' button after every post (comments feature) (not updated for no jquery)",
+"body": `_Making comments work is a big job, split across several tickets. This is one part._
 
 **This ticket depends on the 'unique ids' ticket being done first**
 
@@ -446,8 +729,8 @@ This says: When someone clicks on the button, run *postComment*. PostComment is 
 *Check*: If there is more than one post, when you click on the button it shows the post ID and the matching comment
 
 That's all we're doing in this ticket. Other tickets will finish off the comments feature.`},
-{"number":21,"title":"Tool for deleting posts",
-"body":`### what's this?
+{"title": "Tool for deleting posts",
+"body": `### what's this?
 
 Let's make a delete post tool. It will let the user type in the **id number** of a post, and delete it. We will also make them put in a password, and we will only delete if the password is correct.
 
@@ -520,8 +803,8 @@ if (request.body.password === \"1234\") {
   console.log(\"Wrong password\");
 }
 \`\`\``},
-{"number":20,"title":"Search \\ filter the feed",
-"body":`We'll add a search box to the feed that lets you filter the feed.
+{"title": "Search \\ filter the feed",
+"body": `We'll add a search box to the feed that lets you filter the feed.
 
 All of this is in _feed.html_  (well, almost all…)
 
@@ -578,8 +861,8 @@ The 'hidden' class doesn't do anything unless we tell it to. Let's do that:
 document.querySelector(".filter").addEventListener("keyup", filterFeed);
 \`\`\`
 `},
-{"number":19,"title":"Instead of a feed, show just one post at a time",
-"body":`We're going to make a new page on our site that shows one post at a time, instead of the whole feed.
+{"title": "Instead of a feed, show just one post at a time",
+"body": `We're going to make a new page on our site that shows one post at a time, instead of the whole feed.
 
 [ ] Make a new file named feed2.html inside the public folder
 [ ] copy all the text from feed.html and paste it into feed2.html. This will be your starting point.
@@ -643,8 +926,8 @@ Can you add a link on the page that makes a new post appear?
 
 Does it work? Is there a weird side effect? Can you figure out why it's happening and how you might fix it?
 `},
-{"number":18,"title":"User can set the date of an event - NOT UPDATED FOR NO JQUERY",
-"body":`When a user posts a new event, let them set a date (what day).
+{"title": "User can set the date of an event - NOT UPDATED FOR NO JQUERY",
+"body": `When a user posts a new event, let them set a date (what day).
 
 We'll add a new text input (the white box you type words into) to _post.html_
 
@@ -703,10 +986,10 @@ post.date = request.body.date;
 
 This task does not include updating the CSS look + feel of the post.html page. Just make it work, don't focus on making it pretty in this ticket.
 `},
-{"number":17,"title":"Make the feed a grid",
-"body":`You need to set styles on the *container• (that contains the posts) and on the posts themselves\n\ncontainer: set \`display: flex;\`\n\nposts: give the posts a fixed \`width\` and \`height\`\n\nYou might need to set a rule to let them wrap to a new line when they run out of space going across the page - take a look here\n\nhttps://css-tricks.com/snippets/css/a-guide-to-flexbox/\n`},
-{"number":16,"title":"Make all images the same size + feed look better",
-"body":`Users can post images of any size. _Any size_. It gets messy.
+{"title": "Make the feed a grid",
+"body": `You need to set styles on the *container• (that contains the posts) and on the posts themselves\n\ncontainer: set \`display: flex;\`\n\nposts: give the posts a fixed \`width\` and \`height\`\n\nYou might need to set a rule to let them wrap to a new line when they run out of space going across the page - take a look here\n\nhttps://css-tricks.com/snippets/css/a-guide-to-flexbox/\n`},
+{"title": "Make all images the same size + feed look better",
+"body": `Users can post images of any size. _Any size_. It gets messy.
 ## part 1
 
 Use css to make the images in the feed always appear the same size - or at least, with the same width. (If you set the width of an image, its height automatically changes to keep the right proportions!
@@ -726,8 +1009,8 @@ Decide which you prefer, and try changing the number a little bit. Make sure you
 
 While you're here, do you feel like adding margins and padding to the parts of the feed so it looks a bit nicer? Look at your tumblr, facebook or pinterest feed and pay attention to how much empty space there is between the different text and images.
 `},
-{"number":15,"title":"Give each post a unique ID",
-"body":`This a behind-the-scenes change that will let us do cool stuff later!
+{"title": "Give each post a unique ID",
+"body": `This a behind-the-scenes change that will let us do cool stuff later!
 
 Background:
 
@@ -822,8 +1105,8 @@ We can use the 'find' function to search a list for something that passes a cert
 
 Test that it's working by going to http://localhost:3000/post?id=1001 again. Instead of 1001 put in the id of an actual post. It should show details of that post.
 `},
-{"number":14,"title":"new posts at the top instead of bottom",
-"body":`Currently new posts are displayed at the bottom of the page. Let's put them at the top instead (like twitter, tumblr etc does it.)
+{"title": "new posts at the top instead of bottom",
+"body": `Currently new posts are displayed at the bottom of the page. Let's put them at the top instead (like twitter, tumblr etc does it.)
 
 In **feed.html**, we need to _reverse_ the order of the posts, _after_ we GET them from the server but _before_ we display them.
 
@@ -835,10 +1118,10 @@ posts.reverse();
 
 (how did I know to do this? I googled 'javascript array reverse' and found this page: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse )
 `},
-{"number":13,"title":"removed",
-"body":`- [ ] this page is pretty useless? let's get rid of it\n- [ ] Let's rename feed.html to index.html so it comes up by default if you don't ask for a particular page.\n`},
-{"number":12,"title":"Default picture if user doesn't include a picture",
-"body":`
+{"title": "removed",
+"body": `- [ ] this page is pretty useless? let's get rid of it\n- [ ] Let's rename feed.html to index.html so it comes up by default if you don't ask for a particular page.\n`},
+{"title": "Default picture if user doesn't include a picture",
+"body": `
 (This ticket can only be done after we have added the pictures feature)
 
 If the user leaves the image link blank, include a cute default picture.
@@ -868,8 +1151,8 @@ While we're here, do we want to add default values for anything else that the us
 
 
 `},
-{"number":11,"title":"Make the form look good on phones",
-"body":`Our post.html page looks really bad. Let's improve it!
+{"title": "Make the form look good on phones",
+"body": `Our post.html page looks really bad. Let's improve it!
 
 You don't need to get it perfect – we will probably change it again later.
 
@@ -939,10 +1222,10 @@ Want to customise the buttons a little bit? Here are some great examples to try.
 
 https://www.w3schools.com/css/css3_buttons.asp
 `},
-{"number":10,"title":"Ghost text when filling out the form",
-"body":`As a user, when I want to post a cool post, I have to backspace away the example text to put in my message.\n\nWhen I start typing in the text box, that example text should just disappear automatically. Ghost text! 👻\n\nFortunately this feature is built into modern browsers so we don't need to code it ourselves.\n- [ ] In post.html, in each of the \`input\` elements that the user can type text into, instead of setting the \`value\` (which is meant to be for what the user enters), set the \`placeholder\` instead.\n- [ ] test that the page looks and works correctly with ghost text!\n`},
-{"number":9,"title":"Save and display the author of each post",
-"body":`When a user posts a new post, let them put in their name so we know who posted it.
+{"title": "Ghost text when filling out the form",
+"body": `As a user, when I want to post a cool post, I have to backspace away the example text to put in my message.\n\nWhen I start typing in the text box, that example text should just disappear automatically. Ghost text! 👻\n\nFortunately this feature is built into modern browsers so we don't need to code it ourselves.\n- [ ] In post.html, in each of the \`input\` elements that the user can type text into, instead of setting the \`value\` (which is meant to be for what the user enters), set the \`placeholder\` instead.\n- [ ] test that the page looks and works correctly with ghost text!\n`},
+{"title": "Save and display the author of each post",
+"body": `When a user posts a new post, let them put in their name so we know who posted it.
 
 We'll add a new text input (the white box you type words into) to _post.html_
 ### Part 1
@@ -986,8 +1269,8 @@ Once that's working, change it to include the actual author value \`post.author\
 
 This task does not include updating the CSS look + feel of the post.html page. Just make it work, don't focus on making it pretty in this ticket.
 `},
-{"number":8,"title":"Keep posts when server restarts",
-"body":`(must be done after the 'Posts into Objects' task)
+{"title": "Keep posts when server restarts",
+"body": `(must be done after the 'Posts into Objects' task)
 
 Right now, all the posts disappear each time the server restarts.
 
@@ -1106,8 +1389,8 @@ Now new posts will be sent to the database.
 - [ ] Restart your server
 - [ ] Check that the post is *still* the feed!
 `},
-{"number":7,"title":"Display each post's time",
-"body":`**This task can only be done after #4**
+{"title": "Display each post's time",
+"body": `**This task can only be done after #4**
 # PART 1
 
 Now that posts are objects, we can add other information to them.
@@ -1163,8 +1446,8 @@ Let's give the time some CSS rules so it displays differently.
 
 Check the feed to see that the time is now in a different colour.
 `},
-{"number":6,"title":"Publish our app on the internet",
-"body":`Until now, we have tested our site by running a local server on our own computers. These servers are not public.
+{"title": "Publish our app on the internet",
+"body": `Until now, we have tested our site by running a local server on our own computers. These servers are not public.
 
 We are now going to make a public copy of our server, so anyone can use our app. We are using a company called Heroku to host our server.
 
@@ -1271,8 +1554,8 @@ Now we have a public version of our app. And it will update every time we update
 
 - [ ] post the link to the app in our slack channel so everyone can check it out!
 `},
-{"number":5,"title":"User can include a picture with their post (no css, just make it work)",
-"body":`***This can only be done when #4 and #2  has been completed
+{"title": "User can include a picture with their post (no css, just make it work)",
+"body": `***This can only be done when #4 and #2  has been completed
 
 The post form in post.html should let you include a link (URL) to an image file
 # PART 1
@@ -1310,8 +1593,8 @@ This should create an image, but it will be a broken image link because the URL 
 
 If you are having trouble in this step, the Developer Tools may help. Right click on a post in the feed (in Google Chrome) and choose Inspect to see the HTML code. Compare it to an image in another website, like your Neocities website, and try to spot the difference.
 `},
-{"number":4,"title":"Change posts into objects, not strings, so we can save more info about each idea - (this must be done ASAP!)",
-"body":`### background
+{"title": "Change posts into objects, not strings, so we can save more info about each idea - (this must be done ASAP!)",
+"body": `### background
 
 On the server, whenever a post is saved, we will eventually want to save extra info like:
 - who posted it
@@ -1376,8 +1659,8 @@ In _feed.html_, we need to change the code to display the post.message instead o
 
 Commit your changes. Check everything works! Then sync and make a pull request!
 `},
-{"number":3,"title":"Put links on every page so it's easy to navigate between pages",
-"body":`As a user, I don't like having to remember all the URLs and type them in by hand.
+{"title": "Put links on every page so it's easy to navigate between pages",
+"body": `As a user, I don't like having to remember all the URLs and type them in by hand.
 
 I'd like to be able to click on links to get to every page on the site, and never get stuck on a page with no links.
 - [ ] Make some HTML to add a list of links to all the pages in the site
@@ -1407,8 +1690,8 @@ Note: Links have a built in style that makes them blue and underlined. This rule
 
 That rule applies to links \`<a>\` that are _inside something_ that has class=\"navbar\"
 `},
-{"number":2,"title":"Clicking 'Post it!' should not go to a new page",
-"body":`Currently, when you click 'Post it!' on the **post.html** page, you are taken to a new page that says \"thanks for your message. Press back to add another\"
+{"title": "Clicking 'Post it!' should not go to a new page",
+"body": `Currently, when you click 'Post it!' on the **post.html** page, you are taken to a new page that says \"thanks for your message. Press back to add another\"
 
 This is confusing and not very attractive.
 
@@ -1496,13 +1779,13 @@ You'll need to add the line above just after the line \`let data = {}\`. That me
 - [ ] TEST: when you post, the page shows some feedback to let you know it saved your post.
 - [ ] TEST: the page doesn't show the feedback until you post something.
 `},
-{"number":1,"title":"copy across nodestart",
-"body":`We'll use the previous activity as a base for our project. Copy across the code from last time, maybe clean it up a little too.\n`},
+{"title": "copy across nodestart",
+"body": `We'll use the previous activity as a base for our project. Copy across the code from last time, maybe clean it up a little too.\n`},
 ]
 
 let mainEl = document.querySelector("main")
 //let cleanIssues = "["
-issues.sort((a,b) => a.number - b.number)
+issues.reverse()
 for(let issue of issues) {
   let issueEl = document.createElement("div")
   issueEl.classList.add("issue")
