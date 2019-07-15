@@ -282,8 +282,8 @@ answers: ["one", "two", "three", "four"]
 - [ ] Yes, I can see that the answers are being saved as a list
 `
 },
-{"title": "Add the new logo",
-"body": `The logo image should be attached to this issue.
+{'title': 'Add the new logo',
+'body': `The logo image should be attached to this issue.
 
 - [ ] Right click on the logo to download it to your computer.
 - [ ] Copy the logo into our project's \`public\` folder (using Windows Explorer or Finder)
@@ -299,10 +299,10 @@ You can add the logo to any HTML page as an image tag, for example:
 \`\`\`
 
 - [ ] add the logo to every page in our site`},
-{"title": "User can set their post's background color? (unfinished)",
-"body": ``},
-{"title": "Search feed improvement - display 'no results found' if no results are found",
-"body": `We put a message 'No results found' under the feed, but make it hidden with CSS.
+{'title': "User can set their post's background color? (unfinished)",
+'body': ``},
+{'title': "Search feed improvement - display 'no results found' if no results are found",
+'body': `We put a message 'No results found' under the feed, but make it hidden with CSS.
 When we search the feed, we set a variable \`foundAnything\` to false
 Each time we find a matching result, we set \`foundAnything\` to true. So it will be true if we found 1 or more results.
 After the search is finished, we show or hide the 'No results found' message based on whether \`foundAnything\` is true or false.
@@ -321,8 +321,8 @@ let foundAnything = false
 
 - [ ] After we search, add or remove the class \`hidden\` from the message so it appears or disappears
 `},
-{"title": "Swear filter",
-"body": `Add a profanity filter. When the server receives messages from a client, it should run them through the filter to get the censored versions. The server should only save the censored versions of messages.
+{'title': 'Swear filter',
+'body': `Add a profanity filter. When the server receives messages from a client, it should run them through the filter to get the censored versions. The server should only save the censored versions of messages.
 
 You could write your own, but we might as well use a pre-made one. This one looks ok:
 
@@ -335,8 +335,8 @@ https://www.npmjs.com/package/bad-words
 - [ ] make sure every place a user could post a swear word is filtered
 
 Discussion point: who gets to decide what is or isn't a swear word? you might find some words are filtered that you think should be allowed.`},
-{"title": "Make Sign up and Login work on the server (accounts feature)",
-"body": `The other Sign Up and Log In issue must be completed first.
+{'title': 'Make Sign up and Login work on the server (accounts feature)',
+'body': `The other Sign Up and Log In issue must be completed first.
 
 OK we have a login page at http://localhost:3000/login.html
 
@@ -448,8 +448,8 @@ yeah. Fixing that is big enough to be a whole other ticket though. We have to:
 ##  when you sign up, the sign up should fail if there is already an account with the same email address.
 
 Yeah. Can you fix it?`},
-{"title": "Sign up + Log in page (accounts feature) NOT UPDATED FOR NO JQUERY",
-"body": `(note to Matthew: this task is quite long and could be split in half from 'make the server react'
+{'title': 'Sign up + Log in page (accounts feature) NOT UPDATED FOR NO JQUERY',
+'body': `(note to Matthew: this task is quite long and could be split in half from 'make the server react'
 
 # Sign Up and Log In page
 
@@ -548,8 +548,8 @@ $(\".note\").text(data);
 
 - [ ] Try out your page now. Clicking the Log In button should show the server's response, which is always \"OK\" at the moment.
 `},
-{"title": "Make comments work (comments feature part 3)",
-"body": `_Making comments work is a big job, split across several tickets. This is the third part, and the other two must be completed first._
+{'title': 'Make comments work (comments feature part 3)',
+'body': `_Making comments work is a big job, split across several tickets. This is the third part, and the other two must be completed first._
 
 The previous comment tickets did this:
 * One made a place on the page where the user can write comments
@@ -637,8 +637,8 @@ In *feed.html* we can post a new comment. The comment is saved to the server, an
 * Find the code that POSTs a comment to the server
 
 it so: when your comment is posted to the server, it also writes your comment straight onto the page`},
-{"title": "Make the server keep track of comments and display them in the feed (comments feature)",
-"body": `_Making comments work is a big job, split across several tickets. This is one part._
+{'title': 'Make the server keep track of comments and display them in the feed (comments feature)',
+'body': `_Making comments work is a big job, split across several tickets. This is one part._
 
 # Give every post a list of comments
 
@@ -688,8 +688,8 @@ There is lots of code in displayMessage to make things appear in the page. Try c
 *Test*: Each post should display the fake comment
 
 That's all we're doing in this ticket. Other tickets will finish off the comments feature.`},
-{"title": "Add a text input and 'reply' button after every post (comments feature) (not updated for no jquery)",
-"body": `_Making comments work is a big job, split across several tickets. This is one part._
+{'title': "Add a text input and 'reply' button after every post (comments feature) (not updated for no jquery)",
+'body': `_Making comments work is a big job, split across several tickets. This is one part._
 
 **This ticket depends on the 'unique ids' ticket being done first**
 
@@ -729,8 +729,8 @@ This says: When someone clicks on the button, run *postComment*. PostComment is 
 *Check*: If there is more than one post, when you click on the button it shows the post ID and the matching comment
 
 That's all we're doing in this ticket. Other tickets will finish off the comments feature.`},
-{"title": "Tool for deleting posts",
-"body": `### what's this?
+{'title': 'Tool for deleting posts',
+'body': `### what's this?
 
 Let's make a delete post tool. It will let the user type in the **id number** of a post, and delete it. We will also make them put in a password, and we will only delete if the password is correct.
 
@@ -803,8 +803,8 @@ if (request.body.password === \"1234\") {
   console.log(\"Wrong password\");
 }
 \`\`\``},
-{"title": "Search \\ filter the feed",
-"body": `We'll add a search box to the feed that lets you filter the feed.
+{'title': 'Search \\ filter the feed',
+'body': `We'll add a search box to the feed that lets you filter the feed.
 
 All of this is in _feed.html_  (well, almost all…)
 
@@ -861,8 +861,8 @@ The 'hidden' class doesn't do anything unless we tell it to. Let's do that:
 document.querySelector(".filter").addEventListener("keyup", filterFeed);
 \`\`\`
 `},
-{"title": "Instead of a feed, show just one post at a time",
-"body": `We're going to make a new page on our site that shows one post at a time, instead of the whole feed.
+{'title': 'Instead of a feed, show just one post at a time',
+'body': `We're going to make a new page on our site that shows one post at a time, instead of the whole feed.
 
 [ ] Make a new file named feed2.html inside the public folder
 [ ] copy all the text from feed.html and paste it into feed2.html. This will be your starting point.
@@ -926,8 +926,8 @@ Can you add a link on the page that makes a new post appear?
 
 Does it work? Is there a weird side effect? Can you figure out why it's happening and how you might fix it?
 `},
-{"title": "User can set the date of an event - NOT UPDATED FOR NO JQUERY",
-"body": `When a user posts a new event, let them set a date (what day).
+{'title': 'User can set the date of an event - NOT UPDATED FOR NO JQUERY',
+'body': `When a user posts a new event, let them set a date (what day).
 
 We'll add a new text input (the white box you type words into) to _post.html_
 
@@ -986,10 +986,10 @@ post.date = request.body.date;
 
 This task does not include updating the CSS look + feel of the post.html page. Just make it work, don't focus on making it pretty in this ticket.
 `},
-{"title": "Make the feed a grid",
-"body": `You need to set styles on the *container• (that contains the posts) and on the posts themselves\n\ncontainer: set \`display: flex;\`\n\nposts: give the posts a fixed \`width\` and \`height\`\n\nYou might need to set a rule to let them wrap to a new line when they run out of space going across the page - take a look here\n\nhttps://css-tricks.com/snippets/css/a-guide-to-flexbox/\n`},
-{"title": "Make all images the same size + feed look better",
-"body": `Users can post images of any size. _Any size_. It gets messy.
+{'title': 'Make the feed a grid',
+'body': `You need to set styles on the *container• (that contains the posts) and on the posts themselves\n\ncontainer: set \`display: flex;\`\n\nposts: give the posts a fixed \`width\` and \`height\`\n\nYou might need to set a rule to let them wrap to a new line when they run out of space going across the page - take a look here\n\nhttps://css-tricks.com/snippets/css/a-guide-to-flexbox/\n`},
+{'title': 'Make all images the same size + feed look better',
+'body': `Users can post images of any size. _Any size_. It gets messy.
 ## part 1
 
 Use css to make the images in the feed always appear the same size - or at least, with the same width. (If you set the width of an image, its height automatically changes to keep the right proportions!
@@ -1009,8 +1009,8 @@ Decide which you prefer, and try changing the number a little bit. Make sure you
 
 While you're here, do you feel like adding margins and padding to the parts of the feed so it looks a bit nicer? Look at your tumblr, facebook or pinterest feed and pay attention to how much empty space there is between the different text and images.
 `},
-{"title": "Give each post a unique ID",
-"body": `This a behind-the-scenes change that will let us do cool stuff later!
+{'title': 'Give each post a unique ID',
+'body': `This a behind-the-scenes change that will let us do cool stuff later!
 
 Background:
 
@@ -1105,8 +1105,8 @@ We can use the 'find' function to search a list for something that passes a cert
 
 Test that it's working by going to http://localhost:3000/post?id=1001 again. Instead of 1001 put in the id of an actual post. It should show details of that post.
 `},
-{"title": "new posts at the top instead of bottom",
-"body": `Currently new posts are displayed at the bottom of the page. Let's put them at the top instead (like twitter, tumblr etc does it.)
+{'title': 'new posts at the top instead of bottom',
+'body': `Currently new posts are displayed at the bottom of the page. Let's put them at the top instead (like twitter, tumblr etc does it.)
 
 In **feed.html**, we need to _reverse_ the order of the posts, _after_ we GET them from the server but _before_ we display them.
 
@@ -1118,10 +1118,10 @@ posts.reverse();
 
 (how did I know to do this? I googled 'javascript array reverse' and found this page: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse )
 `},
-{"title": "removed",
-"body": `- [ ] this page is pretty useless? let's get rid of it\n- [ ] Let's rename feed.html to index.html so it comes up by default if you don't ask for a particular page.\n`},
-{"title": "Default picture if user doesn't include a picture",
-"body": `
+{'title': 'removed',
+'body': `- [ ] this page is pretty useless? let's get rid of it\n- [ ] Let's rename feed.html to index.html so it comes up by default if you don't ask for a particular page.\n`},
+{'title': "Default picture if user doesn't include a picture",
+'body': `
 (This ticket can only be done after we have added the pictures feature)
 
 If the user leaves the image link blank, include a cute default picture.
@@ -1151,8 +1151,8 @@ While we're here, do we want to add default values for anything else that the us
 
 
 `},
-{"title": "Make the form look good on phones",
-"body": `Our post.html page looks really bad. Let's improve it!
+{'title': 'Make the form look good on phones',
+'body': `Our post.html page looks really bad. Let's improve it!
 
 You don't need to get it perfect – we will probably change it again later.
 
@@ -1222,10 +1222,10 @@ Want to customise the buttons a little bit? Here are some great examples to try.
 
 https://www.w3schools.com/css/css3_buttons.asp
 `},
-{"title": "Ghost text when filling out the form",
-"body": `As a user, when I want to post a cool post, I have to backspace away the example text to put in my message.\n\nWhen I start typing in the text box, that example text should just disappear automatically. Ghost text! 👻\n\nFortunately this feature is built into modern browsers so we don't need to code it ourselves.\n- [ ] In post.html, in each of the \`input\` elements that the user can type text into, instead of setting the \`value\` (which is meant to be for what the user enters), set the \`placeholder\` instead.\n- [ ] test that the page looks and works correctly with ghost text!\n`},
-{"title": "Save and display the author of each post",
-"body": `When a user posts a new post, let them put in their name so we know who posted it.
+{'title': 'Ghost text when filling out the form',
+'body': `As a user, when I want to post a cool post, I have to backspace away the example text to put in my message.\n\nWhen I start typing in the text box, that example text should just disappear automatically. Ghost text! 👻\n\nFortunately this feature is built into modern browsers so we don't need to code it ourselves.\n- [ ] In post.html, in each of the \`input\` elements that the user can type text into, instead of setting the \`value\` (which is meant to be for what the user enters), set the \`placeholder\` instead.\n- [ ] test that the page looks and works correctly with ghost text!\n`},
+{'title': 'Save and display the author of each post',
+'body': `When a user posts a new post, let them put in their name so we know who posted it.
 
 We'll add a new text input (the white box you type words into) to _post.html_
 ### Part 1
@@ -1269,8 +1269,8 @@ Once that's working, change it to include the actual author value \`post.author\
 
 This task does not include updating the CSS look + feel of the post.html page. Just make it work, don't focus on making it pretty in this ticket.
 `},
-{"title": "Keep posts when server restarts",
-"body": `(must be done after the 'Posts into Objects' task)
+{'title': 'Keep posts when server restarts',
+'body': `(must be done after the 'Posts into Objects' task)
 
 Right now, all the posts disappear each time the server restarts.
 
@@ -1389,8 +1389,8 @@ Now new posts will be sent to the database.
 - [ ] Restart your server
 - [ ] Check that the post is *still* the feed!
 `},
-{"title": "Display each post's time",
-"body": `**This task can only be done after #4**
+{'title': "Display each post's time",
+'body': `**This task can only be done after #4**
 # PART 1
 
 Now that posts are objects, we can add other information to them.
@@ -1446,8 +1446,8 @@ Let's give the time some CSS rules so it displays differently.
 
 Check the feed to see that the time is now in a different colour.
 `},
-{"title": "Publish our app on the internet",
-"body": `Until now, we have tested our site by running a local server on our own computers. These servers are not public.
+{'title': 'Publish our app on the internet',
+'body': `Until now, we have tested our site by running a local server on our own computers. These servers are not public.
 
 We are now going to make a public copy of our server, so anyone can use our app. We are using a company called Heroku to host our server.
 
@@ -1554,8 +1554,8 @@ Now we have a public version of our app. And it will update every time we update
 
 - [ ] post the link to the app in our slack channel so everyone can check it out!
 `},
-{"title": "User can include a picture with their post (no css, just make it work)",
-"body": `***This can only be done when #4 and #2  has been completed
+{'title': 'User can include a picture with their post (no css, just make it work)',
+'body': `***This can only be done when #4 and #2  has been completed
 
 The post form in post.html should let you include a link (URL) to an image file
 # PART 1
@@ -1593,8 +1593,8 @@ This should create an image, but it will be a broken image link because the URL 
 
 If you are having trouble in this step, the Developer Tools may help. Right click on a post in the feed (in Google Chrome) and choose Inspect to see the HTML code. Compare it to an image in another website, like your Neocities website, and try to spot the difference.
 `},
-{"title": "Change posts into objects, not strings, so we can save more info about each idea - (this must be done ASAP!)",
-"body": `### background
+{'title': 'Change posts into objects, not strings, so we can save more info about each idea - (this must be done ASAP!)',
+'body': `### background
 
 On the server, whenever a post is saved, we will eventually want to save extra info like:
 - who posted it
@@ -1659,8 +1659,8 @@ In _feed.html_, we need to change the code to display the post.message instead o
 
 Commit your changes. Check everything works! Then sync and make a pull request!
 `},
-{"title": "Put links on every page so it's easy to navigate between pages",
-"body": `As a user, I don't like having to remember all the URLs and type them in by hand.
+{'title': "Put links on every page so it's easy to navigate between pages",
+'body': `As a user, I don't like having to remember all the URLs and type them in by hand.
 
 I'd like to be able to click on links to get to every page on the site, and never get stuck on a page with no links.
 - [ ] Make some HTML to add a list of links to all the pages in the site
@@ -1690,8 +1690,8 @@ Note: Links have a built in style that makes them blue and underlined. This rule
 
 That rule applies to links \`<a>\` that are _inside something_ that has class=\"navbar\"
 `},
-{"title": "Clicking 'Post it!' should not go to a new page",
-"body": `Currently, when you click 'Post it!' on the **post.html** page, you are taken to a new page that says \"thanks for your message. Press back to add another\"
+{'title': "Clicking 'Post it!' should not go to a new page",
+'body': `Currently, when you click 'Post it!' on the **post.html** page, you are taken to a new page that says \"thanks for your message. Press back to add another\"
 
 This is confusing and not very attractive.
 
@@ -1779,71 +1779,62 @@ You'll need to add the line above just after the line \`let data = {}\`. That me
 - [ ] TEST: when you post, the page shows some feedback to let you know it saved your post.
 - [ ] TEST: the page doesn't show the feedback until you post something.
 `},
-{"title": "copy across nodestart",
-"body": `We'll use the previous activity as a base for our project. Copy across the code from last time, maybe clean it up a little too.\n`},
+{'title': 'copy across nodestart',
+'body': `We'll use the previous activity as a base for our project. Copy across the code from last time, maybe clean it up a little too.\n`},
 ]
 
-let mainEl = document.querySelector("main")
+let mainEl = document.querySelector('main')
 //let cleanIssues = "["
 issues.reverse()
-for(let issue of issues) {
-  let issueEl = document.createElement("div")
-  issueEl.classList.add("issue")
+
+function fragment (text) {
+  return document.createRange().createContextualFragment(text)
+}
+
+function escapeForHTML (text) {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
+
+for (let issue of issues) {
+  let issueEl = document.createElement('div')
+  issueEl.classList.add('issue')
   mainEl.appendChild(issueEl)
 
-  let cleanIssue = issue
+//  let cleanIssue = issue
 //  cleanIssues = cleanIssues + JSON.stringify(cleanIssue) + ",\n"
 
-  const titleEl = document.createElement("h3")
-  titleEl.textContent = issue.title
-  titleEl.classList.add("selectAll")
-  titleEl.classList.add("title")
-  issueEl.appendChild(titleEl)
+  issueEl.appendChild(fragment(`<h3 class="selectAll title">${escapeForHTML(issue.title)}</h3>`))
+  issueEl.appendChild(fragment(`<a href="#" class="close hidden">Close</button>`))
+  issueEl.appendChild(fragment(`<button class="addToProject">Add to project</button>`))
+  issueEl.appendChild(fragment(`<a class="viewMarkdown linkButton" href="#">view markdown</div>`))
+  issueEl.appendChild(fragment(`<a class="viewFormatted linkButton" href="#">view formatted</div>`))
+  issueEl.appendChild(fragment(`<div class="issueBody hidden selectAll">${escapeForHTML(issue.body)}</div>`))
 
-  const closeEl = document.createRange().createContextualFragment(
-      `<a href="#" class="close hidden">Close</button>`)
-  issueEl.appendChild(closeEl)
+  issueEl.addEventListener('click', function (e) {
+    const isAction = (action) => e.target.classList.contains(action)
+    const hide = (selector) => e.currentTarget.querySelector(selector).classList.add('hidden')
+    const show = (selector) => e.currentTarget.querySelector(selector).classList.remove('hidden')
 
-  const addEl = document.createRange().createContextualFragment(
-      `<button class="addToProject">Add to project</button>`)
-  issueEl.appendChild(addEl)
-
-  const viewMarkdownEl = document.createRange().createContextualFragment(
-      `<a class="viewMarkdown linkButton" href="#">view markdown</div>`)
-  issueEl.appendChild(viewMarkdownEl)
-
-  const viewFormattedEl = document.createRange().createContextualFragment(
-      `<a class="viewFormatted linkButton" href="#">view formatted</div>`)
-  issueEl.appendChild(viewFormattedEl)
-
-  const issueBodyEl = document.createElement("div")
-  issueBodyEl.classList.add("issueBody")
-  //issueBodyEl.setAttribute("contentEditable", "true")
-  issueBodyEl.classList.add("hidden", "selectAll")
-  issueBodyEl.textContent = issue.body
-  issueEl.appendChild(issueBodyEl)
-
-  issueEl.addEventListener("click", function (e) {
-    if (e.target.classList.contains("close")) {
-      e.currentTarget.querySelector(".issueBody").classList.add("hidden")
-      e.currentTarget.querySelector(".close").classList.add("hidden")
+    if (isAction('close')) {
+      hide('.issueBody')
+      hide('.close')
       hidePreview(e.currentTarget)
       e.preventDefault()
-    } else if (e.target.classList.contains("addToProject")) {
-      e.target.classList.add("hidden") //immediately hide to prevent double clicks
+    } else if (isAction('addToProject')) {
+      hide('.addToProject') // immediately hide to prevent double clicks
       addIssueToProject(issue.title, issue.body)
-    } else if (e.target.classList.contains("viewMarkdown")) {
+    } else if (isAction('viewMarkdown')) {
       e.preventDefault()
-      e.currentTarget.querySelector(".issueBody").classList.remove("hidden")
+      show('.issueBody')
       hidePreview(e.currentTarget)
-      e.currentTarget.querySelector(".close").classList.remove("hidden")
-    } else if (e.target.classList.contains("viewFormatted")) {
+      e.currentTarget.querySelector('.close').classList.remove('hidden')
+    } else if (isAction('viewFormatted')) {
       e.preventDefault()
       addPreviewTo(e.currentTarget)
-      e.currentTarget.querySelector(".issueBody").classList.add("hidden")
-      e.currentTarget.querySelector(".close").classList.remove("hidden")
+      hide('.issueBody')
+      show('.close')
     }
-    if (e.target.classList.contains("selectAll")) {
+    if (isAction('selectAll')) {
       window.getSelection().selectAllChildren(e.target)  
     }
   })
@@ -1853,33 +1844,34 @@ for(let issue of issues) {
 
 //to export: console.log(cleanIssues)
 
-function hidePreview(parentEl) {
-  const preexisting = parentEl.querySelector(".preview")
+function hidePreview (parentEl) {
+  const preexisting = parentEl.querySelector('.preview')
   if (preexisting) {
-    preexisting.classList.add("hidden")
+    preexisting.classList.add('hidden')
   }
 }
 
-function addPreviewTo(parentEl) {
-  const preexisting = parentEl.querySelector(".preview")
+function addPreviewTo (parentEl) {
+  const preexisting = parentEl.querySelector('.preview')
   if (preexisting) {
-    preexisting.classList.remove("hidden")
+    preexisting.classList.remove('hidden')
     return
   }
   const converter = new showdown.Converter()
   converter.setFlavor('github')
-  const el = parentEl.querySelector(".issueBody")
+  const el = parentEl.querySelector('.issueBody')
   let source = el.innerHTML
-  source = source.replace(/&lt;/g, "<")
-  source = source.replace(/&gt;/g, ">")
+  source = source.replace(/&lt;/g, '<')
+  source = source.replace(/&gt;/g, '>')
+  source = source.replace(/&amp;/g, '&')
   const result = converter.makeHtml(source)
-  parentEl.innerHTML += "<div class='preview'><div class='markdown-body'>" + result + "</div></div>"
+  parentEl.innerHTML += "<div class='preview'><div class='markdown-body'>" + result + '</div></div>'
 }
 
-document.querySelector(".expandAllButton").addEventListener("click", function () {
-  document.querySelectorAll(".issueBody").forEach(function (el) {
-    el.classList.remove("hidden")
-    el.parentNode.querySelector(".close").classList.remove("hidden")
+document.querySelector('.expandAllButton').addEventListener('click', function () {
+  document.querySelectorAll('.issueBody').forEach(function (el) {
+    el.classList.remove('hidden')
+    el.parentNode.querySelector('.close').classList.remove('hidden')
   })  
 })
 
@@ -1903,8 +1895,8 @@ function refreshUsedIndicators() {
     const titleElements = document.querySelectorAll('.title')
     for (var i = 0; i < titleElements.length; i++) {
       if (titleElements[i].textContent.toLowerCase() == title.toLowerCase()) {
-        titleElements[i].parentNode.classList.add("used")
-        titleElements[i].parentNode.querySelector(".addToProject").classList.add("hidden")
+        titleElements[i].parentNode.classList.add('used')
+        titleElements[i].parentNode.querySelector('.addToProject').classList.add('hidden')
         break
       }
     }
@@ -1917,7 +1909,7 @@ function addIssueToProject(title, body) {
   data.body = body
   fetch(`https://api.github.com/repos/girlcodeakl/${getProjectName()}/issues`,
   {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(data),
     headers: {
       'Authorization': 'token ' + getToken()
@@ -1925,36 +1917,36 @@ function addIssueToProject(title, body) {
   })
   .then(function (response) {return response.json()})
   .then(function(response) {
-    console.log(response.title + " created")
+    console.log(response.title + ' created')
     refreshUsedIndicators()
   })
 }
 
 refreshUsedIndicators()
 
-const settingsWarning = document.querySelector(".settingsWarning")
+const settingsWarning = document.querySelector('.settingsWarning')
 
-if (getToken() === null || getToken() === "") {
-  settingsWarning.classList.remove("hidden")
+if (getToken() === null || getToken() === '') {
+  settingsWarning.classList.remove('hidden')
 }
 
-document.querySelector(".showSettings").addEventListener("click", 
+document.querySelector('.showSettings').addEventListener('click', 
   function (e) {
-      document.querySelector(".settings").classList.toggle("hidden")
-      settingsWarning.classList.add("hidden")
+      document.querySelector('.settings').classList.toggle('hidden')
+      settingsWarning.classList.add('hidden')
     }
   )
 
 
-const projectNameInput = document.querySelector(".projectNameInput")
+const projectNameInput = document.querySelector('.projectNameInput')
 projectNameInput.value = getProjectName()
-projectNameInput.addEventListener("keyup", function (e) {
+projectNameInput.addEventListener('keyup', function (e) {
   setProjectName(projectNameInput.value)
 })
 
-const tokenInput = document.querySelector(".tokenInput")
+const tokenInput = document.querySelector('.tokenInput')
 tokenInput.value = getToken()
-tokenInput.addEventListener("keyup", function (e) {
+tokenInput.addEventListener('keyup', function (e) {
   setToken(tokenInput.value)
 })
 
