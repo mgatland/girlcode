@@ -1779,7 +1779,7 @@ You'll need to add the line above just after the line \`let data = {}\`. That me
 - [ ] TEST: when you post, the page shows some feedback to let you know it saved your post.
 - [ ] TEST: the page doesn't show the feedback until you post something.
 `},
-{'title': 'copy across nodestart',
+{'title': 'copy across ToastToppings',
 'body': `We'll use the previous activity as a base for our project. Copy across the code from last time, maybe clean it up a little too.\n`},
 ]
 
