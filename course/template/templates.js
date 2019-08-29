@@ -1009,7 +1009,7 @@ Decide which you prefer, and try changing the number a little bit. Make sure you
 
 While you're here, do you feel like adding margins and padding to the parts of the feed so it looks a bit nicer? Look at your tumblr, facebook or pinterest feed and pay attention to how much empty space there is between the different text and images.
 `},
-{'title': 'Give each post a unique ID',
+{'title': 'Give each post an ID number',
 'body': `This a behind-the-scenes change that will let us do cool stuff later!
 
 Background:
