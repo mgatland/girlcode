@@ -1362,10 +1362,10 @@ Try starting your server. You should see a message \"\"yay we connected to the d
 
 # What is this code doing?
 
-When the server starts, it will 
-1 connect to your database.
-2. Find the database's collection of posts.  Save this in the \`databasePosts\` variable so we can use it later.
-3. Find all the documents in this collection, and save this list of documents into the variable \`posts\`.
+> When the server starts, it will 
+> 1 connect to your database.
+> 2. Find the database's collection of posts.  Save this in the \`databasePosts\` variable so we can use it later.
+> 3. Find all the documents in this collection, and save this list of documents into the variable \`posts\`.
 
 # But the collection is empty
 
