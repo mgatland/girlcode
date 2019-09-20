@@ -1337,7 +1337,7 @@ let MongoClient = require('mongodb').MongoClient;
 let databaseUrl = 'mongodb://<dbuser>:<dbpassword>@ds015919.mlab.com:15919/girlcode1999-term1';
 let databaseName = 'girlcode1999-term1';
  
-MongoClient.connect(databaseUrl, {useNewUrlParser: true}, function(err, client) {
+MongoClient.connect(databaseUrl, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, client) {
   if (err) throw err;
   console.log("yay we connected to the database");
   let database = client.db(databaseName);
