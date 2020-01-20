@@ -195,30 +195,30 @@
 //Hi there! This is the start of the JavaScript.
 
 function greeting() {
-  alert("Welcome!");
+  alert("Welcome!")
 }
 
 function addStar() {
-  let starHtml = '&lt;div class="star">&lt;/div>';
-  let starContainer = document.querySelector(".star-box");
-  starContainer.innerHTML += starHtml;
+  let starHtml = '&lt;div class="star">&lt;/div>'
+  let starContainer = document.querySelector(".star-box")
+  starContainer.innerHTML += starHtml
 }
 
 function removeStar() {
-  let firstStar = document.querySelector(".star");
-  firstStar.parentElement.removeChild(firstStar);
+  let firstStar = document.querySelector(".star")
+  firstStar.parentElement.removeChild(firstStar)
 }
 
 function fadeStars() {
-  let allStars = document.querySelectorAll(".star");
+  let allStars = document.querySelectorAll(".star")
   for (let star of allStars) {
-    star.classList.toggle("faded");
+    star.classList.toggle("faded")
   }
 }
 
 //make the buttons call functions when clicked
-let button1 = document.querySelector(".button1");
-button1.addEventListener("click", greeting);
+let button1 = document.querySelector(".button1")
+button1.addEventListener("click", greeting)
 
 //This is the end of the JavaScript.
     &lt;/script>
@@ -255,7 +255,7 @@ button1.addEventListener("click", greeting);
       <p>We use JavaScript to make the button <em>call a function</em> when you click on it.</p>
 
       <div class="alert">
-        <p>1. In the JavaScript, find this line: <code class="language-javascript">button1.addEventListener("click", greeting);</code>. (It's near the end.)</p>
+        <p>1. In the JavaScript, find this line: <code class="language-javascript">button1.addEventListener("click", greeting)</code>. (It's near the end.)</p>
         <p>2. The word 'greeting' is the name of the function that the button is connected to.</p>
         <p>3. Replace the word <b>greeting</b> with <b>addStar</b>.</p>
       </div>

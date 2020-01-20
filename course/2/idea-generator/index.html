@@ -165,14 +165,14 @@ h2 {
 //Hello! This is the JavaScript.
 //You can skip this part for now. Jump ahead down to where I say 'LOOK HERE'
 
-let button = document.querySelector(".button1");
-let displayElement = document.querySelector(".display-area");
+let button = document.querySelector(".button1")
+let displayElement = document.querySelector(".display-area")
 
 function pickRandom (list) {
-  return list[Math.floor(Math.random() * list.length)];
+  return list[Math.floor(Math.random() * list.length)]
 };
 
-button.addEventListener('click', makeAndDisplayIdea);
+button.addEventListener('click', makeAndDisplayIdea)
 
 // ***
 // LOOK HERE
@@ -180,17 +180,17 @@ button.addEventListener('click', makeAndDisplayIdea);
 // Hello again! This is the part we are working on.
 
 function makeAndDisplayIdea() {
-  let people = [];
-  people.push("time traveller");
-  people.push("school teacher");
+  let people = []
+  people.push("time traveller")
+  people.push("school teacher")
 
-  let jobs = [];
-  jobs.push("runs a hotel");
-  jobs.push("solves mysteries");
+  let jobs = []
+  jobs.push("runs a hotel")
+  jobs.push("solves mysteries")
 
-  let myIdea = "How about: A " + pickRandom(people) + " who " + pickRandom(jobs);
-  displayElement.innerHTML = myIdea;
-};
+  let myIdea = "How about: A " + pickRandom(people) + " who " + pickRandom(jobs)
+  displayElement.innerHTML = myIdea
+}
 &lt;/script>
 &lt;/body>
 &lt;/html>
