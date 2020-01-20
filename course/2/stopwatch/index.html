@@ -167,49 +167,49 @@
 
 //set up:
 //this variable holds the number to display
-let timer = 100000;
+let timer = 100000
 //this variable decides if the timer is going or paused
-let isTimerOn = true;
+let isTimerOn = true
 
 
 //tick tick tick tick...
 //(This function works, you don't have to change anything in here!)
 function tick() {
   if (isTimerOn) {
-    timer = timer + 1;
+    timer = timer + 1
   }
   //display the timer value
-  let timeElement = document.querySelector(".time");
-  timeElement.innerHTML = timer;
+  let timeElement = document.querySelector(".time")
+  timeElement.innerHTML = timer
 }
 
 function start() {
   //not working right...
-  alert("Start!");
+  alert("Start!")
 }
 
 function stop() {
   //um...
-  timer = 0;
+  timer = 0
 }
 
 function reset() {
   //not sure this is right
-  document.querySelector(".button3").style.width = "200px";
+  document.querySelector(".button3").style.width = "200px"
 }
 
 //call the function 'tick' over and over again
-setInterval(tick, 1);
+setInterval(tick, 1)
 
 //When you click on a button it will call a function:
-let button1 = document.querySelector(".button1");
-button1.addEventListener("click", start);
+let button1 = document.querySelector(".button1")
+button1.addEventListener("click", start)
 
-let button2 = document.querySelector(".button2");
-button2.addEventListener("click", stop);
+let button2 = document.querySelector(".button2")
+button2.addEventListener("click", stop)
 
-let button3 = document.querySelector(".button3");
-button3.addEventListener("click", reset);
+let button3 = document.querySelector(".button3")
+button3.addEventListener("click", reset)
 
 //This is the end of the javascript
     &lt;/script>

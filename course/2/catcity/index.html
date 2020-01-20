@@ -163,23 +163,23 @@
     &lt;button class="button3">Give a cat to the SPCA&lt;/button>
     &lt;script>
 //Hello! This is the start of the JavaScript.
-let catfood = 0;
+let catfood = 0
 
-let messageElement = document.querySelector(".message");
+let messageElement = document.querySelector(".message")
 
 function showInfo() {
-  let infoElement = document.querySelector(".info");
-  infoElement.innerHTML = "You have " + catfood + " tins of catfood.";
+  let infoElement = document.querySelector(".info")
+  infoElement.innerHTML = "You have " + catfood + " tins of catfood."
 }
 
 function getCatfood() {
-  catfood = catfood + 1;
-  showInfo();
-  messageElement.innerHTML = "You bought some catfood.";
+  catfood = catfood + 1
+  showInfo()
+  messageElement.innerHTML = "You bought some catfood."
 }
 
-let button1 = document.querySelector(".button1");
-button1.addEventListener("click", getCatfood);
+let button1 = document.querySelector(".button1")
+button1.addEventListener("click", getCatfood)
     &lt;/script>
   &lt;/body>
 &lt;/html>
@@ -221,7 +221,7 @@ button1.addEventListener("click", getCatfood);
       <p><b>Add this line</b> after it. This line creates a variable called <b>cats</b> and set it to 0.</p>
 
 <pre><code class="language-javascript">
-let cats = 0;
+let cats = 0
 </code></pre>
 
       <p>Look at the function named <b>showInfo</b>. It tells you how much <b>catfood</b> you have.</p>
@@ -232,7 +232,7 @@ let cats = 0;
 
       <p>Here's the updated line, if you need it:</p>
 
-      <p class="spoiler">infoElement.innerHTML = "You have " + catfood + " tins of catfood and " + cats + " cats.";</p>
+      <p class="spoiler">infoElement.innerHTML = "You have " + catfood + " tins of catfood and " + cats + " cats."</p>
 
       <p>Test the page. When you click the first button, it should say "You have 1 tins of catfood and 0 cats."</p>
 
@@ -289,7 +289,7 @@ if (catfood > 0) {
       <p>If they do not have any catfood, we shouldn't change any variables. But we should display a message:</p>
 
 <pre><code class="language-javascript">
-messageElement.innerHTML = "You can't catch a cat until you buy some cat food!";
+messageElement.innerHTML = "You can't catch a cat until you buy some cat food!"
 </code></pre>
 
       <p>Testing time!</p>
@@ -351,7 +351,7 @@ messageElement.innerHTML = "You can't catch a cat until you buy some cat food!";
       <p>Try adding this code to the end of the line in <code class="language-javascript">showInfo</code> function that starts with <code class="language-javascript">infoElement.innerHTML =</code></p>
 
 <pre><code class="language-javascript">
-  + "🐈".repeat(cats);
+  + "🐈".repeat(cats)
 </code></pre>
 
       <p>It will repeat the cat emoji as many times as the number of cats.</p>
