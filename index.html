@@ -404,6 +404,7 @@
                   <div class="option-heading">
                     Girl Code beginner course – <span class="cost"></span> <span class="text-danger almostSoldOut hidden">(Less than 5 spaces left!)</span>
                     <div class="soldOut hidden text-danger">Sold out!</div>
+                    <div class="pandemic hidden text-danger">This term has been cancelled due to the current COVID-19 situation.</div>
                   </div>
                   <div class="option-description">
                     <span class="dateFrom"></span> to <span class="dateTo"></span>, <span class="courseYear"></span>.
@@ -603,6 +604,7 @@
   var courseCode = "2020 Term 2 (Autumn)" //sent to us in the form
   var almostSoldOut = false
   var soldOut = false
+  const pandemic = true
 
   //maybe never change:
   var meetingDay = "Thursday" //every 'Thursday' from 6:30 to 8:30
@@ -618,6 +620,11 @@
   if (almostSoldOut) $(".almostSoldOut").removeClass("hidden")
   if (soldOut) {
     $(".soldOut").removeClass("hidden")
+    $(".courseButton1").attr('disabled',true)
+    $(".courseButton1Label").addClass("disabled")
+  }
+  if (pandemic) {
+    $(".pandemic").removeClass("hidden")
     $(".courseButton1").attr('disabled',true)
     $(".courseButton1Label").addClass("disabled")
   }
